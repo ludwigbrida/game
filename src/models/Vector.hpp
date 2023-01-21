@@ -16,6 +16,9 @@ struct Vector {
 template <typename T>
 Vector<T>& operator+=(Vector<T>& vector1, const Vector<T>& vector2);
 
+template <typename T>
+Vector<T> operator+(const Vector<T>& vector1, const Vector<T>& vector2);
+
 }
 
 #endif

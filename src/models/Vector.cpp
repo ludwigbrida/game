@@ -3,16 +3,16 @@
 namespace ng {
 
 template <typename T>
-Vector<T>& operator+=(Vector<T>& left, const Vector<T>& right) {
-  left.x += right.x;
-  left.y += right.y;
-  left.z += right.z;
-  return left;
+Vector<T>& operator+=(Vector<T>& vector1, const Vector<T>& vector2) {
+  vector1.x += vector2.x;
+  vector1.y += vector2.y;
+  vector1.z += vector2.z;
+  return vector1;
 }
 
 template <typename T>
-Vector<T> operator+(const Vector<T>& left, const Vector<T>& right) {
-  return {left.x + right.x, left.y + right.y, left.z + right.z};
+Vector<T> operator+(const Vector<T>& vector1, const Vector<T>& vector2) {
+  return {vector1.x + vector2.x, vector1.y + vector2.y, vector1.z + vector2.z};
 }
 
 }
