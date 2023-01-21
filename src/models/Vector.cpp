@@ -8,3 +8,7 @@ constexpr Vector& operator+=(Vector& left, const Vector& right) {
   left.z += right.z;
   return left;
 }
+
+constexpr Vector operator+(const Vector& left, const Vector& right) {
+  return {left.x + right.x, left.y + right.y, left.z + right.z};
+}
