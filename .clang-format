@@ -1,1 +1,3 @@
+AlwaysBreakTemplateDeclarations: Yes
+FixNamespaceComments: false
 PointerAlignment: Left

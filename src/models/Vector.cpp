@@ -1,14 +1,18 @@
 #include "Vector.hpp"
 
-constexpr Vector::Vector(float x, float y, float z) : x(x), y(y), z(z) {}
+namespace ng {
 
-constexpr Vector& operator+=(Vector& left, const Vector& right) {
+template <typename T>
+Vector<T>& operator+=(Vector<T>& left, const Vector<T>& right) {
   left.x += right.x;
   left.y += right.y;
   left.z += right.z;
   return left;
 }
 
-constexpr Vector operator+(const Vector& left, const Vector& right) {
+template <typename T>
+Vector<T> operator+(const Vector<T>& left, const Vector<T>& right) {
   return {left.x + right.x, left.y + right.y, left.z + right.z};
+}
+
 }
