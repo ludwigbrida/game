@@ -16,8 +16,6 @@ struct Vector {
   Vector<T> cross(const Vector<T>& vector) const;
 
   T length() const;
-
-  ~Vector() = default;
 };
 
 template <typename T>
@@ -43,6 +41,8 @@ Vector<T> operator*(const Vector<T>& vector1, const Vector<T>& vector2);
 
 template <typename T>
 Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2);
+
+using Vector3f = Vector<float>;
 
 }
 

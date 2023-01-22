@@ -23,7 +23,7 @@ Vector<T> Vector<T>::cross(const Vector<T>& vector) const {
 
 template <typename T>
 T Vector<T>::length() const {
-  return std::sqrt(this->dot(this));
+  return std::sqrt(this->dot(*this));
 }
 
 template <typename T>
@@ -77,5 +77,8 @@ template <typename T>
 Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2) {
   return {vector1.x / vector2.x, vector1.y / vector2.y, vector1.z / vector2.z};
 }
+
+template class Vector<float>;
+template class Vector<double>;
 
 }
