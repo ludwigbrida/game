@@ -23,7 +23,13 @@ Vector<T> Vector<T>::cross(const Vector<T>& vector) const {
 
 template <typename T>
 T Vector<T>::length() const {
-  return std::sqrt(this->dot(*this));
+  return std::sqrt(dot(*this));
+}
+
+template <typename T>
+Vector<T> Vector<T>::normalized() const {
+  // todo: implement scalar division
+  return (*this) / Vector<T>(length(), length(), length());
 }
 
 template <typename T>

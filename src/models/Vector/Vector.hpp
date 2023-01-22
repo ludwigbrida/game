@@ -13,9 +13,12 @@ struct Vector {
   Vector(T x, T y, T z);
 
   T dot(const Vector<T>& vector) const;
+
   Vector<T> cross(const Vector<T>& vector) const;
 
   T length() const;
+
+  Vector<T> normalized() const;
 
   static Vector<T> Right;
   static Vector<T> Left;
