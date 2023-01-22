@@ -9,7 +9,14 @@ struct Vector {
   T y;
   T z;
 
-  Vector(T x, T y, T z) = default;
+  Vector();
+  Vector(T x, T y, T z);
+
+  T dot(const Vector<T>& vector) const;
+  Vector<T> cross(const Vector<T>& vector) const;
+
+  T length() const;
+
   ~Vector() = default;
 };
 
@@ -17,19 +24,25 @@ template <typename T>
 Vector<T>& operator+=(Vector<T>& vector1, const Vector<T>& vector2);
 
 template <typename T>
-Vector<T> operator+(const Vector<T>& vector1, const Vector<T>& vector2);
-
-template <typename T>
 Vector<T>& operator-=(Vector<T>& vector1, const Vector<T>& vector2);
-
-template <typename T>
-Vector<T> operator-(const Vector<T>& vector1, const Vector<T>& vector2);
 
 template <typename T>
 Vector<T>& operator*=(Vector<T>& vector1, const Vector<T>& vector2);
 
 template <typename T>
+Vector<T>& operator/=(Vector<T>& vector1, const Vector<T>& vector2);
+
+template <typename T>
+Vector<T> operator+(const Vector<T>& vector1, const Vector<T>& vector2);
+
+template <typename T>
+Vector<T> operator-(const Vector<T>& vector1, const Vector<T>& vector2);
+
+template <typename T>
 Vector<T> operator*(const Vector<T>& vector1, const Vector<T>& vector2);
+
+template <typename T>
+Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2);
 
 }
 
