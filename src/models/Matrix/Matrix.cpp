@@ -23,6 +23,33 @@ Matrix<T> Matrix<T>::fromTranslation(const Vector<T>& vector) {
 }
 
 template <typename T>
+Matrix<T> Matrix<T>::fromRotation(const Quaternion<T>& quaternion) {
+  const T x2 = quaternion.x + quaternion.x;
+  const T y2 = quaternion.y + quaternion.y;
+  const T z2 = quaternion.z + quaternion.z;
+  const T xx = quaternion.x * x2;
+  const T yx = quaternion.y * x2;
+  const T yy = quaternion.y * y2;
+  const T zx = quaternion.z * x2;
+  const T zy = quaternion.z * y2;
+  const T zz = quaternion.z * z2;
+  const T wx = quaternion.w * x2;
+  const T wy = quaternion.w * y2;
+  const T wz = quaternion.w * z2;
+  auto matrix = Matrix<T>();
+  matrix.m00 = 1 - yy - zz;
+  matrix.m01 = yx - wz;
+  matrix.m02 = zx - wy;
+  matrix.m10 = yx - wz;
+  matrix.m11 = 1 - xx - zz;
+  matrix.m12 = zy + wx;
+  matrix.m20 = zx + wy;
+  matrix.m21 = zy - wx;
+  matrix.m22 = 1 - xx - yy;
+  return matrix;
+}
+
+template <typename T>
 Matrix<T> Matrix<T>::fromScale(const Vector<T>& vector) {
   auto matrix = Matrix<T>();
   matrix.m00 = vector.x;

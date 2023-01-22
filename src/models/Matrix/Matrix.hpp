@@ -1,6 +1,7 @@
 #ifndef GAME_MATRIX_HPP
 #define GAME_MATRIX_HPP
 
+#include "../Quaternion/Quaternion.hpp"
 #include "../Vector/Vector.hpp"
 
 namespace ng {
@@ -29,6 +30,7 @@ struct Matrix {
          T m22, T m23, T m30, T m31, T m32, T m33);
 
   static Matrix<T> fromTranslation(const Vector<T>& vector);
+  static Matrix<T> fromRotation(const Quaternion<T>& quaternion);
   static Matrix<T> fromScale(const Vector<T>& vector);
 
   static Matrix<T> fromPerspective(const T& fieldOfView, const T& aspectRatio,
