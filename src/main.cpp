@@ -1,4 +1,4 @@
-#include "models/Vector.hpp"
+#include "models/Vector/Vector.hpp"
 #include <iostream>
 
 int main() {

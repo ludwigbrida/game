@@ -4,4 +4,4 @@ project(game)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(game
-	src/main.cpp src/models/Vector.cpp src/models/Vector.hpp)
+	src/main.cpp src/models/Vector/Vector.cpp src/models/Vector/Vector.hpp)
