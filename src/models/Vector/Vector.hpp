@@ -20,12 +20,12 @@ struct Vector {
 
   Vector<T> normalized() const;
 
-  static Vector<T> Right;
-  static Vector<T> Left;
-  static Vector<T> Up;
-  static Vector<T> Down;
-  static Vector<T> Backward;
-  static Vector<T> Forward;
+  static Vector<T> right;
+  static Vector<T> left;
+  static Vector<T> up;
+  static Vector<T> down;
+  static Vector<T> backward;
+  static Vector<T> forward;
 };
 
 template <typename T>
