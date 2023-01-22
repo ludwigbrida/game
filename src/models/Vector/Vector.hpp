@@ -16,6 +16,13 @@ struct Vector {
   Vector<T> cross(const Vector<T>& vector) const;
 
   T length() const;
+
+  static Vector<T> Right;
+  static Vector<T> Left;
+  static Vector<T> Up;
+  static Vector<T> Down;
+  static Vector<T> Backward;
+  static Vector<T> Forward;
 };
 
 template <typename T>

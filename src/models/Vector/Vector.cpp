@@ -27,6 +27,24 @@ T Vector<T>::length() const {
 }
 
 template <typename T>
+Vector<T> Vector<T>::Right = Vector<T>(1, 0, 0);
+
+template <typename T>
+Vector<T> Vector<T>::Left = Vector<T>(-1, 0, 0);
+
+template <typename T>
+Vector<T> Vector<T>::Up = Vector<T>(0, 1, 0);
+
+template <typename T>
+Vector<T> Vector<T>::Down = Vector<T>(0, -1, 0);
+
+template <typename T>
+Vector<T> Vector<T>::Backward = Vector<T>(0, 0, 1);
+
+template <typename T>
+Vector<T> Vector<T>::Forward = Vector<T>(0, 0, -1);
+
+template <typename T>
 Vector<T>& operator+=(Vector<T>& vector1, const Vector<T>& vector2) {
   vector1.x += vector2.x;
   vector1.y += vector2.y;
