@@ -19,6 +19,5 @@ Quaternion<T> Quaternion<T>::fromAxisAngle(const Vector<T>& axis,
 
 template class Quaternion<float>;
 template class Quaternion<double>;
-template class Quaternion<long double>;
 
 }

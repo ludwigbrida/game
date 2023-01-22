@@ -104,6 +104,5 @@ Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2) {
 
 template class Vector<float>;
 template class Vector<double>;
-template class Vector<long double>;
 
 }

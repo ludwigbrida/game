@@ -81,6 +81,5 @@ Matrix<T> operator*(const Matrix<T>& matrix1, const Matrix<T>& matrix2) {
 
 template class Matrix<float>;
 template class Matrix<double>;
-template class Matrix<long double>;
 
 }
