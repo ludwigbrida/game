@@ -5,4 +5,10 @@ project(game)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(game
-	src/main.cpp src/models/Vector/Vector.cpp src/models/Vector/Vector.hpp src/models/Matrix/Matrix.cpp src/models/Matrix/Matrix.hpp src/models/Quaternion/Quaternion.cpp src/models/Quaternion/Quaternion.hpp)
+        src/main.cpp
+        src/models/Vector/Vector.cpp
+        src/models/Vector/Vector.hpp
+        src/models/Matrix/Matrix.cpp
+        src/models/Matrix/Matrix.hpp
+        src/models/Quaternion/Quaternion.cpp
+        src/models/Quaternion/Quaternion.hpp)
