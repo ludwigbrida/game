@@ -48,7 +48,9 @@ template <typename T>
 Vector<T> operator*(const Vector<T>& vector1, const Vector<T>& vector2);
 
 template <typename T>
-Vector<T> operator*(const Vector<T>& vector, T scalar);
+Vector<T> operator*(const Vector<T>& vector, T scalar) {
+  return {vector.x * scalar, vector.y * scalar, vector.z * scalar};
+}
 
 template <typename T>
 Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2);

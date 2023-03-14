@@ -13,8 +13,8 @@ struct Quaternion {
   static Quaternion<T> fromAxisAngle(const Vector<T>& axis, T angle);
 };
 
-#endif
-
 using Quaternion3f = Quaternion<float>;
 
 using Quaternion3d = Quaternion<double>;
+
+#endif
