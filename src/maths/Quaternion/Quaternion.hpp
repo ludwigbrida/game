@@ -10,7 +10,7 @@ struct Quaternion {
   T z = 0;
   T w = 1;
 
-  static Quaternion<T> fromAxisAngle(const Vector<T>& axis, const T& angle);
+  static Quaternion<T> fromAxisAngle(const Vector<T>& axis, T angle);
 };
 
 #endif

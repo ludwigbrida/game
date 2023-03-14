@@ -48,6 +48,9 @@ template <typename T>
 Vector<T> operator*(const Vector<T>& vector1, const Vector<T>& vector2);
 
 template <typename T>
+Vector<T> operator*(const Vector<T>& vector, T scalar);
+
+template <typename T>
 Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2);
 
 using Vector3f = Vector<float>;

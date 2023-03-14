@@ -96,6 +96,11 @@ Vector<T> operator*(const Vector<T>& vector1, const Vector<T>& vector2) {
 }
 
 template <typename T>
+Vector<T> operator*(const Vector<T>& vector, T scalar) {
+  return {vector.x * scalar, vector.y * scalar, vector.z * scalar};
+}
+
+template <typename T>
 Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2) {
   return {vector1.x / vector2.x, vector1.y / vector2.y, vector1.z / vector2.z};
 }
