@@ -1,8 +1,6 @@
 #ifndef GAME_VECTOR_HPP
 #define GAME_VECTOR_HPP
 
-namespace ng {
-
 template <typename T>
 struct Vector {
   T x = 0;
@@ -54,6 +52,6 @@ Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2);
 
 using Vector3f = Vector<float>;
 
-}
+using Vector3d = Vector<double>;
 
 #endif

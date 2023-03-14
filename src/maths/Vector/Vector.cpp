@@ -1,8 +1,6 @@
 #include "Vector.hpp"
 #include <cmath>
 
-namespace ng {
-
 template <typename T>
 Vector<T>::Vector() = default;
 
@@ -17,8 +15,8 @@ T Vector<T>::dot(const Vector<T>& vector) const {
 template <typename T>
 Vector<T> Vector<T>::cross(const Vector<T>& vector) const {
   return Vector<T>((y * vector.z) - (z * vector.y),
-                   (z * vector.x) - (x * vector.z),
-                   (x * vector.y) - (y * vector.x));
+		   (z * vector.x) - (x * vector.z),
+		   (x * vector.y) - (y * vector.x));
 }
 
 template <typename T>
@@ -103,6 +101,5 @@ Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2) {
 }
 
 template class Vector<float>;
-template class Vector<double>;
 
-}
+template class Vector<double>;

@@ -3,8 +3,6 @@
 
 #include "../Vector/Vector.hpp"
 
-namespace ng {
-
 template <typename T>
 struct Quaternion {
   T x = 0;
@@ -15,6 +13,8 @@ struct Quaternion {
   static Quaternion<T> fromAxisAngle(const Vector<T>& axis, const T& angle);
 };
 
-}
-
 #endif
+
+using Quaternion3f = Quaternion<float>;
+
+using Quaternion3d = Quaternion<double>;

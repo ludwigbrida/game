@@ -4,8 +4,6 @@
 #include "../Quaternion/Quaternion.hpp"
 #include "../Vector/Vector.hpp"
 
-namespace ng {
-
 template <typename T>
 struct Matrix {
   T m00 = 1;
@@ -42,6 +40,6 @@ Matrix<T> operator*(const Matrix<T>& matrix1, const Matrix<T>& matrix2);
 
 using Matrix4f = Matrix<float>;
 
-}
+using Matrix4d = Matrix<double>;
 
 #endif
