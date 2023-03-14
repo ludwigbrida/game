@@ -6,9 +6,9 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(game
         src/main.cpp
-        src/maths/Vector/Vector.cpp
-        src/maths/Vector/Vector.hpp
         src/maths/Matrix/Matrix.cpp
         src/maths/Matrix/Matrix.hpp
         src/maths/Quaternion/Quaternion.cpp
-        src/maths/Quaternion/Quaternion.hpp)
+        src/maths/Quaternion/Quaternion.hpp
+        src/maths/Vector/Vector.cpp
+        src/maths/Vector/Vector.hpp)
