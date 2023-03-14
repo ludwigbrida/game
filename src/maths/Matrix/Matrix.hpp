@@ -27,14 +27,14 @@ struct Matrix {
 
   Matrix();
   Matrix(T m00, T m01, T m02, T m03, T m10, T m11, T m12, T m13, T m20, T m21,
-         T m22, T m23, T m30, T m31, T m32, T m33);
+	 T m22, T m23, T m30, T m31, T m32, T m33);
 
   static Matrix<T> fromTranslation(const Vector<T>& vector);
   static Matrix<T> fromRotation(const Quaternion<T>& quaternion);
   static Matrix<T> fromScale(const Vector<T>& vector);
 
   static Matrix<T> fromPerspective(const T& fieldOfView, const T& aspectRatio,
-                                   const T& near, const T& far);
+				   const T& near, const T& far);
 };
 
 template <typename T>

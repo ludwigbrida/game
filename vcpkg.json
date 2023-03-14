@@ -1,10 +1,7 @@
 {
-  "name": "ludwigbrida-game",
-  "version": "0.0.0",
-  "dependencies": [
-    {
-      "name": "opengl",
-      "version>=": "2022-12-04"
-    }
-  ]
+	"name": "ludwigbrida-game",
+	"version": "0.0.0",
+	"dependencies": [
+		"opengl"
+	]
 }
