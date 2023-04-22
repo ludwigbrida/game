@@ -5,7 +5,7 @@
 
 class System {
 public:
-	virtual void run(const Registry& registry) = 0;
+	virtual void run(const Registry& registry, const float& deltaTime) = 0;
 };
 
 #endif
