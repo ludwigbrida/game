@@ -4,6 +4,7 @@
 #include "../ecs/Registry/Registry.hpp"
 
 class System {
+public:
 	virtual void run(const Registry& registry) = 0;
 };
 

@@ -4,6 +4,7 @@
 #include "../System.hpp"
 
 class TransformSystem : System {
+public:
 	void run(const Registry& registry) final;
 };
 
