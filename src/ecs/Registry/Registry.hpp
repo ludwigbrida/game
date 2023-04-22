@@ -1,7 +1,7 @@
 #ifndef GAME_REGISTRY_HPP
 #define GAME_REGISTRY_HPP
 
-#include "../System/System.hpp"
+#include "../System.hpp"
 #include <memory>
 #include <vector>
 

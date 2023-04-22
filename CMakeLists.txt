@@ -11,4 +11,10 @@ add_executable(game
 	src/maths/Quaternion/Quaternion.cpp
 	src/maths/Quaternion/Quaternion.hpp
 	src/maths/Vector/Vector.cpp
-	src/maths/Vector/Vector.hpp src/ecs/Registry/Registry.cpp src/ecs/Registry/Registry.hpp src/ecs/System/System.cpp src/ecs/System/System.hpp src/components/TransformComponent.hpp src/systems/TransformSystem/TransformSystem.cpp src/systems/TransformSystem/TransformSystem.hpp)
+	src/maths/Vector/Vector.hpp
+	src/ecs/Registry/Registry.cpp
+	src/ecs/Registry/Registry.hpp
+	src/ecs/System.hpp
+	src/components/TransformComponent.hpp
+	src/systems/TransformSystem/TransformSystem.cpp
+	src/systems/TransformSystem/TransformSystem.hpp src/ecs/Entity.hpp src/ecs/Entity.hpp)

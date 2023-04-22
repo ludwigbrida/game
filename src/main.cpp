@@ -1,3 +1,4 @@
+#include "ecs/Registry/Registry.hpp"
 #include "maths/Vector/Vector.hpp"
 #include <iostream>
 
@@ -8,4 +9,6 @@ int main() {
   auto length = vec1.length();
 
   std::cout << "Hello, World! " << dot << ", " << length << std::endl;
+
+  auto registry = Registry();
 }
