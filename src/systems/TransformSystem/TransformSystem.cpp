@@ -1,3 +1,3 @@
 #include "TransformSystem.hpp"
 
-void TransformSystem::run() {}
+void TransformSystem::run(const Registry& registry) {}

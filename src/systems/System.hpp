@@ -1,10 +1,10 @@
 #ifndef GAME_SYSTEM_HPP
 #define GAME_SYSTEM_HPP
 
-struct System {
-  virtual void run() = 0;
+#include "../ecs/Registry/Registry.hpp"
 
-  virtual ~System() = 0;
+class System {
+	virtual void run(const Registry& registry) = 0;
 };
 
 #endif

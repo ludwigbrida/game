@@ -3,8 +3,8 @@
 
 #include "../System.hpp"
 
-struct TransformSystem : System {
-  void run() final;
+class TransformSystem : System {
+	void run(const Registry& registry) final;
 };
 
 #endif
