@@ -5,9 +5,9 @@
 #include "../maths/Vector/Vector.hpp"
 
 struct TransformComponent {
-  Vector3f position;
-  Quaternion3f rotation;
-  Vector3f scale;
+	Vector3f position;
+	Quaternion3f rotation;
+	Vector3f scale;
 };
 
 #endif

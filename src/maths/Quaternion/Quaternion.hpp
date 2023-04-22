@@ -5,12 +5,12 @@
 
 template <typename T>
 struct Quaternion {
-  T x = 0;
-  T y = 0;
-  T z = 0;
-  T w = 1;
+	T x = 0;
+	T y = 0;
+	T z = 0;
+	T w = 1;
 
-  static Quaternion<T> fromAxisAngle(const Vector<T>& axis, T angle);
+	static Quaternion<T> fromAxisAngle(const Vector<T>& axis, T angle);
 };
 
 using Quaternion3f = Quaternion<float>;
