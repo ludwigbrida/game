@@ -1,5 +1,7 @@
 AlwaysBreakTemplateDeclarations: Yes
 FixNamespaceComments: false
+IndentWidth: 2
 NamespaceIndentation: None
 PointerAlignment: Left
 UseTab: Always
+TabWidth: 2

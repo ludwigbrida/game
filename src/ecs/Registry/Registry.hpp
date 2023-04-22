@@ -5,8 +5,9 @@
 #include <memory>
 #include <vector>
 
-struct Registry {
-  std::vector<std::shared_ptr<System>> systems;
+class Registry {
+private:
+	std::vector<std::shared_ptr<System>> systems;
 };
 
 #endif
