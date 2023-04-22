@@ -6,6 +6,9 @@
 #include <vector>
 
 class Registry {
+public:
+	void addSystem(const std::shared_ptr<System>& system);
+
 private:
 	std::vector<std::shared_ptr<System>> systems;
 };
