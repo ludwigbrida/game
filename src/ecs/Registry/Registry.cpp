@@ -1,11 +1,23 @@
 #include "Registry.hpp"
+#include "../../systems/TransformSystem/TransformSystem.hpp"
 
-void Registry::run(const float& deltaTime) {
-	for (auto& system : systems) {
+template <SystemType T>
+void Registry::run(float deltaTime) {
+	for (auto& [_, system] : systems) {
 		system->run(this, deltaTime);
 	}
+
+	removeSystem<TransformSystem>();
+	addSystem<TransformSystem>();
 }
 
-void Registry::addSystem(const std::shared_ptr<System>& system) {
-	this->systems.push_back(system);
+template <SystemType T>
+void Registry::addSystem() {
+	std::unique_ptr<T> system = std::make_unique<T>();
+	systems.insert({std::type_index(typeid(T)), system});
+}
+
+template <SystemType T>
+void Registry::removeSystem() {
+	systems.erase(std::type_index(typeid(T)));
 }

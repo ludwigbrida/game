@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24)
 
 project(game)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 20)
 
 add_executable(game
 	src/main.cpp
@@ -17,4 +17,7 @@ add_executable(game
 	src/systems/System.hpp
 	src/components/TransformComponent.hpp
 	src/systems/TransformSystem/TransformSystem.cpp
-	src/systems/TransformSystem/TransformSystem.hpp src/ecs/Entity.hpp src/ecs/Entity.hpp)
+	src/systems/TransformSystem/TransformSystem.hpp
+	src/ecs/Entity.hpp
+	src/ecs/Entity.hpp
+	src/ecs/Component.hpp)
