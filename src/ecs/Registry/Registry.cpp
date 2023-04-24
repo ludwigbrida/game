@@ -1,14 +1,9 @@
 #include "Registry.hpp"
-#include "../../systems/TransformSystem/TransformSystem.hpp"
 
-template <SystemType T>
 void Registry::run(float deltaTime) {
 	for (auto& [_, system] : systems) {
 		system->run(this, deltaTime);
 	}
-
-	removeSystem<TransformSystem>();
-	addSystem<TransformSystem>();
 }
 
 template <SystemType T>

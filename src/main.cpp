@@ -1,5 +1,6 @@
 #include "ecs/Registry/Registry.hpp"
 #include "maths/Vector/Vector.hpp"
+#include "systems/TransformSystem/TransformSystem.hpp"
 #include <iostream>
 
 int main() {
@@ -11,4 +12,5 @@ int main() {
 	std::cout << "Hello, World! " << dot << ", " << length << std::endl;
 
 	auto registry = Registry();
+	registry.addSystem<TransformSystem>();
 }

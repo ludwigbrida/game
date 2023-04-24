@@ -16,7 +16,6 @@ concept SystemType = std::is_base_of_v<System, T>;
 
 class Registry {
 public:
-	template <SystemType T>
 	void run(float deltaTime);
 
 	template <SystemType T>
