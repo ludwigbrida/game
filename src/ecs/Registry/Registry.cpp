@@ -2,7 +2,7 @@
 
 void Registry::run(float deltaTime) {
 	for (auto& [_, system] : systems) {
-		system->run(this, deltaTime);
+		system->run(*this, deltaTime);
 	}
 }
 

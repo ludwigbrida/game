@@ -1,7 +1,7 @@
 #ifndef GAME_SYSTEM_HPP
 #define GAME_SYSTEM_HPP
 
-#include "../ecs/Registry/Registry.hpp"
+class Registry;
 
 class System {
 public:
