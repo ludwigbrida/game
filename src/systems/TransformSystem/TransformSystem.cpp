@@ -1,3 +1,3 @@
 #include "TransformSystem.hpp"
 
-void TransformSystem::run(const Registry& registry, const float& deltaTime) {}
+void TransformSystem::run(const float& deltaTime) {}

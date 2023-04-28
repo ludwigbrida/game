@@ -5,7 +5,7 @@
 
 class TransformSystem : System {
 public:
-	void run(const Registry& registry, const float& deltaTime);
+	void run(const float& deltaTime) final;
 };
 
 #endif

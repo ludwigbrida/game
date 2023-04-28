@@ -1,6 +1,7 @@
 #include "ecs/Registry/Registry.hpp"
 #include "maths/Vector/Vector.hpp"
 #include "systems/TransformSystem/TransformSystem.hpp"
+
 #include <iostream>
 
 int main() {
