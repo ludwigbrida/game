@@ -3,8 +3,9 @@
 
 #include "../maths/Quaternion/Quaternion.hpp"
 #include "../maths/Vector/Vector.hpp"
+#include "Component.hpp"
 
-struct TransformComponent {
+struct TransformComponent : Component {
 	Vector3f position;
 	Quaternion3f rotation;
 	Vector3f scale;

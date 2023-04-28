@@ -14,10 +14,9 @@ add_executable(game
 	src/maths/Vector/Vector.hpp
 	src/ecs/Registry/Registry.cpp
 	src/ecs/Registry/Registry.hpp
-	src/systems/System.hpp
+	src/ecs/Entity.hpp
+	src/components/Component.hpp
 	src/components/TransformComponent.hpp
+	src/systems/System.hpp
 	src/systems/TransformSystem/TransformSystem.cpp
-	src/systems/TransformSystem/TransformSystem.hpp
-	src/ecs/Entity.hpp
-	src/ecs/Entity.hpp
-	src/ecs/Component.hpp)
+	src/systems/TransformSystem/TransformSystem.hpp)

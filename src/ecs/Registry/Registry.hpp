@@ -1,8 +1,8 @@
 #ifndef GAME_REGISTRY_HPP
 #define GAME_REGISTRY_HPP
 
+#include "../../components/Component.hpp"
 #include "../../systems/System.hpp"
-#include "../Component.hpp"
 #include "../Entity.hpp"
 #include <concepts>
 #include <memory>
