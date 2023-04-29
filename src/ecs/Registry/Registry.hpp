@@ -27,13 +27,13 @@ public:
 private:
 	std::vector<std::unordered_map<std::type_index, std::unique_ptr<Component>>>
 			entities;
-	std::unordered_map<std::type_index, std::shared_ptr<System>> systems;
+	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
 };
 
 template <SystemType T>
 void Registry::addSystem() {
-	std::shared_ptr<T> system = std::make_shared<T>();
-	systems.insert({std::type_index(typeid(T)), system});
+	std::unique_ptr<T> system = std::make_unique<T>();
+	systems.insert({std::type_index(typeid(T)), std::move(system)});
 }
 
 template <SystemType T>
