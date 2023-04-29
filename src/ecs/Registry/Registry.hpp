@@ -32,10 +32,8 @@ private:
 
 template <SystemType T>
 void Registry::addSystem() {
-	auto derivedSystem = std::make_shared<T>();
-	std::shared_ptr<System> system =
-			std::dynamic_pointer_cast<System>(derivedSystem);
-	systems.insert(std::make_pair(std::type_index(typeid(T)), system));
+	std::shared_ptr<T> system = std::make_shared<T>();
+	systems.insert({std::type_index(typeid(T)), system});
 }
 
 template <SystemType T>
