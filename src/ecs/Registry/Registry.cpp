@@ -5,14 +5,3 @@ void Registry::run(float deltaTime) {
 		system->run(deltaTime);
 	}
 }
-
-template <SystemType T>
-void Registry::addSystem() {
-	std::unique_ptr<T> system = std::make_unique<T>();
-	systems.insert({std::type_index(typeid(T)), std::move(system)});
-}
-
-template <SystemType T>
-void Registry::removeSystem() {
-	systems.erase(std::type_index(typeid(T)));
-}

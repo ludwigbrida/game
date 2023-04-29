@@ -12,7 +12,7 @@
 #include <vector>
 
 template <typename T>
-concept SystemType = std::is_base_of_v<System, T>;
+concept SystemType = std::is_base_of<System, T>::value;
 
 class Registry {
 public:
@@ -27,7 +27,20 @@ public:
 private:
 	std::vector<std::unordered_map<std::type_index, std::unique_ptr<Component>>>
 			entities;
-	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
+	std::unordered_map<std::type_index, std::shared_ptr<System>> systems;
 };
+
+template <SystemType T>
+void Registry::addSystem() {
+	auto derivedSystem = std::make_shared<T>();
+	std::shared_ptr<System> system =
+			std::dynamic_pointer_cast<System>(derivedSystem);
+	systems.insert(std::make_pair(std::type_index(typeid(T)), system));
+}
+
+template <SystemType T>
+void Registry::removeSystem() {
+	systems.erase(std::type_index(typeid(T)));
+}
 
 #endif

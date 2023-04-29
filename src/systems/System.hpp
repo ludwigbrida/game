@@ -4,6 +4,7 @@
 class System {
 public:
 	virtual void run(const float& deltaTime) = 0;
+	virtual ~System() = default;
 };
 
 #endif
