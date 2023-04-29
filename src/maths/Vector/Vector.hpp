@@ -1,7 +1,13 @@
 #ifndef GAME_VECTOR_HPP
 #define GAME_VECTOR_HPP
 
+#include <concepts>
+#include <type_traits>
+
 template <typename T>
+concept ArithmeticType = std::is_arithmetic<T>::value;
+
+template <ArithmeticType T>
 struct Vector {
 	T x = 0;
 	T y = 0;
@@ -26,33 +32,33 @@ struct Vector {
 	static Vector<T> forward;
 };
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T>& operator+=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T>& operator-=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T>& operator*=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T>& operator/=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T> operator+(const Vector<T>& vector1, const Vector<T>& vector2);
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T> operator-(const Vector<T>& vector1, const Vector<T>& vector2);
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T> operator*(const Vector<T>& vector1, const Vector<T>& vector2);
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T> operator*(const Vector<T>& vector, T scalar) {
 	return {vector.x * scalar, vector.y * scalar, vector.z * scalar};
 }
 
-template <typename T>
+template <ArithmeticType T>
 Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2);
 
 using Vector3f = Vector<float>;

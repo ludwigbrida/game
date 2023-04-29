@@ -3,16 +3,10 @@
 
 #include "../../components/Component.hpp"
 #include "../../systems/System.hpp"
-#include "../Entity.hpp"
-#include <concepts>
 #include <memory>
-#include <type_traits>
 #include <typeindex>
 #include <unordered_map>
 #include <vector>
-
-template <typename T>
-concept SystemType = std::is_base_of<System, T>::value;
 
 class Registry {
 public:
