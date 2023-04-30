@@ -5,6 +5,7 @@
 #include "../../systems/System.hpp"
 #include <memory>
 #include <typeindex>
+#include <typeinfo>
 #include <unordered_map>
 #include <vector>
 
@@ -21,7 +22,7 @@ public:
 private:
 	std::vector<std::unordered_map<std::type_index, std::unique_ptr<Component>>>
 			entities;
-	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
+	std::unordered_map<std::type_index, std::unique_ptr<System<>>> systems;
 };
 
 template <SystemType T>

@@ -14,5 +14,6 @@ int main() {
 
 	auto registry = Registry();
 	registry.addSystem<TransformSystem>();
+	registry.removeSystem<TransformSystem>();
 	registry.run(0);
 }
