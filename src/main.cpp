@@ -13,7 +13,12 @@ int main() {
 	std::cout << "Hello, World! " << dot << ", " << length << std::endl;
 
 	auto registry = Registry();
+
 	registry.addSystem<TransformSystem>();
 	registry.removeSystem<TransformSystem>();
+
+	registry.addComponent<TransformComponent>(0, {});
+	registry.removeComponent<TransformComponent>(0);
+
 	registry.run(0);
 }
