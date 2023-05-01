@@ -3,7 +3,7 @@
 
 #include "../System.hpp"
 
-class TransformSystem : public System<TransformComponent> {
+class TransformSystem : public System {
 public:
 	void run(const float& deltaTime) final;
 };
