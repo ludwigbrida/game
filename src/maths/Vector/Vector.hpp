@@ -1,11 +1,7 @@
 #ifndef GAME_VECTOR_HPP
 #define GAME_VECTOR_HPP
 
-#include <concepts>
-#include <type_traits>
-
-template <typename T>
-concept ArithmeticType = std::is_arithmetic<T>::value;
+#include "../../concepts/ArithmeticType.hpp"
 
 template <ArithmeticType T>
 struct Vector {

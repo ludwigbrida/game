@@ -1,3 +1,4 @@
+#include "components/TransformComponent.hpp"
 #include "ecs/Registry/Registry.hpp"
 #include "maths/Vector/Vector.hpp"
 #include "systems/TransformSystem/TransformSystem.hpp"

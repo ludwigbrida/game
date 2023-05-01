@@ -1,10 +1,11 @@
 #ifndef GAME_MATRIX_HPP
 #define GAME_MATRIX_HPP
 
+#include "../../concepts//ArithmeticType.hpp"
 #include "../Quaternion/Quaternion.hpp"
 #include "../Vector/Vector.hpp"
 
-template <typename T>
+template <ArithmeticType T>
 struct Matrix {
 	T m00 = 1;
 	T m01 = 0;
@@ -35,7 +36,7 @@ struct Matrix {
 																	 const T& near, const T& far);
 };
 
-template <typename T>
+template <ArithmeticType T>
 Matrix<T> operator*(const Matrix<T>& matrix1, const Matrix<T>& matrix2);
 
 using Matrix4f = Matrix<float>;

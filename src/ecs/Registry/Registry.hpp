@@ -2,6 +2,8 @@
 #define GAME_REGISTRY_HPP
 
 #include "../../components/Component.hpp"
+#include "../../concepts/ComponentType.hpp"
+#include "../../concepts/SystemType.hpp"
 #include "../../systems/System.hpp"
 #include <memory>
 #include <typeindex>

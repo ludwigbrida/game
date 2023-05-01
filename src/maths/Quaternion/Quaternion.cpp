@@ -1,7 +1,7 @@
 #include "Quaternion.hpp"
 #include <cmath>
 
-template <typename T>
+template <ArithmeticType T>
 Quaternion<T> Quaternion<T>::fromAxisAngle(const Vector<T>& axis, T angle) {
 	const auto sine = std::sin(angle / 2);
 	const auto cosine = std::cos(angle / 2);
