@@ -12,4 +12,5 @@
 
 ## Setup
 
-1. Run `vcpkg install` to download and install the dependencies.
+1. Make sure you installed everything from the prerequisites section.
+2. Run `vcpkg install` to download and install the dependencies.

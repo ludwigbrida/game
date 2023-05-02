@@ -19,4 +19,7 @@ add_executable(game
 	src/components/TransformComponent.hpp
 	src/systems/System.hpp
 	src/systems/TransformSystem/TransformSystem.cpp
-	src/systems/TransformSystem/TransformSystem.hpp src/concepts/ArithmeticType.hpp src/concepts/ComponentType.hpp src/concepts/SystemType.hpp)
+	src/systems/TransformSystem/TransformSystem.hpp
+	src/concepts/ArithmeticType.hpp
+	src/concepts/ComponentType.hpp
+	src/concepts/SystemType.hpp)
