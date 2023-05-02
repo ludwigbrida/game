@@ -19,6 +19,7 @@ int main() {
 	registry.removeSystem<TransformSystem>();
 
 	registry.addComponent<TransformComponent>(0);
+	registry.hasComponent<TransformComponent>(0);
 	registry.removeComponent<TransformComponent>(0);
 
 	registry.run(0);

@@ -22,6 +22,9 @@ public:
 	template <ComponentType T>
 	void removeComponent(Entity entity);
 
+	template <ComponentType T>
+	bool hasComponent(Entity entity);
+
 	template <SystemType T>
 	void addSystem();
 
@@ -47,6 +50,11 @@ void Registry::addComponent(Entity entity) {
 template <ComponentType T>
 void Registry::removeComponent(Entity entity) {
 	components[std::type_index(typeid(T))].erase(entity);
+}
+
+template <ComponentType T>
+bool Registry::hasComponent(Entity entity) {
+	return components[std::type_index(typeid(T))].count(entity);
 }
 
 template <SystemType T>
