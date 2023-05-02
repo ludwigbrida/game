@@ -5,6 +5,7 @@
 #include "../../concepts/ComponentType.hpp"
 #include "../../concepts/SystemType.hpp"
 #include "../../systems/System.hpp"
+#include "../Entity.hpp"
 #include <memory>
 #include <typeindex>
 #include <typeinfo>
@@ -16,10 +17,10 @@ public:
 	void run(float deltaTime);
 
 	template <ComponentType T>
-	void addComponent(int entity);
+	void addComponent(Entity entity);
 
 	template <ComponentType T>
-	void removeComponent(int entity);
+	void removeComponent(Entity entity);
 
 	template <SystemType T>
 	void addSystem();
@@ -29,19 +30,19 @@ public:
 
 private:
 	std::unordered_map<std::type_index,
-										 std::unordered_map<int, std::unique_ptr<Component>>>
+										 std::unordered_map<Entity, std::unique_ptr<Component>>>
 			components;
 	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
 };
 
 template <ComponentType T>
-void Registry::addComponent(int entity) {
+void Registry::addComponent(Entity entity) {
 	std::unique_ptr<T> component = std::make_unique<T>();
 	components[std::type_index(typeid(T))].insert({entity, std::move(component)});
 }
 
 template <ComponentType T>
-void Registry::removeComponent(int entity) {
+void Registry::removeComponent(Entity entity) {
 	components[std::type_index(typeid(T))].erase(entity);
 }
 
