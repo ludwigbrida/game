@@ -28,6 +28,9 @@ public:
 	template <SystemType T>
 	void removeSystem();
 
+	template <ComponentType... T>
+	std::vector<Entity> view();
+
 private:
 	std::unordered_map<std::type_index,
 										 std::unordered_map<Entity, std::unique_ptr<Component>>>
@@ -55,6 +58,12 @@ void Registry::addSystem() {
 template <SystemType T>
 void Registry::removeSystem() {
 	systems.erase(std::type_index(typeid(T)));
+}
+
+template <ComponentType... T>
+std::vector<Entity> Registry::view() {
+	std::vector<Entity> filteredEntities;
+	return filteredEntities;
 }
 
 #endif
