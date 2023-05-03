@@ -8,7 +8,6 @@
 #include "../Entity.hpp"
 #include <memory>
 #include <typeindex>
-#include <typeinfo>
 #include <unordered_map>
 #include <vector>
 
@@ -32,7 +31,7 @@ public:
 	void removeSystem();
 
 	template <ComponentType... T>
-	std::vector<Entity> view();
+	std::vector<Entity> view() const;
 
 private:
 	std::unordered_map<std::type_index,
@@ -69,7 +68,7 @@ void Registry::removeSystem() {
 }
 
 template <ComponentType... T>
-std::vector<Entity> Registry::view() {
+std::vector<Entity> Registry::view() const {
 	std::vector<Entity> filteredEntities;
 	return filteredEntities;
 }
