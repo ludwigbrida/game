@@ -24,6 +24,9 @@ public:
 	template <ComponentType T>
 	bool hasComponent(Entity entity);
 
+	template <ComponentType T>
+	T& getComponent(Entity entity);
+
 	template <SystemType T>
 	void addSystem();
 
@@ -43,33 +46,44 @@ private:
 template <ComponentType T>
 void Registry::addComponent(Entity entity) {
 	std::unique_ptr<T> component = std::make_unique<T>();
-	components[std::type_index(typeid(T))].insert({entity, std::move(component)});
+	components[typeid(T)].insert({entity, std::move(component)});
 }
 
 template <ComponentType T>
 void Registry::removeComponent(Entity entity) {
-	components[std::type_index(typeid(T))].erase(entity);
+	components[typeid(T)].erase(entity);
 }
 
 template <ComponentType T>
 bool Registry::hasComponent(Entity entity) {
-	return components[std::type_index(typeid(T))].count(entity);
+	return components[typeid(T)].count(entity);
+}
+
+template <ComponentType T>
+T& Registry::getComponent(Entity entity) {
+	return components[typeid(T)].at(entity);
 }
 
 template <SystemType T>
 void Registry::addSystem() {
 	std::unique_ptr<T> system = std::make_unique<T>();
-	systems.insert({std::type_index(typeid(T)), std::move(system)});
+	systems.insert({typeid(T), std::move(system)});
 }
 
 template <SystemType T>
 void Registry::removeSystem() {
-	systems.erase(std::type_index(typeid(T)));
+	systems.erase(typeid(T));
 }
 
 template <ComponentType... T>
 std::vector<Entity> Registry::view() const {
 	std::vector<Entity> filteredEntities;
+
+	const std::type_index componentIndices[] = {typeid(T)...};
+
+	for (const auto& componentIndex : componentIndices) {
+	}
+
 	return filteredEntities;
 }
 
