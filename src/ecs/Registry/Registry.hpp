@@ -82,6 +82,8 @@ std::vector<Entity> Registry::view() const {
 	const std::type_index componentIndices[] = {typeid(T)...};
 
 	for (const auto& componentIndex : componentIndices) {
+		// components[componentIndex]
+		// todo: collect entities that exist in all component arrays
 	}
 
 	return filteredEntities;
