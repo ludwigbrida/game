@@ -9,6 +9,7 @@
 #include <memory>
 #include <typeindex>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 class Registry {
@@ -34,7 +35,7 @@ public:
 	void removeSystem();
 
 	template <ComponentType... T>
-	std::vector<Entity> view() const;
+	std::unordered_set<Entity> view() const;
 
 private:
 	std::unordered_map<std::type_index,
@@ -76,14 +77,23 @@ void Registry::removeSystem() {
 }
 
 template <ComponentType... T>
-std::vector<Entity> Registry::view() const {
-	std::vector<Entity> filteredEntities;
+std::unordered_set<Entity> Registry::view() const {
+	std::unordered_set<Entity> filteredEntities;
 
-	const std::type_index componentIndices[] = {typeid(T)...};
+	const std::type_index componentTypes[] = {typeid(T)...};
 
-	for (const auto& componentIndex : componentIndices) {
-		// components[componentIndex]
-		// todo: collect entities that exist in all component arrays
+	const auto& firstComponentType = componentTypes[0];
+
+	for (auto entity : components[firstComponentType]) {
+		filteredEntities.insert(entity);
+	}
+
+	for (auto& entity : filteredEntities) {
+		for (size_t i = 1; i < sizeof(componentTypes); i++) {
+			if (!hasComponent<componentTypes[i]>(entity)) {
+				filteredEntities.erase(entity);
+			}
+		}
 	}
 
 	return filteredEntities;
