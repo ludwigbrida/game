@@ -6,11 +6,15 @@
 #include "../../concepts/SystemType.hpp"
 #include "../../systems/System.hpp"
 #include "../Entity.hpp"
+#include <array>
+#include <functional>
 #include <memory>
 #include <typeindex>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+
+using ComponentMap = std::unordered_map<Entity, std::unique_ptr<Component>>;
 
 class Registry {
 public:
@@ -35,13 +39,18 @@ public:
 	void removeSystem();
 
 	template <ComponentType... T>
-	std::unordered_set<Entity> view() const;
+	std::unordered_set<Entity> view();
 
 private:
-	std::unordered_map<std::type_index,
-										 std::unordered_map<Entity, std::unique_ptr<Component>>>
-			components;
+	std::unordered_map<std::type_index, ComponentMap> components;
 	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
+
+	template <ComponentType T>
+	ComponentMap& getComponentMap();
+
+	template <ComponentType... T>
+	std::array<std::reference_wrapper<ComponentMap>, sizeof...(T)>
+	getComponentMaps();
 };
 
 template <ComponentType T>
@@ -77,26 +86,36 @@ void Registry::removeSystem() {
 }
 
 template <ComponentType... T>
-std::unordered_set<Entity> Registry::view() const {
+std::unordered_set<Entity> Registry::view() {
 	std::unordered_set<Entity> filteredEntities;
 
-	const std::type_index componentTypes[] = {typeid(T)...};
+	auto componentMaps = getComponentMaps<T...>();
 
-	const auto& firstComponentType = componentTypes[0];
-
-	for (auto entity : components[firstComponentType]) {
-		filteredEntities.insert(entity);
+	for (auto& [key, value] : componentMaps[0].get()) {
+		filteredEntities.insert(key);
 	}
 
-	for (auto& entity : filteredEntities) {
-		for (size_t i = 1; i < sizeof(componentTypes); i++) {
-			if (!hasComponent<componentTypes[i]>(entity)) {
-				filteredEntities.erase(entity);
+	for (auto& componentMap : componentMaps) {
+		for (auto& [key, _] : componentMap.get()) {
+			if (!filteredEntities.contains(key)) {
+				filteredEntities.erase(key); // todo: ???
 			}
 		}
 	}
 
 	return filteredEntities;
+}
+
+template <ComponentType T>
+ComponentMap& Registry::getComponentMap() {
+	return components[typeid(T)];
+}
+
+// todo: how to properly store a collection of references?
+template <ComponentType... T>
+std::array<std::reference_wrapper<ComponentMap>, sizeof...(T)>
+Registry::getComponentMaps() {
+	return {std::ref(getComponentMap<T>())...};
 }
 
 #endif
