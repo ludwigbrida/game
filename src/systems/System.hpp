@@ -5,7 +5,7 @@ class Registry;
 
 class System {
 public:
-	virtual void run(const Registry& registry, float deltaTime) = 0;
+	virtual void run(Registry& registry, float deltaTime) = 0;
 	virtual ~System() = default;
 };
 #endif

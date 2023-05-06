@@ -1,6 +1,9 @@
 #ifndef GAME_COMPONENT_HPP
 #define GAME_COMPONENT_HPP
 
-struct Component {};
+struct Component {
+public:
+	virtual ~Component() = default;
+};
 
 #endif

@@ -61,7 +61,7 @@ bool Registry::hasComponent(Entity entity) {
 
 template <ComponentType T>
 T& Registry::getComponent(Entity entity) {
-	return components[typeid(T)].at(entity);
+	return dynamic_cast<T&>(*components[typeid(T)].at(entity));
 }
 
 template <SystemType T>
