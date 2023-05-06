@@ -6,8 +6,11 @@
 
 void TransformSystem::run(Registry& registry, float deltaTime) {
 	auto entities = registry.view<TransformComponent>();
-	for (auto& entity : entities) {
-		auto transformComponent = registry.getComponent<TransformComponent>(entity);
-		transformComponent.position.x = 5;
+
+	for (auto entity : entities) {
+		ComponentType auto& transform =
+				registry.getComponent<TransformComponent>(entity);
+
+		transform.position.x = 5;
 	}
 }
