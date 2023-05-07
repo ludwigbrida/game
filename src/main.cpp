@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include <GLFW/glfw3.h>
+#include <gl/gl.h>
 
 int main() {
 	auto vec1 = Vector3f(1, 2, 3);
@@ -40,8 +41,12 @@ int main() {
 
 	glfwMakeContextCurrent(window);
 
+	glClearColor(0.25, 0.25, 0.75, 1);
+
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
+
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		glfwSwapBuffers(window);
 	}

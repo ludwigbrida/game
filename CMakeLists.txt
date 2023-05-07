@@ -28,6 +28,7 @@ add_executable(game
 	src/systems/RenderSystem/RenderSystem.cpp
 	src/systems/RenderSystem/RenderSystem.hpp)
 
+find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 
-target_link_libraries(game glfw)
+target_link_libraries(game glfw OpenGL::GL)
