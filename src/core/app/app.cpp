@@ -1,4 +1,4 @@
-#include "App.hpp"
+#include "app.hpp"
 #include "../../components/MeshComponent.hpp"
 #include "../../components/TransformComponent.hpp"
 #include "../../systems/RenderSystem/RenderSystem.hpp"
@@ -7,7 +7,7 @@
 App::App() {
 	glfwInit();
 
-	window = glfwCreateWindow(640, 480, "App", nullptr, nullptr);
+	window = glfwCreateWindow(640, 480, "Game", nullptr, nullptr);
 
 	glfwMakeContextCurrent(window);
 
