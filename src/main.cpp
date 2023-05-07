@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include <GLFW/glfw3.h>
-#include <gl/gl.h>
 
 int main() {
 	auto vec1 = Vector3f(1, 2, 3);
