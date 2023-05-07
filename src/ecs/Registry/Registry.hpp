@@ -87,29 +87,23 @@ void Registry::removeSystem() {
 
 template <ComponentType... T>
 std::unordered_set<Entity> Registry::view() {
+	std::unordered_set<Entity> iteratedEntities;
 	std::unordered_set<Entity> filteredEntities;
 
 	auto componentMaps = getComponentMaps<T...>();
 
 	for (auto& [key, value] : componentMaps[0].get()) {
+		iteratedEntities.insert(key);
 		filteredEntities.insert(key);
 	}
 
-	for (auto entity : filteredEntities) {
+	for (auto entity : iteratedEntities) {
 		for (auto& componentMap : componentMaps) {
 			if (!componentMap.get().contains(entity)) {
 				filteredEntities.erase(entity);
 			}
 		}
 	}
-
-	// for (auto& componentMap : componentMaps) {
-	//	for (auto& [key, _] : componentMap.get()) {
-	//		if (!filteredEntities.contains(key)) {
-	//			filteredEntities.erase(key); // todo: ???
-	//		}
-	//	}
-	// }
 
 	return filteredEntities;
 }
