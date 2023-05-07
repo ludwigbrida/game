@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 
-project(game)
+project(game VERSION 0.0.0)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -22,4 +22,12 @@ add_executable(game
 	src/systems/TransformSystem/TransformSystem.hpp
 	src/concepts/ArithmeticType.hpp
 	src/concepts/ComponentType.hpp
-	src/concepts/SystemType.hpp src/components/MeshComponent.hpp src/models/Vertex.hpp src/systems/RenderSystem/RenderSystem.cpp src/systems/RenderSystem/RenderSystem.hpp)
+	src/concepts/SystemType.hpp
+	src/components/MeshComponent.hpp
+	src/models/Vertex.hpp
+	src/systems/RenderSystem/RenderSystem.cpp
+	src/systems/RenderSystem/RenderSystem.hpp)
+
+find_package(glfw3 CONFIG REQUIRED)
+
+target_link_libraries(game glfw)

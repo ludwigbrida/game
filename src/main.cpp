@@ -6,6 +6,8 @@
 #include "systems/TransformSystem/TransformSystem.hpp"
 #include <iostream>
 
+#include <GLFW/glfw3.h>
+
 int main() {
 	auto vec1 = Vector3f(1, 2, 3);
 	auto vec2 = Vector3f(3, 2, 1);
@@ -25,4 +27,26 @@ int main() {
 	registry.addComponent<MeshComponent>(0, MeshComponent::createTriangle(1));
 
 	registry.run(0);
+
+	// Test GLFW
+
+	GLFWwindow* window;
+
+	if (!glfwInit()) {
+		return -1;
+	}
+
+	window = glfwCreateWindow(640, 480, "Window", nullptr, nullptr);
+
+	glfwMakeContextCurrent(window);
+
+	while (!glfwWindowShouldClose(window)) {
+		glfwPollEvents();
+
+		glfwSwapBuffers(window);
+	}
+
+	glfwTerminate();
+
+	return 0;
 }

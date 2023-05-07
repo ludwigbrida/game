@@ -2,6 +2,7 @@
 	"name": "ludwigbrida-game",
 	"version": "0.0.0",
 	"dependencies": [
-		"opengl"
+		"opengl",
+		"glfw3"
 	]
 }
