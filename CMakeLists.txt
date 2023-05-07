@@ -26,7 +26,7 @@ add_executable(game
 	src/components/MeshComponent.hpp
 	src/models/Vertex.hpp
 	src/systems/RenderSystem/RenderSystem.cpp
-	src/systems/RenderSystem/RenderSystem.hpp)
+	src/systems/RenderSystem/RenderSystem.hpp src/core/App/App.cpp src/core/App/App.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
