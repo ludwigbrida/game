@@ -95,13 +95,21 @@ std::unordered_set<Entity> Registry::view() {
 		filteredEntities.insert(key);
 	}
 
-	for (auto& componentMap : componentMaps) {
-		for (auto& [key, _] : componentMap.get()) {
-			if (!filteredEntities.contains(key)) {
-				filteredEntities.erase(key); // todo: ???
+	for (auto entity : filteredEntities) {
+		for (auto& componentMap : componentMaps) {
+			if (!componentMap.get().contains(entity)) {
+				filteredEntities.erase(entity);
 			}
 		}
 	}
+
+	// for (auto& componentMap : componentMaps) {
+	//	for (auto& [key, _] : componentMap.get()) {
+	//		if (!filteredEntities.contains(key)) {
+	//			filteredEntities.erase(key); // todo: ???
+	//		}
+	//	}
+	// }
 
 	return filteredEntities;
 }
