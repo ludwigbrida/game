@@ -22,4 +22,4 @@ add_executable(game
 	src/systems/TransformSystem/TransformSystem.hpp
 	src/concepts/ArithmeticType.hpp
 	src/concepts/ComponentType.hpp
-	src/concepts/SystemType.hpp)
+	src/concepts/SystemType.hpp src/components/MeshComponent.hpp src/models/Vertex.hpp)
