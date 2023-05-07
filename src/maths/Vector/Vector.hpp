@@ -29,6 +29,9 @@ struct Vector {
 };
 
 template <ArithmeticType T>
+Vector<T> Vector<T>::backward = Vector<T>(0, 0, 1);
+
+template <ArithmeticType T>
 Vector<T>& operator+=(Vector<T>& vector1, const Vector<T>& vector2);
 
 template <ArithmeticType T>

@@ -43,9 +43,6 @@ template <ArithmeticType T>
 Vector<T> Vector<T>::down = Vector<T>(0, -1, 0);
 
 template <ArithmeticType T>
-Vector<T> Vector<T>::backward = Vector<T>(0, 0, 1);
-
-template <ArithmeticType T>
 Vector<T> Vector<T>::forward = Vector<T>(0, 0, -1);
 
 template <ArithmeticType T>

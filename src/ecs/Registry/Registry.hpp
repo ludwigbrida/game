@@ -21,7 +21,7 @@ public:
 	void run(float deltaTime);
 
 	template <ComponentType T>
-	void addComponent(Entity entity);
+	void addComponent(Entity entity, T value);
 
 	template <ComponentType T>
 	void removeComponent(Entity entity);
@@ -54,8 +54,8 @@ private:
 };
 
 template <ComponentType T>
-void Registry::addComponent(Entity entity) {
-	std::unique_ptr<T> component = std::make_unique<T>();
+void Registry::addComponent(Entity entity, T value) {
+	std::unique_ptr<T> component = std::make_unique<T>(value);
 	components[typeid(T)].insert({entity, std::move(component)});
 }
 

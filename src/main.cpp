@@ -19,10 +19,10 @@ int main() {
 	registry.addSystem<TransformSystem>();
 	registry.addSystem<RenderSystem>();
 
-	registry.addComponent<TransformComponent>(0);
-	registry.addComponent<TransformComponent>(1);
+	registry.addComponent<TransformComponent>(0, {});
+	registry.addComponent<TransformComponent>(1, {});
 
-	registry.addComponent<MeshComponent>(0);
+	registry.addComponent<MeshComponent>(0, MeshComponent::createTriangle(1));
 
 	registry.run(0);
 }

@@ -5,3 +5,4 @@ NamespaceIndentation: None
 PointerAlignment: Left
 UseTab: Always
 TabWidth: 2
+ContinuationIndentWidth: 2
