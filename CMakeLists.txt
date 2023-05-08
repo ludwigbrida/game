@@ -16,10 +16,10 @@ add_executable(game
 	src/core/app.cpp
 	src/core/app.hpp
 	# ecs
+	src/ecs/component.hpp
+	src/ecs/entity.hpp
 	src/ecs/registry.cpp
 	src/ecs/registry.hpp
-	src/ecs/entity.hpp
-	src/ecs/component.hpp
 	src/ecs/system.hpp
 	# maths
 	src/maths/matrix.cpp
@@ -31,10 +31,10 @@ add_executable(game
 	# models
 	src/models/vertex.hpp
 	# systems
-	src/systems/transform-system.cpp
-	src/systems/transform-system.hpp
 	src/systems/render-system.cpp
 	src/systems/render-system.hpp
+	src/systems/transform-system.cpp
+	src/systems/transform-system.hpp
 	# other
 	src/main.cpp
 	)
