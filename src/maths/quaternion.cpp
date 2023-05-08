@@ -1,4 +1,4 @@
-#include "Quaternion.hpp"
+#include "quaternion.hpp"
 #include <cmath>
 
 template <ArithmeticType T>

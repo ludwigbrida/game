@@ -1,6 +1,6 @@
 #include "app.hpp"
-#include "../../components/MeshComponent.hpp"
-#include "../../components/TransformComponent.hpp"
+#include "../../components/mesh.hpp"
+#include "../../components/transform.hpp"
 #include "../../systems/RenderSystem/RenderSystem.hpp"
 #include "../../systems/TransformSystem/TransformSystem.hpp"
 
@@ -16,10 +16,10 @@ App::App() {
 	registry.addSystem<TransformSystem>();
 	registry.addSystem<RenderSystem>();
 
-	registry.addComponent<TransformComponent>(0, {});
-	registry.addComponent<TransformComponent>(1, {});
+	registry.addComponent<Transform>(0, {});
+	registry.addComponent<Transform>(1, {});
 
-	registry.addComponent<MeshComponent>(0, MeshComponent::createTriangle(1));
+	registry.addComponent<Mesh>(0, Mesh::createTriangle(1));
 }
 
 void App::run() {

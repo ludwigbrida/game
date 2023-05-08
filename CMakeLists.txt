@@ -5,30 +5,39 @@ project(game VERSION 0.0.0)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(game
-	src/main.cpp
-	src/maths/Matrix/Matrix.cpp
-	src/maths/Matrix/Matrix.hpp
-	src/maths/Quaternion/Quaternion.cpp
-	src/maths/Quaternion/Quaternion.hpp
-	src/maths/Vector/Vector.cpp
-	src/maths/Vector/Vector.hpp
+	# components
+	src/components/mesh.hpp
+	src/components/transform.hpp
+	# concepts
+	src/concepts/ArithmeticType.hpp
+	src/concepts/ComponentType.hpp
+	src/concepts/SystemType.hpp
+	# core
+	src/core/app/app.cpp
+	src/core/app/app.hpp
+	# ecs
 	src/ecs/Registry/Registry.cpp
 	src/ecs/Registry/Registry.hpp
 	src/ecs/Entity.hpp
 	src/ecs/Component.hpp
-	src/components/TransformComponent.hpp
 	src/ecs/System.hpp
+	# maths
+	src/maths/matrix.cpp
+	src/maths/matrix.hpp
+	src/maths/quaternion.cpp
+	src/maths/quaternion.hpp
+	src/maths/vector.cpp
+	src/maths/vector.hpp
+	# models
+	src/models/vertex.hpp
+	# systems
 	src/systems/TransformSystem/TransformSystem.cpp
 	src/systems/TransformSystem/TransformSystem.hpp
-	src/concepts/ArithmeticType.hpp
-	src/concepts/ComponentType.hpp
-	src/concepts/SystemType.hpp
-	src/components/MeshComponent.hpp
-	src/models/Vertex.hpp
 	src/systems/RenderSystem/RenderSystem.cpp
 	src/systems/RenderSystem/RenderSystem.hpp
-	src/core/app/app.cpp
-	src/core/app/app.hpp)
+	# other
+	src/main.cpp
+	)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)

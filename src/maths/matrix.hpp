@@ -1,9 +1,9 @@
 #ifndef GAME_MATRIX_HPP
 #define GAME_MATRIX_HPP
 
-#include "../../concepts//ArithmeticType.hpp"
-#include "../Quaternion/Quaternion.hpp"
-#include "../Vector/Vector.hpp"
+#include "../concepts/ArithmeticType.hpp"
+#include "quaternion.hpp"
+#include "vector.hpp"
 
 template <ArithmeticType T>
 struct Matrix {

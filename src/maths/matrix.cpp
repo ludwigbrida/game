@@ -1,4 +1,4 @@
-#include "Matrix.hpp"
+#include "matrix.hpp"
 #include <cmath>
 
 template <ArithmeticType T>

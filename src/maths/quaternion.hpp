@@ -1,8 +1,8 @@
 #ifndef GAME_QUATERNION_HPP
 #define GAME_QUATERNION_HPP
 
-#include "../../concepts//ArithmeticType.hpp"
-#include "../Vector/Vector.hpp"
+#include "../concepts/ArithmeticType.hpp"
+#include "vector.hpp"
 
 template <ArithmeticType T>
 struct Quaternion {

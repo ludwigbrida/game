@@ -1,4 +1,4 @@
-#include "Vector.hpp"
+#include "vector.hpp"
 #include <cmath>
 
 template <ArithmeticType T>

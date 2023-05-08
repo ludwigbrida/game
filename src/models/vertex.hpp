@@ -1,7 +1,7 @@
 #ifndef GAME_VERTEX_HPP
 #define GAME_VERTEX_HPP
 
-#include "../maths/Vector/Vector.hpp"
+#include "../maths/vector.hpp"
 
 struct Vertex {
 	Vector3f position;
