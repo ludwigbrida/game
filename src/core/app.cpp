@@ -7,9 +7,11 @@
 App::App() {
 	glfwInit();
 
-	window = glfwCreateWindow(640, 480, "Game", nullptr, nullptr);
+	window = glfwCreateWindow(width, height, "Game", nullptr, nullptr);
 
 	glfwMakeContextCurrent(window);
+
+	glViewport(0, 0, width, height);
 
 	glClearColor(0.25, 0.25, 0.75, 1);
 

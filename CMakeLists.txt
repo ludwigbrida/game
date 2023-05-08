@@ -37,7 +37,7 @@ add_executable(game
 	src/systems/transform-system.hpp
 	# other
 	src/main.cpp
-	)
+	src/models/types.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
