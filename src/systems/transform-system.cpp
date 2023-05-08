@@ -1,6 +1,6 @@
-#include "TransformSystem.hpp"
-#include "../../components/transform.hpp"
-#include "../../ecs/registry.hpp" // TODO: Extract
+#include "transform-system.hpp"
+#include "../components/transform.hpp"
+#include "../ecs/registry.hpp" // TODO: Extract
 #include <iostream>
 
 void TransformSystem::run(Registry& registry, float deltaTime) {

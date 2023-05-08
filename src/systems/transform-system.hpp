@@ -1,7 +1,7 @@
 #ifndef GAME_TRANSFORM_SYSTEM_HPP
 #define GAME_TRANSFORM_SYSTEM_HPP
 
-#include "../../ecs/system.hpp"
+#include "../ecs/system.hpp"
 
 class TransformSystem : public System {
 public:
