@@ -1,8 +1,8 @@
 #include "app.hpp"
-#include "../../components/mesh.hpp"
-#include "../../components/transform.hpp"
-#include "../../systems/RenderSystem/RenderSystem.hpp"
-#include "../../systems/TransformSystem/TransformSystem.hpp"
+#include "../components/mesh.hpp"
+#include "../components/transform.hpp"
+#include "../systems/RenderSystem/RenderSystem.hpp"
+#include "../systems/TransformSystem/TransformSystem.hpp"
 
 App::App() {
 	glfwInit();

@@ -1,7 +1,7 @@
 #ifndef GAME_COMPONENT_TYPE_HPP
 #define GAME_COMPONENT_TYPE_HPP
 
-#include "../ecs/Component.hpp"
+#include "../ecs/component.hpp"
 #include <concepts>
 #include <type_traits>
 

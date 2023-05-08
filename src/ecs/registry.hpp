@@ -1,11 +1,11 @@
 #ifndef GAME_REGISTRY_HPP
 #define GAME_REGISTRY_HPP
 
-#include "../../concepts/ComponentType.hpp"
-#include "../../concepts/SystemType.hpp"
-#include "../Component.hpp"
-#include "../Entity.hpp"
-#include "../System.hpp"
+#include "../concepts/ComponentType.hpp"
+#include "../concepts/SystemType.hpp"
+#include "component.hpp"
+#include "entity.hpp"
+#include "system.hpp"
 #include <array>
 #include <functional>
 #include <memory>

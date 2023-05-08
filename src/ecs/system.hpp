@@ -8,4 +8,5 @@ public:
 	virtual void run(Registry& registry, float deltaTime) = 0;
 	virtual ~System() = default;
 };
+
 #endif

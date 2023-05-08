@@ -1,7 +1,7 @@
 #ifndef GAME_TRANSFORM_HPP
 #define GAME_TRANSFORM_HPP
 
-#include "../ecs/Component.hpp"
+#include "../ecs/component.hpp"
 #include "../maths/quaternion.hpp"
 #include "../maths/vector.hpp"
 

@@ -1,7 +1,7 @@
 #ifndef GAME_APP_HPP
 #define GAME_APP_HPP
 
-#include "../../ecs/Registry/Registry.hpp"
+#include "../ecs/registry.hpp"
 #include <GLFW/glfw3.h>
 
 class App {

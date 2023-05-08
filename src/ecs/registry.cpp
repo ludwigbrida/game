@@ -1,5 +1,5 @@
-#include "Registry.hpp"
-#include "../System.hpp"
+#include "registry.hpp"
+#include "system.hpp"
 
 void Registry::run(float deltaTime) {
 	for (auto& [_, system] : systems) {

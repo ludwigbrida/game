@@ -1,7 +1,7 @@
 #ifndef GAME_MESH_HPP
 #define GAME_MESH_HPP
 
-#include "../ecs/Component.hpp"
+#include "../ecs/component.hpp"
 #include "../models/vertex.hpp"
 #include <vector>
 

@@ -13,14 +13,14 @@ add_executable(game
 	src/concepts/ComponentType.hpp
 	src/concepts/SystemType.hpp
 	# core
-	src/core/app/app.cpp
-	src/core/app/app.hpp
+	src/core/app.cpp
+	src/core/app.hpp
 	# ecs
-	src/ecs/Registry/Registry.cpp
-	src/ecs/Registry/Registry.hpp
-	src/ecs/Entity.hpp
-	src/ecs/Component.hpp
-	src/ecs/System.hpp
+	src/ecs/registry.cpp
+	src/ecs/registry.hpp
+	src/ecs/entity.hpp
+	src/ecs/component.hpp
+	src/ecs/system.hpp
 	# maths
 	src/maths/matrix.cpp
 	src/maths/matrix.hpp
