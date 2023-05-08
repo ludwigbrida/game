@@ -2,7 +2,6 @@
 #define GAME_COMPONENT_HPP
 
 struct Component {
-public:
 	virtual ~Component() = default;
 };
 
