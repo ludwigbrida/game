@@ -21,6 +21,9 @@ add_executable(game
 	src/ecs/registry.cpp
 	src/ecs/registry.hpp
 	src/ecs/system.hpp
+	# graphics
+	src/graphics/shader.cpp
+	src/graphics/shader.hpp
 	# maths
 	src/maths/matrix.cpp
 	src/maths/matrix.hpp
@@ -29,6 +32,7 @@ add_executable(game
 	src/maths/vector.cpp
 	src/maths/vector.hpp
 	# models
+	src/models/types.hpp
 	src/models/vertex.hpp
 	# systems
 	src/systems/render-system.cpp
@@ -36,8 +40,7 @@ add_executable(game
 	src/systems/transform-system.cpp
 	src/systems/transform-system.hpp
 	# other
-	src/main.cpp
-	src/models/types.hpp)
+	src/main.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
