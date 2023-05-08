@@ -5,7 +5,7 @@
 #include "../models/vertex.hpp"
 #include <vector>
 
-struct Mesh : public Component {
+struct Mesh : Component {
 	std::vector<Vertex> vertices;
 	std::vector<unsigned int> indices;
 

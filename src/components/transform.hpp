@@ -5,7 +5,7 @@
 #include "../maths/quaternion.hpp"
 #include "../maths/vector.hpp"
 
-struct Transform : public Component {
+struct Transform : Component {
 	Vector3f position;
 	Quaternion3f rotation;
 	Vector3f scale;
