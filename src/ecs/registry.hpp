@@ -21,22 +21,22 @@ public:
 	void run(float deltaTime);
 
 	template <ComponentType T>
-	void addComponent(Entity entity, T value);
+	void add(Entity entity, T value);
 
 	template <ComponentType T>
-	void removeComponent(Entity entity);
+	void remove(Entity entity);
 
 	template <ComponentType T>
-	bool hasComponent(Entity entity);
+	bool has(Entity entity);
 
 	template <ComponentType T>
-	T& getComponent(Entity entity);
+	T& get(Entity entity);
 
 	template <SystemType T>
-	void addSystem();
+	void activate();
 
 	template <SystemType T>
-	void removeSystem();
+	void deactivate();
 
 	template <ComponentType... T>
 	std::unordered_set<Entity> view();
@@ -54,34 +54,34 @@ private:
 };
 
 template <ComponentType T>
-void Registry::addComponent(Entity entity, T value) {
+void Registry::add(Entity entity, T value) {
 	std::unique_ptr<T> component = std::make_unique<T>(value);
 	components[typeid(T)].insert({entity, std::move(component)});
 }
 
 template <ComponentType T>
-void Registry::removeComponent(Entity entity) {
+void Registry::remove(Entity entity) {
 	components[typeid(T)].erase(entity);
 }
 
 template <ComponentType T>
-bool Registry::hasComponent(Entity entity) {
+bool Registry::has(Entity entity) {
 	return components[typeid(T)].count(entity);
 }
 
 template <ComponentType T>
-T& Registry::getComponent(Entity entity) {
+T& Registry::get(Entity entity) {
 	return dynamic_cast<T&>(*components[typeid(T)].at(entity));
 }
 
 template <SystemType T>
-void Registry::addSystem() {
+void Registry::activate() {
 	std::unique_ptr<T> system = std::make_unique<T>();
 	systems.insert({typeid(T), std::move(system)});
 }
 
 template <SystemType T>
-void Registry::removeSystem() {
+void Registry::deactivate() {
 	systems.erase(typeid(T));
 }
 

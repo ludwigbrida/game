@@ -7,7 +7,7 @@ void RenderSystem::run(Registry& registry, float deltaTime) {
 	auto entities = registry.view<Transform, Mesh>();
 
 	for (auto entity : entities) {
-		auto& transform = registry.getComponent<Transform>(entity);
-		auto& mesh = registry.getComponent<Mesh>(entity);
+		auto& transform = registry.get<Transform>(entity);
+		auto& mesh = registry.get<Mesh>(entity);
 	}
 }

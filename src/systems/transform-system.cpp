@@ -7,7 +7,7 @@ void TransformSystem::run(Registry& registry, float deltaTime) {
 	auto entities = registry.view<Transform>();
 
 	for (auto entity : entities) {
-		auto& transform = registry.getComponent<Transform>(entity);
+		auto& transform = registry.get<Transform>(entity);
 
 		std::cout << "Entity: " << entity << std::endl;
 

@@ -13,13 +13,13 @@ App::App() {
 
 	glClearColor(0.25, 0.25, 0.75, 1);
 
-	registry.addSystem<TransformSystem>();
-	registry.addSystem<RenderSystem>();
+	registry.activate<TransformSystem>();
+	registry.activate<RenderSystem>();
 
-	registry.addComponent<Transform>(0, {});
-	registry.addComponent<Transform>(1, {});
+	registry.add<Transform>(0, {});
+	registry.add<Transform>(1, {});
 
-	registry.addComponent<Mesh>(0, Mesh::createTriangle(1));
+	registry.add<Mesh>(0, Mesh::createTriangle(1));
 }
 
 void App::run() {
