@@ -13,8 +13,6 @@ App::App() {
 
 	glViewport(0, 0, width, height);
 
-	glClearColor(0.25, 0.25, 0.75, 1);
-
 	registry.activate<TransformSystem>();
 	registry.activate<RenderSystem>();
 
@@ -27,8 +25,6 @@ App::App() {
 void App::run() {
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
-
-		glClear(GL_COLOR_BUFFER_BIT);
 
 		registry.run(0);
 

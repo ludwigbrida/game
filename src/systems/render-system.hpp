@@ -6,6 +6,10 @@
 class RenderSystem : public System {
 public:
 	void run(Registry& registry, float deltaTime) final;
+
+private:
+	void clear() const;
+	void draw() const;
 };
 
 #endif
