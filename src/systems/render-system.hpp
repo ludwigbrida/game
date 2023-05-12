@@ -8,7 +8,7 @@ public:
 	void run(Registry& registry, float deltaTime) final;
 
 private:
-	void clear() const;
+	void clear(const class Color& color) const;
 	void draw() const;
 };
 

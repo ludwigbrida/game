@@ -32,6 +32,8 @@ add_executable(game
 	src/maths/vector.cpp
 	src/maths/vector.hpp
 	# models
+	src/models/color.cpp
+	src/models/color.hpp
 	src/models/types.hpp
 	src/models/vertex.hpp
 	# systems

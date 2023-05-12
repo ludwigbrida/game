@@ -2,12 +2,13 @@
 #include "../components/mesh.hpp"
 #include "../components/transform.hpp"
 #include "../ecs/registry.hpp"
+#include "../models/color.hpp"
 #include <GLFW/glfw3.h>
 
 void RenderSystem::run(Registry& registry, float deltaTime) {
 	auto entities = registry.view<Transform, Mesh>();
 
-	clear();
+	clear(Color::black);
 
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);
@@ -17,8 +18,8 @@ void RenderSystem::run(Registry& registry, float deltaTime) {
 	}
 }
 
-void RenderSystem::clear() const {
-	glClearColor(0.25, 0.25, 0.75, 1);
+void RenderSystem::clear(const Color& color) const {
+	glClearColor(color.r, color.g, color.b, color.a);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
