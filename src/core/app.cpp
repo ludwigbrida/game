@@ -1,8 +1,8 @@
 #include "app.hpp"
 #include "../components/mesh.hpp"
 #include "../components/transform.hpp"
-#include "../systems/render-system.hpp"
-#include "../systems/transform-system.hpp"
+#include "../systems/renderer.hpp"
+#include "../systems/transformer.hpp"
 
 App::App() {
 	glfwInit();
@@ -13,8 +13,8 @@ App::App() {
 
 	glViewport(0, 0, width, height);
 
-	registry.activate<TransformSystem>();
-	registry.activate<RenderSystem>();
+	registry.activate<Transformer>();
+	registry.activate<Renderer>();
 
 	registry.add<Transform>(0, {});
 	registry.add<Transform>(1, {});

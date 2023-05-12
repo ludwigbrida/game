@@ -1,9 +1,9 @@
-#ifndef GAME_RENDER_SYSTEM_HPP
-#define GAME_RENDER_SYSTEM_HPP
+#ifndef GAME_RENDERER_HPP
+#define GAME_RENDERER_HPP
 
 #include "../ecs/system.hpp"
 
-class RenderSystem : public System {
+class Renderer : public System {
 public:
 	void run(Registry& registry, float deltaTime) const final;
 

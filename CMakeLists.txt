@@ -37,10 +37,10 @@ add_executable(game
 	src/models/types.hpp
 	src/models/vertex.hpp
 	# systems
-	src/systems/render-system.cpp
-	src/systems/render-system.hpp
-	src/systems/transform-system.cpp
-	src/systems/transform-system.hpp
+	src/systems/renderer.cpp
+	src/systems/renderer.hpp
+	src/systems/transformer.cpp
+	src/systems/transformer.hpp
 	# other
 	src/main.cpp)
 
