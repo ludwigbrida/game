@@ -5,7 +5,7 @@
 #include "../models/color.hpp"
 #include <GLFW/glfw3.h>
 
-void RenderSystem::run(Registry& registry, float deltaTime) {
+void RenderSystem::run(Registry& registry, float deltaTime) const {
 	auto entities = registry.view<Transform, Mesh>();
 
 	clear(Color::black);

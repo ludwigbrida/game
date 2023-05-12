@@ -5,7 +5,7 @@
 
 class RenderSystem : public System {
 public:
-	void run(Registry& registry, float deltaTime) final;
+	void run(Registry& registry, float deltaTime) const final;
 
 private:
 	void clear(const class Color& color) const;
