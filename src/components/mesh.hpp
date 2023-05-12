@@ -2,7 +2,7 @@
 #define GAME_MESH_HPP
 
 #include "../ecs/component.hpp"
-#include "../models/vertex.hpp"
+#include "../types/vertex.hpp"
 #include <vector>
 
 struct Mesh : Component {

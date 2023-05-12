@@ -2,7 +2,7 @@
 #include "../components/mesh.hpp"
 #include "../components/transform.hpp"
 #include "../ecs/registry.hpp"
-#include "../models/color.hpp"
+#include "../graphics/color.hpp"
 #include <GLFW/glfw3.h>
 
 void Renderer::run(Registry& registry, float deltaTime) const {

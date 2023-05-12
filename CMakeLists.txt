@@ -8,10 +8,6 @@ add_executable(game
 	# components
 	src/components/mesh.hpp
 	src/components/transform.hpp
-	# concepts
-	src/concepts/ArithmeticType.hpp
-	src/concepts/ComponentType.hpp
-	src/concepts/SystemType.hpp
 	# core
 	src/core/app.cpp
 	src/core/app.hpp
@@ -22,6 +18,8 @@ add_executable(game
 	src/ecs/registry.hpp
 	src/ecs/system.hpp
 	# graphics
+	src/graphics/color.cpp
+	src/graphics/color.hpp
 	src/graphics/shader.cpp
 	src/graphics/shader.hpp
 	# maths
@@ -31,16 +29,17 @@ add_executable(game
 	src/maths/quaternion.hpp
 	src/maths/vector.cpp
 	src/maths/vector.hpp
-	# models
-	src/models/color.cpp
-	src/models/color.hpp
-	src/models/types.hpp
-	src/models/vertex.hpp
 	# systems
 	src/systems/renderer.cpp
 	src/systems/renderer.hpp
 	src/systems/transformer.cpp
 	src/systems/transformer.hpp
+	# types
+	src/types/arithmetic.hpp
+	src/types/composable.hpp
+	src/types/primitive.hpp
+	src/types/systemic.hpp
+	src/types/vertex.hpp
 	# other
 	src/main.cpp)
 

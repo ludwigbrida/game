@@ -1,8 +1,8 @@
 #ifndef GAME_REGISTRY_HPP
 #define GAME_REGISTRY_HPP
 
-#include "../concepts/ComponentType.hpp"
-#include "../concepts/SystemType.hpp"
+#include "../types/composable.hpp"
+#include "../types/systemic.hpp"
 #include "component.hpp"
 #include "entity.hpp"
 #include "system.hpp"
@@ -20,72 +20,72 @@ class Registry {
 public:
 	void run(float deltaTime);
 
-	template <ComponentType T>
+	template <Composable T>
 	void add(Entity entity, T value);
 
-	template <ComponentType T>
+	template <Composable T>
 	void remove(Entity entity);
 
-	template <ComponentType T>
+	template <Composable T>
 	bool has(Entity entity);
 
-	template <ComponentType T>
+	template <Composable T>
 	T& get(Entity entity);
 
-	template <SystemType T>
+	template <Systemic T>
 	void activate();
 
-	template <SystemType T>
+	template <Systemic T>
 	void deactivate();
 
-	template <ComponentType... T>
+	template <Composable... T>
 	std::unordered_set<Entity> view();
 
 private:
 	std::unordered_map<std::type_index, ComponentMap> components;
 	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
 
-	template <ComponentType T>
+	template <Composable T>
 	ComponentMap& getComponentMap();
 
-	template <ComponentType... T>
+	template <Composable... T>
 	std::array<std::reference_wrapper<ComponentMap>, sizeof...(T)>
 	getComponentMaps();
 };
 
-template <ComponentType T>
+template <Composable T>
 void Registry::add(Entity entity, T value) {
 	std::unique_ptr<T> component = std::make_unique<T>(value);
 	components[typeid(T)].insert({entity, std::move(component)});
 }
 
-template <ComponentType T>
+template <Composable T>
 void Registry::remove(Entity entity) {
 	components[typeid(T)].erase(entity);
 }
 
-template <ComponentType T>
+template <Composable T>
 bool Registry::has(Entity entity) {
 	return components[typeid(T)].count(entity);
 }
 
-template <ComponentType T>
+template <Composable T>
 T& Registry::get(Entity entity) {
 	return dynamic_cast<T&>(*components[typeid(T)].at(entity));
 }
 
-template <SystemType T>
+template <Systemic T>
 void Registry::activate() {
 	std::unique_ptr<T> system = std::make_unique<T>();
 	systems.insert({typeid(T), std::move(system)});
 }
 
-template <SystemType T>
+template <Systemic T>
 void Registry::deactivate() {
 	systems.erase(typeid(T));
 }
 
-template <ComponentType... T>
+template <Composable... T>
 std::unordered_set<Entity> Registry::view() {
 	std::unordered_set<Entity> iteratedEntities;
 	std::unordered_set<Entity> filteredEntities;
@@ -108,13 +108,13 @@ std::unordered_set<Entity> Registry::view() {
 	return filteredEntities;
 }
 
-template <ComponentType T>
+template <Composable T>
 ComponentMap& Registry::getComponentMap() {
 	return components[typeid(T)];
 }
 
 // todo: how to properly store a collection of references?
-template <ComponentType... T>
+template <Composable... T>
 std::array<std::reference_wrapper<ComponentMap>, sizeof...(T)>
 Registry::getComponentMaps() {
 	return {std::ref(getComponentMap<T>())...};

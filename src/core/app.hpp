@@ -2,7 +2,7 @@
 #define GAME_APP_HPP
 
 #include "../ecs/registry.hpp"
-#include "../models/types.hpp"
+#include "../types/primitive.hpp"
 #include <GLFW/glfw3.h>
 
 class App {

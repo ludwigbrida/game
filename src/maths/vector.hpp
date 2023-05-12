@@ -1,9 +1,9 @@
 #ifndef GAME_VECTOR_HPP
 #define GAME_VECTOR_HPP
 
-#include "../concepts/ArithmeticType.hpp"
+#include "../types/arithmetic.hpp"
 
-template <ArithmeticType T>
+template <Arithmetic T>
 struct Vector {
 	T x = 0;
 	T y = 0;
@@ -28,36 +28,36 @@ struct Vector {
 	static Vector<T> forward;
 };
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T> Vector<T>::backward = Vector<T>(0, 0, 1);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T>& operator+=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T>& operator-=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T>& operator*=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T>& operator/=(Vector<T>& vector1, const Vector<T>& vector2);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T> operator+(const Vector<T>& vector1, const Vector<T>& vector2);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T> operator-(const Vector<T>& vector1, const Vector<T>& vector2);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T> operator*(const Vector<T>& vector1, const Vector<T>& vector2);
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T> operator*(const Vector<T>& vector, T scalar) {
 	return {vector.x * scalar, vector.y * scalar, vector.z * scalar};
 }
 
-template <ArithmeticType T>
+template <Arithmetic T>
 Vector<T> operator/(const Vector<T>& vector1, const Vector<T>& vector2);
 
 using Vector3f = Vector<float>;

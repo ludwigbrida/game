@@ -1,10 +1,10 @@
 #ifndef GAME_QUATERNION_HPP
 #define GAME_QUATERNION_HPP
 
-#include "../concepts/ArithmeticType.hpp"
+#include "../types/arithmetic.hpp"
 #include "vector.hpp"
 
-template <ArithmeticType T>
+template <Arithmetic T>
 struct Quaternion {
 	T x = 0;
 	T y = 0;
