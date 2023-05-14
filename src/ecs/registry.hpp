@@ -23,7 +23,7 @@ public:
 	void update(float deltaTime);
 
 	template <Composable T>
-	void add(Entity entity, T value);
+	void add(Entity entity, T value = {});
 
 	template <Composable T>
 	void remove(Entity entity);
