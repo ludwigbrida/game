@@ -1,5 +1,6 @@
 #include "app.hpp"
 #include "../components/mesh.hpp"
+#include "../components/perspective.hpp"
 #include "../components/transform.hpp"
 #include "../systems/renderer.hpp"
 #include "../systems/transformer.hpp"
@@ -29,9 +30,10 @@ App::App() {
 	registry.activate<Renderer>();
 
 	registry.add<Transform>(0, {});
-	registry.add<Transform>(1, {});
+	registry.add<Perspective>(0, {});
 
-	registry.add<Mesh>(0, Mesh::createTriangle(1));
+	registry.add<Transform>(1, {});
+	registry.add<Mesh>(1, Mesh::createTriangle(1));
 }
 
 void App::run() {
