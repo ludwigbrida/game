@@ -1,6 +1,7 @@
 #ifndef GAME_MATRIX_HPP
 #define GAME_MATRIX_HPP
 
+#include "../components/transform.hpp"
 #include "../types/arithmetic.hpp"
 #include "quaternion.hpp"
 #include "vector.hpp"
@@ -31,6 +32,8 @@ struct Matrix {
 	static Matrix<T> fromTranslation(const Vector<T>& vector);
 	static Matrix<T> fromRotation(const Quaternion<T>& quaternion);
 	static Matrix<T> fromScale(const Vector<T>& vector);
+
+	static Matrix<float> fromTransform(const Transform& transform);
 
 	static Matrix<T> fromPerspective(const T& fieldOfView, const T& aspectRatio,
 																	 const T& near, const T& far);

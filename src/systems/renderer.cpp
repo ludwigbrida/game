@@ -14,7 +14,9 @@ void Renderer::run(Registry& registry, float deltaTime) const {
 		auto& transform = registry.get<Transform>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
-		draw();
+		auto modelMatrix = Matrix4f::fromTransform(transform);
+
+		draw(modelMatrix, mesh);
 	}
 }
 
@@ -23,4 +25,6 @@ void Renderer::clear(const Color& color) const {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::draw() const {}
+void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
+	// const float[] vertices = mesh.vertices;
+}

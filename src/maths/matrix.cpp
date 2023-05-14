@@ -56,6 +56,14 @@ Matrix<T> Matrix<T>::fromScale(const Vector<T>& vector) {
 	return matrix;
 }
 
+template <>
+Matrix<float> Matrix<float>::fromTransform(const Transform& transform) {
+	const auto translationMatrix = fromTranslation(transform.position);
+	const auto rotationMatrix = fromRotation(transform.rotation);
+	const auto scaleMatrix = fromScale(transform.scale);
+	return translationMatrix * rotationMatrix * scaleMatrix;
+}
+
 template <Arithmetic T>
 Matrix<T> Matrix<T>::fromPerspective(const T& fieldOfView, const T& aspectRatio,
 																		 const T& near, const T& far) {
