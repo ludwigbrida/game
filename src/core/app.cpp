@@ -29,9 +29,11 @@ App::App() {
 	registry.activate<Transformer>();
 	registry.activate<Renderer>();
 
+	// Player
 	registry.add<Transform>(0, {});
 	registry.add<Perspective>(0, {});
 
+	// Triangle
 	registry.add<Transform>(1, {});
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
 }
