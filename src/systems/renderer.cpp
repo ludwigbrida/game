@@ -3,10 +3,10 @@
 #include "../components/transform.hpp"
 #include "../ecs/registry.hpp"
 #include "../graphics/color.hpp"
-#include <GL/glew.h>
 
 void Renderer::setup() {
-	// todo
+	createShader(GL_VERTEX_SHADER, "");
+	createShader(GL_FRAGMENT_SHADER, "");
 }
 
 void Renderer::update(struct Registry& registry, float deltaTime) const {
@@ -33,6 +33,8 @@ void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
 	// const float[] vertices = mesh.vertices;
 }
 
-void Renderer::createShader() {
-	auto shader = glCreateShader(GL_VERTEX_SHADER);
+void Renderer::createShader(GLenum type, const char* source) {
+	auto shader = glCreateShader(type);
+	glShaderSource(shader, 1, &source, nullptr);
+	glCompileShader(shader);
 }

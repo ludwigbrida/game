@@ -4,6 +4,7 @@
 #include "../components/transform.hpp"
 #include "../ecs/system.hpp"
 #include "../maths/matrix.hpp"
+#include <GL/glew.h>
 
 class Renderer : public System {
 public:
@@ -14,7 +15,7 @@ private:
 	void clear(const class Color& color) const;
 	void draw(const Matrix4f& transform, const class Mesh& mesh) const;
 
-	void createShader();
+	void createShader(GLenum type, const char* source);
 };
 
 #endif
