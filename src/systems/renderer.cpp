@@ -25,6 +25,19 @@ void main()
 }
 )");
 	program = createProgram(vertexShader, fragmentShader);
+
+	float vertices[] = {-0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f, 0.0f};
+
+	vertexArray = createVertexArray();
+	glBindVertexArray(vertexArray);
+
+	auto vertexBuffer = createBuffer();
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
+												(void*)nullptr);
+	glEnableVertexAttribArray(0);
 }
 
 void Renderer::update(struct Registry& registry, float deltaTime) const {
@@ -50,11 +63,11 @@ void Renderer::clear(const Color& color) const {
 }
 
 void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
-												(void*)nullptr);
-	glEnableVertexAttribArray(0);
-
 	// const float[] vertices = mesh.vertices;
+
+	glBindVertexArray(vertexArray);
+
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 UInt Renderer::createShader(GLenum type, const char* source) {
@@ -92,4 +105,16 @@ UInt Renderer::createProgram(UInt vertexShader, UInt fragmentShader) {
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 	return program;
+}
+
+UInt Renderer::createBuffer() {
+	UInt buffer;
+	glGenBuffers(1, &buffer);
+	return buffer;
+}
+
+UInt Renderer::createVertexArray() {
+	UInt vertexArray;
+	glGenVertexArrays(1, &vertexArray);
+	return vertexArray;
 }
