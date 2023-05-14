@@ -32,7 +32,7 @@ void Renderer::update(struct Registry& registry, float deltaTime) const {
 
 	clear(Color::black);
 
-	// glUseProgram(program);
+	glUseProgram(program);
 
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);
@@ -50,6 +50,10 @@ void Renderer::clear(const Color& color) const {
 }
 
 void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
+												(void*)nullptr);
+	glEnableVertexAttribArray(0);
+
 	// const float[] vertices = mesh.vertices;
 }
 
