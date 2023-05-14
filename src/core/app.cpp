@@ -23,10 +23,12 @@ App::App() {
 }
 
 void App::run() {
+	registry.setup();
+
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
 
-		registry.run(0);
+		registry.update(0);
 
 		glfwSwapBuffers(window);
 	}

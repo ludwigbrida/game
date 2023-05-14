@@ -5,7 +5,7 @@
 
 class Transformer : public System {
 public:
-	void run(Registry& registry, float deltaTime) const final;
+	void update(struct Registry& registry, float deltaTime) const final;
 };
 
 #endif

@@ -1,8 +1,14 @@
 #include "registry.hpp"
 #include "system.hpp"
 
-void Registry::run(float deltaTime) {
+void Registry::setup() {
 	for (auto& [_, system] : systems) {
-		system->run(*this, deltaTime);
+		system->setup();
+	}
+}
+
+void Registry::update(float deltaTime) {
+	for (auto& [_, system] : systems) {
+		system->update(*this, deltaTime);
 	}
 }

@@ -18,7 +18,9 @@ using ComponentMap = std::unordered_map<Entity, std::unique_ptr<Component>>;
 
 class Registry {
 public:
-	void run(float deltaTime);
+	void setup();
+
+	void update(float deltaTime);
 
 	template <Composable T>
 	void add(Entity entity, T value);

@@ -3,7 +3,7 @@
 #include "../ecs/registry.hpp" // TODO: Extract
 #include <iostream>
 
-void Transformer::run(Registry& registry, float deltaTime) const {
+void Transformer::update(struct Registry& registry, float deltaTime) const {
 	auto entities = registry.view<Transform>();
 
 	for (auto entity : entities) {

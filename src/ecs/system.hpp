@@ -3,7 +3,8 @@
 
 class System {
 public:
-	virtual void run(class Registry& registry, float deltaTime) const = 0;
+	virtual void setup() {}
+	virtual void update(class Registry& registry, float deltaTime) const = 0;
 	virtual ~System() = default;
 };
 

@@ -5,7 +5,11 @@
 #include "../graphics/color.hpp"
 #include <GLFW/glfw3.h>
 
-void Renderer::run(Registry& registry, float deltaTime) const {
+void Renderer::setup() {
+	// todo
+}
+
+void Renderer::update(struct Registry& registry, float deltaTime) const {
 	auto entities = registry.view<Transform, Mesh>();
 
 	clear(Color::black);

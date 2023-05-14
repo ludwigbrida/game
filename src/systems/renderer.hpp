@@ -7,7 +7,8 @@
 
 class Renderer : public System {
 public:
-	void run(Registry& registry, float deltaTime) const final;
+	void setup() final;
+	void update(struct Registry& registry, float deltaTime) const final;
 
 private:
 	void clear(const class Color& color) const;
