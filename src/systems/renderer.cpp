@@ -5,8 +5,9 @@
 #include "../graphics/color.hpp"
 
 void Renderer::setup() {
-	createShader(GL_VERTEX_SHADER, "");
-	createShader(GL_FRAGMENT_SHADER, "");
+	auto vertexShader = createShader(GL_VERTEX_SHADER, "");
+	auto fragmentShader = createShader(GL_FRAGMENT_SHADER, "");
+	auto program = createProgram(vertexShader, fragmentShader);
 }
 
 void Renderer::update(struct Registry& registry, float deltaTime) const {
@@ -33,8 +34,17 @@ void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
 	// const float[] vertices = mesh.vertices;
 }
 
-void Renderer::createShader(GLenum type, const char* source) {
+UInt Renderer::createShader(GLenum type, const char* source) {
 	auto shader = glCreateShader(type);
 	glShaderSource(shader, 1, &source, nullptr);
 	glCompileShader(shader);
+	return shader;
+}
+
+UInt Renderer::createProgram(UInt vertexShader, UInt fragmentShader) {
+	auto program = glCreateProgram();
+	glAttachShader(program, vertexShader);
+	glAttachShader(program, fragmentShader);
+	glLinkProgram(program);
+	return program;
 }
