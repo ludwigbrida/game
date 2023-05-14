@@ -18,6 +18,8 @@ private:
 
 	UInt createShader(GLenum type, const char* source);
 	UInt createProgram(UInt vertexShader, UInt fragmentShader);
+
+	UInt program;
 };
 
 #endif
