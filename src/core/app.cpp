@@ -3,8 +3,11 @@
 #include "../components/transform.hpp"
 #include "../systems/renderer.hpp"
 #include "../systems/transformer.hpp"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 App::App() {
+	glewInit();
 	glfwInit();
 
 	window = glfwCreateWindow(width, height, "Game", nullptr, nullptr);

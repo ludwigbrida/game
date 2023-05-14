@@ -45,5 +45,6 @@ add_executable(game
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
+find_package(GLEW REQUIRED)
 
-target_link_libraries(game glfw OpenGL::GL)
+target_link_libraries(game OpenGL::GL glfw GLEW::GLEW)

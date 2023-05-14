@@ -3,7 +3,6 @@
 
 #include "../ecs/registry.hpp"
 #include "../types/primitive.hpp"
-#include <GLFW/glfw3.h>
 
 class App {
 public:
@@ -12,7 +11,7 @@ public:
 	~App();
 
 private:
-	GLFWwindow* window;
+	class GLFWwindow* window;
 
 	Registry registry;
 

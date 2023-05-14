@@ -3,7 +3,7 @@
 #include "../components/transform.hpp"
 #include "../ecs/registry.hpp"
 #include "../graphics/color.hpp"
-#include <GLFW/glfw3.h>
+#include <GL/glew.h>
 
 void Renderer::setup() {
 	// todo
@@ -33,4 +33,6 @@ void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
 	// const float[] vertices = mesh.vertices;
 }
 
-void Renderer::createShader() {}
+void Renderer::createShader() {
+	auto shader = glCreateShader(GL_VERTEX_SHADER);
+}
