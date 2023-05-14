@@ -7,12 +7,21 @@
 #include <GLFW/glfw3.h>
 
 App::App() {
-	glewInit();
 	glfwInit();
+
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 
 	window = glfwCreateWindow(width, height, "Game", nullptr, nullptr);
 
 	glfwMakeContextCurrent(window);
+
+	GLenum error = glewInit();
+
+	if (error != GLEW_OK) {
+		fprintf(stderr, "Error: %s\n", glewGetErrorString(error));
+		exit(1);
+	}
 
 	glViewport(0, 0, width, height);
 
