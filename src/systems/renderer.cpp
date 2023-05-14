@@ -84,6 +84,8 @@ void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
 	glBindVertexArray(vertexArray);
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+
+	glBindVertexArray(0);
 }
 
 UInt Renderer::createShader(GLenum type, const char* source) {
