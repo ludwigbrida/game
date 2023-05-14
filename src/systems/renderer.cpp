@@ -32,3 +32,5 @@ void Renderer::clear(const Color& color) const {
 void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
 	// const float[] vertices = mesh.vertices;
 }
+
+void Renderer::createShader() {}
