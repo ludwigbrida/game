@@ -73,7 +73,7 @@ bool Registry::has(Entity entity) {
 
 template <Composable T>
 T& Registry::get(Entity entity) {
-	return dynamic_cast<T&>(*components[typeid(T)].at(entity));
+	return static_cast<T&>(*components[typeid(T)].at(entity));
 }
 
 template <Systemic T>

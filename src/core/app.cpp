@@ -31,7 +31,7 @@ App::App() {
 
 	// Player
 	registry.add<Transform>(0);
-	// registry.add<Perspective>(0, {.fieldOfView = 0.0, .aspectRatio = 0.0});
+	registry.add<Perspective>(0, {.fieldOfView = 0.0, .aspectRatio = 0.0});
 
 	// Triangle
 	registry.add<Transform>(1);
