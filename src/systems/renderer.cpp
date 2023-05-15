@@ -89,6 +89,8 @@ void Renderer::draw(const Matrix4f& modelMatrix, const Matrix4f& viewMatrix,
 	// const float[] vertices = mesh.vertices;
 
 	glUniformMatrix4fv(modelMatrixLocation, 1, false, modelMatrix);
+	glUniformMatrix4fv(viewMatrixLocation, 1, false, viewMatrix);
+	glUniformMatrix4fv(projectionMatrixLocation, 1, false, projectionMatrix);
 
 	glBindVertexArray(vertexArray);
 
