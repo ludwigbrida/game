@@ -34,7 +34,7 @@ App::App() {
 	// registry.add<Perspective>(0, {.fieldOfView = .0, .aspectRatio = .0});
 
 	// Triangle
-	registry.add<Transform>(1, {.position{0, 0, 0}});
+	registry.add<Transform>(1, {.position{1, 0, 0}});
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
 }
 

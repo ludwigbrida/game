@@ -16,7 +16,7 @@ uniform mat4 projectionMatrix;
 layout (location = 0) in vec3 vertexPosition;
 
 void main() {
-	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition, 1);
+	gl_Position = modelMatrix * vec4(vertexPosition, 1);
 }
 )");
 
@@ -82,9 +82,6 @@ void Renderer::update(struct Registry& registry, float deltaTime) const {
 		auto modelMatrix = Matrix4f::fromTransform(transform);
 		auto viewMatrix = Matrix4f();
 		auto projectionMatrix = Matrix4f();
-
-		std::cout << modelMatrix << std::endl;
-		std::cout << viewMatrix << std::endl;
 
 		draw(modelMatrix, viewMatrix, projectionMatrix, mesh);
 	}
