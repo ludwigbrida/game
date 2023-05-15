@@ -26,6 +26,10 @@ void main()
 )");
 	program = createProgram(vertexShader, fragmentShader);
 
+	modelMatrixLocation = glGetUniformLocation(program, "modelMatrix");
+	viewMatrixLocation = glGetUniformLocation(program, "viewMatrix");
+	projectionMatrixLocation = glGetUniformLocation(program, "projectionMatrix");
+
 	float vertices[] = {
 		0.5f,	 0.5f,	0.0f, // top right
 		0.5f,	 -0.5f, 0.0f, // bottom right
@@ -68,8 +72,10 @@ void Renderer::update(struct Registry& registry, float deltaTime) const {
 		auto& mesh = registry.get<Mesh>(entity);
 
 		auto modelMatrix = Matrix4f::fromTransform(transform);
+		auto viewMatrix = Matrix4f();
+		auto projectionMatrix = Matrix4f();
 
-		draw(modelMatrix, mesh);
+		draw(modelMatrix, viewMatrix, projectionMatrix, mesh);
 	}
 }
 
@@ -78,8 +84,11 @@ void Renderer::clear(const Color& color) const {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::draw(const Matrix4f& modelMatrix, const Mesh& mesh) const {
+void Renderer::draw(const Matrix4f& modelMatrix, const Matrix4f& viewMatrix,
+										const Matrix4f& projectionMatrix, const Mesh& mesh) const {
 	// const float[] vertices = mesh.vertices;
+
+	glUniformMatrix4fv(modelMatrixLocation, 1, false, modelMatrix);
 
 	glBindVertexArray(vertexArray);
 
