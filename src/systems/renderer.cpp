@@ -3,6 +3,7 @@
 #include "../components/transform.hpp"
 #include "../ecs/registry.hpp"
 #include "../graphics/color.hpp"
+#include "../maths/radian.hpp"
 #include <iostream>
 
 void Renderer::setup() {
@@ -81,7 +82,8 @@ void Renderer::update(struct Registry& registry, float deltaTime) const {
 
 		auto modelMatrix = Matrix4f::fromTransform(transform);
 		auto viewMatrix = Matrix4f();
-		auto projectionMatrix = Matrix4f();
+		auto projectionMatrix =
+			Matrix4f::fromPerspective(fromDegrees(45), 16. / 9, .1, 1000);
 
 		draw(modelMatrix, viewMatrix, projectionMatrix, mesh);
 	}
