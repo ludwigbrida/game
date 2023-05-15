@@ -7,23 +7,29 @@
 
 void Renderer::setup() {
 	auto vertexShader = createShader(GL_VERTEX_SHADER, R"(
-#version 330 core
-layout (location = 0) in vec3 aPos;
+#version 460 core
 
-void main()
-{
-		gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
+
+layout (location = 0) in vec3 vertexPosition;
+
+void main() {
+	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition, 1);
 }
 )");
+
 	auto fragmentShader = createShader(GL_FRAGMENT_SHADER, R"(
-#version 330 core
-out vec4 FragColor;
+#version 460 core
 
-void main()
-{
-		FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+out vec4 color;
+
+void main() {
+	color = vec4(1, .5, .2, 1);
 }
 )");
+
 	program = createProgram(vertexShader, fragmentShader);
 
 	modelMatrixLocation = glGetUniformLocation(program, "modelMatrix");
