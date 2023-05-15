@@ -30,11 +30,11 @@ App::App() {
 	registry.activate<Renderer>();
 
 	// Player
-	registry.add<Transform>(0);
-	registry.add<Perspective>(0, {.fieldOfView = .0, .aspectRatio = .0});
+	// registry.add<Transform>(0);
+	// registry.add<Perspective>(0, {.fieldOfView = .0, .aspectRatio = .0});
 
 	// Triangle
-	registry.add<Transform>(1);
+	registry.add<Transform>(1, {.position{0, 0, 0}});
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
 }
 

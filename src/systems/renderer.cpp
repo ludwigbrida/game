@@ -77,9 +77,14 @@ void Renderer::update(struct Registry& registry, float deltaTime) const {
 		auto& transform = registry.get<Transform>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
+		std::cout << transform.position.x << std::endl;
+
 		auto modelMatrix = Matrix4f::fromTransform(transform);
 		auto viewMatrix = Matrix4f();
 		auto projectionMatrix = Matrix4f();
+
+		std::cout << modelMatrix << std::endl;
+		std::cout << viewMatrix << std::endl;
 
 		draw(modelMatrix, viewMatrix, projectionMatrix, mesh);
 	}

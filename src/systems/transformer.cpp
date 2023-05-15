@@ -8,7 +8,5 @@ void Transformer::update(struct Registry& registry, float deltaTime) const {
 
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);
-
-		transform.position.x = 5;
 	}
 }
