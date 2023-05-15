@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(game
 	# components
 	src/components/mesh.hpp
+	src/components/perspective.hpp
 	src/components/transform.hpp
 	# core
 	src/core/app.cpp
@@ -27,6 +28,7 @@ add_executable(game
 	src/maths/matrix.hpp
 	src/maths/quaternion.cpp
 	src/maths/quaternion.hpp
+	src/maths/radian.hpp
 	src/maths/vector.cpp
 	src/maths/vector.hpp
 	# systems
@@ -41,7 +43,7 @@ add_executable(game
 	src/types/systemic.hpp
 	src/types/vertex.hpp
 	# other
-	src/main.cpp src/components/perspective.hpp src/maths/radian.hpp)
+	src/main.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
