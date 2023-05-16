@@ -8,7 +8,7 @@
 
 void Renderer::setup() {
 	auto vertexShader = createShader(GL_VERTEX_SHADER, R"(
-#version 460 core
+#version 410 core
 
 uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
@@ -22,7 +22,7 @@ void main() {
 )");
 
 	auto fragmentShader = createShader(GL_FRAGMENT_SHADER, R"(
-#version 460 core
+#version 410 core
 
 out vec4 color;
 
