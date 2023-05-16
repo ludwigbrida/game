@@ -44,12 +44,6 @@ struct Matrix {
 };
 
 template <Arithmetic T>
-Matrix<T> Matrix<T>::inverted() const {
-	// todo
-	return Matrix<T>();
-}
-
-template <Arithmetic T>
 Matrix<T> operator*(const Matrix<T>& matrix1, const Matrix<T>& matrix2);
 
 using Matrix4f = Matrix<float>;
