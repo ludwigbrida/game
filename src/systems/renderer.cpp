@@ -74,16 +74,20 @@ void Renderer::update(struct Registry& registry, float deltaTime) const {
 
 	glUseProgram(program);
 
+	auto projectionMatrix =
+		Matrix4f::fromPerspective(fromDegrees(90), 16. / 9, .1, 1000);
+
+	auto cameraTranslation = Matrix4f::fromTranslation({0, 0, 0});
+	auto cameraRotation = Matrix4f::fromRotation({0, 0, 0, 1});
+	auto cameraMatrix = cameraRotation * cameraTranslation;
+
+	auto viewMatrix = cameraMatrix.inverted();
+
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
-		std::cout << transform.position.x << std::endl;
-
 		auto modelMatrix = Matrix4f::fromTransform(transform);
-		auto viewMatrix = Matrix4f();
-		auto projectionMatrix =
-			Matrix4f::fromPerspective(fromDegrees(90), 16. / 9, .1, 1000);
 
 		draw(modelMatrix, viewMatrix, projectionMatrix, mesh);
 	}

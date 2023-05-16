@@ -29,6 +29,8 @@ struct Matrix {
 	Matrix(T m00, T m01, T m02, T m03, T m10, T m11, T m12, T m13, T m20, T m21,
 				 T m22, T m23, T m30, T m31, T m32, T m33);
 
+	Matrix<T> inverted() const;
+
 	operator const T*() const { return reinterpret_cast<const T*>(this); }
 
 	static Matrix<T> fromTranslation(const Vector<T>& vector);
@@ -40,6 +42,12 @@ struct Matrix {
 	static Matrix<T> fromPerspective(const T& fieldOfView, const T& aspectRatio,
 																	 const T& near, const T& far);
 };
+
+template <Arithmetic T>
+Matrix<T> Matrix<T>::inverted() const {
+	// todo
+	return Matrix<T>();
+}
 
 template <Arithmetic T>
 Matrix<T> operator*(const Matrix<T>& matrix1, const Matrix<T>& matrix2);
