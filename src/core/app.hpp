@@ -15,8 +15,8 @@ private:
 
 	Registry registry;
 
-	Int width = 640;
-	Int height = 480;
+	Int width = 960;
+	Int height = 540;
 };
 
 #endif
