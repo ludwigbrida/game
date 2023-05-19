@@ -39,7 +39,7 @@ App::App() {
 
 	// Object 2
 	registry.add<Transform>(2, {.position{0, 0, 0}});
-	registry.add<Mesh>(2, Mesh::createTriangle(1));
+	registry.add<Mesh>(2, Mesh::createTriangle(4));
 }
 
 void App::run() {

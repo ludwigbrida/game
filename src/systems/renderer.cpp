@@ -42,11 +42,9 @@ void main() {
 	modelMatrixLocation = glGetUniformLocation(program, "modelMatrix");
 	viewMatrixLocation = glGetUniformLocation(program, "viewMatrix");
 	projectionMatrixLocation = glGetUniformLocation(program, "projectionMatrix");
-
-	add(1, Mesh::createTriangle(1));
 }
 
-void Renderer::update(struct Registry& registry, float deltaTime) const {
+void Renderer::update(struct Registry& registry, float deltaTime) {
 	auto entities = registry.view<Transform, Mesh>();
 
 	clear(Color::black);
@@ -65,6 +63,9 @@ void Renderer::update(struct Registry& registry, float deltaTime) const {
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
+
+		if (!vertexArrays.contains(entity))
+			add(entity, mesh);
 
 		auto modelMatrix = Matrix4f::fromTransform(transform);
 

@@ -13,7 +13,7 @@
 class Renderer : public System {
 public:
 	void setup() final;
-	void update(struct Registry& registry, float deltaTime) const final;
+	void update(struct Registry& registry, float deltaTime) final;
 
 private:
 	void clear(const class Color& color) const;
