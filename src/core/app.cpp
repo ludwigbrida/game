@@ -26,8 +26,6 @@ App::App() {
 		exit(1);
 	}
 
-	glViewport(0, 0, width, height);
-
 	registry.activate<Transformer>();
 	registry.activate<Renderer>();
 
@@ -35,9 +33,13 @@ App::App() {
 	// registry.add<Transform>(0);
 	// registry.add<Perspective>(0, {.fieldOfView = .0, .aspectRatio = .0});
 
-	// Triangle
-	registry.add<Transform>(1, {.position{1, 0, 0}});
+	// Object 1
+	registry.add<Transform>(1, {.position{5, 0, -3}});
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
+
+	// Object 2
+	registry.add<Transform>(2, {.position{0, 0, 0}});
+	registry.add<Mesh>(2, Mesh::createTriangle(1));
 }
 
 void App::run() {
@@ -45,6 +47,8 @@ void App::run() {
 
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
+
+		glViewport(0, 0, width, height);
 
 		registry.update(0);
 
