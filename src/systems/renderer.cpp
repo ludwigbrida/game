@@ -15,8 +15,12 @@ uniform mat4 viewMatrix;
 uniform mat4 projectionMatrix;
 
 layout (location = 0) in vec3 vertexPosition;
+layout (location = 2) in vec3 vertexColor;
+
+out vec3 fragmentColor;
 
 void main() {
+	fragmentColor = vertexColor;
 	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition, 1);
 }
 )");
@@ -24,10 +28,12 @@ void main() {
 	auto fragmentShader = createShader(GL_FRAGMENT_SHADER, R"(
 #version 410 core
 
+in vec3 fragmentColor;
+
 out vec4 color;
 
 void main() {
-	color = vec4(1, .5, .2, 1);
+	color = vec4(fragmentColor, 1);
 }
 )");
 
@@ -36,37 +42,6 @@ void main() {
 	modelMatrixLocation = glGetUniformLocation(program, "modelMatrix");
 	viewMatrixLocation = glGetUniformLocation(program, "viewMatrix");
 	projectionMatrixLocation = glGetUniformLocation(program, "projectionMatrix");
-
-	/*
-	float vertices[] = {
-		0.5f,	 0.5f,	0.0f, // top right
-		0.5f,	 -0.5f, 0.0f, // bottom right
-		-0.5f, -0.5f, 0.0f, // bottom left
-		-0.5f, 0.5f,	0.0f	// top left
-	};
-
-	unsigned int indices[] = {
-		// note that we start from 0!
-		0, 1, 3, // first triangle
-		1, 2, 3	 // second triangle
-	};
-
-	vertexArray = createVertexArray();
-	glBindVertexArray(vertexArray);
-
-	auto vertexBuffer = createBuffer();
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
-												(void*)nullptr);
-	glEnableVertexAttribArray(0);
-
-	auto indexBuffer = createBuffer();
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices,
-							 GL_STATIC_DRAW);
-							 */
 
 	add(1, Mesh::createTriangle(1));
 }
@@ -178,12 +153,12 @@ void Renderer::add(Entity entity, const Mesh& mesh) {
 		vertices.push_back(vertex.position.x);
 		vertices.push_back(vertex.position.y);
 		vertices.push_back(vertex.position.z);
-		// vertices.push_back(vertex.normal.x);
-		// vertices.push_back(vertex.normal.y);
-		// vertices.push_back(vertex.normal.z);
-		// vertices.push_back(vertex.color.x);
-		// vertices.push_back(vertex.color.y);
-		// vertices.push_back(vertex.color.z);
+		vertices.push_back(vertex.normal.x);
+		vertices.push_back(vertex.normal.y);
+		vertices.push_back(vertex.normal.z);
+		vertices.push_back(vertex.color.x);
+		vertices.push_back(vertex.color.y);
+		vertices.push_back(vertex.color.z);
 	}
 
 	auto vertexBuffer = createBuffer();
@@ -191,9 +166,14 @@ void Renderer::add(Entity entity, const Mesh& mesh) {
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float),
 							 vertices.data(), GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
-												(void*)nullptr);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float),
+												(void*)(3 * sizeof(float)));
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float),
+												(void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
 
 	auto indexBuffer = createBuffer();
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
