@@ -37,6 +37,7 @@ void main() {
 	viewMatrixLocation = glGetUniformLocation(program, "viewMatrix");
 	projectionMatrixLocation = glGetUniformLocation(program, "projectionMatrix");
 
+	/*
 	float vertices[] = {
 		0.5f,	 0.5f,	0.0f, // top right
 		0.5f,	 -0.5f, 0.0f, // bottom right
@@ -65,6 +66,9 @@ void main() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices,
 							 GL_STATIC_DRAW);
+							 */
+
+	add(1, Mesh::createTriangle(1));
 }
 
 void Renderer::update(struct Registry& registry, float deltaTime) const {
@@ -100,17 +104,18 @@ void Renderer::clear(const Color& color) const {
 
 void Renderer::draw(const Matrix4f& modelMatrix, const Matrix4f& viewMatrix,
 										const Matrix4f& projectionMatrix, const Mesh& mesh) const {
-	// const float[] vertices = mesh.vertices;
-
 	glUniformMatrix4fv(modelMatrixLocation, 1, false, modelMatrix);
 	glUniformMatrix4fv(viewMatrixLocation, 1, false, viewMatrix);
 	glUniformMatrix4fv(projectionMatrixLocation, 1, false, projectionMatrix);
 
-	glBindVertexArray(vertexArray);
+	for (auto [_, vertexArrayAndIndices] : vertexArrays) {
+		auto [vertexArray, indices] = vertexArrayAndIndices;
+		glBindVertexArray(vertexArray);
 
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, indices, GL_UNSIGNED_INT, nullptr);
 
-	glBindVertexArray(0);
+		glBindVertexArray(0);
+	}
 }
 
 UInt Renderer::createShader(GLenum type, const char* source) {
@@ -160,4 +165,51 @@ UInt Renderer::createVertexArray() {
 	UInt vertexArray;
 	glGenVertexArrays(1, &vertexArray);
 	return vertexArray;
+}
+
+// New approach
+
+void Renderer::add(Entity entity, const Mesh& mesh) {
+	auto vertexArray = createVertexArray();
+	glBindVertexArray(vertexArray);
+
+	std::vector<float> vertices;
+	for (const auto& vertex : mesh.vertices) {
+		vertices.push_back(vertex.position.x);
+		vertices.push_back(vertex.position.y);
+		vertices.push_back(vertex.position.z);
+		// vertices.push_back(vertex.normal.x);
+		// vertices.push_back(vertex.normal.y);
+		// vertices.push_back(vertex.normal.z);
+		// vertices.push_back(vertex.color.x);
+		// vertices.push_back(vertex.color.y);
+		// vertices.push_back(vertex.color.z);
+	}
+
+	auto vertexBuffer = createBuffer();
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float),
+							 vertices.data(), GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),
+												(void*)nullptr);
+	glEnableVertexAttribArray(0);
+
+	auto indexBuffer = createBuffer();
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER,
+							 mesh.indices.size() * sizeof(unsigned int), mesh.indices.data(),
+							 GL_STATIC_DRAW);
+
+	glBindVertexArray(0);
+
+	vertexArrays.insert({entity, {vertexArray, mesh.indices.size()}});
+}
+
+void Renderer::remove(Entity entity) {
+	auto [vertexArray, _] = vertexArrays.at(entity);
+
+	glDeleteVertexArrays(1, &vertexArray);
+
+	vertexArrays.erase(entity);
 }

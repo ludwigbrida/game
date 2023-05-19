@@ -2,10 +2,13 @@
 #define GAME_RENDERER_HPP
 
 #include "../components/transform.hpp"
+#include "../ecs/entity.hpp"
 #include "../ecs/system.hpp"
 #include "../maths/matrix.hpp"
 #include "../types/primitive.hpp"
 #include <GL/glew.h>
+#include <memory>
+#include <unordered_map>
 
 class Renderer : public System {
 public:
@@ -23,11 +26,16 @@ private:
 	UInt createVertexArray();
 
 	UInt program;
-	UInt vertexArray;
 
 	Int modelMatrixLocation;
 	Int viewMatrixLocation;
 	Int projectionMatrixLocation;
+
+	// New approach
+	std::unordered_map<Entity, std::pair<UInt, Int>> vertexArrays;
+
+	void add(Entity entity, const Mesh& mesh);
+	void remove(Entity entity);
 };
 
 #endif
