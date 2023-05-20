@@ -1,7 +1,7 @@
 #ifndef GAME_VERTEX_HPP
 #define GAME_VERTEX_HPP
 
-#include "../graphics/color.hpp"
+#include "../graphics/Color.hpp"
 #include "../maths/vector.hpp"
 
 struct Vertex {

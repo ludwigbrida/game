@@ -1,4 +1,4 @@
-#include "color.hpp"
+#include "Color.hpp"
 
 Color Color::red{1, 0, 0};
 

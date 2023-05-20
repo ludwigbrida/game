@@ -12,6 +12,7 @@ add_executable(game
 	# core
 	src/core/app.cpp
 	src/core/app.hpp
+	src/core/State.hpp
 	# ecs
 	src/ecs/component.hpp
 	src/ecs/entity.hpp
@@ -19,8 +20,8 @@ add_executable(game
 	src/ecs/registry.hpp
 	src/ecs/system.hpp
 	# graphics
-	src/graphics/color.cpp
-	src/graphics/color.hpp
+	src/graphics/Color.cpp
+	src/graphics/Color.hpp
 	src/graphics/shader.cpp
 	src/graphics/shader.hpp
 	# maths
@@ -43,7 +44,7 @@ add_executable(game
 	src/types/systemic.hpp
 	src/types/vertex.hpp
 	# other
-	src/main.cpp src/core/State.hpp)
+	src/main.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
