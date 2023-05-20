@@ -14,17 +14,17 @@ struct Mesh : Component {
 		mesh.vertices = {{
 											 Vector3f(0, radius, 0),
 											 Vector3f::backward,
-											 Vector3f(1, 0, 0),
+											 Color::red,
 										 },
 										 {
 											 Vector3f(-radius, -radius, 0),
 											 Vector3f::backward,
-											 Vector3f(0, 1, 0),
+											 Color::green,
 										 },
 										 {
 											 Vector3f(radius, -radius, 0),
 											 Vector3f::backward,
-											 Vector3f(0, 0, 1),
+											 Color::blue,
 										 }};
 		mesh.indices = {0, 1, 2};
 		return mesh;

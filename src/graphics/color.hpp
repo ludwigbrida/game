@@ -7,9 +7,6 @@ struct Color {
 	float b = 0;
 	float a = 1;
 
-	Color();
-	Color(float r, float g, float b);
-
 	static Color red;
 	static Color green;
 	static Color blue;

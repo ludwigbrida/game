@@ -157,9 +157,9 @@ void Renderer::add(Entity entity, const Mesh& mesh) {
 		vertices.push_back(vertex.normal.x);
 		vertices.push_back(vertex.normal.y);
 		vertices.push_back(vertex.normal.z);
-		vertices.push_back(vertex.color.x);
-		vertices.push_back(vertex.color.y);
-		vertices.push_back(vertex.color.z);
+		vertices.push_back(vertex.color.r);
+		vertices.push_back(vertex.color.g);
+		vertices.push_back(vertex.color.b);
 	}
 
 	auto vertexBuffer = createBuffer();

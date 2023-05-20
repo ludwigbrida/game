@@ -1,21 +1,17 @@
 #include "color.hpp"
 
-Color::Color() = default;
+Color Color::red{1, 0, 0};
 
-Color::Color(float r, float g, float b) : r(r), g(g), b(b) {}
+Color Color::green{0, 1, 0};
 
-Color Color::red = Color(1, 0, 0);
+Color Color::blue{0, 0, 1};
 
-Color Color::green = Color(0, 1, 0);
+Color Color::cyan{0, 1, 1};
 
-Color Color::blue = Color(0, 0, 1);
+Color Color::magenta{1, 0, 1};
 
-Color Color::cyan = Color(0, 1, 1);
+Color Color::yellow{1, 1, 0};
 
-Color Color::magenta = Color(1, 0, 1);
+Color Color::white{1, 1, 1};
 
-Color Color::yellow = Color(1, 1, 0);
-
-Color Color::white = Color(1, 1, 1);
-
-Color Color::black = Color(0, 0, 0);
+Color Color::black{0, 0, 0};
