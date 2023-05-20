@@ -1,4 +1,4 @@
-project(lib)
+project(lib VERSION 0.0.0)
 
 add_library(lib
 	# components

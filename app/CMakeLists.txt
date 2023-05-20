@@ -1,4 +1,4 @@
-project(app)
+project(app VERSION 0.0.0)
 
 add_executable(app
 	# other
