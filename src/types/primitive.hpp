@@ -6,6 +6,4 @@ using UInt = unsigned int;
 
 using Float = float;
 
-using Double = double;
-
 #endif

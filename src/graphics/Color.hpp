@@ -7,14 +7,14 @@ struct Color {
 	float b = 0;
 	float a = 1;
 
-	static Color red;
-	static Color green;
-	static Color blue;
-	static Color cyan;
-	static Color magenta;
-	static Color yellow;
-	static Color white;
-	static Color black;
+	static const Color red;
+	static const Color green;
+	static const Color blue;
+	static const Color cyan;
+	static const Color magenta;
+	static const Color yellow;
+	static const Color white;
+	static const Color black;
 };
 
 #endif
