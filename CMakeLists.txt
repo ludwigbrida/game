@@ -43,7 +43,7 @@ add_executable(game
 	src/types/systemic.hpp
 	src/types/vertex.hpp
 	# other
-	src/main.cpp)
+	src/main.cpp src/core/State.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)

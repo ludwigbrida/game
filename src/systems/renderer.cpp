@@ -44,7 +44,7 @@ void main() {
 	projectionMatrixLocation = glGetUniformLocation(program, "projectionMatrix");
 }
 
-void Renderer::update(struct Registry& registry, float deltaTime) {
+void Renderer::update(Registry& registry, State& state, float deltaTime) {
 	auto entities = registry.view<Transform, Mesh>();
 
 	clear(Color::black);

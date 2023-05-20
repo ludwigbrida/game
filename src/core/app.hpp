@@ -3,6 +3,7 @@
 
 #include "../ecs/registry.hpp"
 #include "../types/primitive.hpp"
+#include "State.hpp"
 
 class App {
 public:
@@ -14,6 +15,7 @@ private:
 	class GLFWwindow* window;
 
 	Registry registry;
+	State state;
 
 	Int width = 960;
 	Int height = 540;

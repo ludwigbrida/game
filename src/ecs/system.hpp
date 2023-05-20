@@ -4,7 +4,8 @@
 class System {
 public:
 	virtual void setup() {}
-	virtual void update(class Registry& registry, float deltaTime) = 0;
+	virtual void update(class Registry& registry, struct State& state,
+											float deltaTime) = 0;
 	virtual ~System() = default;
 };
 

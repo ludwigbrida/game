@@ -1,6 +1,7 @@
 #ifndef GAME_REGISTRY_HPP
 #define GAME_REGISTRY_HPP
 
+#include "../core/State.hpp"
 #include "../types/composable.hpp"
 #include "../types/systemic.hpp"
 #include "component.hpp"
@@ -20,7 +21,7 @@ class Registry {
 public:
 	void setup();
 
-	void update(float deltaTime);
+	void update(State& state, float deltaTime);
 
 	template <Composable T>
 	void add(Entity entity, T value = {});

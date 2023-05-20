@@ -5,7 +5,8 @@
 
 class Transformer : public System {
 public:
-	void update(struct Registry& registry, float deltaTime) final;
+	void update(class Registry& registry, struct State& state,
+							float deltaTime) final;
 };
 
 #endif

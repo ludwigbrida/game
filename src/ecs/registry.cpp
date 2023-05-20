@@ -1,4 +1,5 @@
 #include "registry.hpp"
+#include "../core/State.hpp"
 #include "system.hpp"
 
 void Registry::setup() {
@@ -7,8 +8,8 @@ void Registry::setup() {
 	}
 }
 
-void Registry::update(float deltaTime) {
+void Registry::update(State& state, float deltaTime) {
 	for (auto& [_, system] : systems) {
-		system->update(*this, deltaTime);
+		system->update(*this, state, deltaTime);
 	}
 }
