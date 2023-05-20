@@ -4,5 +4,5 @@ project(game VERSION 0.0.0)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_subdirectory(lib)
 add_subdirectory(app)
+add_subdirectory(lib)
