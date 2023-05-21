@@ -8,5 +8,5 @@ int main() {
 
 	ng::UInt var = 0;
 
-	ng::Vector3f vector;
+	ng::Vector3f vector(0, 0, 0);
 }

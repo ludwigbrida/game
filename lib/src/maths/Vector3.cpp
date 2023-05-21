@@ -1,6 +1,13 @@
 #include <Engine/maths/Vector3.hpp>
 
-template <typename T>
-constexpr ng::Vector3<T>::Vector3() = default;
+namespace ng {
 
-template class ng::Vector3<float>;
+template <typename T>
+constexpr Vector3<T>::Vector3(T x, T y, T z) : x(x), y(y), z(z) {}
+
+template <typename T>
+constexpr Vector3<T> Vector3<T>::Right(1, 0, 0);
+
+template class Vector3<float>;
+
+}
