@@ -1,5 +1,5 @@
-#ifndef GAME_TRANSFORM_HPP
-#define GAME_TRANSFORM_HPP
+#ifndef ENGINE_TRANSFORM_HPP
+#define ENGINE_TRANSFORM_HPP
 
 #include "../ecs/component.hpp"
 #include "../maths/quaternion.hpp"

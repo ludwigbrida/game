@@ -1,7 +1,7 @@
 #include "app.hpp"
-#include "../components/mesh.hpp"
-#include "../components/perspective.hpp"
-#include "../components/transform.hpp"
+#include "../components/Mesh.hpp"
+#include "../components/Perspective.hpp"
+#include "../components/Transform.hpp"
 #include "../systems/renderer.hpp"
 #include "../systems/transformer.hpp"
 #include <GL/glew.h>

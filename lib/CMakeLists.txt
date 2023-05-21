@@ -2,9 +2,9 @@ project(lib VERSION 0.0.0)
 
 add_library(lib
 	# components
-	src/components/mesh.hpp
-	src/components/perspective.hpp
-	src/components/transform.hpp
+	src/components/Mesh.hpp
+	src/components/Perspective.hpp
+	src/components/Transform.hpp
 	# core
 	src/core/app.cpp
 	src/core/app.hpp

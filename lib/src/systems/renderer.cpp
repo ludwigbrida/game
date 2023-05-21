@@ -1,6 +1,6 @@
 #include "renderer.hpp"
-#include "../components/mesh.hpp"
-#include "../components/transform.hpp"
+#include "../components/Mesh.hpp"
+#include "../components/Transform.hpp"
 #include "../ecs/registry.hpp"
 #include "../graphics/Color.hpp"
 #include "../maths/radian.hpp"

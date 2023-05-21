@@ -1,7 +1,7 @@
 #ifndef GAME_RENDERER_HPP
 #define GAME_RENDERER_HPP
 
-#include "../components/transform.hpp"
+#include "../components/Transform.hpp"
 #include "../core/State.hpp"
 #include "../ecs/entity.hpp"
 #include "../ecs/system.hpp"

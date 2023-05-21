@@ -1,5 +1,5 @@
-#ifndef GAME_MESH_HPP
-#define GAME_MESH_HPP
+#ifndef ENGINE_MESH_HPP
+#define ENGINE_MESH_HPP
 
 #include "../types/vertex.hpp"
 #include <vector>

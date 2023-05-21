@@ -1,5 +1,5 @@
 #include "transformer.hpp"
-#include "../components/transform.hpp"
+#include "../components/Transform.hpp"
 #include "../core/State.hpp"
 #include "../ecs/registry.hpp" // TODO: Extract
 #include <iostream>

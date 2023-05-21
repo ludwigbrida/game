@@ -1,7 +1,7 @@
 #ifndef GAME_MATRIX_HPP
 #define GAME_MATRIX_HPP
 
-#include "../components/transform.hpp"
+#include "../components/Transform.hpp"
 #include "../types/arithmetic.hpp"
 #include "quaternion.hpp"
 #include "vector.hpp"
