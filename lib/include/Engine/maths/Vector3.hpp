@@ -6,19 +6,19 @@ namespace ng {
 template <typename T>
 class Vector3 {
 public:
-	T x;
-	T y;
-	T z;
+	T x{};
+	T y{};
+	T z{};
 
 	constexpr Vector3(T x, T y, T z);
 
 	static const Vector3<T> Right;
 };
 
-#include <Engine/maths/Vector3.inl>
-
 using Vector3f = Vector3<float>;
 
 }
+
+#include <Engine/maths/Vector3.inl>
 
 #endif
