@@ -2,7 +2,7 @@
 #include "../components/Mesh.hpp"
 #include "../components/Transform.hpp"
 #include "../ecs/registry.hpp"
-#include "../graphics/Color.hpp"
+#include "../gfx/Color.hpp"
 #include "../maths/radian.hpp"
 #include <iostream>
 

@@ -16,10 +16,10 @@ add_library(lib
 	src/ecs/registry.hpp
 	src/ecs/system.hpp
 	# graphics
-	src/graphics/Color.cpp
-	src/graphics/Color.hpp
-	src/graphics/shader.cpp
-	src/graphics/shader.hpp
+	src/gfx/Color.cpp
+	src/gfx/Color.hpp
+	src/gfx/shader.cpp
+	src/gfx/shader.hpp
 	# maths
 	src/maths/matrix.cpp
 	src/maths/matrix.hpp
@@ -40,7 +40,7 @@ add_library(lib
 	src/types/systemic.hpp
 	src/types/vertex.hpp
 	# other
-	include/Engine/UInt.hpp include/Engine/maths/Vector3.hpp include/Engine/maths/Vector3.inl src/maths/Vector3.cpp)
+	include/Engine/UInt.hpp include/Engine/maths/Vector3.hpp include/Engine/maths/Vector3.inl src/maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
