@@ -1,5 +1,3 @@
-#include <Engine/Maths/Vector3.hpp>
-
 namespace ng {
 
 template <typename T>
