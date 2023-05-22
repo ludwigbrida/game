@@ -3,6 +3,6 @@
 namespace ng {
 
 template <typename T>
-constexpr Vector3<T>::Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {}
+constexpr Vector3<T> Vector3<T>::Right{1, 0, 0};
 
 }

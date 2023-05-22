@@ -23,6 +23,9 @@ public:
 	static const Color Transparent;
 };
 
+// todo:
+// https://stackoverflow.com/questions/43172652/static-const-declaration-constexpr-definition-of-variable-valid-c
+
 }
 
 #endif

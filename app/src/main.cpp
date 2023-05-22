@@ -9,4 +9,5 @@ int main() {
 	ng::UInt var{0};
 
 	ng::Vector3f vector{1, 2, 3};
+	auto right = ng::Vector3f::Right;
 }
