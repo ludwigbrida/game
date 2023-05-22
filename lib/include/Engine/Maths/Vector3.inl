@@ -1,4 +1,4 @@
-#include <Engine/maths/Vector3.hpp>
+#include <Engine/Maths/Vector3.hpp>
 
 namespace ng {
 

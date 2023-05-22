@@ -17,6 +17,6 @@ using Vector3f = Vector3<float>;
 
 }
 
-#include <Engine/maths/Vector3.inl>
+#include <Engine/Maths/Vector3.inl>
 
 #endif

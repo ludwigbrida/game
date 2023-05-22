@@ -20,7 +20,7 @@ add_library(lib
 	src/gfx/Color.hpp
 	src/gfx/shader.cpp
 	src/gfx/shader.hpp
-	# maths
+	# Maths
 	src/maths/matrix.cpp
 	src/maths/matrix.hpp
 	src/maths/quaternion.cpp
@@ -40,7 +40,7 @@ add_library(lib
 	src/types/systemic.hpp
 	src/types/vertex.hpp
 	# other
-	include/Engine/UInt.hpp include/Engine/maths/Vector3.hpp include/Engine/maths/Vector3.inl src/maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp)
+	include/Engine/UInt.hpp include/Engine/Maths/Vector3.hpp include/Engine/Maths/Vector3.inl src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
