@@ -5,7 +5,7 @@
 #include "../core/State.hpp"
 #include "../ecs/entity.hpp"
 #include "../ecs/system.hpp"
-#include "../maths/matrix.hpp"
+#include "../math/matrix.hpp"
 #include "../types/primitive.hpp"
 #include <GL/glew.h>
 #include <memory>

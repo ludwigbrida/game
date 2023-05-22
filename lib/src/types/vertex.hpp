@@ -2,7 +2,7 @@
 #define GAME_VERTEX_HPP
 
 #include "../gfx/Color.hpp"
-#include "../maths/vector.hpp"
+#include "../math/vector.hpp"
 
 struct Vertex {
 	Vector3f position;

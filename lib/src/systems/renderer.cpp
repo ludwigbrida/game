@@ -3,7 +3,7 @@
 #include "../components/Transform.hpp"
 #include "../ecs/registry.hpp"
 #include "../gfx/Color.hpp"
-#include "../maths/radian.hpp"
+#include "../math/radian.hpp"
 #include <iostream>
 
 void Renderer::setup() {

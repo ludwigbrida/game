@@ -2,8 +2,8 @@
 #define ENGINE_TRANSFORM_HPP
 
 #include "../ecs/component.hpp"
-#include "../maths/quaternion.hpp"
-#include "../maths/vector.hpp"
+#include "../math/quaternion.hpp"
+#include "../math/vector.hpp"
 
 struct Transform : Component {
 	Vector3f position;

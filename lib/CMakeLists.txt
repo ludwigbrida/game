@@ -21,13 +21,13 @@ add_library(lib
 	src/gfx/shader.cpp
 	src/gfx/shader.hpp
 	# Maths
-	src/maths/matrix.cpp
-	src/maths/matrix.hpp
-	src/maths/quaternion.cpp
-	src/maths/quaternion.hpp
-	src/maths/radian.hpp
-	src/maths/vector.cpp
-	src/maths/vector.hpp
+	src/math/matrix.cpp
+	src/math/matrix.hpp
+	src/math/quaternion.cpp
+	src/math/quaternion.hpp
+	src/math/radian.hpp
+	src/math/vector.cpp
+	src/math/vector.hpp
 	# systems
 	src/systems/renderer.cpp
 	src/systems/renderer.hpp
@@ -40,7 +40,7 @@ add_library(lib
 	src/types/systemic.hpp
 	src/types/vertex.hpp
 	# other
-	include/Engine/UInt.hpp include/Engine/Maths/Vector3.hpp include/Engine/Maths/Vector3.inl src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp)
+	include/Engine/UInt.hpp include/Engine/Maths/Vector3.hpp include/Engine/Maths/Vector3.inl src/math/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
