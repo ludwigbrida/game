@@ -1,7 +1,7 @@
 #ifndef ENGINE_COLOR_HPP
 #define ENGINE_COLOR_HPP
 
-#include <Engine/Types/UInt.hpp>
+#include <Engine/Types/Scalar.hpp>
 
 namespace ng {
 

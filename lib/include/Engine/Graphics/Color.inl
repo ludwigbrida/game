@@ -1,6 +1,8 @@
 #ifndef ENGINE_COLOR_INL
 #define ENGINE_COLOR_INL
 
+#include <Engine/Graphics/Color.hpp>
+
 namespace ng {
 
 constexpr Color Color::Red{255, 0, 0};
