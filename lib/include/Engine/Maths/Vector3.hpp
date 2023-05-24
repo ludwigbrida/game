@@ -26,9 +26,22 @@ public:
 template <IsArithmetic T>
 const Vector3<T> Vector3<T>::Right{1, 0, 0};
 
-using Vector3i = Vector3<Int32>;
+template <IsArithmetic T>
+const Vector3<T> Vector3<T>::Left{-1, 0, 0};
 
-using Vector3u = Vector3<UInt32>;
+template <IsArithmetic T>
+const Vector3<T> Vector3<T>::Up{0, 1, 0};
+
+template <IsArithmetic T>
+const Vector3<T> Vector3<T>::Down{0, -1, 0};
+
+template <IsArithmetic T>
+const Vector3<T> Vector3<T>::Backward{0, 0, 1};
+
+template <IsArithmetic T>
+const Vector3<T> Vector3<T>::Forward{0, 0, -1};
+
+using Vector3i = Vector3<Int32>;
 
 using Vector3f = Vector3<Float>;
 
