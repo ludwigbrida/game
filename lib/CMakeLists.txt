@@ -33,14 +33,14 @@ add_library(lib
 	src/systems/renderer.hpp
 	src/systems/transformer.cpp
 	src/systems/transformer.hpp
-	# types
-	src/types/arithmetic.hpp
-	src/types/composable.hpp
-	src/types/primitive.hpp
-	src/types/systemic.hpp
-	src/types/vertex.hpp
+	# types_legacy
+	src/types_legacy/arithmetic.hpp
+	src/types_legacy/composable.hpp
+	src/types_legacy/primitive.hpp
+	src/types_legacy/systemic.hpp
+	src/types_legacy/vertex.hpp
 	# other
-	include/Engine/UInt.hpp include/Engine/Maths/Vector3.hpp include/Engine/Maths/Vector3.inl src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp)
+	include/Engine/UInt.hpp include/Engine/Maths/Vector3.hpp src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp src/Types/IsArithmetic.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

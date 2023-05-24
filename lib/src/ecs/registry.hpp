@@ -2,8 +2,8 @@
 #define GAME_REGISTRY_HPP
 
 #include "../core/State.hpp"
-#include "../types/composable.hpp"
-#include "../types/systemic.hpp"
+#include "../types_legacy/composable.hpp"
+#include "../types_legacy/systemic.hpp"
 #include "component.hpp"
 #include "entity.hpp"
 #include "system.hpp"

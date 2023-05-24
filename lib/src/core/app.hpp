@@ -2,7 +2,7 @@
 #define GAME_APP_HPP
 
 #include "../ecs/registry.hpp"
-#include "../types/primitive.hpp"
+#include "../types_legacy/primitive.hpp"
 #include "State.hpp"
 
 class App {

@@ -1,7 +1,7 @@
 #ifndef ENGINE_MESH_HPP
 #define ENGINE_MESH_HPP
 
-#include "../types/vertex.hpp"
+#include "../types_legacy/vertex.hpp"
 #include <vector>
 
 struct Mesh : Component {

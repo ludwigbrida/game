@@ -1,7 +1,7 @@
 #ifndef GAME_VECTOR_HPP
 #define GAME_VECTOR_HPP
 
-#include "../types/arithmetic.hpp"
+#include "../types_legacy/arithmetic.hpp"
 
 template <Arithmetic T>
 struct Vector {

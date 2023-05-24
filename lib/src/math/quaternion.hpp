@@ -1,7 +1,7 @@
 #ifndef GAME_QUATERNION_HPP
 #define GAME_QUATERNION_HPP
 
-#include "../types/arithmetic.hpp"
+#include "../types_legacy/arithmetic.hpp"
 #include "vector.hpp"
 
 template <Arithmetic T>

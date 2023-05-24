@@ -6,7 +6,7 @@
 #include "../ecs/entity.hpp"
 #include "../ecs/system.hpp"
 #include "../math/matrix.hpp"
-#include "../types/primitive.hpp"
+#include "../types_legacy/primitive.hpp"
 #include <GL/glew.h>
 #include <memory>
 #include <unordered_map>

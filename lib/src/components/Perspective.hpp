@@ -2,7 +2,7 @@
 #define ENGINE_PERSPECTIVE_HPP
 
 #include "../ecs/component.hpp"
-#include "../types/primitive.hpp"
+#include "../types_legacy/primitive.hpp"
 
 struct Perspective : Component {
 	Float fieldOfView;
