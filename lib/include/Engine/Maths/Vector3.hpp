@@ -13,13 +13,15 @@ public:
 	T z{};
 
 	static const Vector3<T> Right;
+	static const Vector3<T> Left;
+	static const Vector3<T> Up;
+	static const Vector3<T> Down;
+	static const Vector3<T> Backward;
+	static const Vector3<T> Forward;
 };
 
-template <IsArithmetic T>
-constexpr Vector3<T> Vector3<T>::Right{1, 0, 0};
-
-using Vector3f = Vector3<float>;
-
 }
+
+#include <Engine/Maths/Vector3.inl>
 
 #endif

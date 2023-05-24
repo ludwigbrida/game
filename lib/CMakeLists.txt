@@ -40,7 +40,7 @@ add_library(lib
 	src/types_legacy/systemic.hpp
 	src/types_legacy/vertex.hpp
 	# other
-	include/Engine/UInt.hpp include/Engine/Maths/Vector3.hpp src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp include/Engine/Types/IsArithmetic.hpp)
+	include/Engine/UInt.hpp include/Engine/Maths/Vector3.hpp src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp src/Graphics/Color.cpp include/Engine/Types/IsArithmetic.hpp include/Engine/Maths/Vector3.inl)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
