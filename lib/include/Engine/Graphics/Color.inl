@@ -1,4 +1,5 @@
-#include <Engine/Graphics/Color.hpp>
+#ifndef ENGINE_COLOR_INL
+#define ENGINE_COLOR_INL
 
 namespace ng {
 
@@ -21,3 +22,5 @@ constexpr Color Color::Black{0, 0, 0};
 constexpr Color Color::Transparent{0, 0, 0, 0};
 
 }
+
+#endif

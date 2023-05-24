@@ -1,6 +1,6 @@
 #include "../../lib/src/core/app.hpp"
 #include <Engine/Maths/Vector3.hpp>
-#include <Engine/UInt.hpp>
+#include <Engine/Types/UInt.hpp>
 
 int main() {
 	App app;

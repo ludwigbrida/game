@@ -1,7 +1,7 @@
 #ifndef ENGINE_COLOR_HPP
 #define ENGINE_COLOR_HPP
 
-#include <Engine/UInt.hpp>
+#include <Engine/Types/UInt.hpp>
 
 namespace ng {
 
@@ -23,9 +23,8 @@ public:
 	static const Color Transparent;
 };
 
-// todo:
-// https://stackoverflow.com/questions/43172652/static-const-declaration-constexpr-definition-of-variable-valid-c
-
 }
+
+#include <Engine/Graphics/Color.inl>
 
 #endif
