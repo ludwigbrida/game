@@ -12,6 +12,9 @@ public:
 	UInt8 b{};
 	UInt8 a{255};
 
+	Color(UInt8 r, UInt8 g, UInt8 b);
+	Color(UInt8 r, UInt8 g, UInt8 b, UInt8 a);
+
 	static const Color Red;
 	static const Color Green;
 	static const Color Blue;
@@ -24,7 +27,5 @@ public:
 };
 
 }
-
-#include <Engine/Graphics/Color.inl>
 
 #endif
