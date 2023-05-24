@@ -41,6 +41,12 @@ const Vector3<T> Vector3<T>::Backward{0, 0, 1};
 template <IsArithmetic T>
 const Vector3<T> Vector3<T>::Forward{0, 0, -1};
 
+template <IsArithmetic T>
+constexpr Vector3<T> operator+(const Vector3<T>& left,
+															 const Vector3<T>& right) {
+	return {left.x + right.x, left.y + right.y, left.z + right.z};
+}
+
 using Vector3i = Vector3<Int32>;
 
 using Vector3f = Vector3<Float>;

@@ -11,5 +11,7 @@ int main() {
 	ng::Vector3f vector{1, 2, 3};
 	ng::Vector3f right{ng::Vector3f::Right};
 
+	ng::Vector3f result = ng::Vector3f::Forward + ng::Vector3f::Right;
+
 	ng::Color red{1, 0, 0};
 }
