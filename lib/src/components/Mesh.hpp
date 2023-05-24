@@ -14,17 +14,17 @@ struct Mesh : Component {
 		mesh.vertices = {{
 											 Vector3f(0, radius, 0),
 											 Vector3f::backward,
-											 Color::red,
+											 ng::Color::Red,
 										 },
 										 {
 											 Vector3f(-radius, -radius, 0),
 											 Vector3f::backward,
-											 Color::green,
+											 ng::Color::Green,
 										 },
 										 {
 											 Vector3f(radius, -radius, 0),
 											 Vector3f::backward,
-											 Color::blue,
+											 ng::Color::Blue,
 										 }};
 		mesh.indices = {0, 1, 2};
 		return mesh;

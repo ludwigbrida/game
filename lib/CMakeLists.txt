@@ -16,8 +16,6 @@ add_library(lib
 	src/ecs/registry.hpp
 	src/ecs/system.hpp
 	# graphics
-	src/gfx/Color.cpp
-	src/gfx/Color.hpp
 	src/gfx/shader.cpp
 	src/gfx/shader.hpp
 	# Maths

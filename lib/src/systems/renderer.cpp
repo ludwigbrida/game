@@ -2,7 +2,6 @@
 #include "../components/Mesh.hpp"
 #include "../components/Transform.hpp"
 #include "../ecs/registry.hpp"
-#include "../gfx/Color.hpp"
 #include "../math/radian.hpp"
 #include <iostream>
 
@@ -47,7 +46,7 @@ void main() {
 void Renderer::update(Registry& registry, State& state, float deltaTime) {
 	auto entities = registry.view<Transform, Mesh>();
 
-	clear(Color::black);
+	clear(ng::Color::Black);
 
 	glUseProgram(program);
 
@@ -73,8 +72,11 @@ void Renderer::update(Registry& registry, State& state, float deltaTime) {
 	}
 }
 
-void Renderer::clear(const Color& color) const {
-	glClearColor(color.r, color.g, color.b, color.a);
+void Renderer::clear(const ng::Color& color) const {
+	glClearColor(static_cast<ng::Float>(color.r) / 255,
+							 static_cast<ng::Float>(color.g) / 255,
+							 static_cast<ng::Float>(color.b) / 255,
+							 static_cast<ng::Float>(color.a) / 255);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -157,9 +159,9 @@ void Renderer::add(Entity entity, const Mesh& mesh) {
 		vertices.push_back(vertex.normal.x);
 		vertices.push_back(vertex.normal.y);
 		vertices.push_back(vertex.normal.z);
-		vertices.push_back(vertex.color.r);
-		vertices.push_back(vertex.color.g);
-		vertices.push_back(vertex.color.b);
+		vertices.push_back(static_cast<ng::Float>(vertex.color.r) / 255);
+		vertices.push_back(static_cast<ng::Float>(vertex.color.g) / 255);
+		vertices.push_back(static_cast<ng::Float>(vertex.color.b) / 255);
 	}
 
 	auto vertexBuffer = createBuffer();

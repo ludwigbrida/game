@@ -7,6 +7,7 @@
 #include "../ecs/system.hpp"
 #include "../math/matrix.hpp"
 #include "../types_legacy/primitive.hpp"
+#include <Engine/Graphics/Color.hpp>
 #include <GL/glew.h>
 #include <memory>
 #include <unordered_map>
@@ -18,7 +19,7 @@ public:
 							float deltaTime) final;
 
 private:
-	void clear(const class Color& color) const;
+	void clear(const ng::Color& color) const;
 	void draw(const Matrix4f& modelMatrix, const Matrix4f& viewMatrix,
 						const Matrix4f& projectionMatrix, const class Mesh& mesh) const;
 
