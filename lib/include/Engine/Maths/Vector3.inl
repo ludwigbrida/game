@@ -9,6 +9,11 @@ template <IsArithmetic T>
 constexpr Vector3<T>::Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {}
 
 template <IsArithmetic T>
+constexpr T Vector3<T>::dot(const Vector3<T>& other) const {
+	return x * other.x + y * other.y + z * other.z;
+}
+
+template <IsArithmetic T>
 constexpr Vector3<T> Vector3<T>::operator-() const {
 	return {-x, -y, -z};
 }
