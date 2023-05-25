@@ -2,11 +2,22 @@
 #define ENGINE_VECTOR3_INL
 
 #include <Engine/Types/Scalar.hpp>
+#include <cmath>
 
 namespace ng {
 
 template <IsArithmetic T>
 constexpr Vector3<T>::Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {}
+
+template <IsArithmetic T>
+constexpr T Vector3<T>::length() const {
+	return std::sqrt(dot(*this));
+}
+
+template <IsArithmetic T>
+constexpr Vector3<T> Vector3<T>::normalized() const {
+	return (*this) / length();
+}
 
 template <IsArithmetic T>
 constexpr T Vector3<T>::dot(const Vector3<T>& other) const {
@@ -42,6 +53,11 @@ constexpr Vector3<T> Vector3<T>::operator*(const Vector3<T>& other) const {
 template <IsArithmetic T>
 constexpr Vector3<T> Vector3<T>::operator/(const Vector3<T>& other) const {
 	return {x / other.x, y / other.y, z / other.z};
+}
+
+template <IsArithmetic T>
+constexpr Vector3<T> Vector3<T>::operator/(T scalar) const {
+	return {x / scalar, y / scalar, z / scalar};
 }
 
 template <IsArithmetic T>

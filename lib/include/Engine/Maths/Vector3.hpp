@@ -14,6 +14,9 @@ public:
 
 	constexpr Vector3(T x, T y, T z);
 
+	constexpr T length() const;
+	constexpr Vector3<T> normalized() const;
+
 	constexpr T dot(const Vector3<T>& other) const;
 	constexpr Vector3<T> cross(const Vector3<T>& other) const;
 
@@ -23,6 +26,7 @@ public:
 	constexpr Vector3<T> operator-(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator*(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator/(const Vector3<T>& other) const;
+	constexpr Vector3<T> operator/(T scalar) const;
 
 	constexpr Vector3<T>& operator+=(const Vector3<T>& other);
 	constexpr Vector3<T>& operator-=(const Vector3<T>& other);

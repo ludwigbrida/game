@@ -19,8 +19,12 @@ int main() {
 	ng::Vector3f crossProduct = result1.cross(result2);
 
 	ng::Vector3f result = crossProduct;
+	ng::Float length = crossProduct.length();
+	ng::Vector3f normalized = crossProduct.normalized();
 
 	ng::Color red{1, 0, 0};
 
-	std::cout << result.x << " " << result.y << " " << result.z << std::endl;
+	std::cout << result.x << " " << result.y << " " << result.z
+						<< ", length: " << length << ", normalized: " << normalized.z
+						<< std::endl;
 }
