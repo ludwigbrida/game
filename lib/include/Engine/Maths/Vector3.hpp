@@ -22,6 +22,12 @@ public:
 	constexpr Vector3<T> operator/(const Vector3<T>& other) const;
 
 	constexpr Vector3<T>& operator+=(const Vector3<T>& other);
+	constexpr Vector3<T>& operator-=(const Vector3<T>& other);
+	constexpr Vector3<T>& operator*=(T scalar);
+	constexpr Vector3<T>& operator/=(T scalar);
+
+	constexpr bool operator==(const Vector3<T>& other) const;
+	constexpr bool operator!=(const Vector3<T>& other) const;
 
 	static const Vector3<T> Right;
 	static const Vector3<T> Left;
