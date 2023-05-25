@@ -1,5 +1,6 @@
 #include "../../lib/src/core/app.hpp"
 #include <Engine/Graphics/Color.hpp>
+#include <Engine/Maths/Matrix4.hpp>
 #include <Engine/Maths/Vector3.hpp>
 #include <iostream>
 
@@ -27,4 +28,8 @@ int main() {
 	std::cout << result.x << " " << result.y << " " << result.z
 						<< ", length: " << length << ", normalized: " << normalized.z
 						<< std::endl;
+
+	ng::Matrix4f matrix{
+		1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+	};
 }
