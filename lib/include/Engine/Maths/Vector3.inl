@@ -9,6 +9,21 @@ constexpr Vector3<T> Vector3<T>::operator+(const Vector3<T>& other) const {
 }
 
 template <IsArithmetic T>
+constexpr Vector3<T> Vector3<T>::operator-(const Vector3<T>& other) const {
+	return {x - other.x, y - other.y, z - other.z};
+}
+
+template <IsArithmetic T>
+constexpr Vector3<T> Vector3<T>::operator*(const Vector3<T>& other) const {
+	return {x * other.x, y * other.y, z * other.z};
+}
+
+template <IsArithmetic T>
+constexpr Vector3<T> Vector3<T>::operator/(const Vector3<T>& other) const {
+	return {x / other.x, y / other.y, z / other.z};
+}
+
+template <IsArithmetic T>
 const Vector3<T> Vector3<T>::Right{1, 0, 0};
 
 template <IsArithmetic T>
