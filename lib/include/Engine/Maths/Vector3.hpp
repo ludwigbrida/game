@@ -15,10 +15,13 @@ public:
 	constexpr Vector3(T x, T y, T z);
 
 	constexpr Vector3<T> operator-() const;
+
 	constexpr Vector3<T> operator+(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator-(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator*(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator/(const Vector3<T>& other) const;
+
+	constexpr Vector3<T>& operator+=(const Vector3<T>& other);
 
 	static const Vector3<T> Right;
 	static const Vector3<T> Left;
