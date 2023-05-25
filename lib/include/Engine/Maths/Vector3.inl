@@ -4,6 +4,9 @@
 namespace ng {
 
 template <IsArithmetic T>
+constexpr Vector3<T>::Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {}
+
+template <IsArithmetic T>
 constexpr Vector3<T> Vector3<T>::operator+(const Vector3<T>& other) const {
 	return {x + other.x, y + other.y, z + other.z};
 }

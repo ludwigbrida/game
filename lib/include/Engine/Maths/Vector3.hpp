@@ -13,7 +13,7 @@ public:
 	T y{};
 	T z{};
 
-	Vector3(T x, T y, T z);
+	constexpr Vector3(T x, T y, T z);
 
 	constexpr Vector3<T> operator+(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator-(const Vector3<T>& other) const;
