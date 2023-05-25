@@ -15,8 +15,8 @@ constexpr T Vector3<T>::dot(const Vector3<T>& other) const {
 
 template <IsArithmetic T>
 constexpr Vector3<T> Vector3<T>::cross(const Vector3<T>& other) const {
-	return {(y * other.z) - (z * other.y), (z * other.x) - (x * other.z),
-					(x * other.y) - (y * other.x)};
+	return {y * other.z - z * other.y, z * other.x - x * other.z,
+					x * other.y - y * other.x};
 }
 
 template <IsArithmetic T>

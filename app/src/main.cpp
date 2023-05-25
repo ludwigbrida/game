@@ -13,11 +13,12 @@ int main() {
 	ng::Vector3f right{ng::Vector3f::Right};
 
 	ng::Vector3f result1 = ng::Vector3f::Right + ng::Vector3f::Right;
-	ng::Vector3f result2 = -result1;
-	ng::Vector3f result = result2 += ng::Vector3f::Right;
+	ng::Vector3f result2 = ng::Vector3f::Up;
 
 	ng::Float dotProduct = result1.dot(result2);
 	ng::Vector3f crossProduct = result1.cross(result2);
+
+	ng::Vector3f result = crossProduct;
 
 	ng::Color red{1, 0, 0};
 
