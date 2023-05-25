@@ -2,7 +2,6 @@
 #define ENGINE_VECTOR3_HPP
 
 #include <Engine/Types/IsArithmetic.hpp>
-#include <Engine/Types/Scalar.hpp>
 
 namespace ng {
 
@@ -15,6 +14,7 @@ public:
 
 	constexpr Vector3(T x, T y, T z);
 
+	constexpr Vector3<T> operator-() const;
 	constexpr Vector3<T> operator+(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator-(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator*(const Vector3<T>& other) const;

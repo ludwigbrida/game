@@ -1,10 +1,17 @@
 #ifndef ENGINE_VECTOR3_INL
 #define ENGINE_VECTOR3_INL
 
+#include <Engine/Types/Scalar.hpp>
+
 namespace ng {
 
 template <IsArithmetic T>
 constexpr Vector3<T>::Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {}
+
+template <IsArithmetic T>
+constexpr Vector3<T> Vector3<T>::operator-() const {
+	return {-x, -y, -z};
+}
 
 template <IsArithmetic T>
 constexpr Vector3<T> Vector3<T>::operator+(const Vector3<T>& other) const {
