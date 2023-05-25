@@ -15,6 +15,7 @@ public:
 	constexpr Vector3(T x, T y, T z);
 
 	constexpr T dot(const Vector3<T>& other) const;
+	constexpr Vector3<T> cross(const Vector3<T>& other) const;
 
 	constexpr Vector3<T> operator-() const;
 
