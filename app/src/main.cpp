@@ -29,7 +29,13 @@ int main() {
 						<< ", length: " << length << ", normalized: " << normalized.z
 						<< std::endl;
 
-	ng::Matrix4f matrix{
+	ng::Matrix4f matrix1{
 		1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
 	};
+	ng::Matrix4f matrix2{
+		1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+	};
+	ng::Matrix4f matrix3 = matrix1 * matrix2;
+
+	std::cout << "matrix3: " << matrix3.m00 << std::endl;
 }
