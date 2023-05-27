@@ -1,4 +1,5 @@
 #include <Engine/Maths/Matrix4.hpp>
+#include <cmath>
 
 namespace ng {
 
@@ -46,6 +47,29 @@ Matrix4<T> Matrix4<T>::fromScale(const Vector3<T>& scale) {
 	matrix.m00 = scale.x;
 	matrix.m11 = scale.y;
 	matrix.m22 = scale.z;
+	return matrix;
+}
+
+template <IsArithmetic T>
+Matrix4<T> Matrix4<T>::fromTransform(const Transform& transform) {
+	const auto& position = Matrix4<T>::fromPosition(transform.position);
+	// const auto& rotation = Matrix4<T>::fromRotation(transform.rotation);
+	const auto& scale = Matrix4<T>::fromScale(transform.scale);
+	return position * scale;
+}
+
+template <IsArithmetic T>
+Matrix4<T> Matrix4<T>::fromPerspective(T fieldOfView, T aspectRatio, T near,
+																			 T far) {
+	const T fov = 1 / std::tan(fieldOfView / 2);
+	const T inv = 1 / (near - far);
+
+	auto matrix = Matrix4<T>::Identity;
+	matrix.m00 = fov / aspectRatio;
+	matrix.m11 = fov;
+	matrix.m22 = (near + far) * inv;
+	matrix.m23 = -1;
+	matrix.m32 = near * far * inv * 2;
 	return matrix;
 }
 

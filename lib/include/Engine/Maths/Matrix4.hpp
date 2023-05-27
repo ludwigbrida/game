@@ -1,6 +1,7 @@
 #ifndef ENGINE_MATRIX4_HPP
 #define ENGINE_MATRIX4_HPP
 
+#include <Engine/Components/Transform.hpp>
 #include <Engine/Maths/Vector3.hpp>
 #include <Engine/Types/IsArithmetic.hpp>
 #include <Engine/Types/Scalar.hpp>
@@ -34,6 +35,11 @@ public:
 
 	static Matrix4<T> fromPosition(const Vector3<T>& position);
 	static Matrix4<T> fromScale(const Vector3<T>& scale);
+
+	static Matrix4<T> fromTransform(const Transform& transform);
+
+	static Matrix4<T> fromPerspective(T fieldOfView, T aspectRatio, T near,
+																		T far);
 
 	static const Matrix4<T> Identity;
 };
