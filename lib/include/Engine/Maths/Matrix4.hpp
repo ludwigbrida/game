@@ -33,6 +33,8 @@ public:
 
 	Matrix4<T> operator*(const Matrix4<T>& other) const;
 
+	Matrix4<T> inverted() const;
+
 	static Matrix4<T> fromPosition(const Vector3<T>& position);
 	static Matrix4<T> fromScale(const Vector3<T>& scale);
 
