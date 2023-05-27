@@ -32,10 +32,7 @@ int main() {
 	ng::Matrix4f matrix1{
 		1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
 	};
-	ng::Matrix4f matrix2{
-		1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
-	};
-	ng::Matrix4f matrix3 = matrix1 * matrix2;
+	ng::Matrix4f matrix2 = matrix1 * ng::Matrix4f::Identity;
 
-	std::cout << "matrix3: " << matrix3.m00 << std::endl;
+	std::cout << "matrix2: " << matrix2.m00 << std::endl;
 }

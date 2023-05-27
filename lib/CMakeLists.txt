@@ -39,7 +39,7 @@ add_library(lib
 	src/types_legacy/vertex.hpp
 	# other
 	include/Engine/Types/Scalar.hpp include/Engine/Maths/Vector3.hpp src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp include/Engine/Types/IsArithmetic.hpp src/Graphics/Color.cpp include/Engine/Maths/Vector3.inl
-	include/Engine/Maths/Matrix4.hpp src/Maths/Matrix4.cpp)
+	include/Engine/Maths/Matrix4.hpp src/Maths/Matrix4.cpp include/Engine/Maths/Matrix4.inl)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

@@ -30,10 +30,14 @@ public:
 					T m22, T m23, T m30, T m31, T m32, T m33);
 
 	Matrix4<T> operator*(const Matrix4<T>& other) const;
+
+	static const Matrix4<T> Identity;
 };
 
 using Matrix4f = Matrix4<Float>;
 
 }
+
+#include <Engine/Maths/Matrix4.inl>
 
 #endif
