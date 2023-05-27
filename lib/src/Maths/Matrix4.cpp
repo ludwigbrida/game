@@ -31,6 +31,24 @@ Matrix4<T> Matrix4<T>::operator*(const Matrix4<T>& other) const {
 	};
 }
 
+template <IsArithmetic T>
+Matrix4<T> Matrix4<T>::fromPosition(const Vector3<T>& position) {
+	auto matrix = Matrix4<T>::Identity;
+	matrix.m30 = position.x;
+	matrix.m31 = position.y;
+	matrix.m32 = position.z;
+	return matrix;
+}
+
+template <IsArithmetic T>
+Matrix4<T> Matrix4<T>::fromScale(const Vector3<T>& scale) {
+	auto matrix = Matrix4<T>::Identity;
+	matrix.m00 = scale.x;
+	matrix.m11 = scale.y;
+	matrix.m22 = scale.z;
+	return matrix;
+}
+
 template class Matrix4<Float>;
 
 }

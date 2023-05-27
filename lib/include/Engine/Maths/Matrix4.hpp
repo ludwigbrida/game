@@ -1,6 +1,7 @@
 #ifndef ENGINE_MATRIX4_HPP
 #define ENGINE_MATRIX4_HPP
 
+#include <Engine/Maths/Vector3.hpp>
 #include <Engine/Types/IsArithmetic.hpp>
 #include <Engine/Types/Scalar.hpp>
 
@@ -30,6 +31,9 @@ public:
 					T m22, T m23, T m30, T m31, T m32, T m33);
 
 	Matrix4<T> operator*(const Matrix4<T>& other) const;
+
+	static Matrix4<T> fromPosition(const Vector3<T>& position);
+	static Matrix4<T> fromScale(const Vector3<T>& scale);
 
 	static const Matrix4<T> Identity;
 };
