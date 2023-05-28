@@ -1,9 +1,15 @@
 #ifndef ENGINE_PROGRAM_HPP
 #define ENGINE_PROGRAM_HPP
 
+#include "Shader.hpp"
+
 namespace ng {
 
-class Program {};
+class Program {
+private:
+	Shader vertexShader;
+	Shader fragmentShader;
+};
 
 }
 
