@@ -1,6 +1,7 @@
 #ifndef ENGINE_RENDERER_HPP
 #define ENGINE_RENDERER_HPP
 
+#include "../Graphics/Program.hpp"
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Core/System.hpp>
 #include <Engine/Graphics/Color.hpp>
@@ -14,7 +15,8 @@ public:
 
 private:
 	void clear(const Color& color) const;
-	void draw(const Mesh& mesh, const Matrix4f& modelMatrix) const;
+	void draw(const Mesh& mesh, const Program& program,
+						const Matrix4f& modelMatrix) const;
 };
 
 }

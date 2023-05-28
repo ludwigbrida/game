@@ -7,6 +7,9 @@ Program::Program(const char* vertexSource, const char* fragmentSource)
 		: vertexShader{GL_VERTEX_SHADER, vertexSource},
 			fragmentShader{GL_FRAGMENT_SHADER, fragmentSource} {
 	location = create(vertexShader.location, fragmentShader.location);
+	modelMatrixLocation = glGetUniformLocation(location, "modelMatrix");
+	viewMatrixLocation = glGetUniformLocation(location, "viewMatrix");
+	projectionMatrixLocation = glGetUniformLocation(location, "projectionMatrix");
 }
 
 UInt32 Program::create(UInt32 vertexLocation, UInt32 fragmentLocation) {

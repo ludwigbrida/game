@@ -16,7 +16,37 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 
 		auto modelMatrix = Matrix4f::fromTransform(transform);
 
-		draw(mesh, modelMatrix);
+		// TODO
+		Program program{R"(
+#version 410 core_legacy
+
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
+
+layout (location = 0) in vec3 vertexPosition;
+layout (location = 2) in vec3 vertexColor;
+
+out vec3 fragmentColor;
+
+void main() {
+	fragmentColor = vertexColor;
+	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition, 1);
+}
+)",
+										R"(
+#version 410 core_legacy
+
+in vec3 fragmentColor;
+
+out vec4 color;
+
+void main() {
+	color = vec4(fragmentColor, 1);
+}
+)"};
+
+		draw(mesh, program, modelMatrix);
 	}
 }
 
@@ -27,6 +57,12 @@ void Renderer::clear(const Color& color) const {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::draw(const Mesh& mesh, const Matrix4f& modelMatrix) const {}
+void Renderer::draw(const Mesh& mesh, const Program& program,
+										const Matrix4f& modelMatrix) const {
+	// TODO
+	glUniformMatrix4fv(program.modelMatrixLocation, 1, false, modelMatrix);
+	glUniformMatrix4fv(program.viewMatrixLocation, 1, false, {});
+	glUniformMatrix4fv(program.projectionMatrixLocation, 1, false, {});
+}
 
 }
