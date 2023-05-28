@@ -9,8 +9,7 @@ namespace ng {
 class Registry;
 class State;
 
-class System {
-public:
+struct System {
 	virtual void setup();
 	virtual void update(Registry& registry, State& state, float deltaTime) = 0;
 	virtual ~System();

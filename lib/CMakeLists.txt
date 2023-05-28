@@ -31,7 +31,10 @@ add_library(lib
 	src/Graphics/Color.cpp
 	# Maths
 	src/Maths/Matrix4.cpp
-	src/Maths/Vector3.cpp)
+	src/Maths/Vector3.cpp
+	# Systems
+	src/Systems/Renderer.cpp
+	src/Systems/Renderer.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
