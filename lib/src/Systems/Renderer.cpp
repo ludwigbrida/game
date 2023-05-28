@@ -6,12 +6,17 @@
 namespace ng {
 
 void Renderer::update(Registry& registry, State& state, Float deltaTime) {
-	auto entities = registry.view<Transform>();
+	auto entities = registry.view<Transform, Mesh>();
 
 	clear(Color::Black);
 
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);
+		auto& mesh = registry.get<Mesh>(entity);
+
+		auto modelMatrix = Matrix4f::fromTransform(transform);
+
+		draw(mesh, modelMatrix);
 	}
 }
 
