@@ -3,6 +3,7 @@ project(lib VERSION 0.0.0)
 add_library(lib
 	# include
 	# Components
+	include/Engine/Components/Mesh.hpp
 	include/Engine/Components/Perspective.hpp
 	include/Engine/Components/Transform.hpp
 	# Core
@@ -21,6 +22,8 @@ add_library(lib
 	include/Engine/Maths/Vector3.hpp
 	include/Engine/Maths/Vector3.inl
 	# src
+	# Components
+	src/Components/Mesh.cpp
 	# Core
 	src/Core/App.cpp
 	src/Core/Registry.cpp
