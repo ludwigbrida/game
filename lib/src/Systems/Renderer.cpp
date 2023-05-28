@@ -12,4 +12,8 @@ void Renderer::update(Registry& registry, State& state, float deltaTime) {
 	}
 }
 
+void Renderer::clear(const Color& color) const {}
+
+void Renderer::draw(const Mesh& mesh, const Matrix4f& modelMatrix) const {}
+
 }
