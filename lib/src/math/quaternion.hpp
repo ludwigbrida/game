@@ -2,7 +2,7 @@
 #define GAME_QUATERNION_HPP
 
 #include "../types_legacy/arithmetic.hpp"
-#include "vector.hpp"
+#include <Engine/Maths/Vector3.hpp>
 
 template <Arithmetic T>
 struct Quaternion {
@@ -11,7 +11,7 @@ struct Quaternion {
 	T z = 0;
 	T w = 1;
 
-	static Quaternion<T> fromAxisAngle(const Vector<T>& axis, T angle);
+	static Quaternion<T> fromAxisAngle(const ng::Vector3<T>& axis, T angle);
 };
 
 using Quaternion3f = Quaternion<float>;

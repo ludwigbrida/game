@@ -1,7 +1,6 @@
 #ifndef ENGINE_VECTOR3_INL
 #define ENGINE_VECTOR3_INL
 
-#include <Engine/Types/Scalar.hpp>
 #include <cmath>
 
 namespace ng {

@@ -1,13 +1,13 @@
 #include "renderer.hpp"
 #include "../components/Mesh.hpp"
-#include "../components/Transform.hpp"
 #include "../ecs/registry.hpp"
 #include "../math/radian.hpp"
+#include <Engine/Components/Transform.hpp>
 #include <iostream>
 
 void Renderer::setup() {
 	auto vertexShader = createShader(GL_VERTEX_SHADER, R"(
-#version 410 core
+#version 410 core_legacy
 
 uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
@@ -25,7 +25,7 @@ void main() {
 )");
 
 	auto fragmentShader = createShader(GL_FRAGMENT_SHADER, R"(
-#version 410 core
+#version 410 core_legacy
 
 in vec3 fragmentColor;
 
@@ -44,7 +44,7 @@ void main() {
 }
 
 void Renderer::update(Registry& registry, State& state, float deltaTime) {
-	auto entities = registry.view<Transform, Mesh>();
+	auto entities = registry.view<ng::Transform, Mesh>();
 
 	clear(ng::Color::Black);
 
@@ -60,7 +60,7 @@ void Renderer::update(Registry& registry, State& state, float deltaTime) {
 	auto viewMatrix = cameraMatrix.inverted();
 
 	for (auto entity : entities) {
-		auto& transform = registry.get<Transform>(entity);
+		auto& transform = registry.get<ng::Transform>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
 		if (!vertexArrays.contains(entity))

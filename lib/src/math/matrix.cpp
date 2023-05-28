@@ -1,4 +1,5 @@
 #include "matrix.hpp"
+#include <Engine/Components/Transform.hpp>
 #include <cmath>
 
 template <Arithmetic T>
@@ -52,7 +53,7 @@ Matrix<T> Matrix<T>::inverted() const {
 }
 
 template <Arithmetic T>
-Matrix<T> Matrix<T>::fromTranslation(const Vector<T>& vector) {
+Matrix<T> Matrix<T>::fromTranslation(const ng::Vector3<T>& vector) {
 	auto matrix = Matrix<T>();
 	matrix.m30 = vector.x;
 	matrix.m31 = vector.y;
@@ -88,7 +89,7 @@ Matrix<T> Matrix<T>::fromRotation(const Quaternion<T>& quaternion) {
 }
 
 template <Arithmetic T>
-Matrix<T> Matrix<T>::fromScale(const Vector<T>& vector) {
+Matrix<T> Matrix<T>::fromScale(const ng::Vector3<T>& vector) {
 	auto matrix = Matrix<T>();
 	matrix.m00 = vector.x;
 	matrix.m11 = vector.y;
@@ -97,11 +98,11 @@ Matrix<T> Matrix<T>::fromScale(const Vector<T>& vector) {
 }
 
 template <>
-Matrix<float> Matrix<float>::fromTransform(const Transform& transform) {
+Matrix<float> Matrix<float>::fromTransform(const ng::Transform& transform) {
 	const auto translationMatrix = fromTranslation(transform.position);
-	const auto rotationMatrix = fromRotation(transform.rotation);
+	// const auto rotationMatrix = fromRotation(transform.rotation);
 	const auto scaleMatrix = fromScale(transform.scale);
-	return translationMatrix * rotationMatrix * scaleMatrix;
+	return translationMatrix * scaleMatrix;
 }
 
 template <Arithmetic T>

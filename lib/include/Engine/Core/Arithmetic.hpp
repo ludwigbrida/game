@@ -1,5 +1,7 @@
-#ifndef ENGINE_UINT_HPP
-#define ENGINE_UINT_HPP
+#ifndef ENGINE_ARITHMETIC_HPP
+#define ENGINE_ARITHMETIC_HPP
+
+#include <type_traits>
 
 namespace ng {
 
@@ -22,6 +24,9 @@ using UInt64 = unsigned long long;
 using Float = float;
 
 using Double = double;
+
+template <typename T>
+concept IsArithmetic = std::is_arithmetic<T>::value;
 
 }
 

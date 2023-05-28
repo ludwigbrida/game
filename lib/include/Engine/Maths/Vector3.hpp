@@ -1,7 +1,7 @@
 #ifndef ENGINE_VECTOR3_HPP
 #define ENGINE_VECTOR3_HPP
 
-#include <Engine/Types/IsArithmetic.hpp>
+#include <Engine/Core/Arithmetic.hpp>
 
 namespace ng {
 

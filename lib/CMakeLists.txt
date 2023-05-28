@@ -1,45 +1,37 @@
 project(lib VERSION 0.0.0)
 
 add_library(lib
-	# components
-	src/components/Mesh.hpp
-	src/components/Perspective.hpp
-	src/components/Transform.hpp
-	# core
-	src/core/app.cpp
-	src/core/app.hpp
-	src/core/State.hpp
-	# ecs
-	src/ecs/component.hpp
-	src/ecs/entity.hpp
-	src/ecs/registry.cpp
-	src/ecs/registry.hpp
-	src/ecs/system.hpp
-	# graphics
-	src/gfx/shader.cpp
-	src/gfx/shader.hpp
+	# include
+	# Components
+	include/Engine/Components/Perspective.hpp
+	include/Engine/Components/Transform.hpp
+	# Core
+	include/Engine/Core/App.hpp
+	include/Engine/Core/Arithmetic.hpp
+	include/Engine/Core/Component.hpp
+	include/Engine/Core/Entity.hpp
+	include/Engine/Core/State.hpp
+	include/Engine/Core/System.hpp
+	# Graphics
+	include/Engine/Graphics/Color.hpp
+	include/Engine/Graphics/Vertex.hpp
 	# Maths
-	src/math/matrix.cpp
-	src/math/matrix.hpp
-	src/math/quaternion.cpp
-	src/math/quaternion.hpp
-	src/math/radian.hpp
-	src/math/vector.cpp
-	src/math/vector.hpp
-	# systems
-	src/systems/renderer.cpp
-	src/systems/renderer.hpp
-	src/systems/transformer.cpp
-	src/systems/transformer.hpp
-	# types_legacy
-	src/types_legacy/arithmetic.hpp
-	src/types_legacy/composable.hpp
-	src/types_legacy/primitive.hpp
-	src/types_legacy/systemic.hpp
-	src/types_legacy/vertex.hpp
-	# other
-	include/Engine/Types/Scalar.hpp include/Engine/Maths/Vector3.hpp src/Maths/Vector3.cpp include/Engine/Graphics/Color.hpp include/Engine/Types/IsArithmetic.hpp src/Graphics/Color.cpp include/Engine/Maths/Vector3.inl
-	include/Engine/Maths/Matrix4.hpp src/Maths/Matrix4.cpp include/Engine/Maths/Matrix4.inl include/Engine/Components/Transform.hpp)
+	include/Engine/Maths/Matrix4.hpp
+	include/Engine/Maths/Matrix4.inl
+	include/Engine/Maths/Vector3.hpp
+	include/Engine/Maths/Vector3.inl
+	# src
+	# Core
+	src/Core/App.cpp
+	src/Core/Registry.cpp
+	src/Core/Registry.hpp
+	src/Core/Registry.inl
+	src/Core/System.cpp
+	# Graphics
+	src/Graphics/Color.cpp
+	# Maths
+	src/Maths/Matrix4.cpp
+	src/Maths/Vector3.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

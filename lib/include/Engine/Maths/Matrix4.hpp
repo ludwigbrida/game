@@ -2,9 +2,8 @@
 #define ENGINE_MATRIX4_HPP
 
 #include <Engine/Components/Transform.hpp>
+#include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Maths/Vector3.hpp>
-#include <Engine/Types/IsArithmetic.hpp>
-#include <Engine/Types/Scalar.hpp>
 
 namespace ng {
 

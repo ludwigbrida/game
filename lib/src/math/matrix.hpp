@@ -1,10 +1,9 @@
 #ifndef GAME_MATRIX_HPP
 #define GAME_MATRIX_HPP
 
-#include "../components/Transform.hpp"
 #include "../types_legacy/arithmetic.hpp"
 #include "quaternion.hpp"
-#include "vector.hpp"
+#include <Engine/Maths/Vector3.hpp>
 
 template <Arithmetic T>
 struct Matrix {
@@ -33,11 +32,11 @@ struct Matrix {
 
 	operator const T*() const { return reinterpret_cast<const T*>(this); }
 
-	static Matrix<T> fromTranslation(const Vector<T>& vector);
+	static Matrix<T> fromTranslation(const ng::Vector3<T>& vector);
 	static Matrix<T> fromRotation(const Quaternion<T>& quaternion);
-	static Matrix<T> fromScale(const Vector<T>& vector);
+	static Matrix<T> fromScale(const ng::Vector3<T>& vector);
 
-	static Matrix<float> fromTransform(const Transform& transform);
+	static Matrix<float> fromTransform(const class Transform& transform);
 
 	static Matrix<T> fromPerspective(const T& fieldOfView, const T& aspectRatio,
 																	 const T& near, const T& far);

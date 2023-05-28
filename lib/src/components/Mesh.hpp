@@ -2,6 +2,8 @@
 #define ENGINE_MESH_HPP
 
 #include "../types_legacy/vertex.hpp"
+#include <Engine/Graphics/Color.hpp>
+#include <Engine/Maths/Vector3.hpp>
 #include <vector>
 
 struct Mesh : Component {
@@ -12,18 +14,18 @@ struct Mesh : Component {
 		auto mesh = Mesh();
 		float radius = size / 2;
 		mesh.vertices = {{
-											 Vector3f(0, radius, 0),
-											 Vector3f::backward,
+											 ng::Vector3f(0, radius, 0),
+											 ng::Vector3f::Backward,
 											 ng::Color::Red,
 										 },
 										 {
-											 Vector3f(-radius, -radius, 0),
-											 Vector3f::backward,
+											 ng::Vector3f(-radius, -radius, 0),
+											 ng::Vector3f::Backward,
 											 ng::Color::Green,
 										 },
 										 {
-											 Vector3f(radius, -radius, 0),
-											 Vector3f::backward,
+											 ng::Vector3f(radius, -radius, 0),
+											 ng::Vector3f::Backward,
 											 ng::Color::Blue,
 										 }};
 		mesh.indices = {0, 1, 2};

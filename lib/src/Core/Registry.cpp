@@ -1,6 +1,6 @@
-#include "registry.hpp"
-#include "../core/State.hpp"
-#include "system.hpp"
+#include "Registry.hpp"
+
+namespace ng {
 
 void Registry::setup() {
 	for (auto& [_, system] : systems) {
@@ -12,4 +12,6 @@ void Registry::update(State& state, float deltaTime) {
 	for (auto& [_, system] : systems) {
 		system->update(*this, state, deltaTime);
 	}
+}
+
 }
