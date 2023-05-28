@@ -32,6 +32,10 @@ add_library(lib
 	src/Core/System.cpp
 	# Graphics
 	src/Graphics/Color.cpp
+	src/Graphics/Program.cpp
+	src/Graphics/Program.hpp
+	src/Graphics/Shader.cpp
+	src/Graphics/Shader.hpp
 	# Maths
 	src/Maths/Matrix4.cpp
 	src/Maths/Vector3.cpp
