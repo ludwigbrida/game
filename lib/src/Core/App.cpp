@@ -1,3 +1,4 @@
+#include "../Systems/Renderer.hpp"
 #include "Registry.hpp"
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Components/Transform.hpp>
@@ -27,7 +28,7 @@ App::App() {
 	}
 
 	// registry->activate<Transformer>();
-	// registry->activate<Renderer>();
+	registry->activate<Renderer>();
 
 	// Player
 	registry->add<Transform>(0, {.position{0, 0, 0}});

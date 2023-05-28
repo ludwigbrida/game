@@ -5,7 +5,7 @@
 
 namespace ng {
 
-class Renderer : System {
+class Renderer : public System {
 public:
 	void update(Registry& registry, State& state, float deltaTime) override;
 };
