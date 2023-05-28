@@ -1,4 +1,4 @@
-#include "Registry.hpp"
+#include "Engine/Core/Registry.hpp"
 
 namespace ng {
 

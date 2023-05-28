@@ -1,5 +1,5 @@
 #include "Renderer.hpp"
-#include "../Core/Registry.hpp"
+#include "Engine/Core/Registry.hpp"
 #include <Engine/Components/Transform.hpp>
 
 namespace ng {

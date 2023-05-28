@@ -11,6 +11,8 @@ add_library(lib
 	include/Engine/Core/Arithmetic.hpp
 	include/Engine/Core/Component.hpp
 	include/Engine/Core/Entity.hpp
+	include/Engine/Core/Registry.hpp
+	include/Engine/Core/Registry.inl
 	include/Engine/Core/State.hpp
 	include/Engine/Core/System.hpp
 	# Graphics
@@ -27,8 +29,6 @@ add_library(lib
 	# Core
 	src/Core/App.cpp
 	src/Core/Registry.cpp
-	src/Core/Registry.hpp
-	src/Core/Registry.inl
 	src/Core/System.cpp
 	# Graphics
 	src/Graphics/Color.cpp

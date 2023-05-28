@@ -1,10 +1,10 @@
 #ifndef ENGINE_REGISTRY_HPP
 #define ENGINE_REGISTRY_HPP
 
-#include <Engine/Core/Component.hpp>
-#include <Engine/Core/Entity.hpp>
-#include <Engine/Core/State.hpp>
-#include <Engine/Core/System.hpp>
+#include "Component.hpp"
+#include "Entity.hpp"
+#include "State.hpp"
+#include "System.hpp"
 #include <memory>
 #include <typeindex>
 #include <unordered_map>

@@ -2,6 +2,7 @@
 #define ENGINE_APP_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
+#include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
 #include <memory>
 
@@ -9,9 +10,6 @@
 class GLFWwindow;
 
 namespace ng {
-
-// TODO
-class Registry;
 
 class App {
 public:
@@ -22,7 +20,7 @@ public:
 private:
 	::GLFWwindow* window;
 
-	std::unique_ptr<Registry> registry;
+	Registry registry;
 	State state;
 
 	Int32 width = 960;
