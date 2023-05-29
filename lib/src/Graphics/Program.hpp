@@ -10,9 +10,9 @@ public:
 	Program(const char* vertexSource, const char* fragmentSource);
 
 	UInt32 location;
-	UInt32 modelMatrixLocation;
-	UInt32 viewMatrixLocation;
-	UInt32 projectionMatrixLocation;
+	Int32 modelMatrixLocation;
+	Int32 viewMatrixLocation;
+	Int32 projectionMatrixLocation;
 
 private:
 	Shader vertexShader;

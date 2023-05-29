@@ -32,6 +32,8 @@ public:
 
 	Matrix4<T> operator*(const Matrix4<T>& other) const;
 
+	operator const T*() const; // NOLINT
+
 	Matrix4<T> inverted() const;
 
 	static Matrix4<T> fromPosition(const Vector3<T>& position);

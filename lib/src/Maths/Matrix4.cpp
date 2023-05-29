@@ -33,6 +33,11 @@ Matrix4<T> Matrix4<T>::operator*(const Matrix4<T>& other) const {
 }
 
 template <IsArithmetic T>
+Matrix4<T>::operator const T*() const {
+	return reinterpret_cast<const T*>(this);
+}
+
+template <IsArithmetic T>
 Matrix4<T> Matrix4<T>::inverted() const {
 	auto b00 = m00 * m11 - m01 * m10;
 	auto b01 = m00 * m12 - m02 * m10;
