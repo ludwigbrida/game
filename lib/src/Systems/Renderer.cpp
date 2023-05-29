@@ -1,4 +1,5 @@
 #include "Renderer.hpp"
+#include <Engine/Components/Perspective.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Maths/Radian.hpp>
@@ -6,15 +7,18 @@
 
 namespace ng {
 
-void Renderer::setup() {
-	projectionMatrix =
-		Matrix4f::fromPerspective(fromDegrees(90), 16. / 9, .1, 1000);
-}
-
 void Renderer::update(Registry& registry, State& state, Float deltaTime) {
-	auto entities = registry.view<Transform, Mesh>();
-
 	clear(Color::Black);
+
+	auto& cameraTransform = registry.get<Transform>(state.activeCamera);
+	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
+
+	projectionMatrix = Matrix4f::fromPerspective(cameraPerspective);
+
+	auto cameraMatrix = Matrix4f::fromTransform(cameraTransform);
+	viewMatrix = cameraMatrix.inverted();
+
+	auto entities = registry.view<Transform, Mesh>();
 
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);

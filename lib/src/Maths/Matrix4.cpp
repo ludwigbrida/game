@@ -104,17 +104,16 @@ Matrix4<T> Matrix4<T>::fromTransform(const Transform& transform) {
 }
 
 template <IsArithmetic T>
-Matrix4<T> Matrix4<T>::fromPerspective(T fieldOfView, T aspectRatio, T near,
-																			 T far) {
-	const T fov = 1 / std::tan(fieldOfView / 2);
-	const T inv = 1 / (near - far);
+Matrix4<T> Matrix4<T>::fromPerspective(const Perspective& perspective) {
+	const T fov = 1 / std::tan(perspective.fieldOfView / 2);
+	const T inv = 1 / (perspective.near - perspective.far);
 
 	auto matrix = Matrix4<T>::Identity;
-	matrix.m00 = fov / aspectRatio;
+	matrix.m00 = fov / perspective.aspectRatio;
 	matrix.m11 = fov;
-	matrix.m22 = (near + far) * inv;
+	matrix.m22 = (perspective.near + perspective.far) * inv;
 	matrix.m23 = -1;
-	matrix.m32 = near * far * inv * 2;
+	matrix.m32 = perspective.near * perspective.far * inv * 2;
 	return matrix;
 }
 

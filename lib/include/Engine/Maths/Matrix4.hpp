@@ -1,6 +1,7 @@
 #ifndef ENGINE_MATRIX4_HPP
 #define ENGINE_MATRIX4_HPP
 
+#include <Engine/Components/Perspective.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Maths/Vector3.hpp>
@@ -41,8 +42,7 @@ public:
 
 	static Matrix4<T> fromTransform(const Transform& transform);
 
-	static Matrix4<T> fromPerspective(T fieldOfView, T aspectRatio, T near,
-																		T far);
+	static Matrix4<T> fromPerspective(const Perspective& perspective);
 
 	static const Matrix4<T> Identity;
 };
