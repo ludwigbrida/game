@@ -5,6 +5,7 @@
 #include "Entity.hpp"
 #include "State.hpp"
 #include "System.hpp"
+#include <functional>
 #include <memory>
 #include <typeindex>
 #include <unordered_map>
@@ -18,10 +19,20 @@ class Registry {
 public:
 	void setup();
 
-	void update(State& state, float deltaTime);
+	void run(State& state, float deltaTime);
 
 	template <IsComponent T>
 	void add(Entity entity, T value = {});
+
+	template <IsComponent T>
+	void update(Entity entity, std::function<void(T&)> updateFunc) {
+		auto& component = get<T>(entity);
+
+		updateFunc(component);
+
+		auto& baseComponent = static_cast<Component&>(component);
+		baseComponent.isDirty = true;
+	}
 
 	template <IsComponent T>
 	void remove(Entity entity);

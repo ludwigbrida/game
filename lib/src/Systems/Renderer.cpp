@@ -57,6 +57,10 @@ void main() {
 )"};
 
 		draw(mesh, program, modelMatrix);
+
+		registry.update<Transform>(entity, [](Transform& transform) {
+			transform.position.x = 5;
+		});
 	}
 }
 

@@ -53,12 +53,14 @@ void App::run() {
 
 		glViewport(0, 0, width, height);
 
-		registry.update(state, 0);
+		registry.run(state, 0);
 
 		glfwSwapBuffers(window);
 	}
 }
 
-App::~App() { glfwTerminate(); }
+App::~App() {
+	glfwTerminate();
+}
 
 }

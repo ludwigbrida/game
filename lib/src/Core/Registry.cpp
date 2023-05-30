@@ -8,7 +8,7 @@ void Registry::setup() {
 	}
 }
 
-void Registry::update(State& state, float deltaTime) {
+void Registry::run(State& state, float deltaTime) {
 	for (auto& [_, system] : systems) {
 		system->update(*this, state, deltaTime);
 	}
