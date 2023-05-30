@@ -12,6 +12,7 @@ public:
 	T y{};
 	T z{};
 
+	constexpr Vector3();
 	constexpr Vector3(T x, T y, T z);
 
 	constexpr T length() const;

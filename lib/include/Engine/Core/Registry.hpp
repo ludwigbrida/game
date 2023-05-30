@@ -26,6 +26,10 @@ public:
 
 	template <IsComponent T>
 	void update(Entity entity, std::function<void(T&)> updateFunc) {
+		if (!has<T>(entity)) {
+			add<T>(entity);
+		}
+
 		auto& component = get<T>(entity);
 
 		updateFunc(component);

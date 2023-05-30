@@ -60,6 +60,7 @@ void main() {
 
 		registry.update<Transform>(entity, [](Transform& transform) {
 			transform.position.x = 5;
+			transform.isDirty = false;
 		});
 	}
 }

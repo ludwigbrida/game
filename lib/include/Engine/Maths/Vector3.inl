@@ -6,6 +6,9 @@
 namespace ng {
 
 template <IsArithmetic T>
+constexpr Vector3<T>::Vector3() = default;
+
+template <IsArithmetic T>
 constexpr Vector3<T>::Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {}
 
 template <IsArithmetic T>
