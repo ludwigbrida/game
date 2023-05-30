@@ -18,8 +18,9 @@ private:
 	void draw(const Mesh& mesh, const Program& program,
 						const Matrix4f& modelMatrix) const;
 
-	Matrix4f viewMatrix;
-	Matrix4f projectionMatrix;
+	// TODO
+	Matrix4f viewMatrix{Matrix4f::Identity};
+	Matrix4f projectionMatrix{Matrix4f::Identity};
 };
 
 }

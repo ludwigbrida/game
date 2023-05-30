@@ -5,7 +5,9 @@
 
 namespace ng {
 
-struct Component {};
+struct Component {
+	bool isDirty = true;
+};
 
 template <typename T>
 concept IsComponent = std::is_base_of<Component, T>::value;
