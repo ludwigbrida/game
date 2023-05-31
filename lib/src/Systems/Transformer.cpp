@@ -18,6 +18,11 @@ void Transformer::update(Registry& registry, State& state, Float deltaTime) {
 			std::cout << test.local << std::endl << std::endl;
 		}
 
+		// TODO: Split into two systems?
+		// - Transform2Local
+		// - Local2Global
+		// To prevent unnecessary recalculation of hierarchical matrices within
+		// a single frame?
 		if (transform.isDirty) {
 
 			transform.position.x = 5;
