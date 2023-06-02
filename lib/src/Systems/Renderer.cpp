@@ -21,8 +21,6 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 		auto& matrices = registry.get<Matrices>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
-		auto modelMatrix = matrices.world;
-
 		// TODO
 		Program program{R"(
 #version 410 core_legacy
@@ -53,7 +51,7 @@ void main() {
 }
 )"};
 
-		draw(mesh, program, modelMatrix);
+		draw(mesh, program, matrices.world);
 	}
 }
 
