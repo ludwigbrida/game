@@ -41,7 +41,7 @@ add_library(lib
 	src/Maths/Vector3.cpp
 	# Systems
 	src/Systems/Renderer.cpp
-	src/Systems/Renderer.hpp include/Engine/Maths/Radian.hpp src/Components/TransformMatrix.hpp src/Systems/Transformer.hpp src/Systems/Transformer.cpp)
+	src/Systems/Renderer.hpp include/Engine/Maths/Radian.hpp include/Engine/Components/Matrices.hpp src/Systems/Transformer.hpp src/Systems/Transformer.cpp include/Engine/Components/Parent.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

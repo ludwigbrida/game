@@ -10,7 +10,6 @@ struct Transform : Component {
 	Vector3f position;
 	// Quaternion rotation;
 	Vector3f scale{1, 1, 1};
-	// TODO: Save localTransform and globalTransform in this component?
 };
 
 }

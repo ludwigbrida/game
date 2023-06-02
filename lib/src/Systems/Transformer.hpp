@@ -7,7 +7,7 @@ namespace ng {
 
 class Transformer : public System {
 public:
-	void update(ng::Registry& registry, ng::State& state,
+	void update(ng::Registry& matrices, ng::State& state,
 							ng::Float deltaTime) override;
 };
 

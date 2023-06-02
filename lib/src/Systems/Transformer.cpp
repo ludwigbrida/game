@@ -1,8 +1,8 @@
 #include "Transformer.hpp"
-#include "Components/TransformMatrix.hpp"
+#include "Engine/Components/Matrices.hpp"
+#include <Engine/Components/Parent.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Registry.hpp>
-#include <iostream>
 
 namespace ng {
 
@@ -12,27 +12,27 @@ void Transformer::update(Registry& registry, State& state, Float deltaTime) {
 	for (auto entity : entities) {
 		auto& transform = registry.get<Transform>(entity);
 
-		if (registry.has<TransformMatrix>(entity)) {
-			auto& test = registry.get<TransformMatrix>(entity);
-
-			std::cout << test.local << std::endl << std::endl;
-		}
-
 		// TODO: Split into two systems?
 		// - Transform2Local
 		// - Local2Global
 		// To prevent unnecessary recalculation of hierarchical matrices within
 		// a single frame?
+
 		if (transform.isDirty) {
+			registry.update<Matrices>(entity, [&](auto& matrices) {
+				matrices.local = Matrix4f::fromTransform(transform);
+				matrices.world = matrices.local;
 
-			transform.position.x = 5;
+				if (registry.has<Parent>(entity)) {
+					auto parent = registry.get<Parent>(entity);
 
-			registry.update<TransformMatrix>(
-				entity, [&transform](auto& transformMatrix) {
-					transformMatrix.local = Matrix4f::fromTransform(transform);
-				});
+					if (registry.has<Matrices>(parent.entity)) {
+						auto parentMatrices = registry.get<Matrices>(parent.entity);
 
-			transform.isDirty = false;
+						matrices.world = matrices.local * parentMatrices.world;
+					}
+				}
+			});
 		}
 	}
 }
