@@ -1,9 +1,10 @@
 #include "../Systems/Renderer.hpp"
 #include "../Systems/Transformer.hpp"
-#include "Engine/Core/Registry.hpp"
+#include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/App.hpp>
+#include <Engine/Core/Registry.hpp>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -33,6 +34,7 @@ App::App() {
 
 	// Player
 	registry.add<Transform>(0, {.position{0, 0, 0}});
+	registry.add<Matrices>(0);
 	// registry.add<Mesh>(0, Mesh::createTriangle(1));
 	registry.add<Perspective>(0, {.fieldOfView = 45, .aspectRatio = 16. / 9});
 

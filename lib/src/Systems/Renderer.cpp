@@ -1,8 +1,7 @@
 #include "Renderer.hpp"
+#include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Perspective.hpp>
-#include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Registry.hpp>
-#include <Engine/Maths/Radian.hpp>
 #include <GL/glew.h>
 
 namespace ng {
@@ -10,21 +9,19 @@ namespace ng {
 void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 	clear(Color::Black);
 
-	auto& cameraTransform = registry.get<Transform>(state.activeCamera);
+	auto& cameraMatrices = registry.get<Matrices>(state.activeCamera);
 	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
 
 	projectionMatrix = Matrix4f::fromPerspective(cameraPerspective);
+	viewMatrix = cameraMatrices.world.inverted();
 
-	auto cameraMatrix = Matrix4f::fromTransform(cameraTransform);
-	viewMatrix = cameraMatrix.inverted();
-
-	auto entities = registry.view<Transform, Mesh>();
+	auto entities = registry.view<Matrices, Mesh>();
 
 	for (auto entity : entities) {
-		auto& transform = registry.get<Transform>(entity);
+		auto& matrices = registry.get<Matrices>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
-		auto modelMatrix = Matrix4f::fromTransform(transform);
+		auto modelMatrix = matrices.world;
 
 		// TODO
 		Program program{R"(
@@ -57,11 +54,6 @@ void main() {
 )"};
 
 		draw(mesh, program, modelMatrix);
-
-		registry.update<Transform>(entity, [](Transform& transform) {
-			transform.position.x = 5;
-			transform.isDirty = false;
-		});
 	}
 }
 
