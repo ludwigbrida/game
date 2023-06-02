@@ -8,7 +8,7 @@ namespace ng {
 
 struct RenderTarget {
 	VertexArray vao;
-	UInt32 indices;
+	Int32 indices;
 };
 
 }

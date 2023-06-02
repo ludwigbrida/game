@@ -74,11 +74,11 @@ void Renderer::draw(const RenderTarget& target, const Program& program,
 	glUniformMatrix4fv(program.projectionMatrixLocation, 1, false,
 										 projectionMatrix);
 
-	// glBindVertexArray(vertexArray);
+	glBindVertexArray(target.vao.data);
 
-	// glDrawElements(GL_TRIANGLES, indices, GL_UNSIGNED_INT, nullptr);
+	glDrawElements(GL_TRIANGLES, target.indices, GL_UNSIGNED_INT, nullptr);
 
-	// glBindVertexArray(0);
+	glBindVertexArray(0);
 }
 
 }
