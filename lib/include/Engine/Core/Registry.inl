@@ -7,6 +7,10 @@ template <IsComponent T>
 void Registry::add(Entity entity, T value) {
 	auto component = std::make_unique<T>(value);
 	components[typeid(T)].insert({entity, std::move(component)});
+	// TODO: evaluate idea
+	// - There are multiple base classes of component (e.g. DirtyComponent)
+	// - For components that inherit from DirtyComponent, the dirty state is
+	//	 tracked in a separate map
 }
 
 template <IsComponent T>

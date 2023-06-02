@@ -51,7 +51,9 @@ void main() {
 }
 )"};
 
-		draw(mesh, program, matrices.world);
+		auto target = targets[entity];
+
+		draw(target, program, matrices.world);
 	}
 }
 
@@ -63,7 +65,7 @@ void Renderer::clear(const Color& color) const {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::draw(const Mesh& mesh, const Program& program,
+void Renderer::draw(const RenderTarget& target, const Program& program,
 										const Matrix4f& modelMatrix) const {
 	glUseProgram(program.location);
 

@@ -3,7 +3,9 @@ project(lib VERSION 0.0.0)
 add_library(lib
 	# include
 	# Components
+	include/Engine/Components/Matrices.hpp
 	include/Engine/Components/Mesh.hpp
+	include/Engine/Components/Parent.hpp
 	include/Engine/Components/Perspective.hpp
 	include/Engine/Components/Transform.hpp
 	# Core
@@ -21,6 +23,7 @@ add_library(lib
 	# Maths
 	include/Engine/Maths/Matrix4.hpp
 	include/Engine/Maths/Matrix4.inl
+	include/Engine/Maths/Radian.hpp
 	include/Engine/Maths/Vector3.hpp
 	include/Engine/Maths/Vector3.inl
 	# src
@@ -34,14 +37,19 @@ add_library(lib
 	src/Graphics/Color.cpp
 	src/Graphics/Program.cpp
 	src/Graphics/Program.hpp
+	src/Graphics/RenderTarget.hpp
 	src/Graphics/Shader.cpp
 	src/Graphics/Shader.hpp
+	src/Graphics/VertexArray.cpp
+	src/Graphics/VertexArray.hpp
 	# Maths
 	src/Maths/Matrix4.cpp
 	src/Maths/Vector3.cpp
 	# Systems
 	src/Systems/Renderer.cpp
-	src/Systems/Renderer.hpp include/Engine/Maths/Radian.hpp include/Engine/Components/Matrices.hpp src/Systems/Transformer.hpp src/Systems/Transformer.cpp include/Engine/Components/Parent.hpp)
+	src/Systems/Renderer.hpp
+	src/Systems/Transformer.cpp
+	src/Systems/Transformer.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
