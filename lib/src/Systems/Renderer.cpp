@@ -12,8 +12,8 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 	auto& cameraMatrices = registry.get<Matrices>(state.activeCamera);
 	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
 
-	projectionMatrix = Matrix4f::fromPerspective(cameraPerspective);
-	viewMatrix = cameraMatrices.world.inverted();
+	// projectionMatrix = Matrix4f::fromPerspective(cameraPerspective);
+	// viewMatrix = cameraMatrices.world.inverted();
 
 	auto entities = registry.view<Matrices, Mesh>();
 
@@ -22,8 +22,8 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 		auto& mesh = registry.get<Mesh>(entity);
 
 		if (!targets.contains(entity)) {
-			auto vertexArray = VertexArray(mesh);
-			targets.insert({entity, std::move(vertexArray)});
+			VertexArray vertexArray{mesh};
+			targets.insert({entity, vertexArray});
 		}
 
 		// TODO

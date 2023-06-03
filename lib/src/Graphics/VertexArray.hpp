@@ -13,7 +13,7 @@ public:
 	~VertexArray();
 
 	UInt32 data;
-	UInt64 indices;
+	Int32 indices;
 
 private:
 	static UInt32 create();

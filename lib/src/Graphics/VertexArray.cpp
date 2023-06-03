@@ -26,7 +26,7 @@ VertexArray::VertexArray(const Mesh& mesh) {
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh.indices.size() * sizeof(UInt32),
 							 mesh.indices.data(), GL_STATIC_DRAW);
 
-	indices = mesh.indices.size();
+	indices = static_cast<Int32>(mesh.indices.size());
 
 	glBindVertexArray(0);
 }
