@@ -4,11 +4,11 @@
 namespace ng {
 
 VertexArray::VertexArray(const Mesh& mesh) {
-	data = create();
-	glBindVertexArray(data);
+	glGenVertexArrays(1, &vertexArrayLocation);
+	glBindVertexArray(vertexArrayLocation);
 
-	auto vertexBuffer = createBuffer();
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+	glGenBuffers(1, &vertexBufferLocation);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferLocation);
 	glBufferData(GL_ARRAY_BUFFER, mesh.vertices.size() * sizeof(Float),
 							 mesh.vertices.data(), GL_STATIC_DRAW);
 
@@ -21,30 +21,20 @@ VertexArray::VertexArray(const Mesh& mesh) {
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
 
-	auto indexBuffer = createBuffer();
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+	glGenBuffers(1, &indexBufferLocation);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferLocation);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh.indices.size() * sizeof(UInt32),
 							 mesh.indices.data(), GL_STATIC_DRAW);
 
-	indices = static_cast<Int32>(mesh.indices.size());
+	indices = mesh.indices.size();
 
 	glBindVertexArray(0);
 }
 
-UInt32 VertexArray::create() {
-	UInt32 vertexArray;
-	glGenVertexArrays(1, &vertexArray);
-	return vertexArray;
-}
-
-UInt32 VertexArray::createBuffer() {
-	UInt32 buffer;
-	glGenBuffers(1, &buffer);
-	return buffer;
-}
-
 VertexArray::~VertexArray() {
-	glDeleteVertexArrays(1, &data);
+	glDeleteBuffers(1, &vertexBufferLocation);
+	glDeleteBuffers(1, &indexBufferLocation);
+	glDeleteVertexArrays(1, &vertexArrayLocation);
 }
 
 }

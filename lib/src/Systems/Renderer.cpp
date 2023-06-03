@@ -79,7 +79,7 @@ void Renderer::draw(const VertexArray& vertexArray, const Program& program,
 	glUniformMatrix4fv(program.projectionMatrixLocation, 1, false,
 										 projectionMatrix);
 
-	glBindVertexArray(vertexArray.data);
+	glBindVertexArray(vertexArray.vertexArrayLocation);
 
 	glDrawElements(GL_TRIANGLES, vertexArray.indices, GL_UNSIGNED_INT, nullptr);
 

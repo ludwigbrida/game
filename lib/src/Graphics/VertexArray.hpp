@@ -12,12 +12,12 @@ public:
 	explicit VertexArray(const Mesh& mesh);
 	~VertexArray();
 
-	UInt32 data;
+	UInt32 vertexArrayLocation;
 	Int32 indices;
 
 private:
-	static UInt32 create();
-	static UInt32 createBuffer();
+	UInt32 vertexBufferLocation;
+	UInt32 indexBufferLocation;
 };
 
 }

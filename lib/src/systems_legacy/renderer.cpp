@@ -167,7 +167,7 @@ void Renderer::add(Entity entity, const Mesh& mesh) {
 	auto vertexBuffer = createBuffer();
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float),
-							 vertices.data(), GL_STATIC_DRAW);
+							 vertices.vertexArrayLocation(), GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)0);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float),
@@ -181,8 +181,8 @@ void Renderer::add(Entity entity, const Mesh& mesh) {
 	auto indexBuffer = createBuffer();
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-							 mesh.indices.size() * sizeof(unsigned int), mesh.indices.data(),
-							 GL_STATIC_DRAW);
+							 mesh.indices.size() * sizeof(unsigned int),
+							 mesh.indices.vertexArrayLocation(), GL_STATIC_DRAW);
 
 	glBindVertexArray(0);
 
