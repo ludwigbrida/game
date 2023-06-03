@@ -9,8 +9,8 @@ namespace ng {
 struct Perspective : Component {
 	Float fieldOfView{};
 	Float aspectRatio{};
-	Float near{};
-	Float far{};
+	Float near{.1};
+	Float far{1000};
 };
 
 }
