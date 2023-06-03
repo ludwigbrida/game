@@ -12,7 +12,7 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 	auto& cameraMatrices = registry.get<Matrices>(state.activeCamera);
 	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
 
-	// projectionMatrix = Matrix4f::fromPerspective(cameraPerspective);
+	projectionMatrix = Matrix4f::fromPerspective(cameraPerspective);
 	viewMatrix = cameraMatrices.world.inverted();
 
 	auto entities = registry.view<Matrices, Mesh>();

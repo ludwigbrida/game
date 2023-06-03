@@ -36,11 +36,13 @@ App::App() {
 	// Player
 	registry.add<Transform>(0, {.position{0, 0, 0}});
 	registry.add<Matrices>(0);
-	registry.add<Perspective>(
-		0, {.fieldOfView = fromDegrees(45), .aspectRatio = 16. / 9});
+	registry.add<Perspective>(0, {.fieldOfView = fromDegrees(45),
+																.aspectRatio = 16. / 9,
+																.near = 0.1,
+																.far = 1000});
 
 	// Object 1
-	registry.add<Transform>(1, {.position{0, 0, 0}});
+	registry.add<Transform>(1, {.position{0, 0, -2}});
 	registry.add<Matrices>(1);
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
 
