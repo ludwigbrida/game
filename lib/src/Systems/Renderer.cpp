@@ -22,8 +22,8 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 		auto& mesh = registry.get<Mesh>(entity);
 
 		if (!targets.contains(entity)) {
-			VertexArray vertexArray{mesh};
-			targets.insert({entity, vertexArray});
+			auto vertexArray = std::make_unique<VertexArray>(mesh);
+			targets.insert({entity, std::move(vertexArray)});
 		}
 
 		// TODO
@@ -56,9 +56,9 @@ void main() {
 }
 )"};
 
-		auto target = targets[entity];
+		const auto& target = targets[entity];
 
-		draw(target, program, matrices.world);
+		draw(*target, program, matrices.world);
 	}
 }
 

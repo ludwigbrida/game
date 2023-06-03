@@ -8,6 +8,7 @@
 #include <Engine/Core/System.hpp>
 #include <Engine/Graphics/Color.hpp>
 #include <Engine/Maths/Matrix4.hpp>
+#include <memory>
 #include <unordered_map>
 
 namespace ng {
@@ -25,7 +26,7 @@ private:
 	Matrix4f viewMatrix{Matrix4f::Identity};
 	Matrix4f projectionMatrix{Matrix4f::Identity};
 
-	std::unordered_map<Entity, VertexArray> targets;
+	std::unordered_map<Entity, std::unique_ptr<VertexArray>> targets;
 };
 
 }

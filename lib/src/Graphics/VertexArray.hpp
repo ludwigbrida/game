@@ -8,7 +8,6 @@ namespace ng {
 
 class VertexArray {
 public:
-	VertexArray() = default;
 	explicit VertexArray(const Mesh& mesh);
 	~VertexArray();
 
