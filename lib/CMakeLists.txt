@@ -23,6 +23,7 @@ add_library(lib
 	# Maths
 	include/Engine/Maths/Matrix4.hpp
 	include/Engine/Maths/Matrix4.inl
+	include/Engine/Maths/Quaternion.hpp
 	include/Engine/Maths/Radian.hpp
 	include/Engine/Maths/Vector3.hpp
 	include/Engine/Maths/Vector3.inl
@@ -43,6 +44,7 @@ add_library(lib
 	src/Graphics/VertexArray.hpp
 	# Maths
 	src/Maths/Matrix4.cpp
+	src/Maths/Quaternion.cpp
 	src/Maths/Radian.cpp
 	src/Maths/Vector3.cpp
 	# Systems
