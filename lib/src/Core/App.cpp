@@ -40,7 +40,7 @@ App::App() {
 		0, {.fieldOfView = fromDegrees(45), .aspectRatio = 16. / 9});
 
 	// Object 1
-	registry.add<Transform>(1, {.position{0, 0, -3}});
+	registry.add<Transform>(1, {.position{0, 0, 0}});
 	registry.add<Matrices>(1);
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
 
