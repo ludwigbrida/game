@@ -2,7 +2,6 @@
 #define ENGINE_RENDERER_HPP
 
 #include "../Graphics/Program.hpp"
-#include "../Graphics/RenderTarget.hpp"
 #include "../Graphics/VertexArray.hpp"
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Core/Entity.hpp>
@@ -19,14 +18,14 @@ public:
 
 private:
 	void clear(const Color& color) const;
-	void draw(const RenderTarget& entity, const Program& program,
+	void draw(const VertexArray& vertexArray, const Program& program,
 						const Matrix4f& modelMatrix) const;
 
 	// TODO
 	Matrix4f viewMatrix{Matrix4f::Identity};
 	Matrix4f projectionMatrix{Matrix4f::Identity};
 
-	std::unordered_map<Entity, RenderTarget> targets;
+	std::unordered_map<Entity, VertexArray> targets;
 };
 
 }

@@ -21,9 +21,14 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 		auto& matrices = registry.get<Matrices>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
+		if (!targets.contains(entity)) {
+			auto vertexArray = VertexArray(mesh);
+			targets.insert({entity, std::move(vertexArray)});
+		}
+
 		// TODO
 		Program program{R"(
-#version 410 core_legacy
+#version 410 core
 
 uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
@@ -40,7 +45,7 @@ void main() {
 }
 )",
 										R"(
-#version 410 core_legacy
+#version 410 core
 
 in vec3 fragmentColor;
 
@@ -65,7 +70,7 @@ void Renderer::clear(const Color& color) const {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::draw(const RenderTarget& target, const Program& program,
+void Renderer::draw(const VertexArray& vertexArray, const Program& program,
 										const Matrix4f& modelMatrix) const {
 	glUseProgram(program.location);
 
@@ -74,9 +79,9 @@ void Renderer::draw(const RenderTarget& target, const Program& program,
 	glUniformMatrix4fv(program.projectionMatrixLocation, 1, false,
 										 projectionMatrix);
 
-	glBindVertexArray(target.vao.data);
+	glBindVertexArray(vertexArray.data);
 
-	glDrawElements(GL_TRIANGLES, target.indices, GL_UNSIGNED_INT, nullptr);
+	glDrawElements(GL_TRIANGLES, vertexArray.indices, GL_UNSIGNED_INT, nullptr);
 
 	glBindVertexArray(0);
 }

@@ -37,13 +37,13 @@ add_library(lib
 	src/Graphics/Color.cpp
 	src/Graphics/Program.cpp
 	src/Graphics/Program.hpp
-	src/Graphics/RenderTarget.hpp
 	src/Graphics/Shader.cpp
 	src/Graphics/Shader.hpp
 	src/Graphics/VertexArray.cpp
 	src/Graphics/VertexArray.hpp
 	# Maths
 	src/Maths/Matrix4.cpp
+	src/Maths/Radian.cpp
 	src/Maths/Vector3.cpp
 	# Systems
 	src/Systems/Renderer.cpp

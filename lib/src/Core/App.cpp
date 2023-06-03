@@ -5,6 +5,7 @@
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/App.hpp>
 #include <Engine/Core/Registry.hpp>
+#include <Engine/Maths/Radian.hpp>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -35,12 +36,13 @@ App::App() {
 	// Player
 	registry.add<Transform>(0, {.position{0, 0, 0}});
 	registry.add<Matrices>(0);
-	// registry.add<Mesh>(0, Mesh::createTriangle(1));
-	registry.add<Perspective>(0, {.fieldOfView = 45, .aspectRatio = 16. / 9});
+	registry.add<Perspective>(
+		0, {.fieldOfView = fromDegrees(45), .aspectRatio = 16. / 9});
 
 	// Object 1
-	// registry.add<Transform>(1, {.position{5, 0, -3}});
-	// registry.add<Mesh>(1, Mesh::createTriangle(1));
+	registry.add<Transform>(1, {.position{0, 0, -3}});
+	registry.add<Matrices>(1);
+	registry.add<Mesh>(1, Mesh::createTriangle(1));
 
 	// Object 2
 	// registry.add<Transform>(2, {.position{0, 0, 0}});

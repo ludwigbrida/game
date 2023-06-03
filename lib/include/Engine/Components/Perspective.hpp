@@ -7,10 +7,10 @@
 namespace ng {
 
 struct Perspective : Component {
-	Float fieldOfView;
-	Float aspectRatio;
-	Float near;
-	Float far;
+	Float fieldOfView{};
+	Float aspectRatio{};
+	Float near{};
+	Float far{};
 };
 
 }
