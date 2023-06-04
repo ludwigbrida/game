@@ -58,6 +58,11 @@ constexpr Vector3<T> Vector3<T>::operator/(const Vector3<T>& other) const {
 }
 
 template <IsArithmetic T>
+constexpr Vector3<T> Vector3<T>::operator*(T scalar) const {
+	return {x * scalar, y * scalar, z * scalar};
+}
+
+template <IsArithmetic T>
 constexpr Vector3<T> Vector3<T>::operator/(T scalar) const {
 	return {x / scalar, y / scalar, z / scalar};
 }

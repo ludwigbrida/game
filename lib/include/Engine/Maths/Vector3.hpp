@@ -27,6 +27,7 @@ public:
 	constexpr Vector3<T> operator-(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator*(const Vector3<T>& other) const;
 	constexpr Vector3<T> operator/(const Vector3<T>& other) const;
+	constexpr Vector3<T> operator*(T scalar) const;
 	constexpr Vector3<T> operator/(T scalar) const;
 
 	constexpr Vector3<T>& operator+=(const Vector3<T>& other);

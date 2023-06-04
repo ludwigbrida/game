@@ -2,6 +2,7 @@
 #define GAME_QUATERNION_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
+#include <Engine/Maths/Vector3.hpp>
 
 namespace ng {
 
@@ -12,6 +13,8 @@ public:
 	T y{};
 	T z{};
 	T w{1};
+
+	static Quaternion<T> fromAxisAngle(const Vector3<T>& axis, T angle);
 };
 
 }
