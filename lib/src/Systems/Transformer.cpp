@@ -1,8 +1,10 @@
 #include "Transformer.hpp"
-#include "Engine/Components/Matrices.hpp"
+#include "Engine/Maths/Radian.hpp"
+#include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Parent.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Registry.hpp>
+#include <iostream>
 
 namespace ng {
 
@@ -17,6 +19,11 @@ void Transformer::update(Registry& registry, State& state, Float deltaTime) {
 		// - Local2Global
 		// To prevent unnecessary recalculation of hierarchical matrices within
 		// a single frame?
+
+		registry.update<Transform>(entity, [&](auto& currentTransform) {
+			currentTransform.rotation =
+				Quaternion<Float>::fromAxisAngle(Vector3f::Up, fromDegrees(deltaTime));
+		});
 
 		if (transform.isDirty) {
 			registry.update<Matrices>(entity, [&](auto& matrices) {

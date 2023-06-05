@@ -64,6 +64,7 @@ void App::run() {
 
 		glViewport(0, 0, width, height);
 
+		// TODO
 		registry.run(state, 0);
 
 		glfwSwapBuffers(window);
