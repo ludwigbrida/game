@@ -5,7 +5,6 @@
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Maths/Vector3.hpp>
-#include <ostream>
 
 namespace ng {
 
@@ -48,19 +47,6 @@ public:
 
 	static const Matrix4<T> Identity;
 };
-
-template <IsArithmetic T>
-std::ostream& operator<<(std::ostream& os, const Matrix4<T>& matrix) {
-	os << matrix.m00 << ", " << matrix.m01 << ", " << matrix.m02 << ", "
-		 << matrix.m03 << std::endl
-		 << matrix.m10 << ", " << matrix.m11 << ", " << matrix.m12 << ", "
-		 << matrix.m13 << std::endl
-		 << matrix.m20 << ", " << matrix.m21 << ", " << matrix.m22 << ", "
-		 << matrix.m23 << std::endl
-		 << matrix.m30 << ", " << matrix.m31 << ", " << matrix.m32 << ", "
-		 << matrix.m33;
-	return os;
-}
 
 using Matrix4f = Matrix4<Float>;
 
