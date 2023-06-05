@@ -41,14 +41,17 @@ App::App() {
 																.near = 0.1,
 																.far = 1000});
 
-	// Object 1
-	registry.add<Transform>(1, {.position{0, 0, -2}});
+	// Triangle
+	registry.add<Transform>(1, {.position{-1, 0, -2}});
 	registry.add<Matrices>(1);
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
 
-	// Object 2
-	// registry.add<Transform>(2, {.position{0, 0, 0}});
-	// registry.add<Mesh>(2, Mesh::createTriangle(4));
+	// Cube
+	registry.add<Transform>(2, {.position{1, 0, -2},
+															.rotation{Quaternion<Float>::fromAxisAngle(
+																Vector3f::Up, fromDegrees(25))}});
+	registry.add<Matrices>(2);
+	registry.add<Mesh>(2, Mesh::createCube(1));
 
 	state.activeCamera = 0;
 }

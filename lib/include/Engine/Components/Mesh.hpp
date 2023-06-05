@@ -12,6 +12,7 @@ struct Mesh : Component {
 	std::vector<UInt32> indices;
 
 	static Mesh createTriangle(Float size);
+	static Mesh createCube(Float size);
 };
 
 }

@@ -130,7 +130,7 @@ Matrix4<T> Matrix4<T>::fromTransform(const Transform& transform) {
 	const auto& position = Matrix4<T>::fromPosition(transform.position);
 	const auto& rotation = Matrix4<T>::fromRotation(transform.rotation);
 	const auto& scale = Matrix4<T>::fromScale(transform.scale);
-	return position * rotation * scale;
+	return scale * rotation * position;
 }
 
 template <IsArithmetic T>

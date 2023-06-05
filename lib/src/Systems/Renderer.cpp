@@ -6,6 +6,11 @@
 
 namespace ng {
 
+void Renderer::setup() {
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
+}
+
 void Renderer::update(Registry& registry, State& state, Float deltaTime) {
 	clear(Color::Black);
 
@@ -67,7 +72,7 @@ void Renderer::clear(const Color& color) const {
 		static_cast<Float>(color.r) / 255, static_cast<Float>(color.g) / 255,
 		static_cast<Float>(color.b) / 255, static_cast<Float>(color.a) / 255);
 
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void Renderer::draw(const VertexArray& vertexArray, const Program& program,
