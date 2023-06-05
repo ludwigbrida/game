@@ -39,6 +39,7 @@ public:
 	Matrix4<T> inverted() const;
 
 	static Matrix4<T> fromPosition(const Vector3<T>& position);
+	static Matrix4<T> fromRotation(const Quaternion<T>& rotation);
 	static Matrix4<T> fromScale(const Vector3<T>& scale);
 
 	static Matrix4<T> fromTransform(const Transform& transform);

@@ -90,6 +90,33 @@ Matrix4<T> Matrix4<T>::fromPosition(const Vector3<T>& position) {
 }
 
 template <IsArithmetic T>
+Matrix4<T> Matrix4<T>::fromRotation(const Quaternion<T>& rotation) {
+	const T x2 = rotation.x + rotation.x;
+	const T y2 = rotation.y + rotation.y;
+	const T z2 = rotation.z + rotation.z;
+	const T xx = rotation.x * x2;
+	const T yx = rotation.y * x2;
+	const T yy = rotation.y * y2;
+	const T zx = rotation.z * x2;
+	const T zy = rotation.z * y2;
+	const T zz = rotation.z * z2;
+	const T wx = rotation.w * x2;
+	const T wy = rotation.w * y2;
+	const T wz = rotation.w * z2;
+	auto matrix = Matrix4<T>::Identity;
+	matrix.m00 = 1 - yy - zz;
+	matrix.m01 = yx - wz;
+	matrix.m02 = zx - wy;
+	matrix.m10 = yx - wz;
+	matrix.m11 = 1 - xx - zz;
+	matrix.m12 = zy + wx;
+	matrix.m20 = zx + wy;
+	matrix.m21 = zy - wx;
+	matrix.m22 = 1 - xx - yy;
+	return matrix;
+}
+
+template <IsArithmetic T>
 Matrix4<T> Matrix4<T>::fromScale(const Vector3<T>& scale) {
 	auto matrix = Matrix4<T>::Identity;
 	matrix.m00 = scale.x;
@@ -101,9 +128,9 @@ Matrix4<T> Matrix4<T>::fromScale(const Vector3<T>& scale) {
 template <IsArithmetic T>
 Matrix4<T> Matrix4<T>::fromTransform(const Transform& transform) {
 	const auto& position = Matrix4<T>::fromPosition(transform.position);
-	// const auto& rotation = Matrix4<T>::fromRotation(transform.rotation);
+	const auto& rotation = Matrix4<T>::fromRotation(transform.rotation);
 	const auto& scale = Matrix4<T>::fromScale(transform.scale);
-	return position * scale;
+	return position * rotation * scale;
 }
 
 template <IsArithmetic T>
