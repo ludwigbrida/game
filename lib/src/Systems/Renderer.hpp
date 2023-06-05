@@ -16,7 +16,8 @@ namespace ng {
 class Renderer : public System {
 public:
 	void setup() override;
-	void update(Registry& registry, State& state, Float deltaTime) override;
+	void update(Registry& registry, State& state, Float deltaTime,
+							Float elapsedTime) override;
 
 private:
 	void clear(const Color& color) const;

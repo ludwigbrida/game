@@ -7,8 +7,8 @@ namespace ng {
 
 class Transformer : public System {
 public:
-	void update(ng::Registry& matrices, ng::State& state,
-							ng::Float deltaTime) override;
+	void update(Registry& matrices, State& state, Float deltaTime,
+							Float elapsedTime) override;
 };
 
 }

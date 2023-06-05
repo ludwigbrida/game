@@ -13,7 +13,8 @@ class State;
 class System {
 public:
 	virtual void setup();
-	virtual void update(Registry& registry, State& state, Float deltaTime) = 0;
+	virtual void update(Registry& registry, State& state, Float deltaTime,
+											Float elapsedTime) = 0;
 	virtual ~System();
 };
 

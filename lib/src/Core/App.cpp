@@ -8,6 +8,7 @@
 #include <Engine/Maths/Radian.hpp>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
 
 namespace ng {
 
@@ -54,18 +55,28 @@ App::App() {
 	registry.add<Mesh>(2, Mesh::createCube(1));
 
 	state.activeCamera = 0;
+
+	// TODO: disabled vsync
+	// glfwSwapInterval(0);
 }
 
 void App::run() {
 	registry.setup();
 
+	Float previousTime = 0;
+
 	while (!glfwWindowShouldClose(window)) {
+		auto elapsedTime = static_cast<Float>(glfwGetTime());
+		auto deltaTime = elapsedTime - previousTime;
+		previousTime = elapsedTime;
+
+		// std::cout << deltaTime << std::endl;
+
 		glfwPollEvents();
 
 		glViewport(0, 0, width, height);
 
-		// TODO
-		registry.run(state, 0);
+		registry.run(state, deltaTime, elapsedTime);
 
 		glfwSwapBuffers(window);
 	}

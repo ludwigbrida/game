@@ -4,11 +4,11 @@
 #include <Engine/Components/Parent.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Registry.hpp>
-#include <iostream>
 
 namespace ng {
 
-void Transformer::update(Registry& registry, State& state, Float deltaTime) {
+void Transformer::update(Registry& registry, State& state, Float deltaTime,
+												 Float elapsedTime) {
 	auto entities = registry.view<Transform>();
 
 	for (auto entity : entities) {
@@ -20,10 +20,13 @@ void Transformer::update(Registry& registry, State& state, Float deltaTime) {
 		// To prevent unnecessary recalculation of hierarchical matrices within
 		// a single frame?
 
-		registry.update<Transform>(entity, [&](auto& currentTransform) {
-			currentTransform.rotation =
-				Quaternion<Float>::fromAxisAngle(Vector3f::Up, fromDegrees(deltaTime));
-		});
+		// TODO: temporarily scope to cube only
+		if (entity == 2) {
+			registry.update<Transform>(entity, [&](auto& currentTransform) {
+				currentTransform.rotation = Quaternion<Float>::fromAxisAngle(
+					Vector3f::Right, fromDegrees(elapsedTime * 100));
+			});
+		}
 
 		if (transform.isDirty) {
 			registry.update<Matrices>(entity, [&](auto& matrices) {

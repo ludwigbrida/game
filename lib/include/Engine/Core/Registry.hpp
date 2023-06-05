@@ -19,7 +19,7 @@ class Registry {
 public:
 	void setup();
 
-	void run(State& state, float deltaTime);
+	void run(State& state, float deltaTime, float elapsedTime);
 
 	template <IsComponent T>
 	void add(Entity entity, T value = {});
