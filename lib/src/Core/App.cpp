@@ -9,6 +9,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <sstream>
 
 namespace ng {
 
@@ -70,7 +71,10 @@ void App::run() {
 		auto deltaTime = elapsedTime - previousTime;
 		previousTime = elapsedTime;
 
-		// std::cout << deltaTime << std::endl;
+		std::stringstream title;
+		title << "Game [" << static_cast<UInt32>(1 / deltaTime) << " fps]";
+
+		glfwSetWindowTitle(window, title.str().c_str());
 
 		glfwPollEvents();
 
