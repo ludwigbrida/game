@@ -56,6 +56,7 @@ App::App() {
 	registry.add<Mesh>(2, Mesh::createCube(1));
 
 	state.activeCamera = 0;
+	state.keyboard = std::make_unique<Keyboard>(window);
 
 	// TODO: disabled vsync
 	// glfwSwapInterval(0);

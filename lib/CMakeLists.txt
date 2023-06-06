@@ -20,6 +20,8 @@ add_library(lib
 	# Graphics
 	include/Engine/Graphics/Color.hpp
 	include/Engine/Graphics/Vertex.hpp
+	# Input
+	include/Engine/Input/Keyboard.hpp
 	# Maths
 	include/Engine/Maths/Matrix4.hpp
 	include/Engine/Maths/Matrix4.inl
@@ -44,7 +46,6 @@ add_library(lib
 	src/Graphics/VertexArray.hpp
 	# Input
 	src/Input/Keyboard.cpp
-	src/Input/Keyboard.hpp
 	# Maths
 	src/Maths/Matrix4.cpp
 	src/Maths/Quaternion.cpp
