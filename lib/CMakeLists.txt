@@ -42,6 +42,9 @@ add_library(lib
 	src/Graphics/Shader.hpp
 	src/Graphics/VertexArray.cpp
 	src/Graphics/VertexArray.hpp
+	# Input
+	src/Input/Keyboard.cpp
+	src/Input/Keyboard.hpp
 	# Maths
 	src/Maths/Matrix4.cpp
 	src/Maths/Quaternion.cpp

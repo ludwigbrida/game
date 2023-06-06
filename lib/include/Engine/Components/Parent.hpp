@@ -1,5 +1,5 @@
-#ifndef GAME_PARENT_HPP
-#define GAME_PARENT_HPP
+#ifndef ENGINE_PARENT_HPP
+#define ENGINE_PARENT_HPP
 
 #include <Engine/Core/Component.hpp>
 #include <Engine/Core/Entity.hpp>

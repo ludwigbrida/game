@@ -1,5 +1,5 @@
-#ifndef GAME_QUATERNION_HPP
-#define GAME_QUATERNION_HPP
+#ifndef ENGINE_QUATERNION_HPP
+#define ENGINE_QUATERNION_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Maths/Vector3.hpp>
