@@ -43,7 +43,22 @@ bool Collision::nextSimplex(Simplex& points, Vector3<Float>& direction) {
 	return false;
 }
 
-bool Collision::line(Simplex& points, Vector3<Float>& direction) {}
+bool Collision::line(Simplex& points, Vector3<Float>& direction) {
+	Vector3<Float> a = points[0];
+	Vector3<Float> b = points[1];
+
+	Vector3<Float> ab = b - a;
+	Vector3<Float> ao = -a;
+
+	if (sameDirection(ab, ao)) {
+		direction = ab.cross(ao).cross(ab);
+	} else {
+		points = {a};
+		direction = ao;
+	}
+
+	return false;
+}
 
 bool Collision::sameDirection(const Vector3<Float>& direction1,
 															const Vector3<Float>& direction2) {
