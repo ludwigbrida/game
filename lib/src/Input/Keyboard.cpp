@@ -1,18 +1,18 @@
-#include "Engine/Input/Keyboard.hpp"
+#include <Engine/Input/Keyboard.hpp>
+#include <iostream>
 
-namespace ng {
+namespace ng::Keyboard {
 
-Keyboard::Keyboard(GLFWwindow* window) {
+void callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	keys[static_cast<Key>(key)] = action != GLFW_RELEASE;
+}
+
+void setup(GLFWwindow* window) {
 	glfwSetKeyCallback(window, callback);
 }
 
-bool Keyboard::isKeyDown(int key) {
-	return keys.contains(key) && keys[key];
-}
-
-void Keyboard::callback(GLFWwindow* window, int key, int scancode, int action,
-												int mods) {
-	keys[key] = action != GLFW_RELEASE;
+bool isKeyPressed(Key key) {
+	return keys[key];
 }
 
 }

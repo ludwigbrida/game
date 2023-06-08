@@ -5,6 +5,7 @@
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/App.hpp>
 #include <Engine/Core/Registry.hpp>
+#include <Engine/Input/Keyboard.hpp>
 #include <Engine/Maths/Radian.hpp>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -32,6 +33,8 @@ App::App() {
 		exit(1);
 	}
 
+	Keyboard::setup(window);
+
 	registry.activate<Transformer>();
 	registry.activate<Renderer>();
 
@@ -56,7 +59,6 @@ App::App() {
 	registry.add<Mesh>(2, Mesh::createCube(1));
 
 	state.activeCamera = 0;
-	state.keyboard = std::make_unique<Keyboard>(window);
 
 	// TODO: disabled vsync
 	// glfwSwapInterval(0);

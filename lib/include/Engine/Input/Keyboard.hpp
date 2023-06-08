@@ -1,23 +1,18 @@
-#ifndef ENGINE_KEYBOARD_HPP
-#define ENGINE_KEYBOARD_HPP
+#ifndef ENGINE_KEYBOARD2_HPP
+#define ENGINE_KEYBOARD2_HPP
 
 #include <GLFW/glfw3.h>
 #include <unordered_map>
 
-namespace ng {
+namespace ng::Keyboard {
 
-class Keyboard {
-public:
-	explicit Keyboard(GLFWwindow* window);
+enum struct Key { W = 87, A = 65, S = 83, D = 68 };
 
-	bool isKeyDown(int key);
+void setup(GLFWwindow* window);
 
-private:
-	static void callback(GLFWwindow* window, int key, int scancode, int action,
-											 int mods);
+bool isKeyPressed(Key key);
 
-	static std::unordered_map<int, bool> keys;
-};
+static std::unordered_map<Key, bool> keys;
 
 }
 
