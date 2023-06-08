@@ -19,6 +19,7 @@ private:
 	static bool nextSimplex(Simplex& points, Vector3<Float>& direction);
 
 	static bool line(Simplex& points, Vector3<Float>& direction);
+	static bool triangle(Simplex& points, Vector3<Float>& direction);
 
 	static bool sameDirection(const Vector3<Float>& direction1,
 														const Vector3<Float>& direction2);

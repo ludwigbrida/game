@@ -35,26 +35,60 @@ bool Collision::nextSimplex(Simplex& points, Vector3<Float>& direction) {
 	case 2:
 		return line(points, direction);
 	case 3:
-		// return triangle(m_points, direction);
+		return triangle(points, direction);
 	case 4:
-		// return tetrahedron(m_points, direction);
+		// return tetrahedron(points, direction);
 	}
 
 	return false;
 }
 
 bool Collision::line(Simplex& points, Vector3<Float>& direction) {
-	Vector3<Float> a = points[0];
-	Vector3<Float> b = points[1];
+	auto a = points[0];
+	auto b = points[1];
 
-	Vector3<Float> ab = b - a;
-	Vector3<Float> ao = -a;
+	auto ab = b - a;
+	auto ao = -a;
 
 	if (sameDirection(ab, ao)) {
 		direction = ab.cross(ao).cross(ab);
 	} else {
 		points = {a};
 		direction = ao;
+	}
+
+	return false;
+}
+
+bool Collision::triangle(Simplex& points, Vector3<Float>& direction) {
+	auto a = points[0];
+	auto b = points[1];
+	auto c = points[2];
+
+	auto ab = b - a;
+	auto ac = c - a;
+	auto ao = -a;
+
+	auto abc = ab.cross(ac);
+
+	if (sameDirection(abc.cross(ac), ao)) {
+		if (sameDirection(ac, ao)) {
+			points = {a, c};
+			direction = ac.cross(ao).cross(ac);
+		} else {
+			return line(points = {a, b}, direction);
+		}
+	} else {
+		if (sameDirection(ab.cross(abc), ao)) {
+			return line(points = {a, b}, direction);
+		} else {
+			if (sameDirection(abc, ao)) {
+				direction = abc;
+			} else {
+				points = {a, c, b};
+				direction = -abc;
+			}
+		}
 	}
 
 	return false;
