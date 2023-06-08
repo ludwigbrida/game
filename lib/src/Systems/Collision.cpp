@@ -37,7 +37,7 @@ bool Collision::nextSimplex(Simplex& points, Vector3<Float>& direction) {
 	case 3:
 		return triangle(points, direction);
 	case 4:
-		// return tetrahedron(points, direction);
+		return tetrahedron(points, direction);
 	}
 
 	return false;
@@ -92,6 +92,34 @@ bool Collision::triangle(Simplex& points, Vector3<Float>& direction) {
 	}
 
 	return false;
+}
+
+bool Collision::tetrahedron(Simplex& points, Vector3<Float>& direction) {
+	auto a = points[0];
+	auto b = points[1];
+	auto c = points[2];
+	auto d = points[3];
+
+	auto ab = b - a;
+	auto ac = c - a;
+	auto ad = d - a;
+	auto ao = -a;
+
+	auto abc = ab.cross(ac);
+	auto acd = ac.cross(ad);
+	auto adb = ad.cross(ab);
+
+	if (sameDirection(abc, ao)) {
+		return triangle(points = {a, b, c}, direction);
+	}
+	if (sameDirection(acd, ao)) {
+		return triangle(points = {a, c, d}, direction);
+	}
+	if (sameDirection(adb, ao)) {
+		return triangle(points = {a, d, b}, direction);
+	}
+
+	return true;
 }
 
 bool Collision::sameDirection(const Vector3<Float>& direction1,

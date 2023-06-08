@@ -20,6 +20,7 @@ private:
 
 	static bool line(Simplex& points, Vector3<Float>& direction);
 	static bool triangle(Simplex& points, Vector3<Float>& direction);
+	static bool tetrahedron(Simplex& points, Vector3<Float>& direction);
 
 	static bool sameDirection(const Vector3<Float>& direction1,
 														const Vector3<Float>& direction2);
