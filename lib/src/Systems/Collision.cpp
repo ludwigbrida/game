@@ -34,7 +34,7 @@ bool Collision::nextSimplex(std::list<Vector3<Float>>& points,
 														Vector3<Float>& direction) {
 	switch (points.size()) {
 	case 2:
-		// return line(points, direction);
+		return line(points, direction);
 	case 3:
 		// return triangle(points, direction);
 	case 4:
@@ -43,6 +43,9 @@ bool Collision::nextSimplex(std::list<Vector3<Float>>& points,
 
 	return false;
 }
+
+bool Collision::line(std::list<Vector3<Float>>& points,
+										 Vector3<Float>& direction) {}
 
 bool Collision::sameDirection(const Vector3<Float>& direction1,
 															const Vector3<Float>& direction2) {
