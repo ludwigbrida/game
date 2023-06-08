@@ -10,7 +10,7 @@ bool Collision::gjk(const Collider& collider1, const Collider& collider2) {
 	Vector3<Float> support =
 		supportPoint(collider1, collider2, Vector3<Float>::Right);
 
-	std::list<Vector3<Float>> points;
+	Simplex points;
 	points.push_front(support);
 
 	Vector3<Float> direction = -support;
@@ -30,22 +30,20 @@ bool Collision::gjk(const Collider& collider1, const Collider& collider2) {
 	}
 }
 
-bool Collision::nextSimplex(std::list<Vector3<Float>>& points,
-														Vector3<Float>& direction) {
+bool Collision::nextSimplex(Simplex& points, Vector3<Float>& direction) {
 	switch (points.size()) {
 	case 2:
 		return line(points, direction);
 	case 3:
-		// return triangle(points, direction);
+		// return triangle(m_points, direction);
 	case 4:
-		// return tetrahedron(points, direction);
+		// return tetrahedron(m_points, direction);
 	}
 
 	return false;
 }
 
-bool Collision::line(std::list<Vector3<Float>>& points,
-										 Vector3<Float>& direction) {}
+bool Collision::line(Simplex& points, Vector3<Float>& direction) {}
 
 bool Collision::sameDirection(const Vector3<Float>& direction1,
 															const Vector3<Float>& direction2) {
