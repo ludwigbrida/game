@@ -8,13 +8,19 @@
 namespace ng {
 
 class Collision : public System {
-private:
-	static Vector3<Float> furthestPoint(const Collider& vertices,
-																			Vector3<Float> direction);
+public:
+	void update(Registry& registry, State& state, Float deltaTime,
+							Float elapsedTime) override;
 
-	static Vector3<Float> support(const Collider& collider1,
-																const Collider& collider2,
-																Vector3<Float> direction);
+private:
+	static bool gjk(const Collider& collider1, const Collider& collider2);
+
+	static Vector3<Float> supportPoint(const Collider& collider1,
+																		 const Collider& collider2,
+																		 Vector3<Float> direction);
+
+	static Vector3<Float> furthestPoint(const Collider& collider,
+																			Vector3<Float> direction);
 };
 
 }
