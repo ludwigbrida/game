@@ -16,10 +16,11 @@ public:
 	void run();
 	~App();
 
+	Registry registry;
+
 private:
 	::GLFWwindow* window;
 
-	Registry registry;
 	State state;
 
 	Int32 width = 960;
