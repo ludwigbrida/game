@@ -3,6 +3,7 @@ project(lib VERSION 0.0.0)
 add_library(lib
 	# include
 	# Components
+	include/Engine/Components/Collider.hpp
 	include/Engine/Components/Matrices.hpp
 	include/Engine/Components/Mesh.hpp
 	include/Engine/Components/Parent.hpp
@@ -52,6 +53,8 @@ add_library(lib
 	src/Maths/Radian.cpp
 	src/Maths/Vector3.cpp
 	# Systems
+	src/Systems/Collision.cpp
+	src/Systems/Collision.hpp
 	src/Systems/Renderer.cpp
 	src/Systems/Renderer.hpp
 	src/Systems/Transformer.cpp
