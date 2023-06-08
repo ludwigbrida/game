@@ -1,3 +1,4 @@
+#include "../Systems/Collision.hpp"
 #include "../Systems/Renderer.hpp"
 #include "../Systems/Transformer.hpp"
 #include <Engine/Components/Collider.hpp>
@@ -37,6 +38,7 @@ App::App() {
 	Keyboard::setup(window);
 
 	registry.activate<Transformer>();
+	registry.activate<Collision>();
 	registry.activate<Renderer>();
 
 	// Player

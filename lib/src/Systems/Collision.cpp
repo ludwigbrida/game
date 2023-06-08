@@ -1,10 +1,31 @@
 #include "Collision.hpp"
+#include <Engine/Components/Transform.hpp>
+#include <Engine/Core/Registry.hpp>
+#include <iostream>
 #include <limits>
 
 namespace ng {
 
 void Collision::update(Registry& registry, State& state, Float deltaTime,
-											 Float elapsedTime) {}
+											 Float elapsedTime) {
+	auto entities = registry.view<Transform, Collider>();
+
+	for (auto entity1 : entities) {
+		auto& transform1 = registry.get<Transform>(entity1);
+		auto& collider1 = registry.get<Collider>(entity1);
+
+		for (auto entity2 : entities) {
+			if (entity1 != entity2) {
+				auto& transform2 = registry.get<Transform>(entity2);
+				auto& collider2 = registry.get<Collider>(entity2);
+
+				if (gjk(collider1, collider2)) {
+					std::cout << "GJK" << std::endl;
+				}
+			}
+		}
+	}
+}
 
 bool Collision::gjk(const Collider& collider1, const Collider& collider2) {
 	Vector3<Float> support =
