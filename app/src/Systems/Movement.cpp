@@ -4,7 +4,7 @@
 #include <Engine/Input/Keyboard.hpp>
 
 void Movement::update(ng::Registry& registry, ng::State& state,
-											ng::Float deltaTime, ng::Float elapsedTime) {
+	ng::Float deltaTime, ng::Float elapsedTime) {
 	auto forward = ng::Vector3<ng::Float>::Zero;
 	auto right = ng::Vector3<ng::Float>::Zero;
 

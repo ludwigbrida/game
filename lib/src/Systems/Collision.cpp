@@ -6,20 +6,21 @@
 
 namespace ng {
 
-void Collision::update(Registry& registry, State& state, Float deltaTime,
-											 Float elapsedTime) {
+void Collision::update(
+	Registry& registry, State& state, Float deltaTime, Float elapsedTime) {
 	auto entities = registry.view<Transform, Collider>();
 
-	for (auto entity1 : entities) {
+	for (auto entity1: entities) {
 		auto& transform1 = registry.get<Transform>(entity1);
 		auto& collider1 = registry.get<Collider>(entity1);
 
-		for (auto entity2 : entities) {
+		for (auto entity2: entities) {
 			if (entity1 != entity2) {
 				auto& transform2 = registry.get<Transform>(entity2);
 				auto& collider2 = registry.get<Collider>(entity2);
 
 				if (gjk(collider1, collider2)) {
+					// TODO: Add transform to the colliders
 					std::cout << "GJK" << std::endl;
 				}
 			}
@@ -143,24 +144,23 @@ bool Collision::tetrahedron(Simplex& points, Vector3<Float>& direction) {
 	return true;
 }
 
-bool Collision::sameDirection(const Vector3<Float>& direction1,
-															const Vector3<Float>& direction2) {
+bool Collision::sameDirection(
+	const Vector3<Float>& direction1, const Vector3<Float>& direction2) {
 	return direction1.dot(direction2) > 0;
 }
 
 Vector3<Float> Collision::supportPoint(const Collider& collider1,
-																			 const Collider& collider2,
-																			 Vector3<Float> direction) {
+	const Collider& collider2, Vector3<Float> direction) {
 	return furthestPoint(collider1, direction) -
-				 furthestPoint(collider2, -direction);
+		furthestPoint(collider2, -direction);
 }
 
-Vector3<Float> Collision::furthestPoint(const Collider& collider,
-																				Vector3<Float> direction) {
+Vector3<Float> Collision::furthestPoint(
+	const Collider& collider, Vector3<Float> direction) {
 	Vector3<Float> maxPoint;
 	Float maxDistance = -std::numeric_limits<Float>::max();
 
-	for (auto vertex : collider.vertices) {
+	for (auto vertex: collider.vertices) {
 		auto distance = vertex.dot(direction);
 
 		if (distance > maxDistance) {

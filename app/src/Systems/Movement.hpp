@@ -3,10 +3,10 @@
 
 #include <Engine/Core/System.hpp>
 
-class Movement : public ng::System {
+class Movement: public ng::System {
 public:
 	void update(ng::Registry& registry, ng::State& state, ng::Float deltaTime,
-							ng::Float elapsedTime) override;
+		ng::Float elapsedTime) override;
 };
 
 #endif

@@ -8,3 +8,15 @@ TabWidth: 2
 ContinuationIndentWidth: 2
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Empty
+
+AlignAfterOpenBracket: false
+AlignArrayOfStructures: None
+AlignOperands: false
+
+SpaceBeforeAssignmentOperators: true # default
+SpaceBeforeCaseColon: false
+SpaceBeforeCpp11BracedList: false # or true?
+SpaceBeforeCtorInitializerColon: false
+SpaceBeforeInheritanceColon: false
+SpaceBeforeRangeBasedForLoopColon: false
+SpaceBeforeSquareBrackets: false # default

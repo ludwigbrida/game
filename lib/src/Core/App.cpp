@@ -44,30 +44,35 @@ App::App() {
 	// Player
 	registry.add<Transform>(0, {.position{0, 0, 0}});
 	registry.add<Matrices>(0);
-	registry.add<Perspective>(0, {.fieldOfView = fromDegrees(45),
-																.aspectRatio = 16. / 9,
-																.near = 0.1,
-																.far = 1000});
-	registry.add<Collider>(0, {.vertices{
-															{0, 0.5, 0},
-															{-0.5, -0.5, 0},
-															{0.5, -0.5, 0},
-														}});
+	registry.add<Perspective>(0,
+		{.fieldOfView = fromDegrees(45),
+			.aspectRatio = 16. / 9,
+			.near = 0.1,
+			.far = 1000});
+	// TODO: Maybe does not work with triangles?
+	registry.add<Collider>(0,
+		{.vertices{
+			{0, 0.5, 0},
+			{-0.5, -0.5, 0},
+			{0.5, -0.5, 0},
+		}});
 
 	// Triangle
-	registry.add<Transform>(1, {.position{-1, 0, -2}});
+	registry.add<Transform>(1, {.position{0, 0, 0}});
 	registry.add<Matrices>(1);
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
-	registry.add<Collider>(1, {.vertices{
-															{0, 0.5, 0},
-															{-0.5, -0.5, 0},
-															{0.5, -0.5, 0},
-														}});
+	registry.add<Collider>(1,
+		{.vertices{
+			{0, 0.5, 0},
+			{-0.5, -0.5, 0},
+			{0.5, -0.5, 0},
+		}});
 
 	// Cube
-	registry.add<Transform>(2, {.position{1, 0, -2},
-															.rotation{Quaternion<Float>::fromAxisAngle(
-																Vector3f::Up, fromDegrees(25))}});
+	registry.add<Transform>(2,
+		{.position{1, 0, -2},
+			.rotation{
+				Quaternion<Float>::fromAxisAngle(Vector3f::Up, fromDegrees(25))}});
 	registry.add<Matrices>(2);
 	registry.add<Mesh>(2, Mesh::createCube(1));
 
