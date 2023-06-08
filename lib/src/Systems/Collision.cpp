@@ -1,5 +1,6 @@
 #include "Collision.hpp"
 #include <limits>
+#include <list>
 
 namespace ng {
 
@@ -10,7 +11,8 @@ bool Collision::gjk(const Collider& collider1, const Collider& collider2) {
 	Vector3<Float> support =
 		supportPoint(collider1, collider2, Vector3<Float>::Right);
 
-	// TODO: Define the simplex
+	std::list<Vector3<Float>> points;
+	points.push_front(support);
 
 	Vector3<Float> direction = -support;
 
