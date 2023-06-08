@@ -19,6 +19,9 @@ private:
 	static bool nextSimplex(std::list<Vector3<Float>>& points,
 													Vector3<Float>& direction);
 
+	static bool sameDirection(const Vector3<Float>& direction1,
+														const Vector3<Float>& direction2);
+
 	static Vector3<Float> supportPoint(const Collider& collider1,
 																		 const Collider& collider2,
 																		 Vector3<Float> direction);

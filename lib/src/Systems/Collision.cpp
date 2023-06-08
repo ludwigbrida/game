@@ -44,6 +44,11 @@ bool Collision::nextSimplex(std::list<Vector3<Float>>& points,
 	return false;
 }
 
+bool Collision::sameDirection(const Vector3<Float>& direction1,
+															const Vector3<Float>& direction2) {
+	return direction1.dot(direction2) > 0;
+}
+
 Vector3<Float> Collision::supportPoint(const Collider& collider1,
 																			 const Collider& collider2,
 																			 Vector3<Float> direction) {
