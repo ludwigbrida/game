@@ -1,5 +1,6 @@
 #include "../Systems/Renderer.hpp"
 #include "../Systems/Transformer.hpp"
+#include <Engine/Components/Collider.hpp>
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Components/Transform.hpp>
@@ -45,11 +46,21 @@ App::App() {
 																.aspectRatio = 16. / 9,
 																.near = 0.1,
 																.far = 1000});
+	registry.add<Collider>(0, {.vertices{
+															{0, 0.5, 0},
+															{-0.5, -0.5, 0},
+															{0.5, -0.5, 0},
+														}});
 
 	// Triangle
 	registry.add<Transform>(1, {.position{-1, 0, -2}});
 	registry.add<Matrices>(1);
 	registry.add<Mesh>(1, Mesh::createTriangle(1));
+	registry.add<Collider>(1, {.vertices{
+															{0, 0.5, 0},
+															{-0.5, -0.5, 0},
+															{0.5, -0.5, 0},
+														}});
 
 	// Cube
 	registry.add<Transform>(2, {.position{1, 0, -2},
