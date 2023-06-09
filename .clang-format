@@ -6,10 +6,16 @@ PointerAlignment: Left
 UseTab: Always
 TabWidth: 2
 ContinuationIndentWidth: 2
-AllowShortFunctionsOnASingleLine: Empty
-AllowShortLambdasOnASingleLine: Empty
 
-AlignAfterOpenBracket: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLambdasOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
+
+AlignAfterOpenBracket: BlockIndent
 AlignArrayOfStructures: None
 AlignOperands: false
 
@@ -20,3 +26,15 @@ SpaceBeforeCtorInitializerColon: false
 SpaceBeforeInheritanceColon: false
 SpaceBeforeRangeBasedForLoopColon: false
 SpaceBeforeSquareBrackets: false # default
+
+BinPackArguments: false
+BinPackParameters: false
+
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+
+PenaltyReturnTypeOnItsOwnLine: 1000000

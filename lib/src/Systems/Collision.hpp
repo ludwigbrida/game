@@ -8,10 +8,14 @@
 
 namespace ng {
 
-class Collision : public System {
+class Collision: public System {
 public:
-	void update(Registry& registry, State& state, Float deltaTime,
-							Float elapsedTime) override;
+	void update(
+		Registry& registry,
+		State& state,
+		Float deltaTime,
+		Float elapsedTime
+	) override;
 
 private:
 	static bool gjk(const Collider& collider1, const Collider& collider2);
@@ -22,15 +26,21 @@ private:
 	static bool triangle(Simplex& points, Vector3<Float>& direction);
 	static bool tetrahedron(Simplex& points, Vector3<Float>& direction);
 
-	static bool sameDirection(const Vector3<Float>& direction1,
-														const Vector3<Float>& direction2);
+	static bool sameDirection(
+		const Vector3<Float>& direction1,
+		const Vector3<Float>& direction2
+	);
 
-	static Vector3<Float> supportPoint(const Collider& collider1,
-																		 const Collider& collider2,
-																		 Vector3<Float> direction);
+	static Vector3<Float> supportPoint(
+		const Collider& collider1,
+		const Collider& collider2,
+		Vector3<Float> direction
+	);
 
-	static Vector3<Float> furthestPoint(const Collider& collider,
-																			Vector3<Float> direction);
+	static Vector3<Float> furthestPoint(
+		const Collider& collider,
+		Vector3<Float> direction
+	);
 };
 
 }
