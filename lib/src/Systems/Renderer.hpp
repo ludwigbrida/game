@@ -13,20 +13,27 @@
 
 namespace ng {
 
-class Renderer : public System {
+class Renderer: public System {
 public:
 	void setup() override;
-	void update(Registry& registry, State& state, Float deltaTime,
-							Float elapsedTime) override;
+	void update(
+		Registry& registry,
+		State& state,
+		Float deltaTime,
+		Float elapsedTime
+	) override;
 
 private:
 	void clear(const Color& color) const;
-	void draw(const VertexArray& vertexArray, const Program& program,
-						const Matrix4f& modelMatrix) const;
+	void draw(
+		const VertexArray& vertexArray,
+		const Program& program,
+		const Matrix4<Float>& modelMatrix
+	) const;
 
 	// TODO
-	Matrix4f viewMatrix{Matrix4f::Identity};
-	Matrix4f projectionMatrix{Matrix4f::Identity};
+	Matrix4<Float> viewMatrix{Matrix4<Float>::Identity};
+	Matrix4<Float> projectionMatrix{Matrix4<Float>::Identity};
 
 	std::unordered_map<Entity, std::unique_ptr<VertexArray>> targets;
 };

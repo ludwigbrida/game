@@ -7,8 +7,8 @@
 namespace ng {
 
 struct Vertex {
-	Vector3f position;
-	Vector3f normal;
+	Vector3<Float> position;
+	Vector3<Float> normal;
 	Color color;
 };
 

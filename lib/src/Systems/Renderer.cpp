@@ -11,19 +11,23 @@ void Renderer::setup() {
 	glEnable(GL_DEPTH_TEST);
 }
 
-void Renderer::update(Registry& registry, State& state, Float deltaTime,
-											Float elapsedTime) {
+void Renderer::update(
+	Registry& registry,
+	State& state,
+	Float deltaTime,
+	Float elapsedTime
+) {
 	clear(Color::Black);
 
 	auto& cameraMatrices = registry.get<Matrices>(state.activeCamera);
 	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
 
-	projectionMatrix = Matrix4f::fromPerspective(cameraPerspective);
+	projectionMatrix = Matrix4<Float>::fromPerspective(cameraPerspective);
 	viewMatrix = cameraMatrices.world.inverted();
 
 	auto entities = registry.view<Matrices, Mesh>();
 
-	for (auto entity : entities) {
+	for (auto entity: entities) {
 		auto& matrices = registry.get<Matrices>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
@@ -33,7 +37,8 @@ void Renderer::update(Registry& registry, State& state, Float deltaTime,
 		}
 
 		// TODO
-		Program program{R"(
+		Program program{
+			R"(
 #version 410 core
 
 uniform mat4 modelMatrix;
@@ -50,7 +55,7 @@ void main() {
 	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition, 1);
 }
 )",
-										R"(
+			R"(
 #version 410 core
 
 in vec3 fragmentColor;
@@ -70,20 +75,30 @@ void main() {
 
 void Renderer::clear(const Color& color) const {
 	glClearColor(
-		static_cast<Float>(color.r) / 255, static_cast<Float>(color.g) / 255,
-		static_cast<Float>(color.b) / 255, static_cast<Float>(color.a) / 255);
+		static_cast<Float>(color.r) / 255,
+		static_cast<Float>(color.g) / 255,
+		static_cast<Float>(color.b) / 255,
+		static_cast<Float>(color.a) / 255
+	);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void Renderer::draw(const VertexArray& vertexArray, const Program& program,
-										const Matrix4f& modelMatrix) const {
+void Renderer::draw(
+	const VertexArray& vertexArray,
+	const Program& program,
+	const Matrix4<Float>& modelMatrix
+) const {
 	glUseProgram(program.location);
 
 	glUniformMatrix4fv(program.modelMatrixLocation, 1, false, modelMatrix);
 	glUniformMatrix4fv(program.viewMatrixLocation, 1, false, viewMatrix);
-	glUniformMatrix4fv(program.projectionMatrixLocation, 1, false,
-										 projectionMatrix);
+	glUniformMatrix4fv(
+		program.projectionMatrixLocation,
+		1,
+		false,
+		projectionMatrix
+	);
 
 	glBindVertexArray(vertexArray.vertexArrayLocation);
 

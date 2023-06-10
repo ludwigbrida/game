@@ -6,9 +6,9 @@
 
 namespace ng {
 
-struct Matrices : Component {
-	Matrix4f local;
-	Matrix4f world;
+struct Matrices: Component {
+	Matrix4<Float> local;
+	Matrix4<Float> world;
 };
 
 }

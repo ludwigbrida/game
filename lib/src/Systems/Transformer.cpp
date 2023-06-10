@@ -7,11 +7,15 @@
 
 namespace ng {
 
-void Transformer::update(Registry& registry, State& state, Float deltaTime,
-												 Float elapsedTime) {
+void Transformer::update(
+	Registry& registry,
+	State& state,
+	Float deltaTime,
+	Float elapsedTime
+) {
 	auto entities = registry.view<Transform>();
 
-	for (auto entity : entities) {
+	for (auto entity: entities) {
 		auto& transform = registry.get<Transform>(entity);
 
 		// TODO: Split into two systems?
@@ -24,13 +28,15 @@ void Transformer::update(Registry& registry, State& state, Float deltaTime,
 		if (entity == 2) {
 			registry.update<Transform>(entity, [&](auto& currentTransform) {
 				currentTransform.rotation = Quaternion<Float>::fromAxisAngle(
-					Vector3f::Right, fromDegrees(elapsedTime * 100));
+					Vector3<Float>::Right,
+					fromDegrees(elapsedTime * 100)
+				);
 			});
 		}
 
 		if (transform.isDirty) {
 			registry.update<Matrices>(entity, [&](auto& matrices) {
-				matrices.local = Matrix4f::fromTransform(transform);
+				matrices.local = Matrix4<Float>::fromTransform(transform);
 				matrices.world = matrices.local;
 
 				if (registry.has<Parent>(entity)) {

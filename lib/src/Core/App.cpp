@@ -92,7 +92,8 @@ App::App() {
 	registry.add<Transform>(
 		2,
 		{.position{1, 0, -2},
-		 .rotation{Quaternion<Float>::fromAxisAngle(Vector3f::Up, fromDegrees(25))}}
+		 .rotation{
+			 Quaternion<Float>::fromAxisAngle(Vector3<Float>::Up, fromDegrees(25))}}
 	);
 	registry.add<Matrices>(2);
 	registry.add<Mesh>(2, Mesh::createCube(1));
