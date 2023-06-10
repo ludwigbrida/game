@@ -6,7 +6,12 @@
 
 namespace ng::Keyboard {
 
-enum struct Key { W = 87, A = 65, S = 83, D = 68 };
+enum struct Key {
+	W = 87,
+	A = 65,
+	S = 83,
+	D = 68
+};
 
 void setup(GLFWwindow* window);
 
