@@ -24,8 +24,6 @@ void Collision::update(
 				auto& matrices2 = registry.get<Matrices>(entity2);
 				auto& collider2 = registry.get<Collider>(entity2);
 
-				std::cout << entity1 << " <> " << entity2 << std::endl;
-
 				if (gjk(collider1, collider2, matrices1.world, matrices2.world)) {
 					// TODO: Add transform to the colliders
 					std::cout << "GJK" << std::endl;
@@ -49,26 +47,18 @@ bool Collision::gjk(
 	Simplex points;
 	points.push_front(support);
 
-	std::cout << "initial: " << support.x << ", " << support.y << ", "
-						<< support.z << std::endl;
-
 	Vector3<Float> direction = -support;
 
 	while (true) {
 		support = supportPoint(collider1, collider2, matrix1, matrix2, direction);
 
-		std::cout << "update: " << support.x << ", " << support.y << ", "
-							<< support.z << std::endl;
-
 		if (support.dot(direction) <= 0) {
-			std::cout << "false: " << points.size() << std::endl;
 			return false;
 		}
 
 		points.push_front(support);
 
 		if (nextSimplex(points, direction)) {
-			std::cout << "true: " << points.size() << std::endl;
 			return true;
 		}
 	}
@@ -193,7 +183,7 @@ Vector3<Float> Collision::furthestPoint(
 	Float maxDistance = -std::numeric_limits<Float>::max();
 
 	for (auto vertex: collider.vertices) {
-		auto point = vertex * matrix;
+		auto point = matrix * vertex;
 		auto distance = point.dot(direction);
 
 		if (distance > maxDistance) {

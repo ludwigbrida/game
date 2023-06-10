@@ -49,6 +49,8 @@ public:
 
 	Matrix4<T> operator*(const Matrix4<T>& other) const;
 
+	Vector3<T> operator*(const Vector3<T>& vector) const;
+
 	operator const T*() const; // NOLINT
 
 	Matrix4<T> inverted() const;

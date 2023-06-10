@@ -40,8 +40,6 @@ public:
 	constexpr bool operator==(const Vector3<T>& other) const;
 	constexpr bool operator!=(const Vector3<T>& other) const;
 
-	// constexpr Vector3<T> operator*(const Matrix4<T>& matrix) const;
-
 	static const Vector3<T> Zero;
 	static const Vector3<T> Right;
 	static const Vector3<T> Left;

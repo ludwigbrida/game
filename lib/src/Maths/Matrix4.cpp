@@ -7,8 +7,24 @@ template <IsArithmetic T>
 Matrix4<T>::Matrix4() = default;
 
 template <IsArithmetic T>
-Matrix4<T>::Matrix4(T m00, T m01, T m02, T m03, T m10, T m11, T m12, T m13,
-										T m20, T m21, T m22, T m23, T m30, T m31, T m32, T m33)
+Matrix4<T>::Matrix4(
+	T m00,
+	T m01,
+	T m02,
+	T m03,
+	T m10,
+	T m11,
+	T m12,
+	T m13,
+	T m20,
+	T m21,
+	T m22,
+	T m23,
+	T m30,
+	T m31,
+	T m32,
+	T m33
+)
 		: m00{m00}, m01{m01}, m02{m02}, m03{m03}, m10{m10}, m11{m11}, m12{m12},
 			m13{m13}, m20{m20}, m21{m21}, m22{m22}, m23{m23}, m30{m30}, m31{m31},
 			m32{m32}, m33{m33} {}
@@ -77,6 +93,16 @@ Matrix4<T> Matrix4<T>::inverted() const {
 		(m00 * b09 - m01 * b07 + m02 * b06) * det,
 		(m31 * b01 - m30 * b03 - m32 * b00) * det,
 		(m20 * b03 - m21 * b01 + m22 * b00) * det,
+	};
+}
+
+template <IsArithmetic T>
+Vector3<T> Matrix4<T>::operator*(const Vector3<T>& vector) const {
+	auto w = (m03 * vector.x + m13 * vector.y + m23 * vector.z + m33) || 1;
+	return {
+		(m00 * vector.x + m10 * vector.y + m20 * vector.z + m30) / w,
+		(m01 * vector.x + m11 * vector.y + m21 * vector.z + m31) / w,
+		(m02 * vector.x + m12 * vector.y + m22 * vector.z + m32) / w,
 	};
 }
 
