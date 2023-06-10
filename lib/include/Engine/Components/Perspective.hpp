@@ -6,7 +6,7 @@
 
 namespace ng {
 
-struct Perspective : Component {
+struct Perspective: Component {
 	Float fieldOfView{};
 	Float aspectRatio{};
 	Float near{.1};

@@ -7,7 +7,7 @@
 
 namespace ng {
 
-struct Mesh : Component {
+struct Mesh: Component {
 	std::vector<Float> vertices;
 	std::vector<UInt32> indices;
 

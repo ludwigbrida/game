@@ -7,7 +7,7 @@
 
 namespace ng {
 
-struct Collider : Component {
+struct Collider: Component {
 	std::vector<Vector3<Float>> vertices;
 };
 

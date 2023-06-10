@@ -6,7 +6,7 @@
 
 namespace ng {
 
-struct Parent : Component {
+struct Parent: Component {
 	Entity entity{};
 };
 
