@@ -18,13 +18,12 @@ public:
 	~App();
 
 	Registry registry;
+	State state;
 
 private:
 	::GLFWwindow* window;
 
 	Clock clock;
-
-	State state;
 
 	Int32 width = 960;
 	Int32 height = 540;
