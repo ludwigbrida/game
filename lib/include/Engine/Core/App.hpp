@@ -25,8 +25,8 @@ private:
 
 	Clock clock;
 
-	Int32 width = 960;
-	Int32 height = 540;
+	Int32 width = 1920;
+	Int32 height = 1080;
 };
 
 }
