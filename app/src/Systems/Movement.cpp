@@ -3,8 +3,12 @@
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Input/Keyboard.hpp>
 
-void Movement::update(ng::Registry& registry, ng::State& state,
-	ng::Float deltaTime, ng::Float elapsedTime) {
+void Movement::update(
+	ng::Registry& registry,
+	ng::State& state,
+	ng::Float deltaTime,
+	ng::Float elapsedTime
+) {
 	auto forward = ng::Vector3<ng::Float>::Zero;
 	auto right = ng::Vector3<ng::Float>::Zero;
 
@@ -22,7 +26,9 @@ void Movement::update(ng::Registry& registry, ng::State& state,
 	}
 
 	registry.update<ng::Transform>(
-		state.activeCamera, [=](ng::Transform& transform) {
+		state.activeCamera,
+		[=](ng::Transform& transform) {
 			transform.position += (forward + right) * 10 * deltaTime;
-		});
+		}
+	);
 }
