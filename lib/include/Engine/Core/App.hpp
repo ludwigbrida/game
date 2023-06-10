@@ -2,6 +2,7 @@
 #define ENGINE_APP_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
+#include <Engine/Core/Clock.hpp>
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
 
@@ -20,6 +21,8 @@ public:
 
 private:
 	::GLFWwindow* window;
+
+	Clock clock;
 
 	State state;
 

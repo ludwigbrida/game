@@ -5,6 +5,7 @@
 #include "Entity.hpp"
 #include "State.hpp"
 #include "System.hpp"
+#include <Engine/Core/Clock.hpp>
 #include <functional>
 #include <memory>
 #include <typeindex>
@@ -19,7 +20,7 @@ class Registry {
 public:
 	void setup();
 
-	void run(State& state, float deltaTime, float elapsedTime);
+	void run(State& state, const Clock& clock);
 
 	template <IsComponent T>
 	void add(Entity entity, T value = {});

@@ -110,12 +110,12 @@ void App::run() {
 	Float previousTime = 0;
 
 	while (!glfwWindowShouldClose(window)) {
-		auto elapsedTime = static_cast<Float>(glfwGetTime());
-		auto deltaTime = elapsedTime - previousTime;
-		previousTime = elapsedTime;
+		clock.elapsedTime = static_cast<Float>(glfwGetTime());
+		clock.deltaTime = clock.elapsedTime - previousTime;
+		previousTime = clock.elapsedTime;
 
 		std::stringstream title;
-		title << "Game [" << static_cast<UInt32>(1 / deltaTime) << " fps]";
+		title << "Game [" << static_cast<UInt32>(1 / clock.deltaTime) << " fps]";
 
 		glfwSetWindowTitle(window, title.str().c_str());
 
@@ -123,7 +123,7 @@ void App::run() {
 
 		glViewport(0, 0, width, height);
 
-		registry.run(state, deltaTime, elapsedTime);
+		registry.run(state, clock);
 
 		glfwSwapBuffers(window);
 	}

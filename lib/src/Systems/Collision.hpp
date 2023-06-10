@@ -11,12 +11,7 @@ namespace ng {
 
 class Collision: public System {
 public:
-	void update(
-		Registry& registry,
-		State& state,
-		Float deltaTime,
-		Float elapsedTime
-	) override;
+	void update(Registry& registry, State& state, const Clock& clock) override;
 
 private:
 	static bool gjk(

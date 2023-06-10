@@ -5,10 +5,9 @@
 
 namespace ng {
 
-class Transformer : public System {
+class Transformer: public System {
 public:
-	void update(Registry& matrices, State& state, Float deltaTime,
-							Float elapsedTime) override;
+	void update(Registry& matrices, State& state, const Clock& clock) override;
 };
 
 }

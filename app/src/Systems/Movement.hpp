@@ -5,12 +5,8 @@
 
 class Movement: public ng::System {
 public:
-	void update(
-		ng::Registry& registry,
-		ng::State& state,
-		ng::Float deltaTime,
-		ng::Float elapsedTime
-	) override;
+	void update(ng::Registry& registry, ng::State& state, const ng::Clock& clock)
+		override;
 };
 
 #endif

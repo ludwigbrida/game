@@ -7,12 +7,7 @@
 
 namespace ng {
 
-void Transformer::update(
-	Registry& registry,
-	State& state,
-	Float deltaTime,
-	Float elapsedTime
-) {
+void Transformer::update(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform>();
 
 	for (auto entity: entities) {
@@ -29,7 +24,7 @@ void Transformer::update(
 			registry.update<Transform>(entity, [&](auto& currentTransform) {
 				currentTransform.rotation = Quaternion<Float>::fromAxisAngle(
 					Vector3<Float>::Right,
-					fromDegrees(elapsedTime * 100)
+					fromDegrees(clock.elapsedTime * 100)
 				);
 			});
 		}

@@ -12,6 +12,7 @@ add_library(lib
 	# Core
 	include/Engine/Core/App.hpp
 	include/Engine/Core/Arithmetic.hpp
+	include/Engine/Core/Clock.hpp
 	include/Engine/Core/Component.hpp
 	include/Engine/Core/Entity.hpp
 	include/Engine/Core/Registry.hpp

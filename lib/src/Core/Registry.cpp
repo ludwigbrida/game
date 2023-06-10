@@ -3,18 +3,18 @@
 namespace ng {
 
 void Registry::setup() {
-	for (auto& [_, system] : systems) {
+	for (auto& [_, system]: systems) {
 		system->setup();
 	}
 }
 
-void Registry::run(State& state, float deltaTime, float elapsedTime) {
-	for (auto& [_, system] : systems) {
-		system->update(*this, state, deltaTime, elapsedTime);
+void Registry::run(State& state, const Clock& clock) {
+	for (auto& [_, system]: systems) {
+		system->update(*this, state, clock);
 	}
 
-	for (auto& [_, type] : components) {
-		for (auto& [entity, component] : type) {
+	for (auto& [_, type]: components) {
+		for (auto& [entity, component]: type) {
 			component->isDirty = false;
 		}
 	}

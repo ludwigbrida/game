@@ -11,12 +11,7 @@ void Renderer::setup() {
 	glEnable(GL_DEPTH_TEST);
 }
 
-void Renderer::update(
-	Registry& registry,
-	State& state,
-	Float deltaTime,
-	Float elapsedTime
-) {
+void Renderer::update(Registry& registry, State& state, const Clock& clock) {
 	clear(Color::Black);
 
 	auto& cameraMatrices = registry.get<Matrices>(state.activeCamera);

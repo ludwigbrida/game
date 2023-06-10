@@ -7,12 +7,7 @@
 
 namespace ng {
 
-void Collision::update(
-	Registry& registry,
-	State& state,
-	Float deltaTime,
-	Float elapsedTime
-) {
+void Collision::update(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Matrices, Collider>();
 
 	for (auto entity1: entities) {

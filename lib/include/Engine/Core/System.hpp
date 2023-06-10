@@ -2,6 +2,7 @@
 #define ENGINE_SYSTEM_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
+#include <Engine/Core/Clock.hpp>
 #include <type_traits>
 
 namespace ng {
@@ -13,8 +14,7 @@ class State;
 class System {
 public:
 	virtual void setup();
-	virtual void update(Registry& registry, State& state, Float deltaTime,
-											Float elapsedTime) = 0;
+	virtual void update(Registry& registry, State& state, const Clock& clock) = 0;
 	virtual ~System();
 };
 
