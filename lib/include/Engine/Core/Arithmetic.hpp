@@ -25,6 +25,8 @@ using Float = float;
 
 using Double = double;
 
+using LDouble = long double;
+
 template <typename T>
 concept IsArithmetic = std::is_arithmetic<T>::value;
 

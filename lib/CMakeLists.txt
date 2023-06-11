@@ -61,7 +61,7 @@ add_library(lib
 	src/Systems/Renderer.cpp
 	src/Systems/Renderer.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp src/Systems/Simplex.hpp)
+	src/Systems/Transformer.hpp src/Systems/Simplex.hpp include/Engine/Maths/Angle.hpp src/Maths/Angle.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
