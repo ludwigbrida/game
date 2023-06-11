@@ -29,6 +29,7 @@ add_library(lib
 	include/Engine/Maths/Matrix4.inl
 	include/Engine/Maths/Quaternion.hpp
 	include/Engine/Maths/Radian.hpp
+	include/Engine/Maths/Vector2.hpp
 	include/Engine/Maths/Vector3.hpp
 	include/Engine/Maths/Vector3.inl
 	# src
@@ -52,6 +53,7 @@ add_library(lib
 	src/Maths/Matrix4.cpp
 	src/Maths/Quaternion.cpp
 	src/Maths/Radian.cpp
+	src/Maths/Vector2.cpp
 	src/Maths/Vector3.cpp
 	# Systems
 	src/Systems/Collision.cpp
