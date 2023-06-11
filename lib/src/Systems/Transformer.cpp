@@ -24,7 +24,7 @@ void Transformer::update(Registry& registry, State& state, const Clock& clock) {
 			registry.update<Transform>(entity, [&](auto& currentTransform) {
 				currentTransform.rotation = Quaternion<Float>::fromAxisAngle(
 					Vector3<Float>::Right,
-					fromDegrees(clock.elapsedTime * 100)
+					clock.elapsedTime * 100
 				);
 			});
 		}

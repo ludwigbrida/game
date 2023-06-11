@@ -25,6 +25,7 @@ add_library(lib
 	# Input
 	include/Engine/Input/Keyboard.hpp
 	# Maths
+	include/Engine/Maths/Angle.hpp
 	include/Engine/Maths/Matrix4.hpp
 	include/Engine/Maths/Matrix4.inl
 	include/Engine/Maths/Quaternion.hpp
@@ -50,6 +51,7 @@ add_library(lib
 	# Input
 	src/Input/Keyboard.cpp
 	# Maths
+	src/Maths/Angle.cpp
 	src/Maths/Matrix4.cpp
 	src/Maths/Quaternion.cpp
 	src/Maths/Radian.cpp
@@ -61,7 +63,7 @@ add_library(lib
 	src/Systems/Renderer.cpp
 	src/Systems/Renderer.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp src/Systems/Simplex.hpp include/Engine/Maths/Angle.hpp src/Maths/Angle.cpp)
+	src/Systems/Transformer.hpp src/Systems/Simplex.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

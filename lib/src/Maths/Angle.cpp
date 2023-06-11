@@ -24,4 +24,6 @@ Angle<Float> operator""_deg(LDouble angle) {
 	return {static_cast<Float>(angle)};
 }
 
+template class Angle<Float>;
+
 }

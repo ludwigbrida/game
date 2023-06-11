@@ -4,7 +4,8 @@
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/App.hpp>
-#include <Engine/Maths/Radian.hpp>
+
+using namespace ng;
 
 int main() {
 	ng::App app;
@@ -16,10 +17,7 @@ int main() {
 	app.registry.add<ng::Matrices>(player);
 	app.registry.add<ng::Perspective>(
 		player,
-		{.fieldOfView = ng::fromDegrees(45),
-		 .aspectRatio = 16. / 9,
-		 .near = .1,
-		 .far = 1000}
+		{.fieldOfView = 45_deg, .aspectRatio = 16. / 9, .near = .1, .far = 1000}
 	);
 	app.registry.add<ng::Collider>(
 		player,
