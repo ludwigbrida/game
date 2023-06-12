@@ -30,6 +30,9 @@ using LDouble = long double;
 template <typename T>
 concept IsArithmetic = std::is_arithmetic<T>::value;
 
+template <typename T>
+concept IsDecimal = std::is_floating_point<T>::value;
+
 }
 
 #endif
