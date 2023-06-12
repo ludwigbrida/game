@@ -13,8 +13,6 @@ public:
 
 	Vector2();
 	Vector2(T x, T y);
-
-	static const Vector2<T> Zero;
 };
 
 }
