@@ -12,7 +12,7 @@ int main() {
 	ng::App app;
 
 	app.registry.activate<Movement>();
-	app.registry.activate<Gravity>(9.81);
+	app.registry.activate<Gravity>({9.81});
 
 	auto player = 0;
 	app.registry.add<ng::Transform>(player);

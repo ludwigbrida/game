@@ -12,7 +12,8 @@ public:
 
 	void update(Registry& registry, State& state, const Clock& clock) override;
 
-	Float acceleration;
+	Float acceleration = 9.81;
+	Float another = 0;
 };
 
 }

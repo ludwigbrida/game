@@ -35,7 +35,7 @@ void Registry::activate() {
 }
 
 template <IsSystem T>
-void Registry::activate(T t) {
+void Registry::activate(T&& t) {
 	auto system = std::make_unique<T>(t);
 	systems.insert({typeid(T), std::move(system)});
 }
