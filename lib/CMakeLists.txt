@@ -32,6 +32,8 @@ add_library(lib
 	include/Engine/Maths/Vector2.hpp
 	include/Engine/Maths/Vector3.hpp
 	include/Engine/Maths/Vector3.inl
+	# Systems
+	include/Engine/Systems/Gravity.hpp
 	# src
 	# Components
 	src/Components/Mesh.cpp
@@ -58,6 +60,7 @@ add_library(lib
 	# Systems
 	src/Systems/Collision.cpp
 	src/Systems/Collision.hpp
+	src/Systems/Gravity.cpp
 	src/Systems/Renderer.cpp
 	src/Systems/Renderer.hpp
 	src/Systems/Transformer.cpp
