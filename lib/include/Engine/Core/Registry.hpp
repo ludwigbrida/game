@@ -7,6 +7,7 @@
 #include "System.hpp"
 #include <Engine/Core/Clock.hpp>
 #include <functional>
+#include <initializer_list>
 #include <memory>
 #include <typeindex>
 #include <unordered_map>
@@ -50,6 +51,9 @@ public:
 
 	template <IsSystem T>
 	void activate();
+
+	template <IsSystem T>
+	void activate(T t);
 
 	template <IsSystem T>
 	void deactivate();

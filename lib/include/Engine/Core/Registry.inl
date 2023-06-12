@@ -35,6 +35,12 @@ void Registry::activate() {
 }
 
 template <IsSystem T>
+void Registry::activate(T t) {
+	auto system = std::make_unique<T>(t);
+	systems.insert({typeid(T), std::move(system)});
+}
+
+template <IsSystem T>
 void Registry::deactivate() {
 	systems.erase(typeid(T));
 }
@@ -48,13 +54,13 @@ std::unordered_set<Entity> Registry::view() {
 
 	auto componentMaps = getComponentMaps<T...>();
 
-	for (auto& [key, value] : componentMaps[0].get()) {
+	for (auto& [key, value]: componentMaps[0].get()) {
 		iteratedEntities.insert(key);
 		filteredEntities.insert(key);
 	}
 
-	for (auto entity : iteratedEntities) {
-		for (auto& componentMap : componentMaps) {
+	for (auto entity: iteratedEntities) {
+		for (auto& componentMap: componentMaps) {
 			if (!componentMap.get().contains(entity)) {
 				filteredEntities.erase(entity);
 			}
@@ -71,8 +77,8 @@ ComponentMap& Registry::getComponentMap() {
 
 // todo: how to properly store a collection of references?
 template <IsComponent... T>
-std::array<std::reference_wrapper<ComponentMap>, sizeof...(T)>
-Registry::getComponentMaps() {
+std::array<std::reference_wrapper<ComponentMap>, sizeof...(T)> Registry::
+	getComponentMaps() {
 	return {std::ref(getComponentMap<T>())...};
 }
 

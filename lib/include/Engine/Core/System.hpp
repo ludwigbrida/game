@@ -11,8 +11,7 @@ namespace ng {
 class Registry;
 class State;
 
-class System {
-public:
+struct System {
 	virtual void setup();
 	virtual void update(Registry& registry, State& state, const Clock& clock) = 0;
 	virtual ~System();

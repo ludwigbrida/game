@@ -5,7 +5,13 @@
 
 namespace ng {
 
-class Gravity: public System {};
+// TODO: Why doesn't inheritance work properly without "public"
+class Gravity: public System {
+public:
+	void update(Registry& registry, State& state, const Clock& clock) override;
+
+	Float acceleration{};
+};
 
 }
 

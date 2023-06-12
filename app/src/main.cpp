@@ -4,6 +4,7 @@
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/App.hpp>
+#include <Engine/Systems/Gravity.hpp>
 
 using namespace ng;
 
@@ -11,6 +12,7 @@ int main() {
 	ng::App app;
 
 	app.registry.activate<Movement>();
+	app.registry.activate<Gravity>();
 
 	auto player = 0;
 	app.registry.add<ng::Transform>(player);
