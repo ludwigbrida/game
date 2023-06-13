@@ -53,7 +53,7 @@ public:
 	void activate();
 
 	template <IsSystem T>
-	void activate(T&& t);
+	void activate(const T& t);
 
 	template <IsSystem T>
 	void deactivate();
