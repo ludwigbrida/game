@@ -4,6 +4,7 @@ add_library(lib
 	# include
 	# Components
 	include/Engine/Components/Collider.hpp
+	include/Engine/Components/Mass.hpp
 	include/Engine/Components/Matrices.hpp
 	include/Engine/Components/Mesh.hpp
 	include/Engine/Components/Parent.hpp

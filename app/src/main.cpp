@@ -1,5 +1,6 @@
 #include "Systems/Movement.hpp"
 #include <Engine/Components/Collider.hpp>
+#include <Engine/Components/Mass.hpp>
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Components/Transform.hpp>
@@ -39,6 +40,7 @@ int main() {
 	app.registry.add<ng::Transform>(triangle, {.position{-1, 0, -2}});
 	app.registry.add<ng::Matrices>(triangle);
 	app.registry.add<ng::Mesh>(triangle, ng::Mesh::createTriangle(1));
+	app.registry.add<ng::Mass>(triangle, {.value = 0.1});
 
 	auto cube = 2;
 	app.registry.add<ng::Transform>(cube, {.position{1, 0, -2}});
