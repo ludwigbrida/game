@@ -1,8 +1,8 @@
 #include "Systems/Movement.hpp"
 #include <Engine/Components/Collider.hpp>
-#include <Engine/Components/Mass.hpp>
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Mesh.hpp>
+#include <Engine/Components/Physics.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/App.hpp>
 #include <Engine/Systems/Gravity.hpp>
@@ -13,7 +13,7 @@ int main() {
 	ng::App app;
 
 	app.registry.activate<Movement>();
-	app.registry.activate<Gravity>({9.81});
+	app.registry.activate<ng::Gravity>({9.81});
 
 	auto player = 0;
 	app.registry.add<ng::Transform>(player);
@@ -40,7 +40,7 @@ int main() {
 	app.registry.add<ng::Transform>(triangle, {.position{-1, 0, -2}});
 	app.registry.add<ng::Matrices>(triangle);
 	app.registry.add<ng::Mesh>(triangle, ng::Mesh::createTriangle(1));
-	app.registry.add<ng::Mass>(triangle, {.value = 0.1});
+	app.registry.add<ng::Physics>(triangle);
 
 	auto cube = 2;
 	app.registry.add<ng::Transform>(cube, {.position{1, 0, -2}});

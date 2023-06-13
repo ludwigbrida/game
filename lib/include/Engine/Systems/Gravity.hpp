@@ -7,12 +7,12 @@ namespace ng {
 
 class Gravity: public System {
 public:
-	Gravity(Float acceleration): acceleration{acceleration} {}
+	Gravity(Float constant): constant{Vector3<Float>::Down * constant} {}
 
 	void update(Registry& registry, State& state, const Clock& clock) override;
 
 private:
-	Float acceleration;
+	Vector3<Float> constant;
 };
 
 }

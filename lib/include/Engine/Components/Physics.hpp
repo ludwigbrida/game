@@ -3,11 +3,14 @@
 
 #include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Core/Component.hpp>
+#include <Engine/Maths/Vector3.hpp>
 
 namespace ng {
 
-struct Mass: Component {
-	Float value{};
+struct Physics: Component {
+	Vector3<Float> velocity{};
+	Vector3<Float> acceleration{};
+	Float mass{1};
 };
 
 }

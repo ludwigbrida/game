@@ -1,4 +1,4 @@
-#include <Engine/Components/Mass.hpp>
+#include <Engine/Components/Physics.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Systems/Gravity.hpp>
@@ -6,13 +6,16 @@
 namespace ng {
 
 void Gravity::update(Registry& registry, State& state, const Clock& clock) {
-	auto entities = registry.view<Transform, Mass>();
+	auto entities = registry.view<Transform, Physics>();
 
 	for (auto entity: entities) {
-		const Mass& mass = registry.get<Mass>(entity);
+		auto& physics = registry.get<Physics>(entity);
+
+		physics.acceleration += constant * physics.mass * clock.deltaTime;
+		physics.velocity += physics.acceleration * clock.deltaTime;
 
 		registry.update<Transform>(entity, [&](Transform& transform) {
-			transform.position.y -= acceleration * mass.value * clock.deltaTime;
+			transform.position += physics.velocity * clock.deltaTime;
 		});
 	}
 }
