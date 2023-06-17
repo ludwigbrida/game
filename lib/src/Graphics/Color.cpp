@@ -2,7 +2,7 @@
 
 namespace ng {
 
-Color::Color(UInt8 r, UInt8 g, UInt8 b): r{r}, g{g}, b{b} {}
+Color::Color(UInt8 r, UInt8 g, UInt8 b): r{r}, g{g}, b{b}, a{255} {}
 
 Color::Color(UInt8 r, UInt8 g, UInt8 b, UInt8 a): r{r}, g{g}, b{b}, a{a} {}
 

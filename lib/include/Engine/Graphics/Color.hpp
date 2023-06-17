@@ -7,10 +7,10 @@ namespace ng {
 
 class Color {
 public:
-	UInt8 r{};
-	UInt8 g{};
-	UInt8 b{};
-	UInt8 a{255};
+	UInt8 r;
+	UInt8 g;
+	UInt8 b;
+	UInt8 a;
 
 	Color(UInt8 r, UInt8 g, UInt8 b);
 	Color(UInt8 r, UInt8 g, UInt8 b, UInt8 a);
