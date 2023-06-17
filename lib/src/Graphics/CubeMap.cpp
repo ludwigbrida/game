@@ -4,7 +4,7 @@
 
 namespace ng {
 
-CubeMap::CubeMap() {
+CubeMap::CubeMap(const std::vector<std::string>& textures) {
 	glGenTextures(1, &id);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, id);
 
