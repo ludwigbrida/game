@@ -73,6 +73,7 @@ add_library(lib
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)
+find_package(Stb REQUIRED)
 
 target_link_libraries(lib OpenGL::GL glfw GLEW::GLEW)
 

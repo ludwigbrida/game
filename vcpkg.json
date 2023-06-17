@@ -4,6 +4,7 @@
 	"dependencies": [
 		"opengl",
 		"glfw3",
-		"glew"
+		"glew",
+		"stb"
 	]
 }
