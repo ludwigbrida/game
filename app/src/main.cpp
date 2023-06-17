@@ -60,6 +60,8 @@ int main() {
 		}}
 	);
 
+	auto skybox = 3;
+
 	app.state.activeCamera = player;
 
 	app.run();
