@@ -68,7 +68,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp src/Graphics/Material.hpp src/Graphics/Texture.hpp)
+	src/Systems/Transformer.hpp src/Graphics/Material.hpp src/Graphics/Texture.hpp src/Graphics/Texture.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
