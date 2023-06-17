@@ -44,6 +44,8 @@ add_library(lib
 	src/Core/System.cpp
 	# Graphics
 	src/Graphics/Color.cpp
+	src/Graphics/CubeMap.cpp
+	src/Graphics/CubeMap.hpp
 	src/Graphics/Program.cpp
 	src/Graphics/Program.hpp
 	src/Graphics/Shader.cpp
@@ -64,8 +66,9 @@ add_library(lib
 	src/Systems/Gravity.cpp
 	src/Systems/Renderer.cpp
 	src/Systems/Renderer.hpp
+	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp src/Systems/Simplex.hpp)
+	src/Systems/Transformer.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
