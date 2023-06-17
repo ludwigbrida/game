@@ -61,6 +61,8 @@ int main() {
 	);
 
 	auto skybox = 3;
+	app.registry.add<ng::Transform>(skybox);
+	app.registry.add<ng::Matrices>(skybox);
 
 	app.state.activeCamera = player;
 
