@@ -23,11 +23,8 @@ public:
 
 private:
 	void clear(const Color& color) const;
-	void draw(
-		const VertexArray& vertexArray,
-		const Shader& shader,
-		const Matrix4<Float>& modelMatrix
-	) const;
+	void draw(const VertexArray& vertexArray, const Matrix4<Float>& modelMatrix)
+		const;
 
 	// TODO
 	Matrix4<Float> viewMatrix{Matrix4<Float>::Identity};
@@ -35,6 +32,7 @@ private:
 
 	std::unordered_map<Entity, std::unique_ptr<VertexArray>> targets;
 
+	Shader shader;
 	Texture texture;
 };
 

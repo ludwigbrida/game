@@ -3,16 +3,15 @@
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Core/Registry.hpp>
 #include <GL/glew.h>
-#include <iostream>
 
 namespace ng {
 
-Renderer::Renderer(): texture{"assets/skybox/front.jpg"} {}
+Renderer::Renderer()
+		: shader{"assets/shaders/mesh"}, texture{"assets/skybox/front.jpg"} {}
 
 void Renderer::setup() {
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
-	std::cout << "Init" << std::endl;
 }
 
 void Renderer::update(Registry& registry, State& state, const Clock& clock) {
@@ -35,46 +34,9 @@ void Renderer::update(Registry& registry, State& state, const Clock& clock) {
 			targets.insert({entity, std::move(vertexArray)});
 		}
 
-		Shader shader{
-			R"(
-#version 410 core
-
-uniform mat4 modelMatrix;
-uniform mat4 viewMatrix;
-uniform mat4 projectionMatrix;
-
-layout (location = 0) in vec3 vertexPosition;
-layout (location = 2) in vec3 vertexColor;
-layout (location = 3) in vec2 vertexTexCoord;
-
-out vec3 fragmentColor;
-out vec2 fragmentTexCoord;
-
-void main() {
-	fragmentColor = vertexColor;
-	fragmentTexCoord = vertexTexCoord;
-	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(vertexPosition, 1);
-}
-)",
-			R"(
-#version 410 core
-
-uniform sampler2D diffuseTexture;
-
-in vec3 fragmentColor;
-in vec2 fragmentTexCoord;
-
-out vec4 color;
-
-void main() {
-	// color = vec4(fragmentColor, 1);
-	color = texture(diffuseTexture, fragmentTexCoord);
-}
-)"};
-
 		const auto& target = targets[entity];
 
-		draw(*target, shader, matrices.world);
+		draw(*target, matrices.world);
 	}
 }
 
@@ -91,7 +53,6 @@ void Renderer::clear(const Color& color) const {
 
 void Renderer::draw(
 	const VertexArray& vertexArray,
-	const Shader& shader,
 	const Matrix4<Float>& modelMatrix
 ) const {
 	shader.bind();
