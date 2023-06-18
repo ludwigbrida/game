@@ -1,4 +1,5 @@
 #include "Renderer.hpp"
+#include "Graphics/Texture.hpp"
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Core/Registry.hpp>
@@ -66,6 +67,8 @@ void main() {
 	color = vec4(fragmentColor, 1);
 }
 )"};
+
+		Texture texture{"assets/skybox/front.jpg"};
 
 		const auto& target = targets[entity];
 
