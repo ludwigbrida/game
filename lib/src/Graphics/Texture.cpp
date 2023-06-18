@@ -6,50 +6,38 @@
 namespace ng {
 
 Texture::Texture(const std::string& source): textureId{0} {
-	glGenTextures(1, &textureId);
-	glBindTexture(GL_TEXTURE_2D, textureId);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(
-		GL_TEXTURE_2D,
-		GL_TEXTURE_MIN_FILTER,
-		GL_LINEAR_MIPMAP_LINEAR
-	);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	int width, height, nrChannels;
+	int width, height, channels;
 	unsigned char* data;
 
-	data = stbi_load(source.c_str(), &width, &height, &nrChannels, 0);
+	data = stbi_load(source.c_str(), &width, &height, &channels, 0);
 
-	if (data) {
-		glTexImage2D(
-			GL_TEXTURE_2D,
-			0,
-			GL_RGB,
-			width,
-			height,
-			0,
-			GL_RGB,
-			GL_UNSIGNED_BYTE,
-			data
-		);
-
-		glGenerateMipmap(GL_TEXTURE_2D);
-	} else {
-		std::cout << "Could not load texture" << std::endl;
+	if (!data) {
+		std::cerr << "Could not load image data" << std::endl;
 	}
+
+	glCreateTextures(GL_TEXTURE_2D, 1, &textureId);
+	glTextureStorage2D(textureId, 1, GL_RGB8, width, height);
+
+	glTextureParameteri(textureId, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTextureParameteri(textureId, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	glTextureSubImage2D(
+		textureId,
+		0,
+		0,
+		0,
+		width,
+		height,
+		GL_RGB,
+		GL_UNSIGNED_BYTE,
+		data
+	);
 
 	stbi_image_free(data);
 }
 
 void Texture::bind() const {
-	glBindTexture(GL_TEXTURE_2D, textureId);
-}
-
-void Texture::unbind() const {
-	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindTextureUnit(0, textureId);
 }
 
 Texture::~Texture() {

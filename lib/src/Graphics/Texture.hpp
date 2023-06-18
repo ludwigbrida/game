@@ -12,7 +12,6 @@ public:
 	~Texture();
 
 	void bind() const;
-	void unbind() const;
 
 private:
 	UInt32 textureId;
