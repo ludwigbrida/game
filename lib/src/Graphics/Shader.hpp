@@ -1,19 +1,26 @@
-#ifndef ENGINE_SHADER_HPP
-#define ENGINE_SHADER_HPP
+#ifndef ENGINE_NEW_SHADER_HPP
+#define ENGINE_NEW_SHADER_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
-#include <GL/glew.h>
+#include <Engine/Maths/Matrix4.hpp>
+#include <Engine/Maths/Vector3.hpp>
 
 namespace ng {
 
 class Shader {
 public:
-	Shader(GLenum type, const char* source);
+	Shader(const char* vertexSource, const char* fragmentSource);
 
-	UInt32 location;
+	void bind() const;
+	void unbind() const;
+
+	void upload(const char* name, const Vector3<Float>& value) const;
+	void upload(const char* name, const Matrix4<Float>& value) const;
+
+	~Shader();
 
 private:
-	static UInt32 create(GLenum type, const char* source);
+	UInt32 programId;
 };
 
 }

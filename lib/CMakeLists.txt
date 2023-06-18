@@ -48,10 +48,6 @@ add_library(lib
 	src/Graphics/CubeMap.hpp
 	src/Graphics/Material.cpp
 	src/Graphics/Material.hpp
-	src/Graphics/NewShader.cpp
-	src/Graphics/NewShader.hpp
-	src/Graphics/Program.cpp
-	src/Graphics/Program.hpp
 	src/Graphics/Shader.cpp
 	src/Graphics/Shader.hpp
 	src/Graphics/Texture.cpp

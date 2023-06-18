@@ -31,7 +31,7 @@ void Renderer::update(Registry& registry, State& state, const Clock& clock) {
 			targets.insert({entity, std::move(vertexArray)});
 		}
 
-		NewShader shader{
+		Shader shader{
 			R"(
 #version 410 core
 
@@ -80,7 +80,7 @@ void Renderer::clear(const Color& color) const {
 
 void Renderer::draw(
 	const VertexArray& vertexArray,
-	const NewShader& shader,
+	const Shader& shader,
 	const Matrix4<Float>& modelMatrix
 ) const {
 	shader.bind();
