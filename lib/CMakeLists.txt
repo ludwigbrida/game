@@ -46,10 +46,14 @@ add_library(lib
 	src/Graphics/Color.cpp
 	src/Graphics/CubeMap.cpp
 	src/Graphics/CubeMap.hpp
+	src/Graphics/Material.cpp
+	src/Graphics/Material.hpp
 	src/Graphics/Program.cpp
 	src/Graphics/Program.hpp
 	src/Graphics/Shader.cpp
 	src/Graphics/Shader.hpp
+	src/Graphics/Texture.cpp
+	src/Graphics/Texture.hpp
 	src/Graphics/VertexArray.cpp
 	src/Graphics/VertexArray.hpp
 	# Input
@@ -68,7 +72,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp src/Graphics/Material.hpp src/Graphics/Texture.hpp src/Graphics/Texture.cpp)
+	src/Systems/Transformer.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

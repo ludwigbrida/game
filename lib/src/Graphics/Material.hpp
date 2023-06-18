@@ -6,8 +6,11 @@
 namespace ng {
 
 class Material {
-	Texture* diffuse;
-	Texture* normal;
+public:
+	explicit Material(const Texture& diffuse);
+
+private:
+	Texture diffuse;
 };
 
 }
