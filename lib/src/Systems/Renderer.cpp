@@ -95,6 +95,7 @@ void Renderer::draw(
 	const Matrix4<Float>& modelMatrix
 ) const {
 	shader.bind();
+	texture.bind();
 
 	shader.upload("modelMatrix", modelMatrix);
 	shader.upload("viewMatrix", viewMatrix);
