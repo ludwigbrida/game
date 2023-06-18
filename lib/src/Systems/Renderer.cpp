@@ -59,7 +59,7 @@ void main() {
 			R"(
 #version 410 core
 
-uniform sampler2D textureSampler;
+uniform sampler2D diffuseTexture;
 
 in vec3 fragmentColor;
 in vec2 fragmentTexCoord;
@@ -68,7 +68,7 @@ out vec4 color;
 
 void main() {
 	// color = vec4(fragmentColor, 1);
-	color = texture(textureSampler, fragmentTexCoord);
+	color = texture(diffuseTexture, fragmentTexCoord);
 }
 )"};
 
@@ -100,7 +100,7 @@ void Renderer::draw(
 	shader.upload("modelMatrix", modelMatrix);
 	shader.upload("viewMatrix", viewMatrix);
 	shader.upload("projectionMatrix", projectionMatrix);
-	shader.upload("textureSampler", 0);
+	shader.upload("diffuseTexture", 0);
 
 	glBindVertexArray(vertexArray.vertexArrayId);
 
