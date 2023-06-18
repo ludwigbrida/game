@@ -14,6 +14,7 @@ public:
 	void bind() const;
 	void unbind() const;
 
+	void upload(const char* name, Int32 value) const;
 	void upload(const char* name, const Vector3<Float>& value) const;
 	void upload(const char* name, const Matrix4<Float>& value) const;
 
