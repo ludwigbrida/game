@@ -3,12 +3,14 @@
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Core/Registry.hpp>
 #include <GL/glew.h>
+#include <iostream>
 
 namespace ng {
 
 void Renderer::setup() {
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+	std::cout << "Init" << std::endl;
 }
 
 void Renderer::update(Registry& registry, State& state, const Clock& clock) {

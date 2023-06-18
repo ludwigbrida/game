@@ -21,9 +21,9 @@ void Collision::update(Registry& registry, State& state, const Clock& clock) {
 
 				if (gjk(collider1, collider2, matrices1.world, matrices2.world)) {
 					// TODO: Add transform to the colliders
-					std::cout << "GJK" << std::endl;
+					// std::cout << "GJK" << std::endl;
 				} else {
-					std::cout << "---" << std::endl;
+					// std::cout << "---" << std::endl;
 				}
 			}
 		}
