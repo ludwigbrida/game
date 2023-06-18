@@ -44,4 +44,8 @@ Texture::Texture(const std::string& source): id{0} {
 	stbi_image_free(data);
 }
 
+Texture::~Texture() {
+	glDeleteTextures(1, &id);
+}
+
 }
