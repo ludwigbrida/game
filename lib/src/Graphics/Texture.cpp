@@ -5,7 +5,7 @@
 
 namespace ng {
 
-Texture::Texture(const std::string& source) {
+Texture::Texture(const std::string& source): id{0} {
 	glGenTextures(1, &id);
 	glBindTexture(GL_TEXTURE_2D, id);
 

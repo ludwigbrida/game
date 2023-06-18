@@ -8,10 +8,10 @@ namespace ng {
 
 class Texture {
 public:
-	Texture(const std::string& source);
+	explicit Texture(const std::string& source);
 
 private:
-	UInt32 id{};
+	UInt32 id;
 };
 
 }
