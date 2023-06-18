@@ -17,13 +17,13 @@ VertexArray::VertexArray(const Mesh& mesh)
 		GL_STATIC_DRAW
 	);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(Float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(Float), (void*)0);
 	glVertexAttribPointer(
 		1,
 		3,
 		GL_FLOAT,
 		GL_FALSE,
-		9 * sizeof(Float),
+		11 * sizeof(Float),
 		(void*)(3 * sizeof(Float))
 	);
 	glVertexAttribPointer(
@@ -31,12 +31,21 @@ VertexArray::VertexArray(const Mesh& mesh)
 		3,
 		GL_FLOAT,
 		GL_FALSE,
-		9 * sizeof(Float),
+		11 * sizeof(Float),
 		(void*)(6 * sizeof(Float))
+	);
+	glVertexAttribPointer(
+		3,
+		2,
+		GL_FLOAT,
+		GL_FALSE,
+		11 * sizeof(Float),
+		(void*)(9 * sizeof(Float))
 	);
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
+	glEnableVertexAttribArray(3);
 
 	glGenBuffers(1, &indexBufferId);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferId);
