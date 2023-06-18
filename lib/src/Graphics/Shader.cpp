@@ -1,22 +1,26 @@
 #include "Shader.hpp"
 #include "Platform/File.hpp"
 #include <GL/glew.h>
-#include <fstream>
 #include <iostream>
 
 namespace ng {
 
-Shader::Shader(const std::string& path) {
+Shader::Shader(const std::string& path): programId{0} {
 	std::string vertexPath = path + "/vertex.glsl";
 	std::string fragmentPath = path + "/fragment.glsl";
 
 	std::string vertexSource = File::Read(vertexPath);
 	std::string fragmentSource = File::Read(fragmentPath);
 
-	Shader(vertexSource.c_str(), fragmentSource.c_str());
+	compile(vertexSource.c_str(), fragmentSource.c_str());
 }
 
-Shader::Shader(const char* vertexSource, const char* fragmentSource) {
+Shader::Shader(const char* vertexSource, const char* fragmentSource)
+		: programId{0} {
+	compile(vertexSource, fragmentSource);
+}
+
+void Shader::compile(const char* vertexSource, const char* fragmentSource) {
 	programId = glCreateProgram();
 
 	auto vertexId = glCreateShader(GL_VERTEX_SHADER);

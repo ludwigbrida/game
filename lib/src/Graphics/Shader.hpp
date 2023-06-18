@@ -13,6 +13,8 @@ public:
 	explicit Shader(const std::string& path);
 	Shader(const char* vertexSource, const char* fragmentSource);
 
+	void compile(const char* vertexSource, const char* fragmentSource);
+
 	void bind() const;
 	void unbind() const;
 
