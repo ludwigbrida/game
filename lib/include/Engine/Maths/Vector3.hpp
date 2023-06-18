@@ -21,6 +21,8 @@ public:
 	constexpr T dot(const Vector3<T>& other) const;
 	constexpr Vector3<T> cross(const Vector3<T>& other) const;
 
+	operator const T*() const; // NOLINT
+
 	constexpr Vector3<T> operator-() const;
 
 	constexpr Vector3<T> operator+(const Vector3<T>& other) const;

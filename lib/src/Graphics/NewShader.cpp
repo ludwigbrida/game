@@ -58,6 +58,16 @@ void NewShader::unbind() const {
 	glUseProgram(0);
 }
 
+void NewShader::upload(const char* name, const Vector3<Float>& value) const {
+	auto uniformId = glGetUniformLocation(programId, name);
+	glUniform3fv(uniformId, 1, value);
+}
+
+void NewShader::upload(const char* name, const Matrix4<Float>& value) const {
+	auto uniformId = glGetUniformLocation(programId, name);
+	glUniformMatrix4fv(uniformId, 1, GL_FALSE, value);
+}
+
 NewShader::~NewShader() {
 	glDeleteProgram(programId);
 }

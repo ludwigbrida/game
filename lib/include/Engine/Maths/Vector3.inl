@@ -35,6 +35,11 @@ constexpr Vector3<T> Vector3<T>::cross(const Vector3<T>& other) const {
 }
 
 template <IsArithmetic T>
+Vector3<T>::operator const T*() const {
+	return reinterpret_cast<const T*>(this);
+}
+
+template <IsArithmetic T>
 constexpr Vector3<T> Vector3<T>::operator-() const {
 	return {-x, -y, -z};
 }
