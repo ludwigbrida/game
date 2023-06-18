@@ -12,6 +12,7 @@ Texture::Texture(const std::string& source): textureId{0} {
 	int width, height, channels;
 	unsigned char* data;
 
+	stbi_set_flip_vertically_on_load(1);
 	data = stbi_load(source.c_str(), &width, &height, &channels, 0);
 
 	if (!data) {
@@ -22,7 +23,7 @@ Texture::Texture(const std::string& source): textureId{0} {
 	glTextureStorage2D(textureId, 1, GL_RGB8, width, height);
 
 	glTextureParameteri(textureId, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTextureParameteri(textureId, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTextureParameteri(textureId, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	glTextureSubImage2D(
 		textureId,

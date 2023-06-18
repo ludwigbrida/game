@@ -19,8 +19,8 @@ Mesh Mesh::createTriangle(Float size) {
 			1,
 			0,
 			0, // color
-			0,
-			0, // texCoords
+			0.5,
+			1, // texCoords
 
 			// vertex 2
 			-radius,
@@ -45,7 +45,7 @@ Mesh Mesh::createTriangle(Float size) {
 			0,
 			0,
 			1, // color
-			0,
+			1,
 			0, // texCoords
 		},
 		.indices{0, 1, 2}};
