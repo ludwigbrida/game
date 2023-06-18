@@ -1,5 +1,4 @@
 #include "Renderer.hpp"
-#include "Graphics/Texture.hpp"
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Core/Registry.hpp>
@@ -7,6 +6,8 @@
 #include <iostream>
 
 namespace ng {
+
+Renderer::Renderer(): texture{"assets/skybox/front.jpg"} {}
 
 void Renderer::setup() {
 	glEnable(GL_CULL_FACE);
@@ -67,8 +68,6 @@ void main() {
 	color = vec4(fragmentColor, 1);
 }
 )"};
-
-		Texture texture{"assets/skybox/front.jpg"};
 
 		const auto& target = targets[entity];
 
