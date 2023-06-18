@@ -5,9 +5,9 @@
 
 namespace ng {
 
-Texture::Texture(const std::string& source): id{0} {
-	glGenTextures(1, &id);
-	glBindTexture(GL_TEXTURE_2D, id);
+Texture::Texture(const std::string& source): textureId{0} {
+	glGenTextures(1, &textureId);
+	glBindTexture(GL_TEXTURE_2D, textureId);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -45,7 +45,7 @@ Texture::Texture(const std::string& source): id{0} {
 }
 
 Texture::~Texture() {
-	glDeleteTextures(1, &id);
+	glDeleteTextures(1, &textureId);
 }
 
 }

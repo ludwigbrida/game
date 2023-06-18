@@ -12,7 +12,7 @@ public:
 	~Texture();
 
 private:
-	UInt32 id;
+	UInt32 textureId;
 };
 
 }
