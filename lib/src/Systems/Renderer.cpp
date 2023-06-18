@@ -95,7 +95,7 @@ void Renderer::draw(
 		projectionMatrix
 	);
 
-	glBindVertexArray(vertexArray.vertexArrayLocation);
+	glBindVertexArray(vertexArray.vertexArrayId);
 
 	glDrawElements(GL_TRIANGLES, vertexArray.indices, GL_UNSIGNED_INT, nullptr);
 

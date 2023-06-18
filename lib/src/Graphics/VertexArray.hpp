@@ -11,12 +11,12 @@ public:
 	explicit VertexArray(const Mesh& mesh);
 	~VertexArray();
 
-	UInt32 vertexArrayLocation;
+	UInt32 vertexArrayId;
 	Int32 indices;
 
 private:
-	UInt32 vertexBufferLocation;
-	UInt32 indexBufferLocation;
+	UInt32 vertexBufferId;
+	UInt32 indexBufferId;
 };
 
 }
