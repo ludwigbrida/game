@@ -1,8 +1,24 @@
 #include "Shader.hpp"
 #include <GL/glew.h>
+#include <fstream>
 #include <iostream>
 
 namespace ng {
+
+Shader::Shader(const std::string& path): programId{0} {
+	std::string source;
+	std::ifstream file{path, std::ios::in};
+
+	if (!file) {
+		std::cerr << "Could not openfile" << std::endl;
+	}
+
+	file.seekg(0, std::ios::end);
+	source.resize(file.tellg());
+	file.seekg(0, std::ios::beg);
+	file.read(&source[0], source.size());
+	file.close();
+}
 
 Shader::Shader(const char* vertexSource, const char* fragmentSource) {
 	programId = glCreateProgram();
