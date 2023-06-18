@@ -62,6 +62,9 @@ add_library(lib
 	src/Maths/Quaternion.cpp
 	src/Maths/Vector2.cpp
 	src/Maths/Vector3.cpp
+	# Platform
+	src/Platform/File.cpp
+	src/Platform/File.hpp
 	# Systems
 	src/Systems/Collision.cpp
 	src/Systems/Collision.hpp

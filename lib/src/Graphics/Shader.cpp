@@ -1,23 +1,19 @@
 #include "Shader.hpp"
+#include "Platform/File.hpp"
 #include <GL/glew.h>
 #include <fstream>
 #include <iostream>
 
 namespace ng {
 
-Shader::Shader(const std::string& path): programId{0} {
-	std::string source;
-	std::ifstream file{path, std::ios::in};
+Shader::Shader(const std::string& path) {
+	std::string vertexPath = path + "/vertex.glsl";
+	std::string fragmentPath = path + "/fragment.glsl";
 
-	if (!file) {
-		std::cerr << "Could not openfile" << std::endl;
-	}
+	std::string vertexSource = File::Read(vertexPath);
+	std::string fragmentSource = File::Read(fragmentPath);
 
-	file.seekg(0, std::ios::end);
-	source.resize(file.tellg());
-	file.seekg(0, std::ios::beg);
-	file.read(&source[0], source.size());
-	file.close();
+	Shader(vertexSource.c_str(), fragmentSource.c_str());
 }
 
 Shader::Shader(const char* vertexSource, const char* fragmentSource) {
