@@ -44,6 +44,14 @@ Texture::Texture(const std::string& source): textureId{0} {
 	stbi_image_free(data);
 }
 
+void Texture::bind() const {
+	glBindTexture(GL_TEXTURE_2D, textureId);
+}
+
+void Texture::unbind() const {
+	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
 Texture::~Texture() {
 	glDeleteTextures(1, &textureId);
 }

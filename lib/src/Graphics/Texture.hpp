@@ -11,6 +11,9 @@ public:
 	explicit Texture(const std::string& source);
 	~Texture();
 
+	void bind() const;
+	void unbind() const;
+
 private:
 	UInt32 textureId;
 };
