@@ -31,8 +31,7 @@ void Renderer::update(Registry& registry, State& state, const Clock& clock) {
 			targets.insert({entity, std::move(vertexArray)});
 		}
 
-		// TODO
-		Program program{
+		NewShader shader{
 			R"(
 #version 410 core
 
@@ -64,7 +63,7 @@ void main() {
 
 		const auto& target = targets[entity];
 
-		draw(*target, program, matrices.world);
+		draw(*target, shader, matrices.world);
 	}
 }
 
@@ -81,25 +80,22 @@ void Renderer::clear(const Color& color) const {
 
 void Renderer::draw(
 	const VertexArray& vertexArray,
-	const Program& program,
+	const NewShader& shader,
 	const Matrix4<Float>& modelMatrix
 ) const {
-	glUseProgram(program.location);
+	shader.bind();
 
-	glUniformMatrix4fv(program.modelMatrixLocation, 1, false, modelMatrix);
-	glUniformMatrix4fv(program.viewMatrixLocation, 1, false, viewMatrix);
-	glUniformMatrix4fv(
-		program.projectionMatrixLocation,
-		1,
-		false,
-		projectionMatrix
-	);
+	shader.upload("modelMatrix", modelMatrix);
+	shader.upload("viewMatrix", viewMatrix);
+	shader.upload("projectionMatrix", projectionMatrix);
 
 	glBindVertexArray(vertexArray.vertexArrayId);
 
 	glDrawElements(GL_TRIANGLES, vertexArray.indices, GL_UNSIGNED_INT, nullptr);
 
 	glBindVertexArray(0);
+
+	shader.unbind();
 }
 
 }

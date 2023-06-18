@@ -1,6 +1,7 @@
 #ifndef ENGINE_RENDERER_HPP
 #define ENGINE_RENDERER_HPP
 
+#include "../Graphics/NewShader.hpp"
 #include "../Graphics/Program.hpp"
 #include "../Graphics/VertexArray.hpp"
 #include <Engine/Components/Mesh.hpp>
@@ -22,7 +23,7 @@ private:
 	void clear(const Color& color) const;
 	void draw(
 		const VertexArray& vertexArray,
-		const Program& program,
+		const NewShader& program,
 		const Matrix4<Float>& modelMatrix
 	) const;
 
