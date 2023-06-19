@@ -14,3 +14,6 @@
 
 1. Make sure you installed everything from the prerequisites section.
 2. Run `vcpkg install` to download and install the dependencies.
+
+> On Windows, make sure to enable developer mode, so it is possible for the
+> build system to create symlinks.

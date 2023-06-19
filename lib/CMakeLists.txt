@@ -87,3 +87,5 @@ target_include_directories(lib
 	include
 	PRIVATE
 	src)
+
+file(CREATE_LINK ${CMAKE_CURRENT_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/app/assets SYMBOLIC)
