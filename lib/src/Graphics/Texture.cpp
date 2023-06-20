@@ -19,13 +19,13 @@ Texture::Texture(const std::string& source): textureId{0} {
 		std::cerr << "Could not load image data" << std::endl;
 	}
 
-	glCreateTextures(GL_TEXTURE_2D, 1, &textureId);
-	glTextureStorage2D(textureId, 1, GL_RGB8, width, height);
+	glGenTextures(1, &textureId);
+	glBindTexture(GL_TEXTURE_2D, textureId);
 
-	glTextureParameteri(textureId, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTextureParameteri(textureId, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(textureId, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(textureId, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-	glTextureSubImage2D(
+	glTexSubImage2D(
 		textureId,
 		0,
 		0,
@@ -41,7 +41,7 @@ Texture::Texture(const std::string& source): textureId{0} {
 }
 
 void Texture::bind() const {
-	glBindTextureUnit(0, textureId);
+	glBindTexture(GL_TEXTURE_2D, textureId);
 }
 
 Texture::~Texture() {
