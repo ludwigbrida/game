@@ -4,25 +4,21 @@
 #include <Engine/Core/Clock.hpp>
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
-
-class GLFWwindow;
+#include <Engine/Core/Types.hpp>
+#include <Engine/Core/Window.hpp>
 
 namespace ng {
 
 class Application {
 public:
-	Application();
+	Application(String name);
 	void run();
 	~Application();
 
 private:
-	::GLFWwindow* window;
-
-	Int32 width = 1920;
-	Int32 height = 1080;
-
 	Clock clock;
 
+	Window window;
 	Registry registry;
 	State state;
 };
