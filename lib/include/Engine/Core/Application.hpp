@@ -4,6 +4,7 @@
 namespace ng {
 
 class Application {
+public:
 	void run();
 };
 
