@@ -5,6 +5,6 @@ add_executable(app
 	src/Systems/Movement.cpp
 	src/Systems/Movement.hpp
 	# other
-	src/main.cpp)
+	src/main.cpp src/Core/Application.cpp src/Core/Application.hpp)
 
 target_link_libraries(app PRIVATE lib)

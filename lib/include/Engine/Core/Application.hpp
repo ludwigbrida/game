@@ -3,7 +3,9 @@
 
 namespace ng {
 
-class Application {};
+class Application {
+	void run();
+};
 
 }
 

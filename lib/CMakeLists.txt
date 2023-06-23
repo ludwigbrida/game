@@ -12,6 +12,7 @@ add_library(lib
 	include/Engine/Components/Transform.hpp
 	# Core
 	include/Engine/Core/App.hpp
+	include/Engine/Core/Application.hpp
 	include/Engine/Core/Arithmetic.hpp
 	include/Engine/Core/Clock.hpp
 	include/Engine/Core/Component.hpp
@@ -40,6 +41,7 @@ add_library(lib
 	src/Components/Mesh.cpp
 	# Core
 	src/Core/App.cpp
+	src/Core/Application.cpp
 	src/Core/Registry.cpp
 	src/Core/System.cpp
 	# Graphics
@@ -73,7 +75,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp include/Engine/Core/Application.hpp)
+	src/Systems/Transformer.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
