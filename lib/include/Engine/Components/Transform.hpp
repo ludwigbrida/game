@@ -9,7 +9,7 @@ namespace ng {
 
 struct Transform: Component {
 	Vector3<Float> position;
-	Quaternion<Float> rotation;
+	Quaternion<Float> rotation{0, 0, 0, 1};
 	Vector3<Float> scale{1, 1, 1};
 };
 

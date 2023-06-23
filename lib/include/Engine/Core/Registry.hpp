@@ -23,6 +23,9 @@ public:
 
 	void run(State& state, const Clock& clock);
 
+	template <IsComponent T, typename... Args>
+	void addWithArgs(Entity entity, Args&&... args);
+
 	template <IsComponent T>
 	void add(Entity entity, T value = {});
 

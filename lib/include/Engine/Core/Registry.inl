@@ -3,6 +3,12 @@
 
 namespace ng {
 
+template <IsComponent T, typename... Args>
+void Registry::addWithArgs(Entity entity, Args&&... args) {
+	auto component = std::make_unique<T>(std::forward(args)...);
+	components[typeid(T)].insert({entity, std::move(component)});
+}
+
 template <IsComponent T>
 void Registry::add(Entity entity, T value) {
 	auto component = std::make_unique<T>(value);
