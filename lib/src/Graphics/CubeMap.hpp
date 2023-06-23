@@ -1,5 +1,5 @@
-#ifndef GAME_CUBE_MAP_HPP
-#define GAME_CUBE_MAP_HPP
+#ifndef ENGINE_CUBE_MAP_HPP
+#define ENGINE_CUBE_MAP_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
 #include <string>

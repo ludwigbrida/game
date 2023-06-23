@@ -1,5 +1,5 @@
-#ifndef GAME_MATERIAL_HPP
-#define GAME_MATERIAL_HPP
+#ifndef ENGINE_MATERIAL_HPP
+#define ENGINE_MATERIAL_HPP
 
 #include "Texture.hpp"
 

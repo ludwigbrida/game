@@ -73,7 +73,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp)
+	src/Systems/Transformer.hpp include/Engine/Core/Application.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

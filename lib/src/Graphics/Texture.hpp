@@ -1,5 +1,5 @@
-#ifndef GAME_TEXTURE_HPP
-#define GAME_TEXTURE_HPP
+#ifndef ENGINE_TEXTURE_HPP
+#define ENGINE_TEXTURE_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
 #include <string>
