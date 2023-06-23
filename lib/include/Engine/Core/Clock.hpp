@@ -6,9 +6,9 @@
 namespace ng {
 
 struct Clock {
-	Float elapsedTime;
-	Float previousTime;
-	Float deltaTime;
+	Float elapsedTime{};
+	Float previousTime{};
+	Float deltaTime{};
 };
 
 }

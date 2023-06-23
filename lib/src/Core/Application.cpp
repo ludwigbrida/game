@@ -24,6 +24,4 @@ void Application::run() {
 	}
 }
 
-Application::~Application() = default;
-
 }

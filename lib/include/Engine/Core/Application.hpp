@@ -11,15 +11,14 @@ namespace ng {
 
 class Application {
 public:
-	Application(String name);
+	explicit Application(String name);
 	void run();
-	~Application();
+
+	Registry registry;
 
 private:
 	Clock clock;
-
 	Window window;
-	Registry registry;
 	State state;
 };
 

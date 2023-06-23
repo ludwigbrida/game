@@ -6,7 +6,7 @@
 namespace ng {
 
 struct State {
-	Entity activeCamera;
+	Entity activeCamera{};
 };
 
 }
