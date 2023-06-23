@@ -3,7 +3,7 @@
 
 namespace ng {
 
-Application::Application(String name): window{1920, 1080, name} {}
+Application::Application(): window{1920, 1080} {}
 
 void Application::run() {
 	while (window.isOpen()) {
@@ -18,7 +18,7 @@ void Application::run() {
 
 		window.pollEvents();
 
-		registry.run(state, clock);
+		// registry.run(state, clock);
 
 		window.swapBuffers();
 	}

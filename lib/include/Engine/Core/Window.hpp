@@ -9,7 +9,7 @@ namespace ng {
 
 class Window {
 public:
-	Window(Int32 width, Int32 height, String title);
+	Window(Int32 width, Int32 height);
 	~Window();
 
 	void setTitle(String title);

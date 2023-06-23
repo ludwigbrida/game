@@ -75,7 +75,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp include/Engine/Core/Window.hpp src/Core/Window.cpp include/Engine/Core/Types.hpp)
+	src/Systems/Transformer.hpp include/Engine/Core/Window.hpp src/Core/Window.cpp include/Engine/Core/Types.hpp include/Engine/Core/NewRegistry.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

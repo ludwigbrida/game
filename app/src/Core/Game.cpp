@@ -1,4 +1,7 @@
 #include "Game.hpp"
-#include <Engine/Components/Transform.hpp>
+#include "../Systems/Movement.hpp"
 
-Game::Game(): ng::Application{"Game"} {}
+Game::Game() {
+	registry.activate<Movement>();
+	registry.deactivate<Movement>();
+}

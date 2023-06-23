@@ -2,7 +2,7 @@
 #define ENGINE_APPLICATION_HPP
 
 #include <Engine/Core/Clock.hpp>
-#include <Engine/Core/Registry.hpp>
+#include <Engine/Core/NewRegistry.hpp>
 #include <Engine/Core/State.hpp>
 #include <Engine/Core/Types.hpp>
 #include <Engine/Core/Window.hpp>
@@ -11,10 +11,10 @@ namespace ng {
 
 class Application {
 public:
-	explicit Application(String name);
+	Application();
 	void run();
 
-	Registry registry;
+	NewRegistry registry;
 
 private:
 	Clock clock;

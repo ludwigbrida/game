@@ -2,7 +2,7 @@
 
 namespace ng {
 
-Window::Window(Int32 width, Int32 height, String title) {
+Window::Window(Int32 width, Int32 height) {
 	glfwInit();
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -10,7 +10,7 @@ Window::Window(Int32 width, Int32 height, String title) {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 
-	window = glfwCreateWindow(width, height, title, nullptr, nullptr);
+	window = glfwCreateWindow(width, height, "", nullptr, nullptr);
 
 	glfwMakeContextCurrent(window);
 
