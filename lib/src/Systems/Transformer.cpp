@@ -28,22 +28,20 @@ void Transformer::update(Registry& registry, State& state, const Clock& clock) {
 			});
 		}
 
-		if (transform.isDirty) {
-			registry.update<Matrices>(entity, [&](auto& matrices) {
-				matrices.local = Matrix4<Float>::fromTransform(transform);
-				matrices.world = matrices.local;
+		registry.update<Matrices>(entity, [&](auto& matrices) {
+			matrices.local = Matrix4<Float>::fromTransform(transform);
+			matrices.world = matrices.local;
 
-				if (registry.has<Parent>(entity)) {
-					auto parent = registry.get<Parent>(entity);
+			if (registry.has<Parent>(entity)) {
+				auto parent = registry.get<Parent>(entity);
 
-					if (registry.has<Matrices>(parent.entity)) {
-						auto parentMatrices = registry.get<Matrices>(parent.entity);
+				if (registry.has<Matrices>(parent.entity)) {
+					auto parentMatrices = registry.get<Matrices>(parent.entity);
 
-						matrices.world = matrices.local * parentMatrices.world;
-					}
+					matrices.world = matrices.local * parentMatrices.world;
 				}
-			});
-		}
+			}
+		});
 	}
 }
 

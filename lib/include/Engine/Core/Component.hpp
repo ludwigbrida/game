@@ -5,16 +5,7 @@
 
 namespace Engine {
 
-struct Component {
-	// TODO: Evaluate idea
-	// - Save current deltaTime + 1 instead
-	// - Check if saved value >= deltaTime to invalidate cache
-	// - No need to reset after each frame
-	// TODO: Keep in mind
-	// - Dirty flag is not only useful for caching, but also to prevent
-	//	 recalculation of matrices within one frame for hierarchical entities
-	bool isDirty = true;
-};
+struct Component {};
 
 template <typename T>
 concept IsComponent = std::is_base_of<Component, T>::value;

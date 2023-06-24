@@ -1,18 +1,16 @@
 #include "Game.hpp"
 #include "../Systems/Movement.hpp"
-#include "Engine/Components/Transform.hpp"
+#include <Engine/Components/Transform.hpp>
 
 namespace Engine {
 
-struct Component2 {};
-
-struct Transform2: Component2 {
+struct Transform2: Component {
 	Vector3<Float> position;
 	Quaternion<Float> rotation;
 	Vector3<Float> scale;
 };
 
-struct Position: Vector3<Float>, Component2 {
+struct Position: Vector3<Float>, Component {
 	using Vector3<Float>::Vector3;
 };
 
@@ -26,7 +24,7 @@ Game::Game() {
 		.rotation = {0, 0, 0, 1},
 		.scale = {1, 1, 1}};
 
-	std::unique_ptr<Engine::Component2> com =
+	std::unique_ptr<Engine::Component> com =
 		std::make_unique<Engine::Position>(0, 0, 0);
 
 	// registry.add<Engine::Transform>(0, transform);

@@ -13,11 +13,11 @@ void Registry::run(State& state, const Clock& clock) {
 		system->update(*this, state, clock);
 	}
 
-	for (auto& [_, type]: components) {
-		for (auto& [entity, component]: type) {
-			component->isDirty = false;
-		}
-	}
+	// for (auto& [_, type]: components) {
+	// 	for (auto& [entity, component]: type) {
+	// 		component->isDirty = false;
+	// 	}
+	// }
 }
 
 }

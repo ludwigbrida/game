@@ -39,8 +39,8 @@ public:
 
 		updateFunc(component);
 
-		auto& baseComponent = static_cast<Component&>(component);
-		baseComponent.isDirty = true;
+		// auto& baseComponent = static_cast<Component&>(component);
+		// baseComponent.isDirty = true;
 	}
 
 	template <IsComponent T>
