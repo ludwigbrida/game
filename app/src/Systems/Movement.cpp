@@ -1,10 +1,11 @@
 #include "Movement.hpp"
 #include <Engine/Components/Transform.hpp>
-#include <Engine/Core/Registry.hpp>
+#include <Engine/Core/NewRegistry.hpp>
+#include <Engine/Core/State.hpp>
 #include <Engine/Input/Keyboard.hpp>
 
 void Movement::run(
-	Engine::Registry& registry,
+	Engine::NewRegistry& registry,
 	Engine::State& state,
 	const Engine::Clock& clock
 ) {
@@ -24,10 +25,7 @@ void Movement::run(
 		right = -Engine::Vector3<Engine::Float>::Right;
 	}
 
-	registry.update<Engine::Transform>(
-		state.activeCamera,
-		[=](Engine::Transform& transform) {
-			transform.position += (forward + right) * 10 * clock.deltaTime;
-		}
-	);
+	auto& transform = registry.get<Engine::Transform>(state.activeCamera);
+
+	transform.position += (forward + right) * 10 * clock.deltaTime;
 }

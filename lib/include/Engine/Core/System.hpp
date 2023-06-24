@@ -8,11 +8,11 @@
 namespace Engine {
 
 // TODO
-class Registry;
+class NewRegistry;
 class State;
 
 struct System {
-	virtual void run(Registry& registry, State& state, const Clock& clock) = 0;
+	virtual void run(NewRegistry& registry, State& state, const Clock& clock) = 0;
 	virtual ~System();
 };
 
