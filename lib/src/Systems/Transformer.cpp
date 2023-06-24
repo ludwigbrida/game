@@ -2,11 +2,11 @@
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Parent.hpp>
 #include <Engine/Components/Transform.hpp>
-#include <Engine/Core/Registry.hpp>
+#include <Engine/Core/NewRegistry.hpp>
 
 namespace Engine {
 
-void Transformer::run(Registry& registry, State& state, const Clock& clock) {
+void Transformer::run(NewRegistry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform>();
 
 	for (auto entity: entities) {
@@ -18,6 +18,7 @@ void Transformer::run(Registry& registry, State& state, const Clock& clock) {
 		// To prevent unnecessary recalculation of hierarchical matrices within
 		// a single frame?
 
+		/*
 		// TODO: temporarily scope to cube only
 		if (entity == 2) {
 			registry.update<Transform>(entity, [&](auto& currentTransform) {
@@ -42,6 +43,7 @@ void Transformer::run(Registry& registry, State& state, const Clock& clock) {
 				}
 			}
 		});
+		*/
 	}
 }
 

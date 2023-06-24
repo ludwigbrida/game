@@ -1,4 +1,4 @@
-#include "Engine/Core/Registry.hpp"
+/*#include "Engine/Core/Registry.hpp"
 
 namespace Engine {
 
@@ -9,3 +9,4 @@ void Registry::run(State& state, const Clock& clock) {
 }
 
 }
+*/

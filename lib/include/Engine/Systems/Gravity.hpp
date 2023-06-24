@@ -9,7 +9,7 @@ class Gravity: public System {
 public:
 	Gravity(Float constant): constant{Vector3<Float>::Down * constant} {}
 
-	void run(Registry& registry, State& state, const Clock& clock) override;
+	void run(NewRegistry& registry, State& state, const Clock& clock) override;
 
 private:
 	Vector3<Float> constant;

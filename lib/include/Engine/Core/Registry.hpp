@@ -1,3 +1,4 @@
+/*
 #ifndef ENGINE_REGISTRY_HPP
 #define ENGINE_REGISTRY_HPP
 
@@ -79,3 +80,4 @@ private:
 #include "Registry.inl"
 
 #endif
+*/

@@ -40,6 +40,13 @@ private:
 
 	void run(State& state, const Clock& clock);
 
+	template <IsComponent... T>
+	std::array<
+		std::reference_wrapper<
+			std::unordered_map<Entity, std::unique_ptr<Component>>>,
+		sizeof...(T)>
+	getComponentMaps();
+
 	friend class Application;
 };
 
@@ -73,7 +80,31 @@ T& NewRegistry::get(Entity entity) {
 
 template <IsComponent... T>
 std::unordered_set<Entity> NewRegistry::view() {
-	return {};
+	std::unordered_set<Entity> filteredEntities;
+
+	auto componentMaps = getComponentMaps<T...>();
+
+	for (unsigned int i = 0; auto& componentMap: componentMaps) {
+		for (auto& [key, value]: componentMap.get()) {
+			if (i == 0) {
+				filteredEntities.insert(key);
+			} else {
+				filteredEntities.erase(key);
+			}
+		}
+		i++;
+	}
+
+	return filteredEntities;
+}
+
+template <IsComponent... T>
+std::array<
+	std::reference_wrapper<
+		std::unordered_map<Entity, std::unique_ptr<Component>>>,
+	sizeof...(T)>
+NewRegistry::getComponentMaps() {
+	return {std::ref(components[typeid(T)])...};
 }
 
 }

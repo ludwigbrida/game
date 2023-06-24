@@ -18,7 +18,7 @@ class Renderer: public System {
 public:
 	Renderer();
 
-	void run(Registry& registry, State& state, const Clock& clock) override;
+	void run(NewRegistry& registry, State& state, const Clock& clock) override;
 
 private:
 	void clear(const Color& color) const;

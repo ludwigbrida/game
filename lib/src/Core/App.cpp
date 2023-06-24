@@ -1,3 +1,4 @@
+/*
 #include <GL/glew.h>
 // Make sure that GLEW is included before GL
 #include "../Systems/Collision.hpp"
@@ -70,3 +71,4 @@ App::~App() {
 }
 
 }
+*/

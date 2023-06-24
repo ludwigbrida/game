@@ -1,3 +1,4 @@
+/*
 #ifndef ENGINE_REGISTRY_INL
 #define ENGINE_REGISTRY_INL
 
@@ -91,3 +92,4 @@ std::array<std::reference_wrapper<ComponentMap>, sizeof...(T)> Registry::
 }
 
 #endif
+*/
