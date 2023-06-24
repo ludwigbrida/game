@@ -1,7 +1,7 @@
 #ifndef ENGINE_TYPES_HPP
 #define ENGINE_TYPES_HPP
 
-namespace ng {
+namespace Engine {
 
 using Int32 = int;
 

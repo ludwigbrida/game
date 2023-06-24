@@ -5,7 +5,7 @@
 #include <Engine/Core/Component.hpp>
 #include <vector>
 
-namespace ng {
+namespace Engine {
 
 struct Mesh: Component {
 	std::vector<Float> vertices;

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-namespace ng::File {
+namespace Engine::File {
 
 std::string Read(const std::string& path) {
 	std::string content;

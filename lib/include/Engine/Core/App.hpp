@@ -9,7 +9,7 @@
 // TODO
 class GLFWwindow;
 
-namespace ng {
+namespace Engine {
 
 class App {
 public:

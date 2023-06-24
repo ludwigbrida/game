@@ -6,7 +6,7 @@
 #include <Engine/Maths/Vector3.hpp>
 #include <string>
 
-namespace ng {
+namespace Engine {
 
 class Shader {
 public:

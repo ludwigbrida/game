@@ -4,7 +4,7 @@
 #include <Engine/Core/Registry.hpp>
 #include <GL/glew.h>
 
-namespace ng {
+namespace Engine {
 
 Renderer::Renderer()
 		: shader{"assets/shaders/mesh"}, texture{"assets/skybox/front.jpg"} {}

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <limits>
 
-namespace ng {
+namespace Engine {
 
 void Collision::update(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Matrices, Collider>();

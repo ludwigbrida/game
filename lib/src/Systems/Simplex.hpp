@@ -4,13 +4,17 @@
 #include <Engine/Maths/Vector3.hpp>
 #include <array>
 
-namespace ng {
+namespace Engine {
 
 struct Simplex {
 public:
 	Simplex()
-			: m_points({Vector3<Float>::Zero, Vector3<Float>::Zero,
-									Vector3<Float>::Zero, Vector3<Float>::Zero}),
+			: m_points(
+					{Vector3<Float>::Zero,
+					 Vector3<Float>::Zero,
+					 Vector3<Float>::Zero,
+					 Vector3<Float>::Zero}
+				),
 				m_size(0) {}
 
 	Simplex& operator=(std::initializer_list<Vector3<Float>> list) {

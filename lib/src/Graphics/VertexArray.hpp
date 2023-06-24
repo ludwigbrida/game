@@ -4,7 +4,7 @@
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Core/Arithmetic.hpp>
 
-namespace ng {
+namespace Engine {
 
 class VertexArray {
 public:

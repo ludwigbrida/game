@@ -3,10 +3,13 @@
 
 #include <Engine/Core/System.hpp>
 
-class Movement: public ng::System {
+class Movement: public Engine::System {
 public:
-	void update(ng::Registry& registry, ng::State& state, const ng::Clock& clock)
-		override;
+	void update(
+		Engine::Registry& registry,
+		Engine::State& state,
+		const Engine::Clock& clock
+	) override;
 };
 
 #endif

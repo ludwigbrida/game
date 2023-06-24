@@ -1,6 +1,6 @@
 #include <Engine/Maths/Vector3.hpp>
 
-namespace ng {
+namespace Engine {
 
 template class Vector3<Float>;
 

@@ -3,7 +3,7 @@
 #include <GL/glew.h>
 #include <iostream>
 
-namespace ng {
+namespace Engine {
 
 Shader::Shader(const std::string& path): programId{0} {
 	std::string vertexPath = path + "/vertex.glsl";

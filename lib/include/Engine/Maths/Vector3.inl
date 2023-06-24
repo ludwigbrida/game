@@ -3,7 +3,7 @@
 
 #include <cmath>
 
-namespace ng {
+namespace Engine {
 
 template <IsArithmetic T>
 constexpr Vector3<T>::Vector3(): x{0}, y{0}, z{0} {}

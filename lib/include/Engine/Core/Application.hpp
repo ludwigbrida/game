@@ -7,7 +7,7 @@
 #include <Engine/Core/Types.hpp>
 #include <Engine/Core/Window.hpp>
 
-namespace ng {
+namespace Engine {
 
 class Application {
 public:

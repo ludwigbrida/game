@@ -3,7 +3,7 @@
 
 #include <type_traits>
 
-namespace ng {
+namespace Engine {
 
 using Int8 = char;
 

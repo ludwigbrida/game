@@ -3,7 +3,7 @@
 
 #include <Engine/Core/Arithmetic.hpp>
 
-namespace ng {
+namespace Engine {
 
 template <IsArithmetic T>
 class Angle {

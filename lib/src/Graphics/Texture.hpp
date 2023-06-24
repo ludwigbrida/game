@@ -4,7 +4,7 @@
 #include <Engine/Core/Arithmetic.hpp>
 #include <string>
 
-namespace ng {
+namespace Engine {
 
 class Texture {
 public:

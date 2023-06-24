@@ -5,7 +5,7 @@
 #include <Engine/Core/Component.hpp>
 #include <Engine/Maths/Angle.hpp>
 
-namespace ng {
+namespace Engine {
 
 struct Perspective: Component {
 	Angle<Float> fieldOfView;

@@ -1,7 +1,13 @@
 #include <Engine/Maths/Quaternion.hpp>
 #include <cmath>
 
-namespace ng {
+namespace Engine {
+
+template <IsArithmetic T>
+Quaternion<T>::Quaternion(): x{0}, y{0}, z{0}, w{1} {}
+
+template <IsArithmetic T>
+Quaternion<T>::Quaternion(T x, T y, T z, T w): x{x}, y{y}, z{z}, w{w} {}
 
 template <IsArithmetic T>
 Quaternion<T> Quaternion<T>::fromAxisAngle(

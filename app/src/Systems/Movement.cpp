@@ -4,29 +4,29 @@
 #include <Engine/Input/Keyboard.hpp>
 
 void Movement::update(
-	ng::Registry& registry,
-	ng::State& state,
-	const ng::Clock& clock
+	Engine::Registry& registry,
+	Engine::State& state,
+	const Engine::Clock& clock
 ) {
-	auto forward = ng::Vector3<ng::Float>::Zero;
-	auto right = ng::Vector3<ng::Float>::Zero;
+	auto forward = Engine::Vector3<Engine::Float>::Zero;
+	auto right = Engine::Vector3<Engine::Float>::Zero;
 
-	if (ng::Keyboard::isKeyPressed(ng::Keyboard::Key::W)) {
-		forward = ng::Vector3<ng::Float>::Forward;
+	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::W)) {
+		forward = Engine::Vector3<Engine::Float>::Forward;
 	}
-	if (ng::Keyboard::isKeyPressed(ng::Keyboard::Key::S)) {
-		forward = -ng::Vector3<ng::Float>::Forward;
+	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::S)) {
+		forward = -Engine::Vector3<Engine::Float>::Forward;
 	}
-	if (ng::Keyboard::isKeyPressed(ng::Keyboard::Key::D)) {
-		right = ng::Vector3<ng::Float>::Right;
+	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::D)) {
+		right = Engine::Vector3<Engine::Float>::Right;
 	}
-	if (ng::Keyboard::isKeyPressed(ng::Keyboard::Key::A)) {
-		right = -ng::Vector3<ng::Float>::Right;
+	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::A)) {
+		right = -Engine::Vector3<Engine::Float>::Right;
 	}
 
-	registry.update<ng::Transform>(
+	registry.update<Engine::Transform>(
 		state.activeCamera,
-		[=](ng::Transform& transform) {
+		[=](Engine::Transform& transform) {
 			transform.position += (forward + right) * 10 * clock.deltaTime;
 		}
 	);

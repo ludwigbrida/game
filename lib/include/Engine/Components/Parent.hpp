@@ -4,7 +4,7 @@
 #include <Engine/Core/Component.hpp>
 #include <Engine/Core/Entity.hpp>
 
-namespace ng {
+namespace Engine {
 
 struct Parent: Component {
 	Entity entity{};

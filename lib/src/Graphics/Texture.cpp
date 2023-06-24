@@ -6,7 +6,7 @@
 
 #include <stb_image.h>
 
-namespace ng {
+namespace Engine {
 
 Texture::Texture(const std::string& source): textureId{0} {
 	int width, height, channels;

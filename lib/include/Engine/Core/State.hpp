@@ -3,7 +3,7 @@
 
 #include <Engine/Core/Entity.hpp>
 
-namespace ng {
+namespace Engine {
 
 struct State {
 	Entity activeCamera{};

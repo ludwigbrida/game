@@ -11,7 +11,7 @@
 #include <iostream>
 #include <sstream>
 
-namespace ng {
+namespace Engine {
 
 App::App() {
 	glfwInit();

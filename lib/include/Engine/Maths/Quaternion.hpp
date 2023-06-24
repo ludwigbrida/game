@@ -5,15 +5,18 @@
 #include <Engine/Maths/Angle.hpp>
 #include <Engine/Maths/Vector3.hpp>
 
-namespace ng {
+namespace Engine {
 
-template <IsArithmetic T>
+template <IsArithmetic T = Float>
 class Quaternion {
 public:
-	T x{};
-	T y{};
-	T z{};
-	T w{1};
+	T x;
+	T y;
+	T z;
+	T w;
+
+	Quaternion();
+	Quaternion(T x, T y, T z, T w);
 
 	static Quaternion<T> fromAxisAngle(
 		const Vector3<T>& axis,

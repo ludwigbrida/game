@@ -1,6 +1,6 @@
 #include "Engine/Core/Registry.hpp"
 
-namespace ng {
+namespace Engine {
 
 void Registry::setup() {
 	for (auto& [_, system]: systems) {

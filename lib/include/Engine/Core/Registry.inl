@@ -1,7 +1,7 @@
 #ifndef ENGINE_REGISTRY_INL
 #define ENGINE_REGISTRY_INL
 
-namespace ng {
+namespace Engine {
 
 template <IsComponent T, typename... Args>
 void Registry::addWithArgs(Entity entity, Args&&... args) {

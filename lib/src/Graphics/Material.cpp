@@ -1,6 +1,6 @@
 #include "Material.hpp"
 
-namespace ng {
+namespace Engine {
 
 Material::Material(const Texture& diffuse): diffuse{diffuse} {}
 

@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include <stb_image.h>
 
-namespace ng {
+namespace Engine {
 
 CubeMap::CubeMap(const std::vector<std::string>& textures) {
 	glGenTextures(1, &id);

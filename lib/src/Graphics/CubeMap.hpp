@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-namespace ng {
+namespace Engine {
 
 class CubeMap {
 public:

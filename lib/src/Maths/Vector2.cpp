@@ -1,6 +1,6 @@
 #include <Engine/Maths/Vector2.hpp>
 
-namespace ng {
+namespace Engine {
 
 template <IsArithmetic T>
 Vector2<T>::Vector2(): x{0}, y{0} {}

@@ -1,7 +1,7 @@
 #include <Engine/Input/Keyboard.hpp>
 #include <iostream>
 
-namespace ng::Keyboard {
+namespace Engine::Keyboard {
 
 void callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	keys[static_cast<Key>(key)] = action != GLFW_RELEASE;

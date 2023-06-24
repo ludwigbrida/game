@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-namespace ng {
+namespace Engine {
 
 using ComponentMap = std::unordered_map<Entity, std::unique_ptr<Component>>;
 

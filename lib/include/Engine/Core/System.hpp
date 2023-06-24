@@ -5,7 +5,7 @@
 #include <Engine/Core/Clock.hpp>
 #include <type_traits>
 
-namespace ng {
+namespace Engine {
 
 // TODO
 class Registry;

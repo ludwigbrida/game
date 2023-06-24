@@ -12,7 +12,7 @@
 #include <memory>
 #include <unordered_map>
 
-namespace ng {
+namespace Engine {
 
 class Renderer: public System {
 public:

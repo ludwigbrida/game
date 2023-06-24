@@ -8,7 +8,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-namespace ng {
+namespace Engine {
 
 class NewRegistry {
 public:
@@ -18,12 +18,18 @@ public:
 	template <IsSystem T>
 	void deactivate();
 
+	template <IsComponent T>
+	void add(Entity entity, T component);
+
+	template <IsComponent T>
+	void remove(Entity entity);
+
 private:
+	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
 	std::unordered_map<
 		std::type_index,
 		std::unordered_map<Entity, std::unique_ptr<Component>>>
 		components;
-	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
 };
 
 template <IsSystem T, typename... Args>
@@ -35,6 +41,17 @@ void NewRegistry::activate(Args&&... args) {
 template <IsSystem T>
 void NewRegistry::deactivate() {
 	systems.erase(typeid(T));
+}
+
+template <IsComponent T>
+void NewRegistry::add(Entity entity, T component) {
+	// auto component = std::make_unique<T>(args...);
+	components[typeid(T)].insert({entity, component});
+}
+
+template <IsComponent T>
+void NewRegistry::remove(Entity entity) {
+	components[typeid(T)].erase(entity);
 }
 
 }

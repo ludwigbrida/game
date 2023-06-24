@@ -5,7 +5,7 @@
 #include <Engine/Maths/Vector3.hpp>
 #include <vector>
 
-namespace ng {
+namespace Engine {
 
 struct Collider: Component {
 	std::vector<Vector3<Float>> vertices;

@@ -3,7 +3,7 @@
 
 #include <Engine/Core/Arithmetic.hpp>
 
-namespace ng {
+namespace Engine {
 
 struct Clock {
 	Float elapsedTime{};

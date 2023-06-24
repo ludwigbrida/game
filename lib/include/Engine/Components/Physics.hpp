@@ -5,7 +5,7 @@
 #include <Engine/Core/Component.hpp>
 #include <Engine/Maths/Vector3.hpp>
 
-namespace ng {
+namespace Engine {
 
 struct Physics: Component {
 	Vector3<Float> velocity{};

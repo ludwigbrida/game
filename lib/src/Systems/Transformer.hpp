@@ -3,7 +3,7 @@
 
 #include <Engine/Core/System.hpp>
 
-namespace ng {
+namespace Engine {
 
 class Transformer: public System {
 public:

@@ -7,22 +7,22 @@
 #include <Engine/Core/App.hpp>
 #include <Engine/Systems/Gravity.hpp>
 
-using namespace ng;
+using namespace Engine;
 
 int main_legacy() {
-	ng::App app;
+	Engine::App app;
 
 	app.registry.activate<Movement>();
-	app.registry.activate<ng::Gravity>({9.81});
+	app.registry.activate<Engine::Gravity>({9.81});
 
 	auto player = 0;
-	app.registry.add<ng::Transform>(player);
-	app.registry.add<ng::Matrices>(player);
-	app.registry.add<ng::Perspective>(
+	app.registry.add<Engine::Transform>(player);
+	app.registry.add<Engine::Matrices>(player);
+	app.registry.add<Engine::Perspective>(
 		player,
 		{.fieldOfView = 45_deg, .aspectRatio = 16. / 9, .near = .1, .far = 1000}
 	);
-	app.registry.add<ng::Collider>(
+	app.registry.add<Engine::Collider>(
 		player,
 		{.vertices{
 			{-.5, .5, -.5},
@@ -37,16 +37,16 @@ int main_legacy() {
 	);
 
 	auto triangle = 1;
-	app.registry.add<ng::Transform>(triangle, {.position{-1, 0, -2}});
-	app.registry.add<ng::Matrices>(triangle);
-	app.registry.add<ng::Mesh>(triangle, ng::Mesh::createTriangle(1));
-	app.registry.add<ng::Physics>(triangle);
+	app.registry.add<Engine::Transform>(triangle, {.position{-1, 0, -2}});
+	app.registry.add<Engine::Matrices>(triangle);
+	app.registry.add<Engine::Mesh>(triangle, Engine::Mesh::createTriangle(1));
+	app.registry.add<Engine::Physics>(triangle);
 
 	auto cube = 2;
-	app.registry.add<ng::Transform>(cube, {.position{1, 0, -2}});
-	app.registry.add<ng::Matrices>(cube);
-	app.registry.add<ng::Mesh>(cube, ng::Mesh::createCube(1));
-	app.registry.add<ng::Collider>(
+	app.registry.add<Engine::Transform>(cube, {.position{1, 0, -2}});
+	app.registry.add<Engine::Matrices>(cube);
+	app.registry.add<Engine::Mesh>(cube, Engine::Mesh::createCube(1));
+	app.registry.add<Engine::Collider>(
 		cube,
 		{.vertices{
 			{-.5, .5, -.5},
@@ -61,8 +61,8 @@ int main_legacy() {
 	);
 
 	auto skybox = 3;
-	app.registry.add<ng::Transform>(skybox);
-	app.registry.add<ng::Matrices>(skybox);
+	app.registry.add<Engine::Transform>(skybox);
+	app.registry.add<Engine::Matrices>(skybox);
 
 	app.state.activeCamera = player;
 

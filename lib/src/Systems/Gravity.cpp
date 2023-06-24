@@ -3,7 +3,7 @@
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Systems/Gravity.hpp>
 
-namespace ng {
+namespace Engine {
 
 void Gravity::update(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform, Physics>();

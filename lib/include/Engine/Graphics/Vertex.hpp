@@ -4,7 +4,7 @@
 #include <Engine/Graphics/Color.hpp>
 #include <Engine/Maths/Vector3.hpp>
 
-namespace ng {
+namespace Engine {
 
 struct Vertex {
 	Vector3<Float> position;

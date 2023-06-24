@@ -7,7 +7,7 @@
 #include <Engine/Maths/Matrix4.hpp>
 #include <Engine/Maths/Vector3.hpp>
 
-namespace ng {
+namespace Engine {
 
 class Collision: public System {
 public:

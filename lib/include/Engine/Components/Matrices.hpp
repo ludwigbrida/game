@@ -4,7 +4,7 @@
 #include <Engine/Core/Component.hpp>
 #include <Engine/Maths/Matrix4.hpp>
 
-namespace ng {
+namespace Engine {
 
 struct Matrices: Component {
 	Matrix4<Float> local;

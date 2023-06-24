@@ -3,7 +3,7 @@
 
 #include <type_traits>
 
-namespace ng {
+namespace Engine {
 
 struct Component {
 	// TODO: Evaluate idea

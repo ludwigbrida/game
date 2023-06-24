@@ -1,7 +1,7 @@
 #include <Engine/Maths/Matrix4.hpp>
 #include <cmath>
 
-namespace ng {
+namespace Engine {
 
 template <IsArithmetic T>
 Matrix4<T>::Matrix4() = default;

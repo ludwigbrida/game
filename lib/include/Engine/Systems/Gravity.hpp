@@ -3,7 +3,7 @@
 
 #include <Engine/Core/System.hpp>
 
-namespace ng {
+namespace Engine {
 
 class Gravity: public System {
 public:

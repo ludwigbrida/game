@@ -5,7 +5,7 @@
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Arithmetic.hpp>
 
-namespace ng {
+namespace Engine {
 
 template <IsArithmetic T>
 class Matrix4 {

@@ -1,7 +1,7 @@
 #include "VertexArray.hpp"
 #include <GL/glew.h>
 
-namespace ng {
+namespace Engine {
 
 VertexArray::VertexArray(const Mesh& mesh)
 		: vertexBufferId{0}, indexBufferId{0}, vertexArrayId{0} {

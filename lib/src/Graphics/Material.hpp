@@ -3,7 +3,7 @@
 
 #include "Texture.hpp"
 
-namespace ng {
+namespace Engine {
 
 class Material {
 public:

@@ -1,7 +1,7 @@
 #include <Engine/Maths/Angle.hpp>
 #include <cmath>
 
-namespace ng {
+namespace Engine {
 
 template <IsArithmetic T>
 Angle<T>::Angle(T degrees): degrees{degrees} {}

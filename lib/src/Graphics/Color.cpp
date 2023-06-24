@@ -1,6 +1,6 @@
 #include <Engine/Graphics/Color.hpp>
 
-namespace ng {
+namespace Engine {
 
 Color::Color(UInt8 r, UInt8 g, UInt8 b): r{r}, g{g}, b{b}, a{255} {}
 

@@ -1,6 +1,6 @@
 #include <Engine/Core/Window.hpp>
 
-namespace ng {
+namespace Engine {
 
 Window::Window(Int32 width, Int32 height) {
 	glfwInit();

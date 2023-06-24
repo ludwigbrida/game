@@ -1,7 +1,7 @@
 #include <Engine/Core/Application.hpp>
 #include <sstream>
 
-namespace ng {
+namespace Engine {
 
 Application::Application(): window{1920, 1080} {}
 

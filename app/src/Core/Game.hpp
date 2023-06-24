@@ -3,7 +3,7 @@
 
 #include <Engine/Core/Application.hpp>
 
-class Game: public ng::Application {
+class Game: public Engine::Application {
 public:
 	Game();
 };

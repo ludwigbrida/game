@@ -4,7 +4,7 @@
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Registry.hpp>
 
-namespace ng {
+namespace Engine {
 
 void Transformer::update(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform>();

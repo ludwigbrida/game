@@ -1,6 +1,6 @@
 #include <Engine/Core/System.hpp>
 
-namespace ng {
+namespace Engine {
 
 void System::setup() {}
 

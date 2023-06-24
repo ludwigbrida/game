@@ -2,7 +2,7 @@
 #include <Engine/Graphics/Color.hpp>
 #include <Engine/Maths/Vector3.hpp>
 
-namespace ng {
+namespace Engine {
 
 Mesh Mesh::createTriangle(Float size) {
 	auto radius = size / 2;
