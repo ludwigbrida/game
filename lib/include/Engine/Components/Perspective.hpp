@@ -8,10 +8,10 @@
 namespace Engine {
 
 struct Perspective: Component {
-	Angle<Float> fieldOfView;
-	Float aspectRatio{};
-	Float near{.1};
-	Float far{1000};
+	Angle<Float> fieldOfView = 45_deg;
+	Float aspectRatio = 16.f / 9.f;
+	Float near = .1f;
+	Float far = 1000.f;
 };
 
 }

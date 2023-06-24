@@ -16,7 +16,7 @@ public:
 
 	NewRegistry registry;
 
-private:
+protected:
 	Clock clock;
 	Window window;
 	State state;

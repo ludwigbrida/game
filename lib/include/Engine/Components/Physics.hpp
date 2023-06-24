@@ -8,9 +8,9 @@
 namespace Engine {
 
 struct Physics: Component {
-	Vector3<Float> velocity{};
-	Vector3<Float> acceleration{};
-	Float mass{1};
+	Vector3<Float> velocity;
+	Vector3<Float> acceleration;
+	Float mass = 1.f;
 };
 
 }
