@@ -7,6 +7,7 @@
 #include <memory>
 #include <typeindex>
 #include <unordered_map>
+#include <unordered_set>
 
 namespace Engine {
 
@@ -26,6 +27,9 @@ public:
 
 	template <IsComponent T>
 	T& get(Entity entity);
+
+	template <IsComponent... T>
+	std::unordered_set<Entity> view();
 
 private:
 	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
@@ -65,6 +69,11 @@ template <IsComponent T>
 T& NewRegistry::get(Entity entity) {
 	auto& component = *components[typeid(T)].at(entity);
 	return static_cast<T&>(component);
+}
+
+template <IsComponent... T>
+std::unordered_set<Entity> NewRegistry::view() {
+	return {};
 }
 
 }
