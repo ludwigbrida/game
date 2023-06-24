@@ -29,7 +29,7 @@ Game::Game() {
 	std::unique_ptr<Engine::Component2> com =
 		std::make_unique<Engine::Position>(0, 0, 0);
 
-	registry.add<Engine::Transform>(0, transform);
+	// registry.add<Engine::Transform>(0, transform);
 
 	registry.remove<Engine::Transform>(0);
 

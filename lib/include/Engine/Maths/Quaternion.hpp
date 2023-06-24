@@ -7,7 +7,7 @@
 
 namespace Engine {
 
-template <IsArithmetic T = Float>
+template <IsArithmetic T>
 class Quaternion {
 public:
 	T x;
