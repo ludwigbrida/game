@@ -12,38 +12,38 @@ void Transformer::run(NewRegistry& registry, State& state, const Clock& clock) {
 	for (auto entity: entities) {
 		auto& transform = registry.get<Transform>(entity);
 
-		// TODO: Split into two systems?
-		// - Transform2Local
-		// - Local2Global
-		// To prevent unnecessary recalculation of hierarchical matrices within
-		// a single frame?
-
-		/*
 		// TODO: temporarily scope to cube only
 		if (entity == 2) {
-			registry.update<Transform>(entity, [&](auto& currentTransform) {
-				currentTransform.rotation = Quaternion<Float>::fromAxisAngle(
-					Vector3<Float>::Right,
-					clock.elapsedTime * 100
-				);
-			});
+			transform.rotation = Quaternion<Float>::fromAxisAngle(
+				Vector3<Float>::Right,
+				clock.elapsedTime * 100
+			);
 		}
 
-		registry.update<Matrices>(entity, [&](auto& matrices) {
-			matrices.local = Matrix4<Float>::fromTransform(transform);
-			matrices.world = matrices.local;
+		auto localTransform = Matrix4<Float>::fromTransform(transform);
+		auto worldTransform = localTransform;
 
-			if (registry.has<Parent>(entity)) {
-				auto parent = registry.get<Parent>(entity);
+		if (registry.has<Parent>(entity)) {
+			auto& parent = registry.get<Parent>(entity);
 
-				if (registry.has<Matrices>(parent.entity)) {
-					auto parentMatrices = registry.get<Matrices>(parent.entity);
+			if (registry.has<Matrices>(parent.entity)) {
+				auto& parentMatrices = registry.get<Matrices>(parent.entity);
 
-					matrices.world = matrices.local * parentMatrices.world;
-				}
+				worldTransform = localTransform * parentMatrices.world;
 			}
-		});
-		*/
+		}
+
+		if (registry.has<Matrices>(entity)) {
+			auto& matrices = registry.get<Matrices>(entity);
+
+			matrices.local = localTransform;
+			matrices.world = worldTransform;
+		} else {
+			registry.add<Matrices>(
+				entity,
+				{.local = localTransform, .world = worldTransform}
+			);
+		}
 	}
 }
 

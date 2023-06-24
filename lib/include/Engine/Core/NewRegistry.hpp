@@ -26,6 +26,9 @@ public:
 	void remove(Entity entity);
 
 	template <IsComponent T>
+	bool has(Entity entity);
+
+	template <IsComponent T>
 	T& get(Entity entity);
 
 	template <IsComponent... T>
@@ -70,6 +73,11 @@ void NewRegistry::add(Entity entity, T component) {
 template <IsComponent T>
 void NewRegistry::remove(Entity entity) {
 	components[typeid(T)].erase(entity);
+}
+
+template <IsComponent T>
+bool NewRegistry::has(Entity entity) {
+	return components[typeid(T)].count(entity);
 }
 
 template <IsComponent T>
