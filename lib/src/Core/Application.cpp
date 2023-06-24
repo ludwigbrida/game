@@ -18,7 +18,7 @@ void Application::run() {
 
 		window.pollEvents();
 
-		// registry.run(state, clock);
+		registry.run(state, clock);
 
 		window.swapBuffers();
 	}

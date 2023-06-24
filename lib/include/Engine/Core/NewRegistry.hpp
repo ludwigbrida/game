@@ -35,6 +35,8 @@ private:
 		components;
 
 	void run(State& state, const Clock& clock);
+
+	friend class Application;
 };
 
 template <IsSystem T, typename... Args>
