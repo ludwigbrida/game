@@ -7,14 +7,12 @@
 namespace Engine {
 
 Renderer::Renderer()
-		: shader{"assets/shaders/mesh"}, texture{"assets/skybox/front.jpg"} {}
-
-void Renderer::setup() {
+		: shader{"assets/shaders/mesh"}, texture{"assets/skybox/front.jpg"} {
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 }
 
-void Renderer::update(Registry& registry, State& state, const Clock& clock) {
+void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 	clear(Color::Black);
 
 	auto& cameraMatrices = registry.get<Matrices>(state.activeCamera);

@@ -7,7 +7,7 @@
 
 namespace Engine {
 
-void Collision::update(Registry& registry, State& state, const Clock& clock) {
+void Collision::run(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Matrices, Collider>();
 
 	for (auto entity1: entities) {

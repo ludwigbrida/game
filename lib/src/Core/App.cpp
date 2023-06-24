@@ -43,8 +43,6 @@ App::App() {
 }
 
 void App::run() {
-	registry.setup();
-
 	Float previousTime = 0;
 
 	while (!glfwWindowShouldClose(window)) {

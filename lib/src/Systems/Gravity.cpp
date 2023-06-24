@@ -5,7 +5,7 @@
 
 namespace Engine {
 
-void Gravity::update(Registry& registry, State& state, const Clock& clock) {
+void Gravity::run(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform, Physics>();
 
 	for (auto entity: entities) {

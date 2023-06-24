@@ -7,7 +7,7 @@ namespace Engine {
 
 class Transformer: public System {
 public:
-	void update(Registry& matrices, State& state, const Clock& clock) override;
+	void run(Registry& matrices, State& state, const Clock& clock) override;
 };
 
 }

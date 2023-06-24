@@ -33,6 +33,8 @@ private:
 		std::type_index,
 		std::unordered_map<Entity, std::unique_ptr<Component>>>
 		components;
+
+	void run(State& state, const Clock& clock);
 };
 
 template <IsSystem T, typename... Args>

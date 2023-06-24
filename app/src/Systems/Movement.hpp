@@ -5,7 +5,7 @@
 
 class Movement: public Engine::System {
 public:
-	void update(
+	void run(
 		Engine::Registry& registry,
 		Engine::State& state,
 		const Engine::Clock& clock

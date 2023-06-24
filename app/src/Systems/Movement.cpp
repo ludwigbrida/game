@@ -3,7 +3,7 @@
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Input/Keyboard.hpp>
 
-void Movement::update(
+void Movement::run(
 	Engine::Registry& registry,
 	Engine::State& state,
 	const Engine::Clock& clock

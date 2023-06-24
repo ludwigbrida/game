@@ -2,8 +2,6 @@
 
 namespace Engine {
 
-void System::setup() {}
-
 System::~System() = default;
 
 }

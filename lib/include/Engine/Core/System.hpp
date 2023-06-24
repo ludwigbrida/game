@@ -12,8 +12,7 @@ class Registry;
 class State;
 
 struct System {
-	virtual void setup();
-	virtual void update(Registry& registry, State& state, const Clock& clock) = 0;
+	virtual void run(Registry& registry, State& state, const Clock& clock) = 0;
 	virtual ~System();
 };
 

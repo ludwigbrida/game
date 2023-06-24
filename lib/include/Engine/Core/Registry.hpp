@@ -19,8 +19,6 @@ using ComponentMap = std::unordered_map<Entity, std::unique_ptr<Component>>;
 
 class Registry {
 public:
-	void setup();
-
 	void run(State& state, const Clock& clock);
 
 	template <IsComponent T, typename... Args>

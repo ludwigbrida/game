@@ -11,8 +11,8 @@ Game::Game() {
 		.scale = {1, 1, 1}};
 
 	registry.add<Engine::Transform>(0, transform);
-	
-	auto transform2 = registry.get<Engine::Transform>(0);
+
+	auto& transform2 = registry.get<Engine::Transform>(0);
 
 	registry.remove<Engine::Transform>(0);
 

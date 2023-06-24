@@ -11,7 +11,7 @@ namespace Engine {
 
 class Collision: public System {
 public:
-	void update(Registry& registry, State& state, const Clock& clock) override;
+	void run(Registry& registry, State& state, const Clock& clock) override;
 
 private:
 	static bool gjk(

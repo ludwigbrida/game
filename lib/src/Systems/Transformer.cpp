@@ -6,7 +6,7 @@
 
 namespace Engine {
 
-void Transformer::update(Registry& registry, State& state, const Clock& clock) {
+void Transformer::run(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform>();
 
 	for (auto entity: entities) {
