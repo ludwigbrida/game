@@ -4,6 +4,7 @@
 #include <Engine/Core/Component.hpp>
 #include <Engine/Core/Entity.hpp>
 #include <Engine/Core/System.hpp>
+#include <iostream>
 #include <memory>
 #include <typeindex>
 #include <unordered_map>
@@ -92,12 +93,17 @@ std::unordered_set<Entity> NewRegistry::view() {
 
 	auto componentMaps = getComponentMaps<T...>();
 
-	for (unsigned int i = 0; auto& componentMap: componentMaps) {
-		for (auto& [key, value]: componentMap.get()) {
+	unsigned int i = 0;
+	for (auto& componentMap: componentMaps) {
+		for (auto& [entity, component]: componentMap.get()) {
 			if (i == 0) {
-				filteredEntities.insert(key);
+				std::cout << "insert: " << entity << std::endl;
+				filteredEntities.insert(entity);
 			} else {
-				filteredEntities.erase(key);
+				// TODO: should erase components that were NOT ALSO present in the first
+				// TODO: component array
+				std::cout << "erase: " << entity << std::endl;
+				filteredEntities.erase(entity);
 			}
 		}
 		i++;
