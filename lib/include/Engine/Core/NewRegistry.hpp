@@ -24,6 +24,9 @@ public:
 	template <IsComponent T>
 	void remove(Entity entity);
 
+	template <IsComponent T>
+	T& get(Entity entity);
+
 private:
 	std::unordered_map<std::type_index, std::unique_ptr<System>> systems;
 	std::unordered_map<
@@ -52,6 +55,12 @@ void NewRegistry::add(Entity entity, T component) {
 template <IsComponent T>
 void NewRegistry::remove(Entity entity) {
 	components[typeid(T)].erase(entity);
+}
+
+template <IsComponent T>
+T& NewRegistry::get(Entity entity) {
+	auto& component = *components[typeid(T)].at(entity);
+	return static_cast<T&>(component);
 }
 
 }
