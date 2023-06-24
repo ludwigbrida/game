@@ -45,8 +45,8 @@ void NewRegistry::deactivate() {
 
 template <IsComponent T>
 void NewRegistry::add(Entity entity, T component) {
-	// auto component = std::make_unique<T>(args...);
-	components[typeid(T)].insert({entity, component});
+	auto componentPtr = std::make_unique<T>(component);
+	components[typeid(T)].insert({entity, std::move(componentPtr)});
 }
 
 template <IsComponent T>
