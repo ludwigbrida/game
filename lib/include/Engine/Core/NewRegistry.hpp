@@ -89,6 +89,26 @@ T& NewRegistry::get(Entity entity) {
 
 template <IsComponent... T>
 std::unordered_set<Entity> NewRegistry::view() {
+	std::unordered_set<Entity> iteratedEntities;
+	std::unordered_set<Entity> filteredEntities;
+
+	auto componentMaps = getComponentMaps<T...>();
+
+	for (auto& [key, value]: componentMaps[0].get()) {
+		iteratedEntities.insert(key);
+		filteredEntities.insert(key);
+	}
+
+	for (auto entity: iteratedEntities) {
+		for (auto& componentMap: componentMaps) {
+			if (!componentMap.get().contains(entity)) {
+				filteredEntities.erase(entity);
+			}
+		}
+	}
+
+	return filteredEntities;
+	/* TODO: Alternative approach
 	std::unordered_set<Entity> filteredEntities;
 
 	auto componentMaps = getComponentMaps<T...>();
@@ -109,7 +129,7 @@ std::unordered_set<Entity> NewRegistry::view() {
 		i++;
 	}
 
-	return filteredEntities;
+	return filteredEntities;*/
 }
 
 template <IsComponent... T>
