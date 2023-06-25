@@ -1,4 +1,7 @@
 #include "Game.hpp"
+#include "../../../lib/src/Systems/Collision.hpp"
+#include "../../../lib/src/Systems/Renderer.hpp"
+#include "../../../lib/src/Systems/Transformer.hpp"
 #include "../Systems/Movement.hpp"
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Mesh.hpp>
@@ -8,6 +11,9 @@
 #include <Engine/Systems/Gravity.hpp>
 
 Game::Game() {
+	registry.activate<Engine::Transformer>();
+	registry.activate<Engine::Collision>();
+	registry.activate<Engine::Renderer>();
 	registry.activate<Movement>();
 	registry.activate<Engine::Gravity>(9.81);
 
