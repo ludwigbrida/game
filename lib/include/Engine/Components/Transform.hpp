@@ -10,7 +10,7 @@ namespace Engine {
 struct Transform: Component {
 	Vector3<Float> position;
 	Quaternion<Float> rotation;
-	Vector3<Float> scale;
+	Vector3<Float> scale = {1, 1, 1};
 };
 
 }
