@@ -20,6 +20,8 @@ add_library(lib
 	include/Engine/Core/Registry.hpp
 	include/Engine/Core/State.hpp
 	include/Engine/Core/System.hpp
+	include/Engine/Core/Types.hpp
+	include/Engine/Core/Window.hpp
 	# Graphics
 	include/Engine/Graphics/Color.hpp
 	include/Engine/Graphics/Vertex.hpp
@@ -43,6 +45,7 @@ add_library(lib
 	src/Core/Application.cpp
 	src/Core/Registry.cpp
 	src/Core/System.cpp
+	src/Core/Window.cpp
 	# Graphics
 	src/Graphics/Color.cpp
 	src/Graphics/CubeMap.cpp
@@ -74,7 +77,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp include/Engine/Core/Window.hpp src/Core/Window.cpp include/Engine/Core/Types.hpp)
+	src/Systems/Transformer.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
