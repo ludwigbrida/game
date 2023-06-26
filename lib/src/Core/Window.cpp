@@ -1,4 +1,5 @@
 #include <Engine/Core/Window.hpp>
+#include <Engine/Input/Keyboard.hpp>
 #include <cstdio>
 #include <cstdlib>
 
@@ -24,6 +25,10 @@ Window::Window(Int32 width, Int32 height) {
 	}
 
 	glViewport(0, 0, width, height);
+
+	// glfwSwapInterval(0);
+
+	Keyboard::setup(window);
 }
 
 void Window::setTitle(String title) {

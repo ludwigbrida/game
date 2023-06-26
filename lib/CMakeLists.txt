@@ -11,7 +11,6 @@ add_library(lib
 	include/Engine/Components/Perspective.hpp
 	include/Engine/Components/Transform.hpp
 	# Core
-	include/Engine/Core/App.hpp
 	include/Engine/Core/Application.hpp
 	include/Engine/Core/Arithmetic.hpp
 	include/Engine/Core/Clock.hpp
@@ -41,7 +40,6 @@ add_library(lib
 	# Components
 	src/Components/Mesh.cpp
 	# Core
-	src/Core/App.cpp
 	src/Core/Application.cpp
 	src/Core/Registry.cpp
 	src/Core/System.cpp
