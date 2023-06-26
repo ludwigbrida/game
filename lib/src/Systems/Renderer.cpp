@@ -16,16 +16,18 @@ Renderer::Renderer()
 void Renderer::run(NewRegistry& registry, State& state, const Clock& clock) {
 	clear(Color::Black);
 
-	auto& cameraMatrices = registry.get<Matrices>(state.activeCamera);
+	auto& cameraTransform = registry.get<Transform>(state.activeCamera);
 	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
 
-	projectionMatrix = Matrix4<Float>::fromPerspective(cameraPerspective);
-	viewMatrix = cameraMatrices.world.inverted();
+	auto cameraMatrix = Matrix4<Float>::fromTransform(cameraTransform);
 
-	auto entities = registry.view<Matrices, Mesh>();
+	projectionMatrix = Matrix4<Float>::fromPerspective(cameraPerspective);
+	viewMatrix = cameraMatrix.inverted();
+
+	auto entities = registry.view<Transform, Mesh>();
 
 	for (auto entity: entities) {
-		auto& matrices = registry.get<Matrices>(entity);
+		auto& transform = registry.get<Transform>(entity);
 		auto& mesh = registry.get<Mesh>(entity);
 
 		if (!targets.contains(entity)) {
@@ -35,7 +37,9 @@ void Renderer::run(NewRegistry& registry, State& state, const Clock& clock) {
 
 		const auto& target = targets[entity];
 
-		draw(*target, matrices.world);
+		auto modelMatrix = Matrix4<Float>::fromTransform(transform);
+
+		draw(*target, modelMatrix);
 	}
 }
 
@@ -70,5 +74,4 @@ void Renderer::draw(
 
 	shader.unbind();
 }
-
 }

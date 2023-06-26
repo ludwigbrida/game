@@ -1,4 +1,6 @@
 #include <Engine/Core/Window.hpp>
+#include <cstdio>
+#include <cstdlib>
 
 namespace Engine {
 
@@ -13,6 +15,13 @@ Window::Window(Int32 width, Int32 height) {
 	window = glfwCreateWindow(width, height, "", nullptr, nullptr);
 
 	glfwMakeContextCurrent(window);
+
+	GLenum status = glewInit();
+
+	if (status != GLEW_OK) {
+		fprintf(stderr, "Error: %s\n", glewGetErrorString(status));
+		exit(1);
+	}
 
 	glViewport(0, 0, width, height);
 }
