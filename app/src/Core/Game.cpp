@@ -20,8 +20,8 @@ Game::Game() {
 
 	state.activeCamera = player;
 
-	registry.activate<Engine::Gravity>(9.81);
 	registry.activate<Movement>();
-	// registry.activate<Engine::Collision>(); // remove Matrices component
+	registry.activate<Engine::Gravity>(9.81);
+	registry.activate<Engine::Collision>();
 	registry.activate<Engine::Renderer>();
 }

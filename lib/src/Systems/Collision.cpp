@@ -1,5 +1,4 @@
 #include "Collision.hpp"
-#include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/NewRegistry.hpp>
 #include <iostream>
@@ -8,18 +7,20 @@
 namespace Engine {
 
 void Collision::run(NewRegistry& registry, State& state, const Clock& clock) {
-	auto entities = registry.view<Matrices, Collider>();
+	auto entities = registry.view<Transform, Collider>();
 
 	for (auto entity1: entities) {
-		auto& matrices1 = registry.get<Matrices>(entity1);
+		auto& transform1 = registry.get<Transform>(entity1);
 		auto& collider1 = registry.get<Collider>(entity1);
+		auto modelMatrix1 = Matrix4<Float>::fromTransform(transform1);
 
 		for (auto entity2: entities) {
 			if (entity1 != entity2) {
-				auto& matrices2 = registry.get<Matrices>(entity2);
+				auto& transform2 = registry.get<Transform>(entity2);
 				auto& collider2 = registry.get<Collider>(entity2);
+				auto modelMatrix2 = Matrix4<Float>::fromTransform(transform2);
 
-				if (gjk(collider1, collider2, matrices1.world, matrices2.world)) {
+				if (gjk(collider1, collider2, modelMatrix1, modelMatrix2)) {
 					// TODO: Add transform to the colliders
 					// std::cout << "GJK" << std::endl;
 				} else {
