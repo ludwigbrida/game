@@ -4,7 +4,6 @@
 
 #include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Core/Clock.hpp>
-#include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
 
 // TODO

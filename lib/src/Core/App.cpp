@@ -6,7 +6,6 @@
 #include "../Systems/Transformer.hpp"
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/App.hpp>
-#include <Engine/Core/Registry.hpp>
 #include <Engine/Input/Keyboard.hpp>
 #include <GLFW/glfw3.h>
 #include <iostream>
