@@ -6,7 +6,7 @@
 class Movement: public Engine::System {
 public:
 	void run(
-		Engine::NewRegistry& registry,
+		Engine::Registry& registry,
 		Engine::State& state,
 		const Engine::Clock& clock
 	) override;

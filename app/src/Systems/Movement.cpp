@@ -1,11 +1,11 @@
 #include "Movement.hpp"
 #include <Engine/Components/Transform.hpp>
-#include <Engine/Core/NewRegistry.hpp>
+#include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
 #include <Engine/Input/Keyboard.hpp>
 
 void Movement::run(
-	Engine::NewRegistry& registry,
+	Engine::Registry& registry,
 	Engine::State& state,
 	const Engine::Clock& clock
 ) {

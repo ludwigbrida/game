@@ -1,8 +1,8 @@
-#include <Engine/Core/NewRegistry.hpp>
+#include <Engine/Core/Registry.hpp>
 
 namespace Engine {
 
-void NewRegistry::run(State& state, const Clock& clock) {
+void Registry::run(State& state, const Clock& clock) {
 	for (const auto& [_, system]: systems) {
 		system->run(*this, state, clock);
 	}

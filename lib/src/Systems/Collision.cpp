@@ -1,12 +1,12 @@
 #include "Collision.hpp"
 #include <Engine/Components/Transform.hpp>
-#include <Engine/Core/NewRegistry.hpp>
+#include <Engine/Core/Registry.hpp>
 #include <iostream>
 #include <limits>
 
 namespace Engine {
 
-void Collision::run(NewRegistry& registry, State& state, const Clock& clock) {
+void Collision::run(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform, Collider>();
 
 	for (auto entity1: entities) {

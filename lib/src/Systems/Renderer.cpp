@@ -1,7 +1,7 @@
 #include "Renderer.hpp"
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Perspective.hpp>
-#include <Engine/Core/NewRegistry.hpp>
+#include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
 #include <GL/glew.h>
 
@@ -13,7 +13,7 @@ Renderer::Renderer()
 	glEnable(GL_DEPTH_TEST);
 }
 
-void Renderer::run(NewRegistry& registry, State& state, const Clock& clock) {
+void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 	clear(Color::Black);
 
 	auto& cameraTransform = registry.get<Transform>(state.activeCamera);

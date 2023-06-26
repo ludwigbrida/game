@@ -2,11 +2,11 @@
 #include <Engine/Components/Matrices.hpp>
 #include <Engine/Components/Parent.hpp>
 #include <Engine/Components/Transform.hpp>
-#include <Engine/Core/NewRegistry.hpp>
+#include <Engine/Core/Registry.hpp>
 
 namespace Engine {
 
-void Transformer::run(NewRegistry& registry, State& state, const Clock& clock) {
+void Transformer::run(Registry& registry, State& state, const Clock& clock) {
 	auto entities = registry.view<Transform>();
 
 	for (auto entity: entities) {

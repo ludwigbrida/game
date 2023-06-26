@@ -17,6 +17,7 @@ add_library(lib
 	include/Engine/Core/Clock.hpp
 	include/Engine/Core/Component.hpp
 	include/Engine/Core/Entity.hpp
+	include/Engine/Core/Registry.hpp
 	include/Engine/Core/State.hpp
 	include/Engine/Core/System.hpp
 	# Graphics
@@ -40,6 +41,7 @@ add_library(lib
 	# Core
 	src/Core/App.cpp
 	src/Core/Application.cpp
+	src/Core/Registry.cpp
 	src/Core/System.cpp
 	# Graphics
 	src/Graphics/Color.cpp
@@ -72,7 +74,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp include/Engine/Core/Window.hpp src/Core/Window.cpp include/Engine/Core/Types.hpp include/Engine/Core/NewRegistry.hpp src/Core/NewRegistry.cpp)
+	src/Systems/Transformer.hpp include/Engine/Core/Window.hpp src/Core/Window.cpp include/Engine/Core/Types.hpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

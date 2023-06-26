@@ -2,7 +2,7 @@
 #define ENGINE_APPLICATION_HPP
 
 #include <Engine/Core/Clock.hpp>
-#include <Engine/Core/NewRegistry.hpp>
+#include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
 #include <Engine/Core/Types.hpp>
 #include <Engine/Core/Window.hpp>
@@ -14,7 +14,7 @@ public:
 	Application();
 	void run();
 
-	NewRegistry registry;
+	Registry registry;
 
 protected:
 	Clock clock;
