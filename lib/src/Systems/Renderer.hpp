@@ -25,7 +25,8 @@ private:
 	void clear(const Color& color) const;
 	void draw(
 		const VertexArray& vertexArray,
-		const Material& material,
+		// const Material& material,
+		const Texture& texture,
 		const Matrix4<Float>& modelMatrix
 	) const;
 
@@ -35,9 +36,9 @@ private:
 
 	std::unordered_map<Entity, std::unique_ptr<VertexArray>> targets;
 	std::unordered_map<UInt32, std::unique_ptr<Material>> materials;
+	std::unordered_map<UInt32, std::unique_ptr<Texture>> textures;
 
 	Shader shader;
-	Texture texture;
 };
 
 }
