@@ -2,15 +2,16 @@
 #define ENGINE_MATERIAL_HPP
 
 #include "Texture.hpp"
+#include <memory>
 
 namespace Engine {
 
 class Material {
 public:
-	explicit Material(const Texture& diffuse);
+	explicit Material(const std::string& diffusePath);
 
 private:
-	Texture diffuse;
+	std::unique_ptr<Texture> diffuse;
 
 	friend class Renderer;
 };

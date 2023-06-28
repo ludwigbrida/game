@@ -8,18 +8,11 @@
 namespace Engine {
 
 Renderer::Renderer(): shader{"assets/shaders/mesh"} {
-	auto material0 =
-		std::make_unique<Material>(Texture("assets/skybox/front.jpg"));
-	auto material1 =
-		std::make_unique<Material>(Texture("assets/skybox/back.jpg"));
+	auto material0 = std::make_unique<Material>("assets/skybox/front.jpg");
+	auto material1 = std::make_unique<Material>("assets/skybox/back.jpg");
 
 	materials.insert({0, std::move(material0)});
 	materials.insert({1, std::move(material1)});
-
-	auto texture0 = std::make_unique<Texture>("assets/skybox/front.jpg");
-	auto texture1 = std::make_unique<Texture>("assets/skybox/back.jpg");
-	textures.insert({0, std::move(texture0)});
-	textures.insert({1, std::move(texture1)});
 
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
@@ -49,12 +42,10 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 
 		const auto& target = targets[entity];
 		const auto& material = materials[mesh.materialId];
-		const auto& texture = textures[mesh.materialId];
 
 		const auto modelMatrix = Matrix4<Float>::fromTransform(transform);
 
-		// draw(*target, *material, modelMatrix);
-		draw(*target, *texture, modelMatrix);
+		draw(*target, *material, modelMatrix);
 	}
 }
 
@@ -71,20 +62,17 @@ void Renderer::clear(const Color& color) const {
 
 void Renderer::draw(
 	const VertexArray& vertexArray,
-	// const Material& material,
-	const Texture& texture,
+	const Material& material,
 	const Matrix4<Float>& modelMatrix
 ) const {
 	shader.bind();
 
-	// material.diffuse.bind();
-	texture.bind();
+	material.diffuse->bind();
 
 	shader.upload("modelMatrix", modelMatrix);
 	shader.upload("viewMatrix", viewMatrix);
 	shader.upload("projectionMatrix", projectionMatrix);
-	// shader.upload("diffuseTexture", material.diffuse.textureId);
-	shader.upload("diffuseTexture", texture.textureId);
+	shader.upload("diffuseTexture", material.diffuse->textureId);
 
 	vertexArray.bind();
 
@@ -92,8 +80,7 @@ void Renderer::draw(
 
 	vertexArray.unbind();
 
-	// material.diffuse.unbind();
-	texture.unbind();
+	material.diffuse->unbind();
 
 	shader.unbind();
 }

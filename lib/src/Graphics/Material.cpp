@@ -2,6 +2,8 @@
 
 namespace Engine {
 
-Material::Material(const Texture& diffuse): diffuse{diffuse} {}
+Material::Material(const std::string& diffusePath) {
+	diffuse = std::make_unique<Texture>(diffusePath);
+}
 
 }
