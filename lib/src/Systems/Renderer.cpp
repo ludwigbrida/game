@@ -8,6 +8,10 @@
 namespace Engine {
 
 Renderer::Renderer() {
+	skyboxVertexArray = std::make_unique<VertexArray>(Mesh::createSkybox());
+	skyboxShader = std::make_unique<Shader>("assets/shaders/skybox");
+	skyboxTexture = std::make_unique<TextureCube>("assets/skybox");
+
 	auto material0 = std::make_unique<Material>(
 		"assets/shaders/mesh",
 		"assets/skybox/front.jpg"
@@ -34,6 +38,8 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 	viewMatrix = cameraMatrix.inverted();
 
 	const auto entities = registry.view<Transform, Mesh>();
+
+	drawSkybox();
 
 	for (const auto entity: entities) {
 		const auto& transform = registry.get<Transform>(entity);
@@ -87,6 +93,29 @@ void Renderer::draw(
 	material.diffuse->unbind();
 
 	material.shader->unbind();
+}
+
+void Renderer::drawSkybox() const {
+	glDepthMask(GL_FALSE);
+
+	skyboxShader->bind();
+
+	skyboxTexture->bind();
+
+	skyboxShader->use("viewMatrix", viewMatrix);
+	skyboxShader->use("projectionMatrix", projectionMatrix);
+
+	skyboxVertexArray->bind();
+
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+
+	skyboxVertexArray->unbind();
+
+	skyboxTexture->unbind();
+
+	skyboxShader->unbind();
+
+	glDepthMask(GL_TRUE);
 }
 
 }

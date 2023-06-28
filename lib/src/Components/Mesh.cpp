@@ -374,4 +374,137 @@ Mesh Mesh::createCube(Float size, UInt32 materialId) {
 		},
 		.materialId = materialId};
 }
+
+Mesh Mesh::createSkybox() {
+	const auto radius = 1;
+
+	return {
+		.vertices{
+			// Left
+			-radius,
+			-radius,
+			-radius,
+			-radius,
+			radius,
+			-radius,
+			-radius,
+			-radius,
+			radius,
+			-radius,
+			radius,
+			radius,
+			// Right
+			radius,
+			-radius,
+			-radius,
+			radius,
+			radius,
+			-radius,
+			radius,
+			-radius,
+			radius,
+			radius,
+			radius,
+			radius,
+			// Bottom
+			-radius,
+			-radius,
+			-radius,
+			radius,
+			-radius,
+			-radius,
+			-radius,
+			-radius,
+			radius,
+			radius,
+			-radius,
+			radius,
+			// Top
+			-radius,
+			radius,
+			-radius,
+			radius,
+			radius,
+			-radius,
+			-radius,
+			radius,
+			radius,
+			radius,
+			radius,
+			radius,
+			// Rear
+			-radius,
+			-radius,
+			-radius,
+			radius,
+			-radius,
+			-radius,
+			-radius,
+			radius,
+			-radius,
+			radius,
+			radius,
+			-radius,
+			// Front
+			-radius,
+			-radius,
+			radius,
+			radius,
+			-radius,
+			radius,
+			-radius,
+			radius,
+			radius,
+			radius,
+			radius,
+			radius,
+		},
+		.indices =
+			{
+				// Left
+				0,
+				2,
+				1,
+				1,
+				2,
+				3,
+				// Right
+				4,
+				5,
+				6,
+				6,
+				5,
+				7,
+				// Bottom
+				8,
+				9,
+				10,
+				10,
+				9,
+				11,
+				// Top
+				12,
+				14,
+				13,
+				13,
+				14,
+				15,
+				// Rear
+				16,
+				18,
+				17,
+				17,
+				18,
+				19,
+				// Front
+				20,
+				21,
+				22,
+				22,
+				21,
+				23,
+			},
+		.materialId = 0};
+}
+
 }

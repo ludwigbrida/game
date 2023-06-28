@@ -4,6 +4,7 @@
 #include "../Graphics/Material.hpp"
 #include "../Graphics/Shader.hpp"
 #include "../Graphics/Texture.hpp"
+#include "../Graphics/TextureCube.hpp"
 #include "../Graphics/VertexArray.hpp"
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Core/Entity.hpp>
@@ -23,11 +24,14 @@ public:
 
 private:
 	void clear(const Color& color) const;
+
 	void draw(
 		const VertexArray& vertexArray,
 		const Material& material,
 		const Matrix4<Float>& modelMatrix
 	) const;
+
+	void drawSkybox() const;
 
 	// TODO
 	Matrix4<Float> viewMatrix{Matrix4<Float>::Identity};
@@ -35,6 +39,10 @@ private:
 
 	std::unordered_map<Entity, std::unique_ptr<VertexArray>> targets;
 	std::unordered_map<UInt32, std::unique_ptr<Material>> materials;
+
+	std::unique_ptr<VertexArray> skyboxVertexArray;
+	std::unique_ptr<Shader> skyboxShader;
+	std::unique_ptr<TextureCube> skyboxTexture;
 };
 
 }

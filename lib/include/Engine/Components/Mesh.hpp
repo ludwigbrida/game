@@ -14,6 +14,7 @@ struct Mesh: Component {
 
 	static Mesh createTriangle(Float size, UInt32 materialId);
 	static Mesh createCube(Float size, UInt32 materialId);
+	static Mesh createSkybox();
 };
 
 }
