@@ -47,6 +47,10 @@ void Texture::bind() const {
 	glBindTexture(GL_TEXTURE_2D, textureId);
 }
 
+void Texture::unbind() const {
+	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
 Texture::~Texture() {
 	glDeleteTextures(1, &textureId);
 }

@@ -30,12 +30,12 @@ Game::Game() {
 
 	constexpr auto triangle = 1;
 	registry.add<Engine::Transform>(triangle, {.position = {-1, 0, -2}});
-	registry.add<Engine::Mesh>(triangle, Engine::Mesh::createTriangle(1));
+	registry.add<Engine::Mesh>(triangle, Engine::Mesh::createTriangle(1, 0));
 	registry.add<Engine::Physics>(triangle, Engine::Physics());
 
 	constexpr auto cube = 2;
 	registry.add<Engine::Transform>(cube, {.position{1, 0, -2}});
-	registry.add<Engine::Mesh>(cube, Engine::Mesh::createCube(1));
+	registry.add<Engine::Mesh>(cube, Engine::Mesh::createCube(1, 1));
 	registry.add<Engine::Collider>(
 		cube,
 		{.vertices{
@@ -58,7 +58,7 @@ Game::Game() {
 
 	registry.activate<Movement>();
 	registry.activate<Rotation>();
-	registry.activate<Engine::Gravity>(9.81);
+	// registry.activate<Engine::Gravity>(9.81);
 	registry.activate<Engine::Collision>();
 	registry.activate<Engine::Renderer>();
 }

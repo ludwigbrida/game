@@ -10,10 +10,10 @@ namespace Engine {
 struct Mesh: Component {
 	std::vector<Float> vertices;
 	std::vector<UInt32> indices;
-	UInt32 materialId = 0;
+	UInt32 materialId;
 
-	static Mesh createTriangle(Float size);
-	static Mesh createCube(Float size);
+	static Mesh createTriangle(Float size, UInt32 materialId);
+	static Mesh createCube(Float size, UInt32 materialId);
 };
 
 }

@@ -4,7 +4,7 @@
 
 namespace Engine {
 
-Mesh Mesh::createTriangle(Float size) {
+Mesh Mesh::createTriangle(Float size, UInt32 materialId) {
 	auto radius = size / 2;
 
 	return {
@@ -48,10 +48,11 @@ Mesh Mesh::createTriangle(Float size) {
 			1,
 			0, // texCoords
 		},
-		.indices{0, 1, 2}};
+		.indices{0, 1, 2},
+		.materialId = materialId};
 }
 
-Mesh Mesh::createCube(Float size) {
+Mesh Mesh::createCube(Float size, UInt32 materialId) {
 	const auto radius = size / 2;
 
 	return {
@@ -370,6 +371,7 @@ Mesh Mesh::createCube(Float size) {
 			22,
 			21,
 			23,
-		}};
+		},
+		.materialId = materialId};
 }
 }

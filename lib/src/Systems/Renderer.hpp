@@ -1,6 +1,7 @@
 #ifndef ENGINE_RENDERER_HPP
 #define ENGINE_RENDERER_HPP
 
+#include "../Graphics/Material.hpp"
 #include "../Graphics/Shader.hpp"
 #include "../Graphics/Texture.hpp"
 #include "../Graphics/VertexArray.hpp"
@@ -24,7 +25,7 @@ private:
 	void clear(const Color& color) const;
 	void draw(
 		const VertexArray& vertexArray,
-		UInt32 materialId,
+		const Material& material,
 		const Matrix4<Float>& modelMatrix
 	) const;
 
@@ -33,6 +34,7 @@ private:
 	Matrix4<Float> projectionMatrix{Matrix4<Float>::Identity};
 
 	std::unordered_map<Entity, std::unique_ptr<VertexArray>> targets;
+	std::unordered_map<UInt32, std::unique_ptr<Material>> materials;
 
 	Shader shader;
 	Texture texture;

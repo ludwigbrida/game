@@ -11,6 +11,9 @@ public:
 	explicit VertexArray(const Mesh& mesh);
 	~VertexArray();
 
+	void bind() const;
+	void unbind() const;
+
 	UInt32 vertexArrayId;
 	Int32 indices;
 

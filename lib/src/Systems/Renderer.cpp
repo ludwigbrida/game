@@ -9,12 +9,20 @@ namespace Engine {
 
 Renderer::Renderer()
 		: shader{"assets/shaders/mesh"}, texture{"assets/skybox/front.jpg"} {
+	auto material0 =
+		std::make_unique<Material>(Texture("assets/skybox/front.jpg"));
+	auto material1 =
+		std::make_unique<Material>(Texture("assets/skybox/back.jpg"));
+
+	materials.insert({0, std::move(material0)});
+	materials.insert({1, std::move(material1)});
+
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 }
 
 void Renderer::run(Registry& registry, State& state, const Clock& clock) {
-	clear(Color::Black);
+	clear(Color::White);
 
 	auto& cameraTransform = registry.get<Transform>(state.activeCamera);
 	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
@@ -36,10 +44,11 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 		}
 
 		const auto& target = targets[entity];
+		const auto& material = materials[mesh.materialId];
 
 		auto modelMatrix = Matrix4<Float>::fromTransform(transform);
 
-		draw(*target, mesh.materialId, modelMatrix);
+		draw(*target, *material, modelMatrix);
 	}
 }
 
@@ -56,23 +65,25 @@ void Renderer::clear(const Color& color) const {
 
 void Renderer::draw(
 	const VertexArray& vertexArray,
-	UInt32 materialId,
+	const Material& material,
 	const Matrix4<Float>& modelMatrix
 ) const {
+	// texture.bind();
 	shader.bind();
-	// material.diffuse.bind();
+	material.diffuse.bind();
 
 	shader.upload("modelMatrix", modelMatrix);
 	shader.upload("viewMatrix", viewMatrix);
 	shader.upload("projectionMatrix", projectionMatrix);
-	// shader.upload("diffuseTexture", 0);
+	shader.upload("diffuseTexture", material.diffuse.textureId);
 
-	glBindVertexArray(vertexArray.vertexArrayId);
+	vertexArray.bind();
 
 	glDrawElements(GL_TRIANGLES, vertexArray.indices, GL_UNSIGNED_INT, nullptr);
 
-	glBindVertexArray(0);
+	vertexArray.unbind();
 
+	material.diffuse.unbind();
 	shader.unbind();
 }
 }

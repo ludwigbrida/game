@@ -61,6 +61,14 @@ VertexArray::VertexArray(const Mesh& mesh)
 	glBindVertexArray(0);
 }
 
+void VertexArray::bind() const {
+	glBindVertexArray(vertexArrayId);
+}
+
+void VertexArray::unbind() const {
+	glBindVertexArray(0);
+}
+
 VertexArray::~VertexArray() {
 	glDeleteBuffers(1, &vertexBufferId);
 	glDeleteBuffers(1, &indexBufferId);
