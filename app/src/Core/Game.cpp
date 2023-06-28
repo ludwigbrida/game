@@ -1,6 +1,7 @@
 #include "Game.hpp"
 #include "../../../lib/src/Systems/Collision.hpp"
 #include "../../../lib/src/Systems/Renderer.hpp"
+#include "../Components/Spin.hpp"
 #include "../Systems/Movement.hpp"
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Components/Perspective.hpp>
@@ -46,6 +47,10 @@ Game::Game() {
 			{-.5, -.5, .5},
 			{.5, -.5, .5},
 		}}
+	);
+	registry.add<Spin>(
+		cube,
+		{.axis = Engine::Vector3<Engine::Float>::Right, .speed = 1}
 	);
 
 	state.activeCamera = player;

@@ -1,6 +1,8 @@
 project(app VERSION 0.0.0)
 
 add_executable(app
+	# Components
+	src/Components/Spin.hpp
 	# Core
 	src/Core/Game.cpp
 	src/Core/Game.hpp
