@@ -7,9 +7,13 @@
 
 namespace Engine {
 
-Renderer::Renderer(): shader{"assets/shaders/mesh"} {
-	auto material0 = std::make_unique<Material>("assets/skybox/front.jpg");
-	auto material1 = std::make_unique<Material>("assets/skybox/back.jpg");
+Renderer::Renderer() {
+	auto material0 = std::make_unique<Material>(
+		"assets/shaders/mesh",
+		"assets/skybox/front.jpg"
+	);
+	auto material1 =
+		std::make_unique<Material>("assets/shaders/mesh", "assets/skybox/back.jpg");
 
 	materials.insert({0, std::move(material0)});
 	materials.insert({1, std::move(material1)});
@@ -65,14 +69,14 @@ void Renderer::draw(
 	const Material& material,
 	const Matrix4<Float>& modelMatrix
 ) const {
-	shader.bind();
+	material.shader->bind();
 
 	material.diffuse->bind();
 
-	shader.upload("modelMatrix", modelMatrix);
-	shader.upload("viewMatrix", viewMatrix);
-	shader.upload("projectionMatrix", projectionMatrix);
-	shader.upload("diffuseTexture", material.diffuse->textureId);
+	material.shader->use("modelMatrix", modelMatrix);
+	material.shader->use("viewMatrix", viewMatrix);
+	material.shader->use("projectionMatrix", projectionMatrix);
+	material.shader->use("diffuseTexture", material.diffuse->textureId);
 
 	vertexArray.bind();
 
@@ -82,7 +86,7 @@ void Renderer::draw(
 
 	material.diffuse->unbind();
 
-	shader.unbind();
+	material.shader->unbind();
 }
 
 }

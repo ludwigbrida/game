@@ -35,8 +35,6 @@ private:
 
 	std::unordered_map<Entity, std::unique_ptr<VertexArray>> targets;
 	std::unordered_map<UInt32, std::unique_ptr<Material>> materials;
-
-	Shader shader;
 };
 
 }

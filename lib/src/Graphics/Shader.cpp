@@ -74,17 +74,17 @@ void Shader::unbind() const {
 	glUseProgram(0);
 }
 
-void Shader::upload(const char* name, UInt32 value) const {
+void Shader::use(const char* name, UInt32 value) const {
 	auto uniformId = glGetUniformLocation(programId, name);
 	glUniform1ui(uniformId, value);
 }
 
-void Shader::upload(const char* name, const Vector3<Float>& value) const {
+void Shader::use(const char* name, const Vector3<Float>& value) const {
 	auto uniformId = glGetUniformLocation(programId, name);
 	glUniform3fv(uniformId, 1, value);
 }
 
-void Shader::upload(const char* name, const Matrix4<Float>& value) const {
+void Shader::use(const char* name, const Matrix4<Float>& value) const {
 	auto uniformId = glGetUniformLocation(programId, name);
 	glUniformMatrix4fv(uniformId, 1, GL_FALSE, value);
 }
