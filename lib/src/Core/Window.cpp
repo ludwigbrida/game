@@ -26,7 +26,7 @@ Window::Window(Int32 width, Int32 height) {
 
 	glViewport(0, 0, width, height);
 
-	// glfwSwapInterval(0);
+	glfwSwapInterval(0);
 
 	Keyboard::setup(window);
 }

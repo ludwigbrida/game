@@ -3,6 +3,7 @@
 #include "../../../lib/src/Systems/Renderer.hpp"
 #include "../Components/Spin.hpp"
 #include "../Systems/Movement.hpp"
+#include "../Systems/Rotation.hpp"
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Components/Perspective.hpp>
 #include <Engine/Components/Physics.hpp>
@@ -50,12 +51,13 @@ Game::Game() {
 	);
 	registry.add<Spin>(
 		cube,
-		{.axis = Engine::Vector3<Engine::Float>::Right, .speed = 1}
+		{.axis = Engine::Vector3<Engine::Float>::Up, .speed = 100.f}
 	);
 
 	state.activeCamera = player;
 
 	registry.activate<Movement>();
+	registry.activate<Rotation>();
 	registry.activate<Engine::Gravity>(9.81);
 	registry.activate<Engine::Collision>();
 	registry.activate<Engine::Renderer>();

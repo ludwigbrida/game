@@ -9,6 +9,8 @@ add_executable(app
 	# Systems
 	src/Systems/Movement.cpp
 	src/Systems/Movement.hpp
+	src/Systems/Rotation.cpp
+	src/Systems/Rotation.hpp
 	# other
 	src/main.cpp)
 
