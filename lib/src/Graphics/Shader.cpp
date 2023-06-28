@@ -74,9 +74,9 @@ void Shader::unbind() const {
 	glUseProgram(0);
 }
 
-void Shader::upload(const char* name, Int32 value) const {
+void Shader::upload(const char* name, UInt32 value) const {
 	auto uniformId = glGetUniformLocation(programId, name);
-	glUniform1i(uniformId, value);
+	glUniform1ui(uniformId, value);
 }
 
 void Shader::upload(const char* name, const Vector3<Float>& value) const {

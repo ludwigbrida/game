@@ -11,6 +11,8 @@ public:
 
 private:
 	Texture diffuse;
+
+	friend class Renderer;
 };
 
 }

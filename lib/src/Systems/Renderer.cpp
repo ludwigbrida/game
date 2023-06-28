@@ -39,7 +39,7 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 
 		auto modelMatrix = Matrix4<Float>::fromTransform(transform);
 
-		draw(*target, modelMatrix);
+		draw(*target, mesh.materialId, modelMatrix);
 	}
 }
 
@@ -56,15 +56,16 @@ void Renderer::clear(const Color& color) const {
 
 void Renderer::draw(
 	const VertexArray& vertexArray,
+	UInt32 materialId,
 	const Matrix4<Float>& modelMatrix
 ) const {
 	shader.bind();
-	texture.bind();
+	// material.diffuse.bind();
 
 	shader.upload("modelMatrix", modelMatrix);
 	shader.upload("viewMatrix", viewMatrix);
 	shader.upload("projectionMatrix", projectionMatrix);
-	shader.upload("diffuseTexture", 0);
+	// shader.upload("diffuseTexture", 0);
 
 	glBindVertexArray(vertexArray.vertexArrayId);
 
