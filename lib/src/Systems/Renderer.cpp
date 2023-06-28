@@ -24,19 +24,19 @@ Renderer::Renderer()
 void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 	clear(Color::White);
 
-	auto& cameraTransform = registry.get<Transform>(state.activeCamera);
-	auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
+	const auto& cameraTransform = registry.get<Transform>(state.activeCamera);
+	const auto& cameraPerspective = registry.get<Perspective>(state.activeCamera);
 
-	auto cameraMatrix = Matrix4<Float>::fromTransform(cameraTransform);
+	const auto cameraMatrix = Matrix4<Float>::fromTransform(cameraTransform);
 
 	projectionMatrix = Matrix4<Float>::fromPerspective(cameraPerspective);
 	viewMatrix = cameraMatrix.inverted();
 
-	auto entities = registry.view<Transform, Mesh>();
+	const auto entities = registry.view<Transform, Mesh>();
 
-	for (auto entity: entities) {
-		auto& transform = registry.get<Transform>(entity);
-		auto& mesh = registry.get<Mesh>(entity);
+	for (const auto entity: entities) {
+		const auto& transform = registry.get<Transform>(entity);
+		const auto& mesh = registry.get<Mesh>(entity);
 
 		if (!targets.contains(entity)) {
 			auto vertexArray = std::make_unique<VertexArray>(mesh);
@@ -46,7 +46,7 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 		const auto& target = targets[entity];
 		const auto& material = materials[mesh.materialId];
 
-		auto modelMatrix = Matrix4<Float>::fromTransform(transform);
+		const auto modelMatrix = Matrix4<Float>::fromTransform(transform);
 
 		draw(*target, *material, modelMatrix);
 	}
@@ -72,6 +72,9 @@ void Renderer::draw(
 	shader.bind();
 	material.diffuse.bind();
 
+	std::cout << texture.textureId << "|" << material.diffuse.textureId
+						<< std::endl;
+
 	shader.upload("modelMatrix", modelMatrix);
 	shader.upload("viewMatrix", viewMatrix);
 	shader.upload("projectionMatrix", projectionMatrix);
@@ -86,4 +89,5 @@ void Renderer::draw(
 	material.diffuse.unbind();
 	shader.unbind();
 }
+
 }
