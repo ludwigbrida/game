@@ -8,7 +8,7 @@
 namespace Engine {
 
 Renderer::Renderer() {
-	skyboxVertexArray = std::make_unique<VertexArray>(Mesh::createSkybox());
+	skyboxVertexArray = std::make_unique<VertexArrayCube>(Mesh::createSkybox());
 	skyboxShader = std::make_unique<Shader>("assets/shaders/skybox");
 	skyboxTexture = std::make_unique<TextureCube>("assets/skybox");
 
