@@ -2,8 +2,6 @@
 #include <GL/glew.h>
 #include <vector>
 
-// #define STB_IMAGE_IMPLEMENTATION
-
 #include <stb_image.h>
 
 namespace Engine {
@@ -14,14 +12,12 @@ TextureCube::TextureCube(const std::string& path): textureId{0} {
 		path + "/left.jpg",
 		path + "/top.jpg",
 		path + "/bottom.jpg",
-		path + "/back.jpg",
 		path + "/front.jpg",
+		path + "/back.jpg",
 	};
 
 	int width, height, channels;
 	unsigned char* data;
-
-	stbi_set_flip_vertically_on_load(1);
 
 	glGenTextures(1, &textureId);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, textureId);
@@ -46,9 +42,9 @@ TextureCube::TextureCube(const std::string& path): textureId{0} {
 			GL_UNSIGNED_BYTE,
 			data
 		);
-	}
 
-	stbi_image_free(data);
+		stbi_image_free(data);
+	}
 }
 
 void TextureCube::bind() const {
