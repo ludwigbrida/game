@@ -102,7 +102,12 @@ void Renderer::drawSkybox() const {
 
 	skyboxTexture->bind();
 
-	skyboxShader->use("viewMatrix", viewMatrix);
+	auto viewMatrixWithoutPosition = viewMatrix;
+	viewMatrixWithoutPosition.m30 = 0;
+	viewMatrixWithoutPosition.m31 = 0;
+	viewMatrixWithoutPosition.m32 = 0;
+
+	skyboxShader->use("viewMatrix", viewMatrixWithoutPosition);
 	skyboxShader->use("projectionMatrix", projectionMatrix);
 
 	skyboxVertexArray->bind();
