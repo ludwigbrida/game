@@ -1,5 +1,5 @@
-#ifndef GAME_VERTEX_ARRAY_CUBE_HPP
-#define GAME_VERTEX_ARRAY_CUBE_HPP
+#ifndef ENGINE_VERTEX_ARRAY_CUBE_HPP
+#define ENGINE_VERTEX_ARRAY_CUBE_HPP
 
 #include <Engine/Components/Mesh.hpp>
 #include <Engine/Core/Arithmetic.hpp>

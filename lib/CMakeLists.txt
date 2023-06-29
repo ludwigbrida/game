@@ -75,7 +75,7 @@ add_library(lib
 	src/Systems/Renderer.hpp
 	src/Systems/Simplex.hpp
 	src/Systems/Transformer.cpp
-	src/Systems/Transformer.hpp src/Graphics/TextureCube.cpp src/Graphics/TextureCube.hpp src/Graphics/VertexArrayCube.cpp src/Graphics/VertexArrayCube.hpp)
+	src/Systems/Transformer.hpp src/Graphics/TextureCube.cpp src/Graphics/TextureCube.hpp src/Graphics/VertexArrayCube.cpp src/Graphics/VertexArrayCube.hpp include/Engine/Input/Mouse.hpp src/Input/Mouse.cpp)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)

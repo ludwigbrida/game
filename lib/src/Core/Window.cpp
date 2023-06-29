@@ -1,5 +1,6 @@
 #include <Engine/Core/Window.hpp>
 #include <Engine/Input/Keyboard.hpp>
+#include <Engine/Input/Mouse.hpp>
 #include <cstdio>
 #include <cstdlib>
 
@@ -29,6 +30,7 @@ Window::Window(Int32 width, Int32 height) {
 	glfwSwapInterval(0);
 
 	Keyboard::setup(window);
+	Mouse::setup(window);
 }
 
 void Window::setTitle(String title) {

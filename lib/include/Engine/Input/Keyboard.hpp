@@ -1,5 +1,5 @@
-#ifndef ENGINE_KEYBOARD2_HPP
-#define ENGINE_KEYBOARD2_HPP
+#ifndef ENGINE_KEYBOARD_HPP
+#define ENGINE_KEYBOARD_HPP
 
 #include <GLFW/glfw3.h>
 #include <unordered_map>
