@@ -32,10 +32,14 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 	const auto& cameraTransform = registry.get<Transform>(state.activeCamera);
 	const auto& cameraPerspective = registry.get<Camera>(state.activeCamera);
 
-	const auto cameraMatrix = Matrix4<Float>::fromTransform(cameraTransform);
+	// const auto cameraMatrix = Matrix4<Float>::fromTransform(cameraTransform);
 
 	projectionMatrix = Matrix4<Float>::fromPerspective(cameraPerspective);
-	viewMatrix = cameraMatrix.inverted();
+	// viewMatrix = cameraMatrix.inverted();
+	viewMatrix = Matrix4<Float>::fromLookAt(
+		cameraTransform.position,
+		cameraTransform.position + cameraPerspective.forward
+	);
 
 	const auto entities = registry.view<Transform, Mesh>();
 

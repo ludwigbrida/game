@@ -9,7 +9,7 @@
 namespace Engine {
 
 struct Camera: Component {
-	Vector3<Float> forward;
+	Vector3<Float> forward = Vector3<Float>::Forward;
 	Angle<Float> fieldOfView = 45_deg;
 	Float aspectRatio = 16.f / 9.f;
 	Float near = .1f;
