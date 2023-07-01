@@ -4,8 +4,8 @@
 #include "../Components/Spin.hpp"
 #include "../Systems/Movement.hpp"
 #include "../Systems/Rotation.hpp"
+#include <Engine/Components/Camera.hpp>
 #include <Engine/Components/Mesh.hpp>
-#include <Engine/Components/Perspective.hpp>
 #include <Engine/Components/Physics.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Systems/Gravity.hpp>
@@ -13,7 +13,7 @@
 Game::Game() {
 	constexpr auto player = 0;
 	registry.add<Engine::Transform>(player, Engine::Transform());
-	registry.add<Engine::Perspective>(player, Engine::Perspective());
+	registry.add<Engine::Camera>(player, Engine::Camera());
 	registry.add<Engine::Collider>(
 		player,
 		{.vertices{

@@ -1,5 +1,5 @@
-#ifndef ENGINE_PERSPECTIVE_HPP
-#define ENGINE_PERSPECTIVE_HPP
+#ifndef ENGINE_CAMERA_HPP
+#define ENGINE_CAMERA_HPP
 
 #include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Core/Component.hpp>
@@ -7,7 +7,8 @@
 
 namespace Engine {
 
-struct Perspective: Component {
+struct Camera: Component {
+	Vector3<Float> forward;
 	Angle<Float> fieldOfView = 45_deg;
 	Float aspectRatio = 16.f / 9.f;
 	Float near = .1f;

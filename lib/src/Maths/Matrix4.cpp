@@ -160,7 +160,7 @@ Matrix4<T> Matrix4<T>::fromTransform(const Transform& transform) {
 }
 
 template <IsArithmetic T>
-Matrix4<T> Matrix4<T>::fromPerspective(const Perspective& perspective) {
+Matrix4<T> Matrix4<T>::fromPerspective(const Camera& perspective) {
 	const T fov = 1 / std::tan(perspective.fieldOfView.asRadians() / 2);
 	const T inv = 1 / (perspective.near - perspective.far);
 

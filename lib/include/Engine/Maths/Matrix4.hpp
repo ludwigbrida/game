@@ -1,7 +1,7 @@
 #ifndef ENGINE_MATRIX4_HPP
 #define ENGINE_MATRIX4_HPP
 
-#include <Engine/Components/Perspective.hpp>
+#include <Engine/Components/Camera.hpp>
 #include <Engine/Components/Transform.hpp>
 #include <Engine/Core/Arithmetic.hpp>
 
@@ -61,7 +61,7 @@ public:
 
 	static Matrix4<T> fromTransform(const Transform& transform);
 
-	static Matrix4<T> fromPerspective(const Perspective& perspective);
+	static Matrix4<T> fromPerspective(const Camera& perspective);
 
 	static const Matrix4<T> Identity;
 };
