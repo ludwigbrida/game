@@ -66,8 +66,26 @@ public:
 	static const Matrix4<T> Identity;
 };
 
-}
+template <IsArithmetic T>
+const Matrix4<T> Matrix4<T>::Identity{
+	1,
+	0,
+	0,
+	0,
+	0,
+	1,
+	0,
+	0,
+	0,
+	0,
+	1,
+	0,
+	0,
+	0,
+	0,
+	1,
+};
 
-#include <Engine/Maths/Matrix4.inl>
+}
 
 #endif

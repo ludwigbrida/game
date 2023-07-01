@@ -29,7 +29,6 @@ add_library(lib
 	# Maths
 	include/Engine/Maths/Angle.hpp
 	include/Engine/Maths/Matrix4.hpp
-	include/Engine/Maths/Matrix4.inl
 	include/Engine/Maths/Quaternion.hpp
 	include/Engine/Maths/Vector2.hpp
 	include/Engine/Maths/Vector3.hpp

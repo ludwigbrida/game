@@ -4,6 +4,7 @@
 #include <Engine/Core/Arithmetic.hpp>
 #include <Engine/Core/Component.hpp>
 #include <Engine/Maths/Angle.hpp>
+#include <Engine/Maths/Vector3.hpp>
 
 namespace Engine {
 
