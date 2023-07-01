@@ -63,6 +63,11 @@ public:
 
 	static Matrix4<T> fromPerspective(const Camera& perspective);
 
+	static Matrix4<T> fromLookAt(
+		const Vector3<T>& position,
+		const Vector3<T>& target
+	);
+
 	static const Matrix4<T> Identity;
 };
 
