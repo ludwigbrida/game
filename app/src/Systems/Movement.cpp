@@ -4,6 +4,7 @@
 #include <Engine/Core/Registry.hpp>
 #include <Engine/Core/State.hpp>
 #include <Engine/Input/Keyboard.hpp>
+#include <Engine/Input/Mouse.hpp>
 #include <Engine/Maths/Vector3.hpp>
 
 void Movement::run(
@@ -41,4 +42,33 @@ void Movement::run(
 	}
 
 	// transform.position += (forward + right) * 10 * clock.deltaTime;
+
+	Engine::Vector2<Engine::Float> offset = {
+		static_cast<Engine::Float>(Engine::Mouse::getPosition().x) -
+			previousPosition.x,
+		previousPosition.y -
+			static_cast<Engine::Float>(Engine::Mouse::getPosition().y),
+	};
+
+	previousPosition = Engine::Mouse::getPosition();
+
+	Engine::Float sensitivity = 0.1f;
+	offset *= sensitivity;
+
+	yaw += offset.x;
+	pitch += offset.y;
+
+	if (pitch > 89.f) {
+		pitch = 89.f;
+	}
+	if (pitch < -89.f) {
+		pitch = -89.f;
+	}
+
+	Engine::Vector3<Engine::Float> direction;
+	direction.x = std::cos(yaw.asRadians()) * std::cos(pitch.asRadians());
+	direction.y = std::sin(pitch.asRadians());
+	direction.z = std::sin(yaw.asRadians()) * std::cos(pitch.asRadians());
+
+	camera.forward = direction.normalized();
 }
