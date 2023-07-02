@@ -27,7 +27,7 @@ Renderer::Renderer() {
 }
 
 void Renderer::run(Registry& registry, State& state, const Clock& clock) {
-	clear(Color::White);
+	clear(Color::Black);
 
 	const auto& cameraTransform = registry.get<Transform>(state.activeCamera);
 	const auto& cameraPerspective = registry.get<Camera>(state.activeCamera);
