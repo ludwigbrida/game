@@ -227,9 +227,9 @@ Matrix4<T> Matrix4<T>::fromLookAt(
 		zAxis.y,
 		zAxis.z,
 		0,
-		-xAxis.dot(position),
-		-yAxis.dot(position),
-		-zAxis.dot(position),
+		position.x,
+		position.y,
+		position.z,
 		1,
 	};
 }
