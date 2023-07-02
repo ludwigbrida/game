@@ -44,10 +44,10 @@ void Movement::run(
 	// transform.position += (forward + right) * 10 * clock.deltaTime;
 
 	Engine::Vector2<Engine::Float> offset = {
-		static_cast<Engine::Float>(Engine::Mouse::getPosition().x) -
-			previousPosition.x,
-		previousPosition.y -
-			static_cast<Engine::Float>(Engine::Mouse::getPosition().y),
+		// Engine::Mouse::getPosition().x - previousPosition.x,
+		// previousPosition.y - Engine::Mouse::getPosition().y,
+		previousPosition.x - Engine::Mouse::getPosition().x,
+		Engine::Mouse::getPosition().y - previousPosition.y,
 	};
 
 	previousPosition = Engine::Mouse::getPosition();

@@ -38,7 +38,8 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 	// viewMatrix = cameraMatrix.inverted();
 	viewMatrix = Matrix4<Float>::fromLookAt(
 		cameraTransform.position,
-		cameraTransform.position + cameraPerspective.forward
+		cameraTransform.position + cameraPerspective.forward,
+		Vector3<Float>::Up
 	);
 
 	const auto entities = registry.view<Transform, Mesh>();

@@ -173,13 +173,15 @@ Matrix4<T> Matrix4<T>::fromPerspective(const Camera& perspective) {
 	return matrix;
 }
 
+/*
 template <IsArithmetic T>
 Matrix4<T> Matrix4<T>::fromLookAt(
 	const Vector3<T>& position,
-	const Vector3<T>& target
+	const Vector3<T>& target,
+	const Vector3<T>& up
 ) {
 	Vector3<T> zAxis = (target - position).normalized();
-	Vector3<T> xAxis = zAxis.cross(Vector3<T>::Up).normalized();
+	Vector3<T> xAxis = zAxis.cross(up).normalized();
 	Vector3<T> yAxis = xAxis.cross(zAxis);
 	zAxis = -zAxis;
 	return {
@@ -198,7 +200,38 @@ Matrix4<T> Matrix4<T>::fromLookAt(
 		0,
 		0,
 		0,
-		1};
+		1,
+	};
+}
+*/
+
+template <IsArithmetic T>
+Matrix4<T> Matrix4<T>::fromLookAt(
+	const Vector3<T>& position,
+	const Vector3<T>& target,
+	const Vector3<T>& up
+) {
+	Vector3<T> zAxis = (position - target).normalized();
+	Vector3<T> xAxis = up.cross(zAxis).normalized();
+	Vector3<T> yAxis = zAxis.cross(xAxis);
+	return {
+		xAxis.x,
+		xAxis.y,
+		xAxis.z,
+		0, // -xAxis.dot(position),
+		yAxis.x,
+		yAxis.y,
+		yAxis.z,
+		0, // -yAxis.dot(position),
+		zAxis.x,
+		zAxis.y,
+		zAxis.z,
+		0, // -zAxis.dot(position),
+		-xAxis.dot(position),
+		-yAxis.dot(position),
+		-zAxis.dot(position),
+		1,
+	};
 }
 
 template class Matrix4<Float>;

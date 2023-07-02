@@ -14,8 +14,8 @@ public:
 	) override;
 
 private:
-	Engine::Vector2<Engine::Float> previousPosition = {0, 0};
-	Engine::Angle<Engine::Float> yaw = 0;
+	Engine::Vector2<Engine::Float> previousPosition = {1920.f / 2, 1080.f / 2};
+	Engine::Angle<Engine::Float> yaw = -90;
 	Engine::Angle<Engine::Float> pitch = 0;
 };
 

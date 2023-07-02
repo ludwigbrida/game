@@ -65,7 +65,8 @@ public:
 
 	static Matrix4<T> fromLookAt(
 		const Vector3<T>& position,
-		const Vector3<T>& target
+		const Vector3<T>& target,
+		const Vector3<T>& up
 	);
 
 	static const Matrix4<T> Identity;
