@@ -43,8 +43,6 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 
 	const auto entities = registry.view<Transform, Mesh>();
 
-	drawSkybox();
-
 	for (const auto entity: entities) {
 		const auto& transform = registry.get<Transform>(entity);
 		const auto& mesh = registry.get<Mesh>(entity);
@@ -61,6 +59,8 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 
 		draw(*target, *material, modelMatrix);
 	}
+
+	drawSkybox();
 }
 
 void Renderer::clear(const Color& color) const {
@@ -100,7 +100,7 @@ void Renderer::draw(
 }
 
 void Renderer::drawSkybox() const {
-	glDepthMask(GL_FALSE);
+	glDepthFunc(GL_LEQUAL);
 
 	skyboxShader->bind();
 
@@ -124,7 +124,7 @@ void Renderer::drawSkybox() const {
 
 	skyboxShader->unbind();
 
-	glDepthMask(GL_TRUE);
+	glDepthFunc(GL_LESS);
 }
 
 }

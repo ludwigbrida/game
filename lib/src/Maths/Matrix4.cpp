@@ -158,7 +158,7 @@ Matrix4<T> Matrix4<T>::fromTransform(const Transform& transform) {
 	const auto& scale = Matrix4<T>::fromScale(transform.scale);
 	return scale * rotation * position;
 }
-
+/*
 template <IsArithmetic T>
 Matrix4<T> Matrix4<T>::fromPerspective(const Camera& perspective) {
 	const T fov = 1 / std::tan(perspective.fieldOfView.asRadians() / 2);
@@ -170,6 +170,21 @@ Matrix4<T> Matrix4<T>::fromPerspective(const Camera& perspective) {
 	matrix.m22 = (perspective.near + perspective.far) * inv;
 	matrix.m23 = -1;
 	matrix.m32 = perspective.near * perspective.far * inv * 2;
+	return matrix;
+}
+*/
+template <IsArithmetic T>
+Matrix4<T> Matrix4<T>::fromPerspective(const Camera& perspective) {
+	const T scaleY = 1 / std::tan(perspective.fieldOfView.asRadians() / 2);
+	const T scaleX = scaleY / perspective.aspectRatio;
+	const T nearMFar = perspective.near - perspective.far;
+
+	auto matrix = Matrix4<T>::Identity;
+	matrix.m00 = scaleX;
+	matrix.m11 = scaleY;
+	matrix.m22 = (perspective.far + perspective.near) / nearMFar;
+	matrix.m23 = -1;
+	matrix.m32 = 2 * perspective.far * perspective.near / nearMFar;
 	return matrix;
 }
 
