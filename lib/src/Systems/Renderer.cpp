@@ -35,7 +35,7 @@ void Renderer::run(Registry& registry, State& state, const Clock& clock) {
 	const auto cameraMatrix = Matrix4<Float>::fromLookAt(
 		cameraTransform.position,
 		cameraTransform.position + cameraPerspective.forward,
-		Vector3<Float>::Up
+		cameraPerspective.up
 	);
 
 	projectionMatrix = Matrix4<Float>::fromPerspective(cameraPerspective);

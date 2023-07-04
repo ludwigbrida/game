@@ -12,45 +12,34 @@ void Movement::run(
 	Engine::State& state,
 	const Engine::Clock& clock
 ) {
-	const auto speed = 10 * clock.deltaTime;
-
 	auto& transform = registry.get<Engine::Transform>(state.activeCamera);
 	auto& camera = registry.get<Engine::Camera>(state.activeCamera);
 
-	// auto forward = Engine::Vector3<Engine::Float>::Zero;
-	// auto right = Engine::Vector3<Engine::Float>::Zero;
+	const auto velocity = 10 * clock.deltaTime;
 
 	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::W)) {
-		// forward = Engine::Vector3<Engine::Float>::Forward;
-		transform.position += camera.forward * speed;
+		transform.position += camera.forward * velocity;
 	}
 	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::S)) {
-		// forward = -Engine::Vector3<Engine::Float>::Forward;
-		transform.position -= camera.forward * speed;
+		transform.position -= camera.forward * velocity;
 	}
 	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::D)) {
-		// right = Engine::Vector3<Engine::Float>::Right;
-		transform.position +=
-			camera.forward.cross(Engine::Vector3<Engine::Float>::Up).normalized() *
-			speed;
+		transform.position += camera.right * velocity;
 	}
 	if (Engine::Keyboard::isKeyPressed(Engine::Keyboard::Key::A)) {
-		// right = -Engine::Vector3<Engine::Float>::Right;
-		transform.position -=
-			camera.forward.cross(Engine::Vector3<Engine::Float>::Up).normalized() *
-			speed;
+		transform.position -= camera.right * velocity;
 	}
 
-	// transform.position += (forward + right) * 10 * clock.deltaTime;
-
+	// TODO
 	Engine::Vector2<Engine::Float> offset = {
 		Engine::Mouse::getPosition().x - previousPosition.x,
 		previousPosition.y - Engine::Mouse::getPosition().y,
 	};
 
+	// TODO
 	previousPosition = Engine::Mouse::getPosition();
 
-	Engine::Float sensitivity = 0.1f;
+	const auto sensitivity = 0.1f;
 	offset *= sensitivity;
 
 	yaw += offset.x;
@@ -69,4 +58,7 @@ void Movement::run(
 	direction.z = std::sin(yaw.asRadians()) * std::cos(pitch.asRadians());
 
 	camera.forward = direction.normalized();
+	camera.right =
+		camera.forward.cross(Engine::Vector3<Engine::Float>::Up).normalized();
+	camera.up = camera.right.cross(camera.forward).normalized();
 }
