@@ -58,7 +58,8 @@ void Movement::run(
 	direction.z = std::sin(yaw.asRadians()) * std::cos(pitch.asRadians());
 
 	camera.forward = direction.normalized();
-	camera.right =
-		camera.forward.cross(Engine::Vector3<Engine::Float>::Up).normalized();
+	camera.right = camera.forward.cross(worldUp).normalized();
+	// camera.right = worldUp.cross(camera.forward).normalized();
 	camera.up = camera.right.cross(camera.forward).normalized();
+	// camera.up = camera.forward.cross(camera.right).normalized();
 }

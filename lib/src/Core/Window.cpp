@@ -6,6 +6,10 @@
 
 namespace Engine {
 
+void frameBufferSizeCallback(GLFWwindow* window, int width, int height) {
+	glViewport(0, 0, width, height);
+}
+
 Window::Window(Int32 width, Int32 height) {
 	glfwInit();
 
@@ -17,6 +21,7 @@ Window::Window(Int32 width, Int32 height) {
 	window = glfwCreateWindow(width, height, "", nullptr, nullptr);
 
 	glfwMakeContextCurrent(window);
+	glfwSetFramebufferSizeCallback(window, frameBufferSizeCallback);
 
 	GLenum status = glewInit();
 
@@ -24,8 +29,6 @@ Window::Window(Int32 width, Int32 height) {
 		fprintf(stderr, "Error: %s\n", glewGetErrorString(status));
 		exit(1);
 	}
-
-	glViewport(0, 0, width, height);
 
 	glfwSwapInterval(0);
 
