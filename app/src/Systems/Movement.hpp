@@ -1,10 +1,10 @@
 #ifndef GAME_MOVEMENT_HPP
 #define GAME_MOVEMENT_HPP
 
-#include <Engine/Maths/Vector3.hpp>
 #include <Engine/Core/System.hpp>
 #include <Engine/Maths/Angle.hpp>
 #include <Engine/Maths/Vector2.hpp>
+#include <Engine/Maths/Vector3.hpp>
 
 class Movement: public Engine::System {
 public:
